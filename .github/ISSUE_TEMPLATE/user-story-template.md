@@ -7,7 +7,9 @@ assignees: ''
 
 ---
 
-As a **role** I can **capability** so that **received benefit**
+Epic: <epic>
+
+User Story: As a **role** I can **capability** so that **received benefit**
 
 Tasks:
 * [ ] Task 1
