@@ -36,4 +36,6 @@ class EmissionCheck(models.Model):
     date_checked = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=30, unique=False)
     comments = models.TextField()
-    checked_by = models.CharField(max_length=50)
+    checked_by = models.ForeignKey(
+        User, on_delete=models.RESTRICT
+    )
