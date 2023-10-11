@@ -28,5 +28,12 @@ class Emission(models.Model):
     def __str__(self):
         return self.title
 
-    def number_of_likes(self):
-        return self.likes.count()
+
+class EmissionCheck(models.Model):
+    emission = models.ForeignKey(Emission, on_delete=models.CASCADE,
+                                 related_name="emission_checks")
+    title = models.CharField(max_length=30, unique=True)
+    date_checked = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=30, unique=False)
+    comments = models.TextField()
+    checked_by = models.CharField(max_length=50)
