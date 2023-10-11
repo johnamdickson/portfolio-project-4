@@ -31,7 +31,7 @@ class Emission(models.Model):
 
 class EmissionCheck(models.Model):
     emission = models.ForeignKey(Emission, on_delete=models.CASCADE,
-                                 related_name="emission_checks")
+                                 related_name="emissioncheck")
     title = models.CharField(max_length=30, unique=True)
     date_checked = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=30, unique=False)
