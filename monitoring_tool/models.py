@@ -16,7 +16,6 @@ class Emission(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField() 
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     next_check_due = models.DateField(auto_now=False)
     current_check_due = models.DateField(auto_now=False)
