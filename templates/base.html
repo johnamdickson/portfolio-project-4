@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- favicon for tab logo -->
-    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}" >
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <!-- <link rel="icon" href="{% static 'favicon.png' %}" type="image/png"> -->
 
 </head>
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid" id="nav-container">
             <a class="navbar-brand m-2" href="{% url 'home' %}">
-            <!-- use bootstrap v stack for logo text 
+                <!-- use bootstrap v stack for logo text 
             https://getbootstrap.com/docs/5.1/helpers/stacks/ -->
                 <div class="vstack gap-3 ">
                     <div>emissions <i class="fa-solid fa-droplet"></i> monitoring tool </div>
@@ -76,38 +76,53 @@
                     {% if user.is_superuser %}
                     <!-- found method of accessing admin portal HTML page from stack overflow
                     https://stackoverflow.com/questions/55917136/how-do-create-url-to-django-admin-within-my-user-page-html
-                     --> 
-                     <li class="nav-item">
+                     -->
+                    <li class="nav-item">
                         {% if request.path == "/admin/" %}
                         <a class="nav-link active" href="{% url 'admin:index' %}">admin</a>
                         {% else %}
                         <a class="nav-link" href="{% url 'admin:index' %}">admin</a>
                         {% endif %}
-                     </li>
+                    </li>
                     {% endif %}
-                {% else %}
-                <li class="nav-item">
-                    {% if request.path == "/accounts/login/" %}
-                    <a class="nav-link active" href="{% url 'account_login' %}">login</a>
                     {% else %}
-                    <a class="nav-link" href="{% url 'account_login' %}">login</a>
+                    <li class="nav-item">
+                        {% if request.path == "/accounts/login/" %}
+                        <a class="nav-link active" href="{% url 'account_login' %}">login</a>
+                        {% else %}
+                        <a class="nav-link" href="{% url 'account_login' %}">login</a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
+                        {% if request.path == "/accounts/signup/" %}
+                        <a class="nav-link active" href="{% url 'account_signup' %}">register</a>
+                        {% else %}
+                        <a class="nav-link" href="{% url 'account_signup' %}">register</a>
+                        {% endif %}
+                    </li>
                     {% endif %}
-                </li>
-                <li class="nav-item">
-                    {% if request.path == "/accounts/signup/" %}
-                    <a class="nav-link active" href="{% url 'account_signup' %}">register</a>
-                    {% else %}
-                    <a class="nav-link" href="{% url 'account_signup' %}">register</a>
-                    {% endif %}
-                </li>
-                {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 mt-2">
+                {% for message in messages %}
+                <!-- alert customisation from the link below:
+                https://toruskit.com/docs/components/alerts/
+                 -->
+                <div class="alert {{ message.tags }} alert-dismissible fade show shadow-lg shadow-primary rounded-pill" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <main class="flex-shrink-0 main-bg">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content Goes here
         {% endblock content %}
     </main>
     <!-- Footer -->
@@ -135,6 +150,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/f99ce6eeee.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
