@@ -9,25 +9,21 @@ body {
     background-color: #dc3123;
 }
 
-.navitem-text{
+.navitem-text {
     font-weight: 300;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
 .navbar-brand {
-    font-size: 2rem;
+    font-size: 1.75rem;
     letter-spacing: 0.2em;
     text-align: center;
 }
 
 #slogan {
     font-family: 'Mate', serif;
-    font-size: 15px;
-    letter-spacing: 0.5em;
-}
-
-.dropdown-menu {
-    background-color: #fafafa;
+    font-size: 12px;
+    letter-spacing: 0.6em;
 }
 
 .navbar-toggler-icon {
@@ -41,11 +37,24 @@ body {
 }
 
 .navbar-dark .navbar-toggler {
-    border-color: rgba(255,255,255,0.6);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .fa-solid {
-    font-size: 45px;
+    font-size: 40px;
+}
+
+/* solution for vertical rulers between nav links from site below:
+https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
+ */
+@media only screen and (min-width: 992px) {
+    .navbar .navbar-nav .nav-item .nav-link {
+        padding: 0 0.5em;
+    }
+
+    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+        border-right: 2px solid rgba(255, 255, 255, .55);
+    }
 }
 
 /* target tablet screen size */
@@ -54,10 +63,12 @@ body {
         font-size: 1.5rem;
         letter-spacing: 0.1rem;
     }
+
     #slogan {
         font-size: 0.6rem;
         letter-spacing: 0.55em;
     }
+
     #logo {
         width: 27.5px;
         height: 32px;
@@ -67,16 +78,19 @@ body {
         font-size: 30px;
     }
 }
+
 /* target mobile screen size */
 @media (max-width: 480px) {
     .navbar-brand {
         font-size: 1rem;
         letter-spacing: 0.1rem;
     }
+
     #slogan {
-        font-size: 0.45rem;
+        font-size: 0.4rem;
         letter-spacing: 0.55em;
     }
+
     #logo {
         width: 25px;
         height: 30px;
