@@ -48,35 +48,62 @@
             <div class="collapse navbar-collapse navitem-text" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        {% if request.path == "/" %}
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">home</a>
+                        {% else %}
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">home</a>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
+                        {% if request.path == "/emissions/" %}
+                        <a class="nav-link active" href="{% url 'emissions' %}">emissions</a>
+                        {% else %}
                         <a class="nav-link" href="{% url 'emissions' %}">emissions</a>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
+                        {% if request.path == "/emissions_checks/" %}
+                        <a class="nav-link active" href="{% url 'emission_checks' %}">checks</a>
+                        {% else %}
                         <a class="nav-link" href="{% url 'emission_checks' %}">checks</a>
+                        {% endif %}
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            account
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            {% if user.is_authenticated %}
-                            <a class="dropdown-item" href="{% url 'account_logout' %}">logout</a>
-                                {% if user.is_superuser %}
-                                <!-- found method of accessing admin portal HTML page from stack overflow
-                                https://stackoverflow.com/questions/55917136/how-do-create-url-to-django-admin-within-my-user-page-html
-                                 -->
-                                <a class="dropdown-item" href="{% url 'admin:index' %}">admin</a>
-                                {% endif %}
-                            {% else %}
-                            <a class="dropdown-item" href="{% url 'account_login' %}">login</a>
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">register</a>
-
-                            {% endif %}
-                        </div>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        {% if request.path == "/accounts/logout/" %}
+                        <a class="nav-link active" href="{% url 'account_logout' %}">logout</a>
+                        {% else %}
+                        <a class="nav-link" href="{% url 'account_logout' %}">logout</a>
+                        {% endif %}
                     </li>
+                    {% if user.is_superuser %}
+                    <!-- found method of accessing admin portal HTML page from stack overflow
+                    https://stackoverflow.com/questions/55917136/how-do-create-url-to-django-admin-within-my-user-page-html
+                     --> 
+                     <li class="nav-item">
+                        {% if request.path == "/admin/" %}
+                        <a class="nav-link active" href="{% url 'admin:index' %}">admin</a>
+                        {% else %}
+                        <a class="nav-link" href="{% url 'admin:index' %}">admin</a>
+                        {% endif %}
+                     </li>
+                    {% endif %}
+                {% else %}
+                <li class="nav-item">
+                    {% if request.path == "/accounts/login/" %}
+                    <a class="nav-link active" href="{% url 'account_login' %}">login</a>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'account_login' %}">login</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    {% if request.path == "/accounts/signup/" %}
+                    <a class="nav-link active" href="{% url 'account_signup' %}">register</a>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'account_signup' %}">register</a>
+                    {% endif %}
+                </li>
+                {% endif %}
                 </ul>
             </div>
         </div>
@@ -87,7 +114,19 @@
         {% endblock content %}
     </main>
     <!-- Footer -->
-    <footer></footer>
+    <footer class="footer mt-auto py-3 light-bg">
+        {% if user.is_authenticated %}
+        <!-- solution to access username in base html from stack overflow:
+        https://stackoverflow.com/questions/65469645/how-do-i-get-the-username-of-a-logged-user-writing-a-text-and-display-it-beside
+         -->
+        <p class="m-0 text-center text-black">user: {{request.user.username}}</p>
+        {% endif %}
+        <p class="m-0 text-center text-black">Follow us: <i class="fab fa-facebook-square ms-3"></i>
+            <i class="fab fa-twitter-square ms-3"></i>
+            <i class="fab fa-instagram-square ms-3"></i>
+            <i class="fab fa-youtube-square ms-3"></i></p>
+    </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
