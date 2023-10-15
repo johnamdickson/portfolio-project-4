@@ -7,18 +7,24 @@ body {
     /* Overwrite navbar background colour. */
     font-family: 'Josefin Sans', sans-serif;
     background-color: #dc3123;
+    text-align: center;
 }
 
 .navitem-text{
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
 .navbar-brand {
-/*  clamping fontsize for better responsive styling:display:
-    https://developer.mozilla.org/en-US/docs/Web/CSS/clamp  */
-    font-size: clamp(20px, 4vw, 30px);
-    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+}
+
+#slogan {
+    font-family: 'Mate', serif;
+    font-size: 15px;
+    letter-spacing: 0.5em;
+    text-align: center;
 }
 
 .dropdown-menu {
@@ -30,14 +36,33 @@ body {
     height: 4vw;
 }
 
-/* Styling for max screen size */
-@media (max-width: 768px) {
+/* target tablet screen size */
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+        letter-spacing: 0.1rem;
+    }
+    #slogan {
+        font-size: 0.6rem;
+        letter-spacing: 0.55em;
+    }
+    #logo {
+        width: 27.5px;
+        height: 32px;
+    }
+}
+/* target mobile screen size */
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+    }
+    #slogan {
+        font-size: 0.45rem;
+        letter-spacing: 0.55em;
+    }
     #logo {
         width: 25px;
-        height: 20px;
-    }
-    
-    #nav-container {
-        flex-wrap: nowrap;
+        height: 30px;
     }
 }
