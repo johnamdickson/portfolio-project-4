@@ -31,8 +31,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(", ")
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,12 +43,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.staticfiles',
     'monitoring_tool',
 ]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

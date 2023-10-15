@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('monitoring_tool.urls'), name='monitoring_tool_urls'),
+    path('accounts/', include('allauth.urls')),
 ]
