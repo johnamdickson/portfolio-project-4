@@ -62,9 +62,19 @@
                             account
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">login</a>
-                            <a class="dropdown-item" href="#">register</a>
-                            <a class="dropdown-item" href="#">logout</a>
+                            {% if user.is_authenticated %}
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">logout</a>
+                                {% if user.is_superuser %}
+                                <!-- found method of accessing admin portal HTML page from stack overflow
+                                https://stackoverflow.com/questions/55917136/how-do-create-url-to-django-admin-within-my-user-page-html
+                                 -->
+                                <a class="dropdown-item" href="{% url 'admin:index' %}">admin</a>
+                                {% endif %}
+                            {% else %}
+                            <a class="dropdown-item" href="{% url 'account_login' %}">login</a>
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">register</a>
+
+                            {% endif %}
                         </div>
                     </li>
                 </ul>
