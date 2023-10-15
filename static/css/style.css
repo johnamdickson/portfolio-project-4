@@ -7,7 +7,6 @@ body {
     /* Overwrite navbar background colour. */
     font-family: 'Josefin Sans', sans-serif;
     background-color: #dc3123;
-    text-align: center;
 }
 
 .navitem-text{
@@ -18,13 +17,13 @@ body {
 .navbar-brand {
     font-size: 2rem;
     letter-spacing: 0.2em;
+    text-align: center;
 }
 
 #slogan {
     font-family: 'Mate', serif;
     font-size: 15px;
     letter-spacing: 0.5em;
-    text-align: center;
 }
 
 .dropdown-menu {
@@ -34,6 +33,15 @@ body {
 .navbar-toggler-icon {
     width: 4.5vw;
     height: 4vw;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%28255, 255, 255' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(255,255,255,0.6);
 }
 
 /* target tablet screen size */
