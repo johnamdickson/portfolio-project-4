@@ -44,6 +44,10 @@ body {
     font-size: 40px;
 }
 
+.alert {
+    letter-spacing: 0.2em;
+}
+
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
  */
