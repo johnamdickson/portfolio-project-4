@@ -23,4 +23,3 @@ class EmissionChecks(generic.ListView):
     queryset = EmissionCheck.objects.filter(status=1).order_by("-date_checked")
     template_name = "emission_checks.html"
     paginate_by = 6
-    
