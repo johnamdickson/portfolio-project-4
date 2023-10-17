@@ -64,6 +64,7 @@ h2 {
     font-family: 'Josefin Sans', sans-serif;
     width: 100%;
     height: 100%;
+    font-size: larger;
 }
 /* custom form styling */
 input {
@@ -92,6 +93,10 @@ input[type='checkbox'] {
     text-align: center;
 }
 
+/* remove bullet point from login error messages */
+#login-error-message ul {
+    list-style-type: none;
+}
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
  */
