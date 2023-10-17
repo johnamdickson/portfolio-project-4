@@ -16,10 +16,10 @@
   {% if form.errors %}
   <div class="row">
     <div class="col-md-10 offset-md-1 mt-4">
-      <div class="alert alert-warning alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
         <div class="row">
           <div class="col-md-1">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
               <use xlink:href="#exclamation-triangle-fill" />
             </svg>
           </div>
@@ -45,7 +45,7 @@
           <h2>sign in</h2>
         </div>
         <div class="col-md-6">
-          <p id="sign-in-icon"><i class="fa-solid fa-right-to-bracket"></i></p>
+          <p id="sign-in-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></p>
         </div>
       </div>
 
@@ -74,7 +74,7 @@
         {% endfor %}
         <div class="row">
           <div class="col-md-4 offset-md-4 mt-3">
-            <button class="btn btn-custom shadow" type="submit">{% trans "sign in" %}</button>
+            <button class="btn btn-custom shadow" type="submit">{% trans "log in" %}</button>
           </div>
         </div>
         <div class="row">
