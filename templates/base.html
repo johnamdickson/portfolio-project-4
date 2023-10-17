@@ -28,7 +28,7 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom shadow">
         <div class="container-fluid" id="nav-container">
             <a class="navbar-brand m-2" href="{% url 'home' %}">
                 <!-- use bootstrap v stack for logo text 
@@ -126,9 +126,19 @@
                 {% for message in messages %}
 
                 <div class="alert {{ message.tags }} alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-                        <use xlink:href="#check-circle-fill"/>
+                    {% if message.tags == 'alert-success' %}
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                            <use xlink:href="#check-circle-fill"/>
+                        </svg>
+                    {% elif message.tags == 'alert-info' %}    
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info or Debug:">
+                        <use xlink:href="#info-fill"/>
                     </svg>
+                    {% else %}
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning or Error:">
+                        <use xlink:href="#exclamation-triangle-fill"/>
+                    </svg>
+                    {% endif %}
                     {{ message | safe }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
