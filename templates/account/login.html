@@ -38,8 +38,8 @@
 
 <div class="container form-section">
   <div class="row">
-    <div class="col-xl-6 offset-xl-3 mt-4 col-md-10 offset-md-1 shadow pt-5 px-1 custom-container rounded">
-
+    <div class="col-xl-6 offset-xl-3 mt-2 col-md-10 offset-md-1 shadow pt-5 px-1 custom-container rounded">
+      <div class="container">
       <div class="row">
         <div class="col-md-4 mb-3 offset-md-1">
           <h2>sign in</h2>
@@ -68,7 +68,7 @@
         {% for field in form %}
         <div class="row">
           <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
-          <div class="col-md-5 mb-3">{{ field }} </div>
+          <div class="col-md-6 mb-3">{{ field }} </div>
           <div>{{field.errors}}</div>
         </div>
         {% endfor %}
@@ -78,7 +78,7 @@
           </div>
         </div>
       </form>
-
+    </div>
     </div>
   </div>
 </div>

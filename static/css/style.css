@@ -142,6 +142,11 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     #sign-in-icon {
         display: none;
     }
+
+/* stop rows overflowing container in small screens */
+    .row {
+        /* margin: 0; */
+    }
 }
 
 /* target mobile screen size */
