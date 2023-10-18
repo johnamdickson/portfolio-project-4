@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-STATUS = ((0, "Draft"), (1, "Approved"))
+import constants as k
 
 
 class Emission(models.Model):
@@ -19,7 +18,8 @@ class Emission(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     next_check_due = models.DateField(auto_now=False)
     current_check_due = models.DateField(auto_now=False)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=k.STATUS, default=0)
+    type = models.IntegerField(choices=k.EMISSION_TYPES, default=0)
 
     class Meta:
         ordering = ["-created_on"]
@@ -33,7 +33,7 @@ class EmissionCheck(models.Model):
                                  related_name="emissioncheck")
     title = models.CharField(max_length=30, unique=True)
     date_checked = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=30, unique=False)
+    status = models.IntegerField(choices=k.CHECK_STATUS, default=0)
     comments = models.TextField()
     checked_by = models.ForeignKey(
         User, on_delete=models.RESTRICT
