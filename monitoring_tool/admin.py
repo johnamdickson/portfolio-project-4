@@ -15,7 +15,8 @@ class EmissionAdmin(admin.ModelAdmin):
 @admin.register(EmissionCheck)
 class EmissionCheckAdmin(admin.ModelAdmin):
 
-    list_display = ('title', 'date_checked', 'status', 'comments', 'checked_by')
+    list_display = ('title', 'date_checked', 'status',
+                    'comments', 'checked_by')
     list_filter = ('checked_by', 'status')
     search_fields = ['checked_by', 'title']
 
