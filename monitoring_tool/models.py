@@ -1,7 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 import constants as k
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Emission(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -37,3 +38,11 @@ class EmissionCheck(models.Model):
     checked_by = models.ForeignKey(
         User, on_delete=models.RESTRICT
     )
+
+
+# selection of user group on registration, solution from Stack Overflow:
+# https://stackoverflow.com/questions/48544176/how-to-set-default-group-for-new-user-in-django
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        instance.groups.add(Group.objects.get(name='emission_user'))
