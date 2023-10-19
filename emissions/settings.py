@@ -91,7 +91,6 @@ TEMPLATES = [
             'libraries': {
                          'template_tag_name':
                          'monitoring_tool.template_tag_name.template_tag_name',
-            
             }
         },
     },
