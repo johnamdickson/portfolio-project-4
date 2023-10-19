@@ -4,6 +4,7 @@ import constants as k
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class Emission(models.Model):
     title = models.CharField(max_length=200, unique=True)
     location = models.CharField(max_length=50, unique=False)
