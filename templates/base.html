@@ -1,4 +1,6 @@
 {% load static %}
+{% load template_tag_name %} 
+
 
 <!DOCTYPE html>
 <html class="h-100">
@@ -145,6 +147,13 @@
             </div>
         </div>
     </div>
+
+    {% if request.user|has_group:"emission_admin" %} 
+    <p>User {{user.username}} belongs to emission_admin group</p>
+{% elif request.user|has_group:"emission_user" %}
+    <p>User {{user.username}} belongs to emission_user group</p>
+{% endif %}
+
     <main class="flex-shrink-0 main-bg">
         {% block content %}
         <!-- Content Goes here -->
