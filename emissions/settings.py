@@ -88,8 +88,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'libraries':{
-            'template_tag_name': 'monitoring_tool.templatetags.template_tag_name',
+            'libraries': {
+                         'template_tag_name':
+                         'monitoring_tool.template_tag_name.template_tag_name',
             
             }
         },
