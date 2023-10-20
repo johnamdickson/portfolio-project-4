@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, Group
 import constants as k
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from cloudinary.models import CloudinaryField
 
 
 class Emission(models.Model):
@@ -13,6 +14,7 @@ class Emission(models.Model):
         User, on_delete=models.CASCADE,
         related_name="monitoring_tool_emissions"
     )
+    emission_image = CloudinaryField('image', default='placeholder')
     description = models.TextField(blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField() 
