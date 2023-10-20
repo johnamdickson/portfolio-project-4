@@ -53,6 +53,14 @@ h2 {
     letter-spacing: 0.2em;
 }
 
+.alert-container{
+    position: relative;
+}
+
+.alert-row {
+    position: absolute;
+    top: 10px;
+}
 .custom-container {
     background-color: #dc3123;
     color: #fafafa;
@@ -101,6 +109,13 @@ input[type='checkbox'] {
 /* remove bullet point from login error messages */
 #login-error-message ul {
     list-style-type: none;
+}
+
+.hero {
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697811321/checks-ipad.jpg') no-repeat center center;
+    height: 600px;
+    width: 100%;
+    background-size: cover;
 }
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
