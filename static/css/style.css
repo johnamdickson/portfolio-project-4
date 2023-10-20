@@ -8,11 +8,28 @@ body {
     /* Overwrite navbar background colour. */
     font-family: 'Josefin Sans', sans-serif;
     background-color: #dc3123;
+    /* z index to move in front of hero image in index.html */
+    z-index: 2;
 }
 
-h2 {
+h2, h3, h4 {
     font-family: 'Josefin Sans', sans-serif;
 }
+
+h3 {
+    font-size: 40px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+h4 > .fa-solid {
+    font-size: 20px;
+
+}
+
 
 .navitem-text {
     font-weight: 300;
@@ -56,7 +73,26 @@ h2 {
 .alert-container{
     position: relative;
 }
+.hero {
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697815496/checks-ipad_wi0wfb.jpg') no-repeat center center;
+    height: 600px;
+    width: 100%;
+    background-size: cover;
+    margin-top: -5px;
+    opacity: 0.8;
+}
 
+.home-card {
+    padding-top: 100px;
+    width: 40%;
+    background-color: transparent;
+    border: none;
+}
+
+.custom-card-body {
+    background-color: #dc3123;
+    color: #fafafa;
+}
 .alert-row {
     position: absolute;
     top: 10px;
@@ -111,12 +147,6 @@ input[type='checkbox'] {
     list-style-type: none;
 }
 
-.hero {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697811321/checks-ipad.jpg') no-repeat center center;
-    height: 600px;
-    width: 100%;
-    background-size: cover;
-}
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
  */
