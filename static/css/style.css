@@ -30,10 +30,9 @@ h4 > .fa-solid {
 
 }
 
-
 .navitem-text {
     font-weight: 300;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(0.5rem, 2.vw, 1.2rem);
 }
 
 .navbar-brand {
@@ -74,12 +73,11 @@ h4 > .fa-solid {
     position: relative;
 }
 .hero {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697815496/checks-ipad_wi0wfb.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697834519/checks-ipad_txfu7k.jpg') no-repeat center center;
     height: 600px;
     width: 100%;
     background-size: cover;
     margin-top: -5px;
-    opacity: 0.8;
 }
 
 .home-card {
@@ -89,10 +87,13 @@ h4 > .fa-solid {
     border: none;
 }
 
+/* styling for custom cards */
 .custom-card-body {
     background-color: #dc3123;
     color: #fafafa;
+    border-radius: 30px 0 30px 0;
 }
+/* set alert position to absolute so there is space under nav bar */
 .alert-row {
     position: absolute;
     top: 10px;
