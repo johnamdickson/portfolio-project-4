@@ -16,20 +16,6 @@ h2, h3, h4 {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-h3 {
-    font-size: 40px;
-    line-height: 1.2;
-    text-align: center;
-}
-
-h4 {
-    text-align: center;
-}
-h4 > .fa-solid {
-    font-size: 20px;
-
-}
-
 .navitem-text {
     font-weight: 300;
     font-size: clamp(0.5rem, 2.vw, 1.2rem);
@@ -73,26 +59,72 @@ h4 > .fa-solid {
     position: relative;
 }
 .hero {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697834519/checks-ipad_txfu7k.jpg') no-repeat center center;
-    height: 600px;
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697952356/checks-ipad_copy_2_gj4mf5.jpg') no-repeat center center;
+    height: 550px;
     width: 100%;
     background-size: cover;
     margin-top: -5px;
 }
 
-.home-card {
-    padding-top: 100px;
-    width: 40%;
+.home-row {
     background-color: transparent;
     border: none;
+    margin-right: 20px;
 }
 
-/* styling for custom cards */
-.custom-card-body {
+/* style card fonts to responsively size */
+.home-row h3 {
+    font-size: clamp(1.1rem, 2.5vw, 2.5rem);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.home-row h4 {
+    text-align: center;
+    line-height: 1.75;
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+
+.home-row h4 > .fa-solid {
+    font-size: clamp(1.3rem, 2.25vw, 2.35rem);
+}
+
+.home-row p, ul{
+    font-size: clamp(0.9rem, 1.3vw, 1.4rem);
+    padding-left: 10px;
+}
+/* styling for custom welcome message */
+.custom-welcome-body {
     background-color: #dc3123;
     color: #fafafa;
     border-radius: 30px 0 30px 0;
+    padding: 10px;
 }
+
+.custom-welcome-body ul {
+    list-style: none;
+    line-height: 1.7;
+}
+
+.custom-welcome-body .fa-solid, .fa-brands {
+    font-size: 15px;
+}
+
+.custom-welcome-body li {
+    display: flex;
+}
+
+.list-text {
+    margin-left: 15px;
+}
+
+.list-text p{
+    font-size: clamp(0.8rem, 1.1vw, 1.2rem);;
+}
+.list-icons {
+    width: 20px;
+}
+
 /* set alert position to absolute so there is space under nav bar */
 .alert-row {
     position: absolute;
@@ -159,6 +191,12 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
         border-right: 2px solid rgba(255, 255, 255, .55);
     }
+    .hero {
+        height: 600px; 
+    }
+    .home-row {
+        margin-right: 50px;
+    }
 }
 
 /* target tablet screen size */
@@ -189,9 +227,31 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         display: none;
     }
 
-/* stop rows overflowing container in small screens */
-    .row {
-        /* margin: 0; */
+    .hero {
+        height:250px;
+    }
+    .home-row {
+        width: auto;
+        padding-top: 170px;
+        height: auto;
+        margin-right: 0;
+    }
+
+    .home-row h3 {
+        line-height: 1;
+    }
+    
+    .home-row h4 {
+        line-height: 1;
+    }
+
+    .custom-welcome-body {
+        border-radius: 0;
+    }
+    
+    .custom-welcome-body ul {
+        line-height: 1.2;
+        margin-top: 1rem;
     }
 }
 
