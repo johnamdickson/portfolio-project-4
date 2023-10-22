@@ -47,7 +47,102 @@
                 </ul>
             </div>
         </div>
-        </figure>
     </div>
 </section>
-{% endblock%}
+
+
+    </section>
+
+
+    <div class="container text-center my-3">
+        <h2 class="font-weight-light">Bootstrap Multi Slide Carousel</h2>
+        <div class="row mx-auto my-auto justify-content-center">
+            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                <!-- accessing list index to give cards appropriate class solution from stack overflow
+                    https://stackoverflow.com/questions/4651172/reference-list-item-by-index-within-django-template
+                 -->
+                 {% for emission in emission_list %}
+                    {% if emission_list.0 == emission %}
+                    <div class="carousel-item active">
+                    {% else %}
+                    <div class="carousel-item">
+                    {% endif %}
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="item">
+                                    <div class="pad15">
+                                        {% if "placeholder" in post.emission_image.url %}
+                                        <img class="card-img-top"
+                                            src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                        {% else %}
+                                        <img class="card-img-top" src=" {{ emission.emission_image.url }}">
+                                        {% endif %}
+                                        <h4 class="lead">{{emission.title}}</h4>
+                                        <h5>Type:</h5>
+                                        <p>{{emission.get_emission_type}}</p>
+                                        <h5>Next Check Due:</h5>
+                                        <p>{{emission.next_check_due}}</p>
+                                        <h5>Check Status:</h5>
+                                        <p>{{emission.calculate_check_complete}}</p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-img"> <img src="//via.placeholder.com/500x400/e66?text=2"
+                                        class="img-fluid"> </div>
+                                <div class="card-img-overlay">Slide 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-img"> <img src="//via.placeholder.com/500x400/7d2?text=3"
+                                        class="img-fluid"> </div>
+                                <div class="card-img-overlay">Slide 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-img"> <img src="//via.placeholder.com/500x400?text=4"
+                                        class="img-fluid"> </div>
+                                <div class="card-img-overlay">Slide 4</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-img"> <img src="//via.placeholder.com/500x400/aba?text=5"
+                                        class="img-fluid"> </div>
+                                <div class="card-img-overlay">Slide 5</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-img"> <img src="//via.placeholder.com/500x400/fc0?text=6"
+                                        class="img-fluid"> </div>
+                                <div class="card-img-overlay">Slide 6</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                    data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
+                    class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                    data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+            </div>
+        </div>
+        <h5 class="mt-2 fw-light">advances one slide at a time</h5>
+    </div>
+    {% endblock%}
