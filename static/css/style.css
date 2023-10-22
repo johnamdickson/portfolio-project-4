@@ -119,7 +119,7 @@ h2, h3, h4 {
 }
 
 .list-text p{
-    font-size: clamp(0.8rem, 1.1vw, 1.2rem);;
+    font-size: clamp(0.7rem, 1.1vw, 1.2rem);;
 }
 .list-icons {
     width: 20px;
@@ -180,6 +180,17 @@ input[type='checkbox'] {
     list-style-type: none;
 }
 
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+        @media (max-width: 767px){.carousel-inner .carousel-item >div{display: none}.carousel-inner .carousel-item >div:first-child{display: block}}.carousel-inner .carousel-item.active, .carousel-inner .carousel-item-next, .carousel-inner .carousel-item-prev{display: flex}@media (min-width: 768px){.carousel-inner .carousel-item-end.active, .carousel-inner .carousel-item-next{transform: translateX(25%)}.carousel-inner .carousel-item-start.active, .carousel-inner .carousel-item-prev{transform: translateX(-25%)}}.carousel-inner .carousel-item-end, .carousel-inner .carousel-item-start{transform: translateX(0)}
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
  */
@@ -228,13 +239,17 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .hero {
-        height:250px;
+        height:400px;
+        position: relative;
     }
     .home-row {
-        width: auto;
-        padding-top: 170px;
+        box-sizing: content-box;
         height: auto;
-        margin-right: 0;
+        width: 90%;
+        position: absolute;
+        bottom: 5%;
+        right: 0;
+        margin-right: 5%;
     }
 
     .home-row h3 {
@@ -246,7 +261,8 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .custom-welcome-body {
-        border-radius: 0;
+        border-radius: 10px;
+        padding:0;
     }
     
     .custom-welcome-body ul {
