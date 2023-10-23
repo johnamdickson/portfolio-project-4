@@ -21,8 +21,9 @@ h5 {
 
 hr {
     margin: 20px 40% 0 40%;
-    border: 1px solid #dc3123;
+    border: 1px solid #36454F;
 }
+
 .navitem-text {
     font-weight: 300;
     font-size: clamp(0.5rem, 2.vw, 1.2rem);
@@ -107,7 +108,7 @@ ul {
 .custom-welcome-body {
     background-color: #dc3123;
     color: #fafafa;
-    border-radius: 100px 0 100px 0;
+    border-radius: 100px 20px 100px 20px;
     padding: 10px;
 }
 
@@ -330,20 +331,28 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     transform: translateX(0)
 }
 
-/* style home carousel card image */
+/* styling for home page carousel card */
+
+.card-column {
+    margin: auto;
+    height: max-content;
+
+}
+
 .card-img-top {
     height: 300px;
     padding: 10px;
     object-fit: cover;
-    border-radius: 0 30px 0 0;
+    border-radius: 15px 50px 15px 15px;
 }
 
 .card {
     margin: 10px;
     color: #fafafa;
     background-color: #dc3123;
-    border-radius: 0 30px 0 30px;
+    border-radius: 15px 50px 15px 50px;
     border: 1px solid #fafafa;
+    height: 100%;
 }
 
 .card p {
@@ -357,7 +366,9 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     text-align: center;
     line-height: 1.5;
     font-size: clamp(1.2rem, 2.3vw, 1.5rem);
+    color: #fafafa;
 }
+
 .card h5 {
     text-align: center;
     line-height: 1.5;
@@ -367,20 +378,40 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     letter-spacing: 0.1rem;
 }
 
+
 .card table {
+    border: none;
+    border-collapse: collapse;
     width: 96%;
-    margin: 20px 2%;
+    margin: 10px 2%;
 }
 
-.card tbody, td, tfoot, th, thead, tr {
-    border-color: #fafafa;
-    border-style: solid;
-    border-width: 1px;
+/* solution to creating bespoke borders from stack overflow
+https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-only
+ */
+.card table td {
+    border-left: 0.5px solid #36454F;
+    padding: 5px;
 }
+
+.card table td:first-child {
+    border-left: none;
+}
+
+.card table tr {
+    border-bottom: 0.25px solid #36454F;
+}
+
+.card table tr:last-child {
+    border-bottom: none;
+}
+
+
 /* style carousel controls */
 
 
-.carousel-control-next-icon, .carousel-control-prev-icon{
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
     background-size: 80% 80%;
     background-color: #dc3123;
     border: 1px solid #fafafa;
@@ -389,7 +420,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 }
 
 .carousel-control-next-icon {
- background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fafafa'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fafafa'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .carousel-control-prev-icon {
@@ -398,12 +429,14 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 }
 
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
     top: auto;
     bottom: auto;
     opacity: 1;
 }
 
-.carousel-control-next:hover, .carousel-control-prev:hover {
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
     opacity: 0.5;
 }
