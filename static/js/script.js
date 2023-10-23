@@ -1,26 +1,35 @@
+
 window.addEventListener('load', function () {
     hideElements()
 })
+
+window.addEventListener("DOMContentLoaded", function() {
+    updateChecksComplete()
+ });
 
 window.addEventListener('resize', function (event) {
     hideElements()
 }, true);
 
-// dismiss alerts after 2.5 seconds
+/**
+ * Dismisses alerts after 2.5 seconds using setTimeout function.
+ * Improve user experience so that routine alerts are automatically
+ * dismissed 
+ */
 setTimeout(function () {
     let messages = document.getElementById('msg');
     let alert = new bootstrap.Alert(messages);
     alert.close();
 }, 2500);
 
-// hide elements on screen depending on screen size
-
+/**
+ * Hides elements depending on screen size.
+ * For example, on home page titles are hidden to improve responsive
+ * design. 
+ */
 function hideElements() {
-
     let windowWidth = window.innerWidth;
-
     let hiddenElements = document.getElementsByClassName("hidden-home");
-
     if (windowWidth <= 767) {
         for (let elements of hiddenElements) {
             elements.style.display = 'none'
@@ -31,6 +40,40 @@ function hideElements() {
         }
     }
 }
+
+/**
+ * Adds a fontawseome icon to home page html depending on element text.
+ * For checks complete a checkmark icon with green background
+ * is returned else a red x mark icon.
+ */
+function updateChecksComplete() {
+    let checkStatus = document.getElementsByClassName("check_status")
+    for (let check of checkStatus){
+        if (check.innerHTML === "Checks Complete"){
+            console.log("checks completed")
+            // solution for fontawesome background from stack overflow:
+            // https://stackoverflow.com/questions/26516353/font-awesome-background-color
+            check.innerHTML = `<p>
+                                    <span class="fa-stack" style="vertical-align: top;">
+                                        <i class="fas fa-circle fa-stack-2x";"></i>
+                                        <i class="fa-solid fa-circle-check fa-stack-2x fa-inverse" style="color: #00D100;"></i>
+                                    </span>
+                                </p>
+                                <p>Complete</p>`
+        } else {
+            check.innerHTML = `<p>
+                                    <span class="fa-stack" style="vertical-align: top;">
+                                        <i class="fas fa-circle fa-stack-2x" ></i>
+                                        <i class="fa-solid fa-circle-xmark fa-stack-2x fa-inverse" style="color: #BF181D;"></i>
+                                    </span>
+                                </p>
+                                <p>Outstanding</p>`
+        }
+    }
+}
+
+// all functionality below for carousel from:
+// https://bbbootstrap.com/snippets/bootstrap-5-bootstrap-5-carousel-vanilla-multiple-items-80120567
 
 
 $(document).ready(function () {
@@ -47,9 +90,6 @@ $(document).ready(function () {
     });
 
     ResCarouselSize();
-
-
-
 
     $(window).resize(function () {
         ResCarouselSize();

@@ -54,73 +54,72 @@
     <!-- multi item carousel solution:
     https://bbbootstrap.com/snippets/bootstrap-5-bootstrap-5-carousel-vanilla-multiple-items-80120567
     -->
-    <div class="container text-center my-3">
-        <!-- <h2 class="font-weight-light"></h2> -->
-        <div class="row mx-auto my-auto justify-content-center">
+    <div class="container-fluid text-center my-3">
+        <div class="row my-auto justify-content-center">
             <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
-                <!-- accessing list index to give cards appropriate class solution from stack overflow
+                    <!-- accessing list index to give cards appropriate class solution from stack overflow
                     https://stackoverflow.com/questions/4651172/reference-list-item-by-index-within-django-template
                  -->
-                 {% for emission in emission_list %}
+                    {% for emission in emission_list %}
                     {% if emission_list.0 == emission %}
                     <div class="carousel-item active">
-                    {% else %}
-                    <div class="carousel-item">
-                    {% endif %}
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card">
-                                <div class="item">
-                                    <div class="pad15">
-                                        {% if "placeholder" in post.emission_image.url %}
-                                        <img class="card-img-top"
-                                            src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                                        {% else %}
-                                        <img class="card-img-top" src=" {{ emission.emission_image.url }}">
-                                        {% endif %}
-                                        <h4 class="lead">{{emission.title}}</h4>
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <h5>Type:</h5>
-                                                </td>
-                                                <td>
-                                                    <p>{{emission.get_emission_type}}<br></p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Next Check Due:</h5>
-                                                </td>
-                                                <td>
-                                                    <p>{{emission.next_check_due}}<br></p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Check Status:</h5>
-                                                </td>
-                                                <td>
-                                                    <p>{{emission.calculate_check_complete}}<br></p>
-                                                </td>
-                                            </tr>                                            
-                                        </table>
+                        {% else %}
+                        <div class="carousel-item">
+                            {% endif %}
+                            <div class="col-md-6 col-lg-4 card-column">
+                                <div class="card">
+                                    <div class="item">
+                                        <div class="pad15">
+                                            {% if "placeholder" in post.emission_image.url %}
+                                            <img class="card-img-top"
+                                                src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                            {% else %}
+                                            <img class="card-img-top" src=" {{ emission.emission_image.url }}">
+                                            {% endif %}
+                                            <h4 class="lead">{{emission.title}}</h4>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Type:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p>{{emission.get_emission_type}}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Next Check Due: </h5>
+                                                    </td>
+                                                    <td>
+                                                        <p>{{emission.next_check_due}}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Check Status:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">{{emission.calculate_check_complete}}</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
-                    data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
-                    class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
-                    data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+                        </div>      
+                        {% endfor %}
+                    </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                        data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a>
+                    <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                        data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
 
 
 
-    {% endblock%}
+{% endblock%}
