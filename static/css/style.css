@@ -1,5 +1,5 @@
 body {
-    background-color: #fafafa;
+    background-color: #d3cfcf;
     font-family: 'Mate', serif;
     letter-spacing: 0.2rem;
 }
@@ -12,10 +12,17 @@ body {
     z-index: 2;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4,
+h5 {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+hr {
+    margin: 20px 40% 0 40%;
+    border: 1px solid #dc3123;
+}
 .navitem-text {
     font-weight: 300;
     font-size: clamp(0.5rem, 2.vw, 1.2rem);
@@ -55,9 +62,10 @@ h2, h3, h4 {
     letter-spacing: 0.2em;
 }
 
-.alert-container{
+.alert-container {
     position: relative;
 }
+
 .hero {
     background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697952356/checks-ipad_copy_2_gj4mf5.jpg') no-repeat center center;
     height: 550px;
@@ -85,14 +93,16 @@ h2, h3, h4 {
     font-size: clamp(1rem, 2vw, 2rem);
 }
 
-.home-row h4 > .fa-solid {
+.home-row h4>.fa-solid {
     font-size: clamp(1.3rem, 2.25vw, 2.35rem);
 }
 
-.home-row p, ul{
+.home-row p,
+ul {
     font-size: clamp(0.9rem, 1.3vw, 1.4rem);
     padding-left: 10px;
 }
+
 /* styling for custom welcome message */
 .custom-welcome-body {
     background-color: #dc3123;
@@ -106,7 +116,8 @@ h2, h3, h4 {
     line-height: 1.7;
 }
 
-.custom-welcome-body .fa-solid, .fa-brands {
+.custom-welcome-body .fa-solid,
+.fa-brands {
     font-size: 15px;
 }
 
@@ -118,9 +129,11 @@ h2, h3, h4 {
     margin-left: 15px;
 }
 
-.list-text p{
-    font-size: clamp(0.7rem, 1.1vw, 1.2rem);;
+.list-text p {
+    font-size: clamp(0.7rem, 1.1vw, 1.2rem);
+    ;
 }
+
 .list-icons {
     width: 20px;
 }
@@ -130,6 +143,7 @@ h2, h3, h4 {
     position: absolute;
     top: 10px;
 }
+
 .custom-container {
     background-color: #dc3123;
     color: #fafafa;
@@ -153,7 +167,7 @@ input {
     text-align: right;
 }
 
-.form-section a{
+.form-section a {
     color: #fafafa
 }
 
@@ -163,7 +177,7 @@ input {
 
 input[type='checkbox'] {
     width: auto;
-    margin-top : 5px;
+    margin-top: 5px;
     float: left;
 }
 
@@ -191,9 +205,11 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
         border-right: 2px solid rgba(255, 255, 255, .55);
     }
+
     .hero {
-        height: 600px; 
+        height: 600px;
     }
+
     .home-row {
         margin-right: 50px;
     }
@@ -221,16 +237,18 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     input[type='checkbox'] {
-        margin-top : 0;
+        margin-top: 0;
     }
+
     #sign-in-icon {
         display: none;
     }
 
     .hero {
-        height:400px;
+        height: 400px;
         position: relative;
     }
+
     .home-row {
         box-sizing: content-box;
         height: auto;
@@ -244,19 +262,19 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .home-row h3 {
         line-height: 1;
     }
-    
+
     .home-row h4 {
         line-height: 1;
     }
 
     .custom-welcome-body {
         border-radius: 10px;
-        padding:0;
+        padding: 0;
     }
-    
+
     .custom-welcome-body ul {
-        line-height: 1.2;
-        margin-top: 1rem;
+        line-height: 1;
+        margin: 10px 5px -1px 5px;
     }
 }
 
@@ -276,4 +294,116 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         width: 25px;
         height: 30px;
     }
+}
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item>div {
+        display: none
+    }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex
+}
+
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%)
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%)
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0)
+}
+
+/* style home carousel card image */
+.card-img-top {
+    height: 300px;
+    padding: 10px;
+    object-fit: cover;
+    border-radius: 0 30px 0 0;
+}
+
+.card {
+    margin: 10px;
+    color: #fafafa;
+    background-color: #dc3123;
+    border-radius: 0 30px 0 30px;
+    border: 1px solid #fafafa;
+}
+
+.card p {
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    line-height: 1.5;
+}
+
+.card h4 {
+    text-align: center;
+    line-height: 1.5;
+    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
+}
+.card h5 {
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    letter-spacing: 0.1rem;
+}
+
+.card table {
+    width: 96%;
+    margin: 20px 2%;
+}
+
+.card tbody, td, tfoot, th, thead, tr {
+    border-color: #fafafa;
+    border-style: solid;
+    border-width: 1px;
+}
+/* style carousel controls */
+
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-size: 80% 80%;
+    background-color: #dc3123;
+    border: 1px solid #fafafa;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.carousel-control-next-icon {
+ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fafafa'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fafafa'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+
+}
+
+
+.carousel-control-next, .carousel-control-prev {
+    top: auto;
+    bottom: auto;
+    opacity: 1;
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    opacity: 0.5;
 }
