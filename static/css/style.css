@@ -336,7 +336,8 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 .card-column {
     margin: auto;
     height: max-content;
-
+    background-color: #d3cfcf;
+    border: none;
 }
 
 .card-img-top {
