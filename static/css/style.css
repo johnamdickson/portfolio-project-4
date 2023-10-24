@@ -201,27 +201,14 @@ ul {
     font-size: 1.4em;
 }
 
-/* styling for home page carousel and cards */
+/* styling for home page carousel indicators and cards */
 
-/* carousel styling merged into style.css. Reference site below::after
-https://bbbootstrap.com/snippets/bootstrap-5-bootstrap-5-carousel-vanilla-multiple-items-80120567
-*/
 
-.carousel-inner .carousel-item.active,
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
-    display: flex
-}
-
-.carousel-inner .carousel-item-end,
-.carousel-inner .carousel-item-start {
-    transform: translateX(0)
-}
 
 .card-column {
     margin: auto;
     height: max-content;
-    background-color: #d3cfcf;
+    backdrop-filter: opacity(100%);
     border: none;
 }
 
@@ -239,6 +226,7 @@ https://bbbootstrap.com/snippets/bootstrap-5-bootstrap-5-carousel-vanilla-multip
     border-radius: 15px 50px 15px 50px;
     border: 1px solid #fafafa;
     height: 100%;
+    min-height: 510px;
 }
 
 .card a {
@@ -337,10 +325,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .carousel-indicators [data-bs-target] {
     background-color: #36454F;
-    width: 8%;
-    height: 2px;
-    margin-right: 1%;
-    margin-left: 1%;
 }
 
 /* style home page modal */
@@ -468,27 +452,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         line-height: 1;
         margin: 10px 5px -1px 5px;
     }
-
-    .carousel-inner .carousel-item>div {
-        display: none
-    }
-
-    .carousel-inner .carousel-item>div:first-child {
-        display: block
-    }
 }
 
 @media (min-width: 768px) {
 
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-        transform: translateX(25%)
-    }
-
-    .carousel-inner .carousel-item-start.active,
-    .carousel-inner .carousel-item-prev {
-        transform: translateX(-25%)
-    }
     .modal-dialog {
         max-width: 600px;
         margin: 1.75rem auto;
@@ -514,9 +481,51 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 }
 
 
+/* carousel styling merged into style.css. Reference site below:
+https://www.codeply.com/p/0CWffz76Q9
+*/
 
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
 
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
 
+/* medium and up screens */
+@media (min-width: 768px) {
+    
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+}
 
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+  transform: translateX(0%);
+}
+/* styling to prevent overlap of cards as they transition */
+.carousel-item.active {
+    transition: transform 0.6s ease-in-out;
+    opacity: 1;
+}
 
+.carousel-item {
+    transition: transform 0.3s ease-out;
+    opacity: 0;
+}
 
