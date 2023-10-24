@@ -82,7 +82,9 @@ function updateChecksComplete() {
 const showModal = (data) => {
     console.log(data, 'here is');
     let emissionArray = JSON.parse(data);
-    console.log(emissionArray.lastCheck)
+    // solution to passing django url from javascript from stack overflow:
+    // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
+    let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
     let createdDateArray = emissionArray.created.split(" ")
     const modalItem = document.getElementById('emissionModalCenter');
     modalItem.innerHTML = ` <div class="modal-dialog modal-dialog-centered" role="document">
@@ -170,7 +172,8 @@ const showModal = (data) => {
                                                 </tr>                                                   
                                             </table>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn">Submit ${emissionArray.title} Emission Check</button>
+                                            <a href="" class="btn">Submit ${emissionArray.title} Emission Check</a>
+                                            <a href="${allEmissionsUrl}" class="btn">Go To All Emissions</a>
                                         </div>
                                     </div>
                                 </div>
