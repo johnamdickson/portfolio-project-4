@@ -75,27 +75,6 @@ hr {
     top: 10px;
 }
 
-/* solution for vertical rulers between nav links from site below:
-https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
- */
- @media only screen and (min-width: 992px) {
-    .navbar .navbar-nav .nav-item .nav-link {
-        padding: 0 0.5em;
-    }
-
-    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
-        border-right: 2px solid rgba(255, 255, 255, .55);
-    }
-
-    .hero {
-        height: 600px;
-    }
-
-    .home-row {
-        margin-right: 50px;
-    }
-}
-
 /* ________________________________________ Sign In/Out & Register styling  ________________________________________ */
 
 /* custom form styling */
@@ -107,8 +86,7 @@ input {
     text-align: right;
 }
 
-.form-section,
-.card a {
+.form-section a{
     color: #fafafa
 }
 
@@ -170,7 +148,7 @@ input[type='checkbox'] {
 
 .home-row p,
 ul {
-    font-size: clamp(0.9rem, 1.3vw, 1.4rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.4rem);
     padding-left: 10px;
 }
 
@@ -201,7 +179,7 @@ ul {
 }
 
 .list-text p {
-    font-size: clamp(0.7rem, 1.1vw, 1.2rem);
+    font-size: clamp(0.7rem, 1.2vw, 1.2rem);
     ;
 }
 
@@ -261,6 +239,10 @@ https://bbbootstrap.com/snippets/bootstrap-5-bootstrap-5-carousel-vanilla-multip
     border-radius: 15px 50px 15px 50px;
     border: 1px solid #fafafa;
     height: 100%;
+}
+
+.card a {
+    color: #fafafa
 }
 
 .card p {
@@ -403,6 +385,28 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 /* _________________________________________  Responsive styling  __________________________________________ */
+
+/* solution for vertical rulers between nav links from site below:
+https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
+ */
+ @media only screen and (min-width: 992px) {
+    .navbar .navbar-nav .nav-item .nav-link {
+        padding: 0 0.5em;
+    }
+
+    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+        border-right: 2px solid rgba(255, 255, 255, .55);
+    }
+
+    .hero {
+        height: 600px;
+    }
+
+    .home-row {
+        margin-right: 50px;
+    }
+}
+
 /* target tablet screen size */
 @media (max-width: 768px) {
     .navbar-brand {
@@ -464,6 +468,31 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
         line-height: 1;
         margin: 10px 5px -1px 5px;
     }
+
+    .carousel-inner .carousel-item>div {
+        display: none
+    }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block
+    }
+}
+
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%)
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%)
+    }
+    .modal-dialog {
+        max-width: 600px;
+        margin: 1.75rem auto;
+    }
 }
 
 /* target mobile screen size */
@@ -484,34 +513,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     }
 }
 
-@media (max-width: 767px) {
-    .carousel-inner .carousel-item>div {
-        display: none
-    }
 
-    .carousel-inner .carousel-item>div:first-child {
-        display: block
-    }
-}
-
-
-
-@media (min-width: 768px) {
-
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-        transform: translateX(25%)
-    }
-
-    .carousel-inner .carousel-item-start.active,
-    .carousel-inner .carousel-item-prev {
-        transform: translateX(-25%)
-    }
-    .modal-dialog {
-        max-width: 600px;
-        margin: 1.75rem auto;
-    }
-}
 
 
 
