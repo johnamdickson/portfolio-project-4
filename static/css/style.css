@@ -436,17 +436,20 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     font-size: 0.9rem;
 }
 
-.modal-footer button {
+.modal-footer a {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #dc3123;
     color: #fafafa;
     border-color: #36454F;
     margin: auto;
+    width: 40%;
+    font-size: 0.9rem;
 }
 
-.modal-footer button:hover {
-    opacity: 0.9;
-    background-color: #dc3123;
+.modal-footer a:hover {
+    background-color: #fafafa;
+    border-color: #dc3123;
+    color:#dc3123;
 }
 @media (min-width: 767px) {
     .modal-dialog {
