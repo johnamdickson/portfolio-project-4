@@ -1,4 +1,5 @@
-STATUS = ((0, "Open"), (1, "Closed"))
+STATUS = ((0, "Open"),
+          (1, "Closed"),)
 
 EMISSION_TYPES = (
     (1, ("Weep")),
