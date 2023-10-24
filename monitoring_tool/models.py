@@ -4,10 +4,12 @@ import constants as k
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
+import json
 
 
 class Emission(models.Model):
-    choices = k.EMISSION_TYPES
+    type_choices = k.EMISSION_TYPES
+    status_choices = k.STATUS
     title = models.CharField(max_length=200, unique=True)
     location = models.CharField(max_length=50, unique=False)
     slug = models.SlugField(max_length=200, unique=True)
@@ -24,14 +26,14 @@ class Emission(models.Model):
     last_checked = models.DateField(auto_now=True)
     next_check_due = models.DateField(auto_now=False)
     current_check_due = models.DateField(auto_now=False)
-    status = models.IntegerField(choices=k.STATUS, default=0)
-    type = models.IntegerField(choices=choices, default=0)
+    status = models.IntegerField(choices=status_choices, default=0)
+    type = models.IntegerField(choices=type_choices, default=0)
 
 # solution to accessing strings values from choices tuple:
 # https://stackoverflow.com/questions/60556709/how-do-i-get-the-string-value-of-the-tuple-in-django
     def get_emission_type(self):
-        return dict(self.choices).get(self.type)
-
+        return dict(self.type_choices).get(self.type)
+    
     class Meta:
         ordering = ["-created_on"]
 
@@ -43,6 +45,29 @@ class Emission(models.Model):
             return "Checks Complete"
         else:
             return "Checks Outstanding"
+
+    def calculate_status(self):
+        if self.status == 0:
+            return "Open"
+        else:
+            return "Closed"
+
+    def javascript_data(self):
+        list = {"title": self.title, 
+                "location": self.location, 
+                "username": str(self.username),
+                "checkComplete": self.calculate_check_complete(),
+                "imageUrl": self.emission_image.url,
+                "description": self.description,
+                "latitude": self.latitude,
+                "longitude": self.longitude,
+                "created": str(self.created_on),
+                "lastCheck": str(self.last_checked),
+                "nextCheck": str(self.next_check_due),
+                "currentCheck": str(self.current_check_due),
+                "status": self.calculate_status(),
+                "type": self.get_emission_type()}
+        return json.dumps(list)
 
 
 class EmissionCheck(models.Model):

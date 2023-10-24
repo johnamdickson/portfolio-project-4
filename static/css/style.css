@@ -168,7 +168,8 @@ input {
     text-align: right;
 }
 
-.form-section a {
+.form-section,
+.card a {
     color: #fafafa
 }
 
@@ -348,7 +349,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 }
 
 .card {
-    margin: 10px;
+    margin: 10px 25px;
     color: #fafafa;
     background-color: #dc3123;
     border-radius: 15px 50px 15px 50px;
@@ -400,13 +401,59 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .card table tr {
-    border-bottom: 0.25px solid #36454F;
+    border-top: 0.25px solid #36454F;
 }
 
-.card table tr:last-child {
-    border-bottom: none;
+.card a {
+    color: #fafafa;
+    text-decoration: none;
 }
 
+.card:hover {
+    background-color: rgba(220, 49, 35, 0.85);
+}
+
+/* style home page modal */
+
+.modal-content {
+    padding: 10px 25px;
+    color: #36454F;
+    background-color: #fafafa;
+    border-radius: 50px 50px 50px 50px;
+    border: 5px solid #dc3123;
+}
+.modal-img {
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-content h5 {
+    font-size: 1rem;
+}
+
+.modal-content p {
+    font-size: 0.9rem;
+}
+
+.modal-footer button {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #dc3123;
+    color: #fafafa;
+    border-color: #36454F;
+    margin: auto;
+}
+
+.modal-footer button:hover {
+    opacity: 0.9;
+    background-color: #dc3123;
+}
+@media (min-width: 767px) {
+    .modal-dialog {
+        max-width: 550px;
+        margin: 1.75rem auto;
+    }
+}
 
 /* style carousel controls */
 

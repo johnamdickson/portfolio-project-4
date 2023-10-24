@@ -1,11 +1,10 @@
-
 window.addEventListener('load', function () {
     hideElements()
 })
 
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
     updateChecksComplete()
- });
+});
 
 window.addEventListener('resize', function (event) {
     hideElements()
@@ -48,8 +47,9 @@ function hideElements() {
  */
 function updateChecksComplete() {
     let checkStatus = document.getElementsByClassName("check_status")
-    for (let check of checkStatus){
-        if (check.innerHTML === "Checks Complete"){
+    for (let check of checkStatus) {
+        console.log(check.innerHTML)
+        if (check.innerHTML === "Checks Complete") {
             console.log("checks completed")
             // solution for fontawesome background from stack overflow:
             // https://stackoverflow.com/questions/26516353/font-awesome-background-color
@@ -71,6 +71,114 @@ function updateChecksComplete() {
         }
     }
 }
+
+// function showModal(emissionList){
+//     let removeSquareBrackets = emissionList.slice(1, -1)
+//     let emissionArray = removeSquareBrackets.split(",")
+//     console.log('called', typeof emissions)
+//         for (let emission of emissionArray){
+//             console.log(emission)
+//         }
+const showModal = (data) => {
+    console.log(data, 'here is');
+    let emissionArray = JSON.parse(data);
+    console.log(emissionArray.lastCheck)
+    let createdDateArray = emissionArray.created.split(" ")
+    const modalItem = document.getElementById('emissionModalCenter');
+    modalItem.innerHTML = ` <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="exampleModalLongTitle">${emissionArray.title}</h4>
+                                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                                            </button>
+                                        </div>
+                                            <tr>
+                                                <img class="modal-img" src="${emissionArray.imageUrl}">
+                                            </tr>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Type:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p>${emissionArray.type}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Date Registered:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p>${createdDateArray[0]}</p>
+                                                    </td>
+                                                </tr>                                                
+                                                <tr>
+                                                <td>
+                                                    <h5>Description:</h5>
+                                                </td>
+                                                <td>
+                                                    <p class="check_status">${emissionArray.description}</p>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Location:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">${emissionArray.location}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Emission Status:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">${emissionArray.status}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Checks Status:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">${emissionArray.checkComplete}</p>
+                                                    </td>
+                                                </tr>                                               
+                                                <tr>
+                                                    <td>
+                                                        <h5>Current Check Due:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">${emissionArray.currentCheck}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Last Checked:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">${emissionArray.lastCheck}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5>Next Check Due:</h5>
+                                                    </td>
+                                                    <td>
+                                                        <p class="check_status">${emissionArray.nextCheck}</p>
+                                                    </td>
+                                                </tr>                                                   
+                                            </table>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn">Submit ${emissionArray.title} Emission Check</button>
+                                        </div>
+                                    </div>
+                                </div>
+                              `;
+
+    new bootstrap.Modal(modalItem).show();
+};
+
 
 // all functionality below for carousel from:
 // https://bbbootstrap.com/snippets/bootstrap-5-bootstrap-5-carousel-vanilla-multiple-items-80120567
@@ -116,20 +224,20 @@ $(document).ready(function () {
             if (bodyWidth >= 1200) {
                 incno = itemsSplit[3];
                 itemWidth = sampwidth / incno;
-            }
-            else if (bodyWidth >= 992) {
+            } else if (bodyWidth >= 992) {
                 incno = itemsSplit[2];
                 itemWidth = sampwidth / incno;
-            }
-            else if (bodyWidth >= 768) {
+            } else if (bodyWidth >= 768) {
                 incno = itemsSplit[1];
                 itemWidth = sampwidth / incno;
-            }
-            else {
+            } else {
                 incno = itemsSplit[0];
                 itemWidth = sampwidth / incno;
             }
-            $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+            $(this).css({
+                'transform': 'translateX(0px)',
+                'width': itemWidth * itemNumbers
+            });
             $(this).find(itemClass).each(function () {
                 $(this).outerWidth(itemWidth);
             });
@@ -157,8 +265,7 @@ $(document).ready(function () {
                 translateXval = 0;
                 $(el + ' ' + leftBtn).addClass("over");
             }
-        }
-        else if (e == 1) {
+        } else if (e == 1) {
             var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
             translateXval = parseInt(xds) + parseInt(itemWidth * s);
             $(el + ' ' + leftBtn).removeClass("over");
@@ -186,11 +293,11 @@ let items = document.querySelectorAll('.carousel .carousel-item')
 items.forEach((el) => {
     const minPerSlide = 4
     let next = el.nextElementSibling
-    for (var i=1; i<minPerSlide; i++) {
+    for (var i = 1; i < minPerSlide; i++) {
         if (!next) {
             // wrap carousel by using first child
-        	next = items[0]
-      	}
+            next = items[0]
+        }
         let cloneChild = next.cloneNode(true)
         el.appendChild(cloneChild.children[0])
         next = next.nextElementSibling
