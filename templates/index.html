@@ -56,7 +56,7 @@
     -->
     <div class="container-fluid text-center my-3">
         <div class="row my-auto justify-content-center">
-            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div id="recipeCarousel" class="carousel slide">
                 <div class="carousel-inner" role="listbox">
                     <!-- accessing list index to give cards appropriate class solution from stack overflow
                     https://stackoverflow.com/questions/4651172/reference-list-item-by-index-within-django-template
@@ -106,6 +106,7 @@
                     </div>
                     {% endfor %}
                 </div>
+                
                 <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
                     data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a>
                 <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
@@ -116,27 +117,15 @@
 </section>
 
 <section>
-
+    <!-- input below contains url for javascript to return correct url in modal -->
+    <input type="hidden" id="emissionUrl" data-url="{% url 'emissions' %}" />
     <!-- Modal -->
     <div class="modal fade" id="emissionModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
+
+
+
+        <!-- modal will be autopopulated with emission data by JS -->
     </div>
 </section>
 {% endblock%}
