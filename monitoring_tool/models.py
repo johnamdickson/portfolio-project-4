@@ -19,6 +19,7 @@ class Emission(models.Model):
     )
     emission_image = CloudinaryField('image', default='placeholder')
     description = models.TextField(blank=True)
+    close_out_comments = models.TextField(blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     updated_on = models.DateTimeField(auto_now=True)
