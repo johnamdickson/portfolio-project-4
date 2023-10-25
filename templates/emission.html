@@ -1,5 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-EMISSIONS
+<div class="table-responsive">
+<table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Emission Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Emission Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Location</th>
+        <th scope="col">Input By</th>
+        <th scope="col">Created On</th>
+        <th scope="col">Last Checked</th>
+        <th scope="col">Current Check Due</th>
+        <th scope="col">Next Check Due</th>
+        <th scope="col">Check Status</th>
+        <th scope="col">Open / Closed</th>
+      </tr>
+    </thead>
+    <tbody>
+    </div>
+    {% for emission in emission_list %}
+      <tr class="clickable text-center" onclick= "window.location='{% url 'emission_detail' emission.slug %}'">
+        <th scope="row">{{emission.title}}</th>
+        <td><img src="{{ emission.emission_image.url }}" class="emissions_img" alt="Image of emission {{emission.title}}"></td>
+        <td></td>
+        <td>@mdo</td>
+      </tr>
+
+        {% endfor %}
+    </tbody>
+  </table>
+
+<!-- <p></p> -->
+
+<!-- {{emission.emission_image.url}} -->
+
+
 {% endblock%}
