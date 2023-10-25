@@ -86,7 +86,12 @@ input {
     text-align: right;
 }
 
+.form-section {
+    margin-top: 3%;
+}
+
 .form-section a{
+
     color: #fafafa
 }
 
@@ -366,6 +371,24 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     background-color: #fafafa;
     border-color: #dc3123;
     color:#dc3123;
+}
+
+/* ________________________________________  Emissions Page styling  _________________________________________ */
+
+.emissions_img {
+    object-fit: cover;
+    border-radius: 5px;
+    padding: 2px;
+    height:80%;
+    width:80%;
+    min-width:175px;
+}
+.table-hover {
+    padding: 20px;
+}
+.table-hover th {
+    text-align: center;
+    vertical-align: middle;
 }
 
 /* _________________________________________  Responsive styling  __________________________________________ */
