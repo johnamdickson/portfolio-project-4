@@ -25,12 +25,17 @@ class Emissions(View):
         emission = get_object_or_404(queryset, slug=slug)
         title = emission.title
         description = emission.description
+        image_url = emission.emission_image.url
+        location = emission.location
+
         return render(
             request,
             'emission_detail.html',
             {
                 "title": title,
                 "description": description,
+                "image_url": image_url,
+                "location": location
             },
         )
     
