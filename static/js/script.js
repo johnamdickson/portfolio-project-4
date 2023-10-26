@@ -180,6 +180,13 @@ const showModal = (data) => {
     new bootstrap.Modal(modalItem).show();
 };
 
+const emissionModal = (data) => {
+    const body = "What would you like to do?"
+    const modalItem = document.getElementById('emissionModal');
+    document.getElementById('emissionModalBody').innerText = `Emission ${data}\n What would you like to do?`;
+    new bootstrap.Modal(modalItem).show();
+
+}
 
 // functionality below for carousel from:
 // https://www.codeply.com/p/0CWffz76Q9

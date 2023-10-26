@@ -36,7 +36,7 @@
     <!-- solution to clickable table rows to modal from Stack Overflow:
     https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
     -->
-        <tr data-toggle="modal" data-id="1" title="test" data-target="#emissionModal">
+        <tr onclick="emissionModal('{{emission}}')">
         <th scope="row">{{emission.title}}</th>
         {% if "placeholder" in emission.emission_image.url %}
         <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
@@ -78,15 +78,10 @@
 
 <!-- Modal -->
 
-<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-        </button>
-      </div>
-      <div class="modal-body">
+      <div class="modal-body" id="emissionModalBody">
         ...
       </div>
       <div class="modal-footer">
