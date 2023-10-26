@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="table-responsive table-fixed-head shadow scrollbar scrollbar-primary">
-<table class="table table-hover table-sm  emissions-table scrollbar scrollbar-primary">
+<section>
+  <div class="container-fluid">
+    <div class="row emission-page-top">
+      <div class="col-md-4 my-5">
+        Hello
+      </div>
+      <div class="col-md-6 my-5 mx-2">
+        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698285923/emissions-checks_oq7k3u.jpg" class="emission-page-img">
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+<div class="table-responsive table-fixed-head shadow">
+<table class="table table-hover table-sm  emissions-table scrollbar">
     <thead>
       <tr>
         <th scope="col">Emission Title</th>
@@ -20,12 +33,15 @@
     </thead>
     <tbody>
     {% for emission in emission_list %}
-      <tr class="clickable text-center" onclick= "window.location='{% url 'emission_detail' emission.slug %}'">
+    <!-- solution to clickable table rows to modal from Stack Overflow:
+    https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
+    -->
+        <tr data-toggle="modal" data-id="1" title="test" data-target="#emissionModal">
         <th scope="row">{{emission.title}}</th>
         {% if "placeholder" in emission.emission_image.url %}
-        <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions_img " alt="Image of emission {{emission.title}}"></td>
+        <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
         {% else %}
-        <td class="hidden-col"><img src="{{ emission.emission_image.url }}" class="emissions_img" alt="Image of emission {{emission.title}}"></td>
+        <td class="hidden-col"><img src="{{ emission.emission_image.url }}" class="emissions-img" alt="Image of emission {{emission.title}}"></td>
         {% endif %}
         <td>{{emission.get_emission_type}}</td>
         <td>{{ emission.description }}</td>
@@ -39,9 +55,9 @@
         <!-- Conditional statement to check emission status. If closed then current and next check
         due dates and check status are superfluos -->
         {% if emission.calculate_status == "Closed" %}
-        <td class=" hidden-col"></td> 
-        <td class=" hidden-col"></td> 
-        <td></td> 
+        <td class=" hidden-col blank-td"></td> 
+        <td class=" hidden-col blank-td"></td> 
+        <td class="blank-td"></td> 
         {% else %}
         <td class=" hidden-col">{{ emission.current_check_due}}</td>   
         <td class=" hidden-col">{{ emission.next_check_due}}</td>  
@@ -54,9 +70,32 @@
     </tbody>
   </table>
 </div>
-<!-- <p></p> -->
+</section>
+<section>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emissionModal">
+</button>
 
-<!-- {{emission.emission_image.url}} -->
+<!-- Modal -->
 
-
+<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+</section>
 {% endblock%}
