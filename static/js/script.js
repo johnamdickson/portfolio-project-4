@@ -51,7 +51,6 @@ function updateChecksComplete() {
     let checkStatus = document.getElementsByClassName("check_status")
     for (let check of checkStatus) {
         if (check.innerHTML === "Checks Complete") {
-            console.log("checks completed")
             // solution for fontawesome background from stack overflow:
             // https://stackoverflow.com/questions/26516353/font-awesome-background-color
             check.innerHTML = `<p>
