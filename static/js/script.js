@@ -50,14 +50,13 @@ function hideElements() {
 function updateChecksComplete() {
     let checkStatus = document.getElementsByClassName("check_status")
     for (let check of checkStatus) {
-        console.log(check.innerHTML)
         if (check.innerHTML === "Checks Complete") {
             console.log("checks completed")
             // solution for fontawesome background from stack overflow:
             // https://stackoverflow.com/questions/26516353/font-awesome-background-color
             check.innerHTML = `<p>
                                     <span class="fa-stack" style="vertical-align: top;">
-                                        <i class="fas fa-circle fa-stack-2x";"></i>
+                                        <i class="fas fa-circle fa-stack-2x"style="color: #FFFFFF;"></i>
                                         <i class="fa-solid fa-circle-check fa-stack-2x fa-inverse" style="color: #00D100;"></i>
                                     </span>
                                 </p>
@@ -65,7 +64,7 @@ function updateChecksComplete() {
         } else {
             check.innerHTML = `<p>
                                     <span class="fa-stack" style="vertical-align: top;">
-                                        <i class="fas fa-circle fa-stack-2x" ></i>
+                                        <i class="fas fa-circle fa-stack-2x" style="color: #FFFFFF;"></i>
                                         <i class="fa-solid fa-circle-xmark fa-stack-2x fa-inverse" style="color: #BF181D;"></i>
                                     </span>
                                 </p>
@@ -82,7 +81,6 @@ function updateChecksComplete() {
 //             console.log(emission)
 //         }
 const showModal = (data) => {
-    console.log(data, 'here is');
     let emissionArray = JSON.parse(data);
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
@@ -180,7 +178,6 @@ const showModal = (data) => {
                                     </div>
                                 </div>
                               `;
-
     new bootstrap.Modal(modalItem).show();
 };
 
