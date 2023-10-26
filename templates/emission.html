@@ -1,38 +1,59 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="table-responsive">
-<table class="table table-hover table-sm">
+<div class="table-responsive table-fixed-head shadow scrollbar scrollbar-primary">
+<table class="table table-hover table-sm  emissions-table scrollbar scrollbar-primary">
     <thead>
       <tr>
         <th scope="col">Emission Title</th>
-        <th scope="col">Image</th>
+        <th scope="col" class=" hidden-col">Image</th>
         <th scope="col">Emission Type</th>
         <th scope="col">Description</th>
         <th scope="col">Location</th>
-        <th scope="col">Input By</th>
-        <th scope="col">Created On</th>
+        <th scope="col" class=" hidden-col" >Created On</th>
         <th scope="col">Last Checked</th>
-        <th scope="col">Current Check Due</th>
-        <th scope="col">Next Check Due</th>
+        <th scope="col" class=" hidden-col">Current Check Due</th>
+        <th scope="col" class=" hidden-col">Next Check Due</th>
         <th scope="col">Check Status</th>
-        <th scope="col">Open / Closed</th>
+        <th scope="col" class=" hidden-col">Emission Status</th>
       </tr>
     </thead>
     <tbody>
-    </div>
     {% for emission in emission_list %}
       <tr class="clickable text-center" onclick= "window.location='{% url 'emission_detail' emission.slug %}'">
         <th scope="row">{{emission.title}}</th>
-        <td><img src="{{ emission.emission_image.url }}" class="emissions_img" alt="Image of emission {{emission.title}}"></td>
-        <td></td>
-        <td>@mdo</td>
+        {% if "placeholder" in emission.emission_image.url %}
+        <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions_img " alt="Image of emission {{emission.title}}"></td>
+        {% else %}
+        <td class="hidden-col"><img src="{{ emission.emission_image.url }}" class="emissions_img" alt="Image of emission {{emission.title}}"></td>
+        {% endif %}
+        <td>{{emission.get_emission_type}}</td>
+        <td>{{ emission.description }}</td>
+        <td>{{emission.location}}</td>
+        <!-- formatting dates in Django Template Language. Solution from Stack Overflow and documentation
+        https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATE_FORMAT
+        https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-languages
+        -->
+        <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td>
+        <td>{{ emission.last_checked}}</td>   
+        <!-- Conditional statement to check emission status. If closed then current and next check
+        due dates and check status are superfluos -->
+        {% if emission.calculate_status == "Closed" %}
+        <td class=" hidden-col"></td> 
+        <td class=" hidden-col"></td> 
+        <td></td> 
+        {% else %}
+        <td class=" hidden-col">{{ emission.current_check_due}}</td>   
+        <td class=" hidden-col">{{ emission.next_check_due}}</td>  
+        <td class="check_status">{{ emission.calculate_check_complete}}</td>  
+        {% endif %}
+        <td class=" hidden-col">{{ emission.calculate_status}}</td>        
       </tr>
 
         {% endfor %}
     </tbody>
   </table>
-
+</div>
 <!-- <p></p> -->
 
 <!-- {{emission.emission_image.url}} -->
