@@ -377,7 +377,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 /* ________________________________________  Emissions Page styling  _________________________________________ */
 
-.emissions_img {
+.emissions-img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -396,8 +396,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 .emissions-table {
     border-collapse: collapse;
     width: 100%;
-    height: 80vh;
-    /* overflow: scroll; */
+    /* height: 80vh; */
 }
 
 .emissions-table th {
@@ -419,16 +418,32 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     font-size: clamp(0.6rem, 1.2vw, 0.9rem);
     border: 0.5px solid #36454F;
     vertical-align: middle;
+    text-align: center;
     background-color: #fafafa;
+}
+
+.blank-td{
+    opacity: 0.4;
 }
 
 .table-fixed-head {
     margin: 20px 20px;
-    /* overflow: scroll; */
-    height: 70vh;
     border-bottom: 1px solid #dee2e6;
     border-radius: 50px 10px 50px 10px;
 }
+
+.emission-page-img {
+    object-fit: cover;
+    height: 550px;
+    width: 100%;
+    border-radius: 20px 80px 20px 80px;
+    border: 2px solid #fafafa;
+}
+
+.emission-page-top {
+    justify-content: space-between;
+}
+
 
 /* Solution for sticky table header from Stack Overflow:
 https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-body
@@ -465,9 +480,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 }
 
 @media only screen and (max-width: 992px) {
+
     /* hidden-col class to remove less important columns for responsive styling */
     .hidden-col {
-        display:none;
+        display: none;
     }
 }
 
@@ -558,8 +574,9 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         width: 25px;
         height: 30px;
     }
+
     .table-fixed-head {
-        border-radius: 35px 5px 35px 5px 
+        border-radius: 35px 5px 35px 5px
     }
 }
 
