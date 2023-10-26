@@ -28,7 +28,7 @@ hr {
 
 .navitem-text {
     font-weight: 300;
-    font-size: clamp(0.5rem, 2.vw, 1.2rem);
+    font-size: clamp(0.5rem, 2vw, 1.2rem);
 }
 
 .navbar-brand {
@@ -90,7 +90,7 @@ input {
     margin-top: 3%;
 }
 
-.form-section a{
+.form-section a {
 
     color: #fafafa
 }
@@ -314,12 +314,13 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 }
 
-.carousel-indicators{
+.carousel-indicators {
     top: auto;
     bottom: -50px;
 }
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
     opacity: 1;
 }
 
@@ -341,6 +342,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     border-radius: 50px 50px 50px 50px;
     border: 3px solid #36454F;
 }
+
 .modal-img {
     margin: 10px 0;
     border-radius: 10px;
@@ -370,33 +372,79 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 .modal-footer a:hover {
     background-color: #fafafa;
     border-color: #dc3123;
-    color:#dc3123;
+    color: #dc3123;
 }
 
 /* ________________________________________  Emissions Page styling  _________________________________________ */
 
 .emissions_img {
     object-fit: cover;
-    border-radius: 5px;
-    padding: 2px;
-    height:80%;
-    width:80%;
-    min-width:175px;
+    height: 100%;
+    width: 100%;
+    min-width: 175px;
 }
+
 .table-hover {
     padding: 20px;
 }
+
 .table-hover th {
     text-align: center;
     vertical-align: middle;
 }
 
-/* _________________________________________  Responsive styling  __________________________________________ */
+.emissions-table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 80vh;
+    /* overflow: scroll; */
+}
+
+.emissions-table th {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.7rem, 1.3vw, 0.9rem);
+    padding: 8px 16px;
+    background-color: #36454F;
+    color: #fafafa;
+    backdrop-filter: blur(20px);
+    border: 0.5px solid #fafafa;
+
+}
+
+.emissions-table tr {
+    font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+}
+
+.emissions-table td {
+    font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+    border: 0.5px solid #36454F;
+    vertical-align: middle;
+    background-color: #fafafa;
+}
+
+.table-fixed-head {
+    margin: 20px 20px;
+    /* overflow: scroll; */
+    height: 70vh;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 50px 10px 50px 10px;
+}
+
+/* Solution for sticky table header from Stack Overflow:
+https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-body
+ */
+.table-fixed-head thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* ___________________________________  General Responsive styling  __________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
  */
- @media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
     .navbar .navbar-nav .nav-item .nav-link {
         padding: 0 0.5em;
     }
@@ -411,6 +459,15 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .home-row {
         margin-right: 50px;
+    }
+
+
+}
+
+@media only screen and (max-width: 992px) {
+    /* hidden-col class to remove less important columns for responsive styling */
+    .hidden-col {
+        display:none;
     }
 }
 
@@ -501,6 +558,9 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         width: 25px;
         height: 30px;
     }
+    .table-fixed-head {
+        border-radius: 35px 5px 35px 5px 
+    }
 }
 
 
@@ -509,10 +569,11 @@ https://www.codeply.com/p/0CWffz76Q9
 */
 
 @media (max-width: 767px) {
-    .carousel-inner .carousel-item > div {
+    .carousel-inner .carousel-item>div {
         display: none;
     }
-    .carousel-inner .carousel-item > div:first-child {
+
+    .carousel-inner .carousel-item>div:first-child {
         display: block;
     }
 }
@@ -525,22 +586,23 @@ https://www.codeply.com/p/0CWffz76Q9
 
 /* medium and up screens */
 @media (min-width: 768px) {
-    
+
     .carousel-inner .carousel-item-end.active,
     .carousel-inner .carousel-item-next {
-      transform: translateX(25%);
+        transform: translateX(25%);
     }
-    
-    .carousel-inner .carousel-item-start.active, 
+
+    .carousel-inner .carousel-item-start.active,
     .carousel-inner .carousel-item-prev {
-      transform: translateX(-25%);
+        transform: translateX(-25%);
     }
 }
 
 .carousel-inner .carousel-item-end,
-.carousel-inner .carousel-item-start { 
-  transform: translateX(0%);
+.carousel-inner .carousel-item-start {
+    transform: translateX(0%);
 }
+
 /* styling to prevent overlap of cards as they transition */
 .carousel-item.active {
     transition: transform 0.6s ease-in-out;
@@ -551,4 +613,3 @@ https://www.codeply.com/p/0CWffz76Q9
     transition: transform 0.3s ease-out;
     opacity: 0;
 }
-
