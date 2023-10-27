@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
+from .forms import EmissionSubmissionForm
 
 
 class EmissionHome(generic.ListView):
@@ -38,32 +40,6 @@ class Emissions(View):
                 "location": location
             },
         )
-    
-    # def post(self, request, *args, **kwargs):
-
-    #     queryset = Emission.objects.filter(status=0)
-    #     post = get_object_or_404(queryset, slug=slug)
-    #     comment_form = CommentForm(data=request.POST)
-    #     if comment_form.is_valid():
-    #         comment_form.instance.email = request.user.email
-    #         comment_form.instance.name = request.user.username
-    #         comment = comment_form.save(commit=False)
-    #         comment.post = post
-    #         comment.save()
-    #     else:
-    #         comment_form = CommentForm()
-
-    #     return render(
-    #         request,
-    #         "emission.html",
-    #         {
-    #             "emission": post,
-    #             "comments": comments,
-    #             "commented": True,
-    #             "comment_form": comment_form,
-    #             "liked": liked
-    #         },
-    #     )
 
 
 class EmissionChecks(generic.ListView):
@@ -71,3 +47,15 @@ class EmissionChecks(generic.ListView):
     queryset = EmissionCheck.objects.filter(status=0).order_by("-date_checked")
     template_name = "emission_checks.html"
     paginate_by = 6
+
+
+def addEmission(request):
+    form = EmissionSubmissionForm()
+    if request.method == 'POST':
+        form = EmissionSubmissionForm(request.POST)
+    if form.is_valid():
+        form.instance.username = User.objects.get(username=request.user)
+        form.save()
+        # redirect('home')
+    context = {'form': form}
+    return render(request, 'add-emission.html', context)

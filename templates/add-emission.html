@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Emission </h1>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}

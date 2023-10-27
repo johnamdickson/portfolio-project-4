@@ -4,6 +4,7 @@ import constants as k
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 import json
 
 
@@ -70,6 +71,10 @@ class Emission(models.Model):
                 "type": self.get_emission_type(),
                 "slug": self.slug}
         return json.dumps(list)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class EmissionCheck(models.Model):
