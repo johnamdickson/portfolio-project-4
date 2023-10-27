@@ -1,15 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if form.errors %}
+<div class="row">
+    <div class="col-md-10 offset-md-1 mt-4">
+        <div class="alert alert-danger alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
+            <div class="row">
+                <div class="col-md-1">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
+                        <use xlink:href="#exclamation-triangle-fill" />
+                    </svg>
+                </div>
+                <div class="col-md-9">
+                    {% for field in form%}
+                    {% if field != None%}
+                    {{field.errors}}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
-<div class="container">
+</div>
+</div>
+<div class="container form-section">
     <div class="row">
-        <div class="col-md-12">
-            <h1>Add Emission </h1>
-            <form action="" method='POST'>
+        <div class="col-xl-8 offset-xl-2 mt-4 col-md-10 offset-md-1 shadow pt-5 px-1 custom-container rounded">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 mb-4 offset-md-1">
+                        <h2>Add Emission</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <p id="sign-in-icon"><i class="fa-solid fa-circle-plus"></i></p>
+                    </div>
+                </div>
+            </div>
+            <form action="" method='POST' enctype="multipart/form-data">
                 {% csrf_token %}
-                {{form.as_p}}
-                <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+                {% for field in form %}
+                <div class="row">
+                    <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
+                    <div class="col-md-6 mb-3">{{ field }} </div>
+                    <!-- <div>{{field.errors}}</div> -->
+                </div>
+                {% endfor %}
+                <div class="col-md-4 offset-md-4 my-3">
+                <button type="submit" class="btn btn-custom shadow" value="Submit"> Save</button>
+                </div>
             </form>
         </div>
     </div>
