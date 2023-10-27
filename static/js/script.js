@@ -1,6 +1,7 @@
 window.addEventListener('load', function () {
     hideElements()
     startCarousel()
+    statusFilter()
 })
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -204,4 +205,29 @@ function startCarousel() {
             next = next.nextElementSibling
         }
     })
+}
+
+function statusFilter() {
+    let closedRows = document.getElementsByClassName("closed-row");
+    let filterText = document.getElementById("column-filter")
+    // initially hide closed emissions.
+    for (let row of closedRows) {
+        row.style.display = 'none';
+    }
+    let filterSwitch = document.getElementById('flexSwitchCheckChecked');
+    filterSwitch.addEventListener('change', function() {
+        // solution to accessing bootstrap switch status from stack overflow:
+        // https://stackoverflow.com/questions/65229118/how-to-check-switch-bootstrap-5-with-plain-javascript
+        if (this.checked) {
+            for (let row of closedRows) {
+                row.style.display = 'none';
+                filterText.innerText = 'Showing Open Emissions';
+            }
+        } else if (!this.checked){
+            for (let row of closedRows) {
+                row.style.display = 'table-row';
+                filterText.innerText = 'Showing Open & Closed Emissions';
+            }
+        }
+      });
 }

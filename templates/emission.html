@@ -4,11 +4,11 @@
 <section>
   <div class="container-fluid">
     <div class="row emission-page-top">
+      <div class="col-md-5 my-5 mx-2">
+        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698285923/emissions-checks_oq7k3u.jpg" class="emission-page-img">
+      </div>
       <div class="col-md-4 my-5">
         Hello
-      </div>
-      <div class="col-md-6 my-5 mx-2">
-        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698285923/emissions-checks_oq7k3u.jpg" class="emission-page-img">
       </div>
     </div>
   </div>
@@ -26,7 +26,13 @@
         <th scope="col" class=" hidden-col" >Created On</th>
         <th scope="col" class=" hidden-col">Next Check Due</th>
         <th scope="col">Check Status</th>
-        <th scope="col" class=" hidden-col">Emission Status</th>
+        <th scope="col"> <p>Emission Status</p>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+            <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
+          </div>
+        </th>
+
       </tr>
     </thead>
     <tbody>
@@ -37,7 +43,12 @@
     <!-- solution to clickable table rows to modal from Stack Overflow:
     https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
     -->
-        <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')">
+      {% if emission.calculate_status == "Closed" %}
+      <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
+      <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')" class="closed-row">
+      {% else %} 
+      <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')">
+      {% endif %}
         <th scope="row">{{emission.title}}</th>
         {% if "placeholder" in emission.emission_image.url %}
         <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
@@ -61,7 +72,7 @@
         <td class=" hidden-col">{{ emission.next_check_due}}</td>  
         <td class="check_status">{{ emission.calculate_check_complete}}</td>  
         {% endif %}
-        <td class=" hidden-col">{{ emission.calculate_status}}</td>        
+        <td>{{ emission.calculate_status}}</td>        
       </tr>
 
         {% endfor %}

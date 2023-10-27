@@ -410,7 +410,21 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     color: #fafafa;
     backdrop-filter: blur(20px);
     border: 0.5px solid #fafafa;
+    text-align: center;
 
+}
+
+.emissions-table th > p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.emissions-table label {
+    font-size: 0.5rem;
+    padding: 0;
+    letter-spacing: 0.05rem;
+    line-height: 1rem;
+    display: block;
 }
 
 .emissions-table tr {
@@ -448,6 +462,42 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     justify-content: space-between;
 }
 
+.form-check {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+    justify-content: space-between;
+    float: none;
+    width: 120%;
+    margin-left: -10%;
+}
+
+.form-check .form-check-input {
+    float: none;
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+.form-switch .form-check-input {
+    width: 3em;
+    height: 1.5em;
+}
+/* solution to changing colour of toggle switch from stack overflow
+https://stackoverflow.com/questions/632100/apply-css-style-to-child-elements
+ */
+.form-switch .form-check-input:focus {
+    border-color: rgba(0, 0, 0, 0.25);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/></svg>");
+}
+.form-switch .form-check-input:checked {
+    background-color: #30D158;
+    border-color: #30D158;
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
 
 /* Solution for sticky table header from Stack Overflow:
 https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-body
