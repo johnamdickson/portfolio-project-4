@@ -12,7 +12,7 @@ class EmissionSubmissionForm(forms.ModelForm):
         fields = ('title', 'location', 'emission_image',
                   'description', 'latitude', 'longitude',
                   'next_check_due', 'current_check_due',
-                  'status', 'type')
+                  'type')
 # solution for selecting form fields as date type from stack overflow:
 # https://stackoverflow.com/questions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
         widgets = {

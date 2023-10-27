@@ -55,6 +55,7 @@ def addEmission(request):
         form = EmissionSubmissionForm(request.POST)
     if form.is_valid():
         form.instance.username = User.objects.get(username=request.user)
+        form.instance.status = 0
         form.save()
         # redirect('home')
     context = {'form': form}
