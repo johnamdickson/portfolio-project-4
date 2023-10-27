@@ -24,19 +24,20 @@
         <th scope="col">Description</th>
         <th scope="col">Location</th>
         <th scope="col" class=" hidden-col" >Created On</th>
-        <th scope="col">Last Checked</th>
-        <th scope="col" class=" hidden-col">Current Check Due</th>
         <th scope="col" class=" hidden-col">Next Check Due</th>
         <th scope="col">Check Status</th>
         <th scope="col" class=" hidden-col">Emission Status</th>
       </tr>
     </thead>
     <tbody>
+     
+
     {% for emission in emission_list %}
+    {{ emission.js_data| json_script:"emissionData"}}
     <!-- solution to clickable table rows to modal from Stack Overflow:
     https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
     -->
-        <tr onclick="emissionModal('{{emission}}')">
+        <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')">
         <th scope="row">{{emission.title}}</th>
         {% if "placeholder" in emission.emission_image.url %}
         <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
@@ -50,16 +51,13 @@
         https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATE_FORMAT
         https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-languages
         -->
-        <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td>
-        <td>{{ emission.last_checked}}</td>   
+        <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td> 
         <!-- Conditional statement to check emission status. If closed then current and next check
         due dates and check status are superfluos -->
         {% if emission.calculate_status == "Closed" %}
         <td class=" hidden-col blank-td"></td> 
-        <td class=" hidden-col blank-td"></td> 
         <td class="blank-td"></td> 
-        {% else %}
-        <td class=" hidden-col">{{ emission.current_check_due}}</td>   
+        {% else %} 
         <td class=" hidden-col">{{ emission.next_check_due}}</td>  
         <td class="check_status">{{ emission.calculate_check_complete}}</td>  
         {% endif %}
@@ -72,21 +70,24 @@
 </div>
 </section>
 <section>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emissionModal">
-</button>
-
+<!-- hidden input to hold url for emissions detail from javascript -->
+  <input type="hidden" id="emissionDetailUrl" data-url="" />
 <!-- Modal -->
 
 <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="emissionModalTitle">Modal title</h4>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
       <div class="modal-body" id="emissionModalBody">
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <a href="#emissionDetailUrl" class="btn" >Submit {{emission}} Emission Check</a>
+        <a href="${allEmissionsUrl}" class="btn" id="emission-detail-a">Go To Emission Detail Page</a>
       </div>
     </div>
   </div>

@@ -72,13 +72,6 @@ function updateChecksComplete() {
     }
 }
 
-// function showModal(emissionList){
-//     let removeSquareBrackets = emissionList.slice(1, -1)
-//     let emissionArray = removeSquareBrackets.split(",")
-//     console.log('called', typeof emissions)
-//         for (let emission of emissionArray){
-//             console.log(emission)
-//         }
 const showModal = (data) => {
     let emissionArray = JSON.parse(data);
     // solution to passing django url from javascript from stack overflow:
@@ -181,9 +174,13 @@ const showModal = (data) => {
 };
 
 const emissionModal = (data) => {
-    const body = "What would you like to do?"
+    let emission = JSON.parse(data)
     const modalItem = document.getElementById('emissionModal');
-    document.getElementById('emissionModalBody').innerText = `Emission ${data}\n What would you like to do?`;
+    document.getElementById('emissionModalTitle').innerText = emission.title
+    document.getElementById('emissionModalBody').innerText = 'Please make a selection.';
+    document.getElementById('emissionDetailUrl').setAttribute('data-url', `{% url 'emission_detail' /${emission.slug}/ %}`)
+    // set hidden input href attribute to slug of the emission passed into this function.
+    document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
     new bootstrap.Modal(modalItem).show();
 
 }
