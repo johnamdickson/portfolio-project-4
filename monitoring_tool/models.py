@@ -67,7 +67,8 @@ class Emission(models.Model):
                 "nextCheck": str(self.next_check_due),
                 "currentCheck": str(self.current_check_due),
                 "status": self.calculate_status(),
-                "type": self.get_emission_type()}
+                "type": self.get_emission_type(),
+                "slug": self.slug}
         return json.dumps(list)
 
 
