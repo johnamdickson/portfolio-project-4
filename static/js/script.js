@@ -177,8 +177,8 @@ const showModal = (data) => {
 const emissionModal = (data) => {
     let emission = JSON.parse(data)
     const modalItem = document.getElementById('emissionModal');
-    document.getElementById('emissionModalTitle').innerText = emission.title
-    document.getElementById('emissionModalBody').innerText = 'Please make a selection.';
+    document.getElementById('emissionModalTitle').innerText = `Emission: ${emission.title}`;
+    document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
     document.getElementById('emissionDetailUrl').setAttribute('data-url', `{% url 'emission_detail' /${emission.slug}/ %}`)
     // set hidden input href attribute to slug of the emission passed into this function.
     document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
