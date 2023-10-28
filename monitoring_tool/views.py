@@ -59,6 +59,7 @@ def addEmission(request):
         form.instance.username = User.objects.get(username=request.user)
         form.instance.status = 0
         form.save()
+        return HttpResponseRedirect(reverse('emissions'))
         # redirect('home')
     context = {'form': form}
     return render(request, 'add-emission.html', context)
