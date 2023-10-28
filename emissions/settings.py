@@ -16,7 +16,6 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 import cloudinary
 import cloudinary.uploader
-import cloudinary.api
 if os.path.isfile('env.py'):
     import env
 
