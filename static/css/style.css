@@ -73,9 +73,10 @@ hr {
 .alert-row {
     position: absolute;
     top: 10px;
+    width: 100%;
 }
 
-/* ________________________________________ Sign In/Out & Register styling  ________________________________________ */
+/* ________________________________________ Forms styling  ________________________________________ */
 
 /* custom form styling */
 input {
@@ -122,6 +123,10 @@ input[type='checkbox'] {
     list-style-type: none;
 }
 
+/* add z index forms so that they sit on top of error messages from base html */
+#form-msg {
+    z-index: 2;
+}
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
