@@ -82,6 +82,10 @@ input {
     width: 100%;
 }
 
+textarea {
+    width: 100%;
+}
+
 #sign-in-icon {
     text-align: right;
 }
