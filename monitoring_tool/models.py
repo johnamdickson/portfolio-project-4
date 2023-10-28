@@ -4,8 +4,10 @@ import constants as k
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
+import cloudinary.api
 from django.utils.text import slugify
 import json
+from django.core.validators import FileExtensionValidator 
 
 
 class Emission(models.Model):
@@ -18,7 +20,11 @@ class Emission(models.Model):
         User, on_delete=models.CASCADE,
         related_name="monitoring_tool_emissions"
     )
-    emission_image = CloudinaryField('image', default='placeholder')
+    emission_image = CloudinaryField(
+        'image', null=False,
+        validators=[FileExtensionValidator(
+            ['jpg', 'jpeg', 'png', 'tiff', 'heif'])]
+        )
     description = models.TextField(blank=True)
     close_out_comments = models.TextField(blank=True)
     latitude = models.FloatField()
