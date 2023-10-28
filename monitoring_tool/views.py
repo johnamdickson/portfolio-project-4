@@ -52,7 +52,9 @@ class EmissionChecks(generic.ListView):
 def addEmission(request):
     form = EmissionSubmissionForm()
     if request.method == 'POST':
-        form = EmissionSubmissionForm(request.POST)
+        # issue uploading image to DB from html form. Solution from Stack Overflow:
+        # https://stackoverflow.com/questions/45912825/image-upload-field-works-in-django-admin-but-not-working-in-template
+        form = EmissionSubmissionForm(request.POST, request.FILES)
     if form.is_valid():
         form.instance.username = User.objects.get(username=request.user)
         form.instance.status = 0
