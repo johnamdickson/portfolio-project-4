@@ -1,5 +1,4 @@
 {% load static %}
-{% load template_tag_name %} 
 
 
 <!DOCTYPE html>
@@ -126,7 +125,7 @@
             </symbol>
         </svg>
         <div class="row alert-row">
-            <div class="col-md-8 offset-md-2 mt-5">
+            <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
                     {% if message.tags == 'alert-success' %}
@@ -149,12 +148,6 @@
             </div>
         </div>
     </div>
-
-    {% if request.user|has_group:"emission_admin" %} 
-    <p>User {{user.username}} belongs to emission_admin group</p>
-{% elif request.user|has_group:"emission_user" %}
-    <p>User {{user.username}} belongs to emission_user group</p>
-{% endif %}
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
