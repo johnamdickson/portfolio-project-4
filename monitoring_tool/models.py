@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 import cloudinary.api
 from django.utils.text import slugify
 import json
-from django.core.validators import FileExtensionValidator 
+from django.core.validators import FileExtensionValidator
 
 
 class Emission(models.Model):
@@ -20,10 +20,11 @@ class Emission(models.Model):
         User, on_delete=models.CASCADE,
         related_name="monitoring_tool_emissions"
     )
+    # use of FileExtensionValidator form this source:
+    # https://www.geeksforgeeks.org/fileextensionvalidator-validate-file-extensions-in-django/
     emission_image = CloudinaryField(
-        'image', null=False,
-        validators=[FileExtensionValidator(
-            ['jpg', 'jpeg', 'png', 'tiff', 'heif'])]
+        'image', null=False, resource_type='auto',
+        format="jpg"
         )
     description = models.TextField(blank=True)
     close_out_comments = models.TextField(blank=True)
