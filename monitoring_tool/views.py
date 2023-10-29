@@ -49,12 +49,11 @@ class EmissionChecks(generic.ListView):
     paginate_by = 6
 
 
-
 def addEmission(request):
     form = EmissionSubmissionForm()
-    if request.method == 'POST':
-        # check if user has permissions to add emissions ie emission admin.
-        if request.user.has_perm('monitoring_tool.add_emission'):
+    if request.user.has_perm('monitoring_tool.add_emission'):
+        if request.method == 'POST':
+            # check if user has permissions to add emissions ie emission admin.
             # issue uploading image to DB from html form.
             # Solution from Stack Overflow:
             # https://stackoverflow.com/questions/45912825/image-upload-field-works-in-django-admin-but-not-working-in-template
@@ -66,7 +65,7 @@ def addEmission(request):
             if str(form_image).endswith(('.jpg', '.jpeg', '.png', '.tiff', '.bmp')):
                 if form.is_valid():
                     form.instance.username = User.objects.get(
-                                         username=request.user)
+                                        username=request.user)
                     form.instance.status = 0
                     form.save()
                     messages.success(
@@ -81,13 +80,19 @@ def addEmission(request):
                             error += field.errors
                     messages.error(request, error)
             else:
-                messages.error(request, "Incorrect image format. Please upload jpg, jpeg, png, tiff or bmp")
+                messages.error(
+                    request,
+                    "Incorrect image format. Please upload jpg, "
+                    "jpeg, png, tiff or bmp")
 
-        else:
-            messages.warning(
-                request,
-                f"You do not have the necessary permissions "
-                "to create a new emission.")
+    else:
+        messages.warning(
+            request,
+            f"You do not have the necessary permissions "
+            "to create a new emission.\n Please contact your"
+            " system administrator.")
+        return HttpResponseRedirect(reverse('emissions'))
+
     context = {'form': form}
     return render(request, 'add-emission.html', context)
 
