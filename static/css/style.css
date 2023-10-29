@@ -63,6 +63,8 @@ hr {
 
 .alert {
     letter-spacing: 0.2em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .alert-container {
@@ -71,9 +73,21 @@ hr {
 
 /* set alert position to absolute so there is space under nav bar */
 .alert-row {
-    width: 100%;
     position: absolute;
     font-family: 'Josefin Sans', sans-serif;
+    text-align:center;
+    z-index: 2;
+    margin-right: 0;
+}
+
+.alert-dismissible .btn-close {
+    position: inherit;
+    z-index: 2;
+    padding: 0;
+}
+
+.btn-close {
+    width: 30px;
 }
 
 /* ________________________________________ Forms styling  ________________________________________ */
@@ -213,12 +227,16 @@ ul {
     width: 100%;
     height: 100%;
     font-size: 1.4em;
+    border: 1px solid #fafafa;
+}
+
+.btn-custom:hover{
+    background-color: #dc3123;
+    color:#fafafa;
+    border-color: #fafafa;
 }
 
 /* styling for home page carousel indicators and cards */
-
-
-
 .card-column {
     margin: auto;
     height: max-content;
@@ -490,16 +508,56 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .emission-page-img {
     object-fit: cover;
-    height: 550px;
+    height: 450px;
     width: 100%;
-    border-radius: 20px 80px 20px 80px;
+    border-radius: 100px 20px 100px 20px;
     border: 2px solid #fafafa;
 }
 
 .emission-page-top {
     justify-content: space-between;
+    align-items: center;
 }
 
+.emission-callout {
+        background-color: #dc3123;
+        color: #fafafa;
+        border-radius: 20px 80px 20px 80px;
+        padding: 10px;
+        border: 2px solid #fafafa;
+
+}.emission-callout ul {
+    list-style: none;
+    line-height: 1.7;
+}
+
+.emission-callout .fa-solid,
+.fa-brands {
+    font-size: 15px;
+}
+
+.emission-callout li {
+    display: flex;
+}
+
+.create-new-emission {
+    background-color: #fafafa;
+    color: #dc3123;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1em;
+    margin: 20px 0 0 25%;
+    padding:10px;
+    border: 1px solid #fafafa;
+    text-align: center;
+    width:50%
+}
+
+
+.create-new-emission:hover{
+    background-color: #dc3123;
+    color:#fafafa;
+    border-color: #fafafa;
+}
 .form-check {
     display: flex;
     flex-direction: column;
@@ -639,6 +697,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .custom-welcome-body ul {
         line-height: 1;
         margin: 10px 5px -1px 5px;
+    }
+
+    .emission-callout {
+        border-radius: 10px;
     }
 }
 
