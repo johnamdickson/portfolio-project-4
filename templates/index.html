@@ -49,31 +49,50 @@
         </div>
     </div>
 </section>
-<hr>
 <section>
     <!-- multi item carousel solution:
     https://www.codeply.com/p/0CWffz76Q9
     -->
     <div class="container-fluid text-center mt-3 mb-4">
         <div class="row my-auto justify-content-center">
-            <div id="emission-carousel" class="carousel slide" data-interval="7000" data-ride="carousel">
+            <div id="emission-carousel" class="carousel slide" data-interval="false" data-ride="carousel">
                 <div class="carousel-indicators">
-                    <a class="carousel-control-prev bg-transparent w-aut" href="#emission-carousel" role="button"
-                        data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a>
-                    <a class="carousel-control-next bg-transparent w-aut" href="#emission-carousel" role="button"
-                        data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
-                    <!-- Use of for loop counter to get index for carousel indicators
-                    https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template -->
-                    {% for i in emission_list %}
-                    {% if forloop.counter0 == 0%}
-                    <!-- add active class for first item in loop -->
-                    <button type="button" data-bs-target="#emission-carousel" data-bs-slide-to="{{ forloop.counter0 }}"
-                        class="active" aria-label="Slide {{ forloop.counter }}"></button>
-                    {% else %}
-                    <button type="button" data-bs-target="#emission-carousel" data-bs-slide-to="{{ forloop.counter0 }}"
-                        class="active" aria-label="Slide {{ forloop.counter }}"></button>
-                    {% endif %}
-                    {% endfor %}
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="carousel-prev-col">
+                                    <div class="row carousel-prev-row">
+                                        <a class="carousel-control-prev bg-transparent w-aut" href="#emission-carousel"
+                                            role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                                aria-hidden="true"></span> </a>
+                                    </div>
+                            </div>
+                            <div class="carousel-indicators-col">
+                                <div class="row card-indicators-row">
+                                        <!-- Use of for loop counter to get index for carousel indicators
+                                https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template -->
+                                        {% for i in emission_list %}
+                                        {% if forloop.counter0 == 0%}
+                                        <!-- add active class for first item in loop -->
+                                        <button type="button" data-bs-target="#emission-carousel"
+                                            data-bs-slide-to="{{ forloop.counter0 }}" class="active"
+                                            aria-label="Slide {{ forloop.counter }}"></button>
+                                        {% else %}
+                                        <button type="button" data-bs-target="#emission-carousel"
+                                            data-bs-slide-to="{{ forloop.counter0 }}"
+                                            aria-label="Slide {{ forloop.counter }}"></button>
+                                        {% endif %}
+                                        {% endfor %}
+                                </div>
+                            </div>
+                            <div class="carousel-next-col">
+                                <div class="row carousel-next-row">
+                                        <a class="carousel-control-next bg-transparent w-aut" href="#emission-carousel"
+                                            role="button" data-bs-slide="next"> <span class="carousel-control-next-icon"
+                                                aria-hidden="true"></span> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-inner" role="listbox">
                     <!-- accessing list index to give cards appropriate class solution from stack overflow
@@ -111,7 +130,8 @@
                                                             <h5>Check Status:</h5>
                                                         </td>
                                                         <td>
-                                                            <p class="check_status">{{emission.calculate_check_complete}}</p>
+                                                            <p class="check_status">
+                                                                {{emission.calculate_check_complete}}</p>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -125,6 +145,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
 
 <section>
