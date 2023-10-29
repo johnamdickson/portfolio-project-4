@@ -71,9 +71,9 @@ hr {
 
 /* set alert position to absolute so there is space under nav bar */
 .alert-row {
-    position: absolute;
-    top: 10px;
     width: 100%;
+    position: absolute;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 /* ________________________________________ Forms styling  ________________________________________ */
