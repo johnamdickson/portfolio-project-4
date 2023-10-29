@@ -4,12 +4,36 @@
 {% block content %}
 <section>
   <div class="container-fluid">
-    <div class="row emission-page-top">
-      <div class="col-md-5 my-5 mx-2">
-        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698285923/emissions-checks_oq7k3u.jpg" class="emission-page-img">
+    <div class="row emission-page-top p-3">
+      <div class="d-none d-md-block col-md-5 p-4 mx-auto">
+        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img shadow">
       </div>
-      <div class="col-md-4 my-5">
-        <a href="{% url 'add-emission' %}" class="btn" >Create New Emission</a>
+      <div class="p-sm-3 col-md-6 p-md-5 mx-auto emission-callout shadow">
+          <h3 class="hidden-home">Emissions</h3>
+          <ul>
+            <li>
+                <div class="list-icons"><i class="fa-solid fa-table-list"></i>
+                </div>
+                <div class="list-text">
+                    <p>Here you can see a full summary of all your facilities emissions in a handy table format.</p>
+                </div>
+            </li>
+            <li>
+                <div class="list-icons">
+                  <i class="fa-solid fa-arrow-pointer"></i>
+                </div>
+                <div class="list-text">
+                    <p>Select an emission row for options to view individual details or submit a check.</p>
+                </div>
+            </li>
+            <li>
+                <div class="list-icons">
+                  <i class="fa-solid fa-file-arrow-up"></i>
+                </div>
+                <div class="list-text">
+                  <p class=>To add a new emission to the system please: <br><a href="{% url 'add-emission' %}" class="btn create-new-emission">Click Here</a></p>
+                </div>
+            </li>
       </div>
     </div>
   </div>
