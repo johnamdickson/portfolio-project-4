@@ -180,7 +180,9 @@ ul {
     padding-left: 10px;
 }
 
-/* styling for custom welcome message */
+
+
+/* style card fonts to responsively size */
 .custom-welcome-body {
     background-color: #dc3123;
     color: #fafafa;
@@ -207,8 +209,13 @@ ul {
 }
 
 .list-text p {
-    font-size: clamp(0.7rem, 1.2vw, 1.2rem);
+    font-size: clamp(0.7rem, 1.25vw, 1.3rem);
     ;
+}
+
+.list-text a {
+    margin: 0;
+
 }
 
 .list-icons {
@@ -525,8 +532,16 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
         border-radius: 20px 80px 20px 80px;
         padding: 10px;
         border: 2px solid #fafafa;
+}
 
-}.emission-callout ul {
+
+.emission-callout h3 {
+    font-size: clamp(1.1rem, 2.5vw, 2.5rem);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.emission-callout ul {
     list-style: none;
     line-height: 1.7;
 }
@@ -540,18 +555,20 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     display: flex;
 }
 
+#create-emission-button{
+    justify-content: center;
+    margin-top: 5px;
+}
+
 .create-new-emission {
     background-color: #fafafa;
     color: #dc3123;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.1em;
-    margin: 20px 0 0 25%;
     padding:10px;
     border: 1px solid #fafafa;
     text-align: center;
-    width:50%
 }
-
 
 .create-new-emission:hover{
     background-color: #dc3123;
