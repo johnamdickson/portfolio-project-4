@@ -28,6 +28,7 @@ class Emission(models.Model):
         )
     description = models.TextField(blank=True)
     close_out_comments = models.TextField(blank=True)
+    closed_by = models.CharField(max_length=50, unique=False, blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     updated_on = models.DateTimeField(auto_now=True)
