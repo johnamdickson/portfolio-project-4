@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
 from .forms import EmissionSubmissionForm, EmissionCloseOutForm
-import datetime
+from datetime import datetime
 
 
 class EmissionHome(generic.ListView):
@@ -39,24 +39,47 @@ class Emissions(View):
                 "description": description,
                 "image_url": image_url,
                 "location": location,
-                "emission_close_form": EmissionCloseOutForm()
+                "slug": slug,
             },
         )
-    
-    def post(self, request, slug, *args, **kwargs):
+
+    def post(request, slug, *args, **kwargs):
         queryset = Emission.objects
         emission = get_object_or_404(queryset, slug=slug)
-
-        close_out_form = EmissionCloseOutForm(data=request.POST)
-        if close_out_form.is_valid():
-            close_out_form.instance.username = request.user.username
-            close_out_form.instance.close_out_date = datetime.datetime.now()
-            close_out_form.save()
-            messages.success(
+        form = EmissionCloseOutForm()
+        if request.user.has_perm('monitoring_tool.change_emission'):
+            if request.method == 'POST':
+                # check if user has permissions to add emissions ie emission admin.
+                # issue uploading image to DB from html form.
+                # Solution from Stack Overflow:
+                # https://stackoverflow.com/questions/45912825/image-upload-field-works-in-django-admin-but-not-working-in-template
+                form = EmissionCloseOutForm(request.POST, instance=emission)
+                if form.is_valid():
+                    form.instance.closed_by = f'{User.objects.get(username=request.user)}'
+                    form.instance.status = 1
+                    form.instance.close_out_date = datetime.now()
+                    form.save() 
+                    messages.success(
+                        request,
+                        f" {form.instance.title} has been closed."
+                        )
+                    return HttpResponseRedirect(reverse('emissions'))
+                else:
+                    error = []
+                    for field in form:
+                        if field is not None:
+                            error += field.errors
+                    messages.error(request, error)
+        else:
+            messages.warning(
                 request,
-                f"Emission {close_out_form.instance.title} has been closed."
-            )
-        return HttpResponseRedirect(reverse('emissions'))            
+                f"You do not have the necessary permissions "
+                "to close an emission.\n Please contact your"
+                " system administrator.")
+            return HttpResponseRedirect(reverse('emissions'))
+
+        context = {'form': form}
+        return render(request, 'add-emission.html', context)
 
 
 class EmissionChecks(generic.ListView):
@@ -68,12 +91,12 @@ class EmissionChecks(generic.ListView):
 
 def addEmission(request):
     form = EmissionSubmissionForm()
+    # check if user has permissions to add emissions ie emission admin.
+    # issue uploading image to DB from html form.
+    # Solution from Stack Overflow:
+    # https://stackoverflow.com/questions/45912825/image-upload-field-works-in-django-admin-but-not-working-in-template
     if request.user.has_perm('monitoring_tool.add_emission'):
         if request.method == 'POST':
-            # check if user has permissions to add emissions ie emission admin.
-            # issue uploading image to DB from html form.
-            # Solution from Stack Overflow:
-            # https://stackoverflow.com/questions/45912825/image-upload-field-works-in-django-admin-but-not-working-in-template
             form = EmissionSubmissionForm(request.POST, request.FILES)
             # access form image name from request.FILES and use conditional code to proceed
             # or generate error message.
@@ -112,4 +135,5 @@ def addEmission(request):
 
     context = {'form': form}
     return render(request, 'add-emission.html', context)
+
 
