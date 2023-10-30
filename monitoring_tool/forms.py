@@ -16,7 +16,7 @@ class EmissionSubmissionForm(forms.ModelForm):
                   'type')
 # solution for selecting form fields as date type and
 # for text area rows from stack overflow:
-# https://stackoverflow.com/questions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
+# https://stackoverflow.com/que`stions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
 # https://stackoverflow.com/questions/6536373/how-can-i-set-the-size-of-rows-columns-in-textfield-in-django-models
         widgets = {
             'title':
@@ -31,7 +31,8 @@ class EmissionSubmissionForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
                                                  'placeholder': "Please enter "
                                                  "a short description of the "
-                                                 "emission."}),
+                                                 "emission.",
+                                                 "required": True}),
             # set max and min values for latitude and longitude to prevent
             # erroneous entries in submission.
             'latitude':
@@ -44,4 +45,13 @@ class EmissionSubmissionForm(forms.ModelForm):
 class EmissionCloseOutForm(forms.ModelForm):
     class Meta:
         model = Emission
-        fields = ('title', 'username', 'close_out_comments', 'close_out_date')
+        fields = (
+            'close_out_comments',
+            )
+        widgets = {
+            # set fields as date input to prevent erroneous entries.
+            'close_out_comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
+                                                 'placeholder': "Please enter "
+                                                 "a close out comment for the emission.",
+                                                 'required': "True"}),
+        }
