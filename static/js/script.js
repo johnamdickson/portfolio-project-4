@@ -1,12 +1,11 @@
 window.addEventListener('load', function () {
-    hideElements()
     startCarousel()
-    statusFilter()
 })
 
 window.addEventListener("DOMContentLoaded", function () {
+    hideElements()
     updateChecksComplete()
-
+    statusFilter()
 });
 
 window.addEventListener('resize', function (event) {
@@ -31,7 +30,7 @@ setTimeout(function () {
  */
 function hideElements() {
     let windowWidth = window.innerWidth;
-    let hiddenElements = document.getElementsByClassName("hidden-home");
+    let hiddenElements = document.getElementsByClassName("callout-hidden");
     if (windowWidth <= 767) {
         for (let elements of hiddenElements) {
             elements.style.display = 'none'
