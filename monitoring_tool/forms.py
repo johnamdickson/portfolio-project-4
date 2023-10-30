@@ -44,4 +44,4 @@ class EmissionSubmissionForm(forms.ModelForm):
 class EmissionCloseOutForm(forms.ModelForm):
     class Meta:
         model = Emission
-        fields = ('username', 'close_out_comments')
+        fields = ('title', 'username', 'close_out_comments', 'close_out_date')

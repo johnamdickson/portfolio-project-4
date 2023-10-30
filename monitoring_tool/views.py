@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
 from .forms import EmissionSubmissionForm, EmissionCloseOutForm
+import datetime
 
 
 class EmissionHome(generic.ListView):
@@ -48,7 +49,14 @@ class Emissions(View):
 
         close_out_form = EmissionCloseOutForm(data=request.POST)
         if close_out_form.is_valid():
-            close_out_form.instance.username = request.user.username  
+            close_out_form.instance.username = request.user.username
+            close_out_form.instance.close_out_date = datetime.datetime.now()
+            close_out_form.save()
+            messages.success(
+                request,
+                f"Emission {close_out_form.instance.title} has been closed."
+            )
+        return HttpResponseRedirect(reverse('emissions'))            
 
 
 class EmissionChecks(generic.ListView):
