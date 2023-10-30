@@ -27,8 +27,6 @@ class Emission(models.Model):
         format="jpg"
         )
     description = models.TextField(blank=True)
-    close_out_comments = models.TextField(blank=True)
-    closed_by = models.CharField(max_length=50, unique=False, blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     updated_on = models.DateTimeField(auto_now=True)
@@ -38,6 +36,9 @@ class Emission(models.Model):
     current_check_due = models.DateField(auto_now=False)
     status = models.IntegerField(choices=status_choices, default=0)
     type = models.IntegerField(choices=type_choices, default=0)
+    close_out_comments = models.TextField(blank=True)
+    closed_by = models.CharField(max_length=50, unique=False, blank=True)
+    close_out_date = models.DateTimeField(auto_now_add=False, null=True)
 
 # solution to accessing strings values from choices tuple:
 # https://stackoverflow.com/questions/60556709/how-do-i-get-the-string-value-of-the-tuple-in-django
