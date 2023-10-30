@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<a href="{% url 'close-emission' slug%}" class="btn create-new-emission">Close Emission</a>
+{{slug}}
+{{title}}
 
-<h1 class="emission-title">{{ title }}</h1>
+<!-- <h1 class="emission-title">{{ title }}</h1>
 <h2>{{ description }}</h2>
-<img src="{{ image_url }}" alt="Image of emission {{ title }}">
-{% endblock%}
+<img src="{{ image_url }}" alt="Image of emission {{ title }}"> -->
+{% endblock %}
 
