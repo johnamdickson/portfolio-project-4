@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
-from .forms import EmissionSubmissionForm
+from .forms import EmissionSubmissionForm, EmissionCloseOutForm
 
 
 class EmissionHome(generic.ListView):
@@ -37,9 +37,18 @@ class Emissions(View):
                 "title": title,
                 "description": description,
                 "image_url": image_url,
-                "location": location
+                "location": location,
+                "emission_close_form": EmissionCloseOutForm()
             },
         )
+    
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Emission.objects
+        emission = get_object_or_404(queryset, slug=slug)
+
+        close_out_form = EmissionCloseOutForm(data=request.POST)
+        if close_out_form.is_valid():
+            close_out_form.instance.username = request.user.username  
 
 
 class EmissionChecks(generic.ListView):
