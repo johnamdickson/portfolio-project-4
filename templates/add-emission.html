@@ -8,10 +8,10 @@
         <div class="col-xl-8 offset-xl-2 mt-4 col-md-10 offset-md-1 shadow pt-5 px-1 custom-container rounded">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 mb-4 offset-md-1">
+                    <div class="col-md-5 mb-4 offset-md-1 mx-auto">
                         <h2>Add Emission</h2>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mx-auto">
                         <p id="sign-in-icon"><i class="fa-solid fa-circle-plus"></i></p>
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
-                    <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
-                    <div class="col-md-6 mb-3">{{ field }} </div>
+                    <div class="col-md-3 offset-md-1 mb-3">{{ field.label_tag }} </div>
+                    <div class="col-md-7 mb-3">{{ field }} </div>
                 </div>
                 {% endfor %}
                 <div class="col-md-4 offset-md-4 my-3">

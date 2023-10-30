@@ -8,21 +8,21 @@
       <div class="d-none d-md-block col-md-5 p-4 mx-auto">
         <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img shadow">
       </div>
-      <div class="p-sm-3 col-md-6 p-md-5 mx-auto emission-callout shadow">
-          <h3 class="hidden-home">Emissions</h3>
+      <div class="p-sm-3 col-md-6 p-md-4 mx-auto emission-callout shadow">
+          <h3 class="callout-hidden">Emissions List</h3>
           <ul>
             <li>
-                <div class="list-icons"><i class="fa-solid fa-table-list"></i>
+                <div class="list-icons callout-hidden"><i class="fa-solid fa-table-list"></i>
                 </div>
-                <div class="list-text">
-                    <p>Here you can see a full summary of all your facilities emissions in a handy table format.</p>
+                <div class="list-text callout-hidden">
+                    <p>View a full summary of all your facilities emissions in a handy table format.</p>
                 </div>
             </li>
             <li>
-                <div class="list-icons">
+                <div class="list-icons callout-hidden">
                   <i class="fa-solid fa-arrow-pointer"></i>
                 </div>
-                <div class="list-text">
+                <div class="list-text callout-hidden">
                     <p>Select an emission row for options to view individual details or submit a check.</p>
                 </div>
             </li>
@@ -31,9 +31,14 @@
                   <i class="fa-solid fa-file-arrow-up"></i>
                 </div>
                 <div class="list-text">
-                  <p class=>To add a new emission to the system please: <br><a href="{% url 'add-emission' %}" class="btn create-new-emission">Click Here</a></p>
+                  <p class=>Easily add a new emission to the system.</p>
                 </div>
             </li>
+            <li id="create-emission-button">
+              <div>
+                  <a href="{% url 'add-emission' %}" class="btn create-new-emission">Add a New Emission</a>
+              </div>
+          </li>
       </div>
     </div>
   </div>
