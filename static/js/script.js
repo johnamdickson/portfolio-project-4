@@ -71,7 +71,10 @@ function updateChecksComplete() {
         }
     }
 }
-
+/**
+ * Adds modal to the DOM and updates with JSON data passed in
+ * from index html.
+ */
 const showModal = (data) => {
     let emissionArray = JSON.parse(data);
     // solution to passing django url from javascript from stack overflow:
@@ -173,6 +176,10 @@ const showModal = (data) => {
     new bootstrap.Modal(modalItem).show();
 };
 
+/**
+ * Adds modal to the DOM and updates with JSON data passed in
+ * from emission.html.
+ */
 const emissionModal = (data) => {
     let emission = JSON.parse(data)
     const modalItem = document.getElementById('emissionModal');
@@ -206,6 +213,11 @@ function startCarousel() {
     })
 }
 
+/**
+ * Function to filter emissions table for open/closed
+ * status. Default selection is open only with toggle
+ * switch position determining filter.
+ */
 function statusFilter() {
     let closedRows = document.getElementsByClassName("closed-row");
     let filterText = document.getElementById("column-filter")
