@@ -39,3 +39,9 @@ class EmissionSubmissionForm(forms.ModelForm):
             'longitude':
             forms.NumberInput(attrs={'max': 180, 'min': -180}),
         }
+
+
+class EmissionCloseOutForm(forms.ModelForm):
+    class Meta:
+        model = Emission
+        fields = ('username', 'close_out_comments')
