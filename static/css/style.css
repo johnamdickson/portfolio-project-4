@@ -78,6 +78,7 @@ hr {
     text-align:center;
     z-index: 2;
     margin-right: 0;
+    width: 100%;
 }
 
 .alert-dismissible .btn-close {
