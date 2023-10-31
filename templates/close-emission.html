@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<div class="container form-section testing">
+
+<div class="container form-section">
     <div class="row">
         <div class="col-xl-8 offset-xl-2 mt-4 col-md-10 offset-md-1 shadow pt-5 px-1 custom-container rounded">
             <div class="container">
@@ -11,16 +12,16 @@
                         <h2>Close Emission</h2>
                     </div>
                     <div class="col-md-6 mx-auto">
-                        <p id="sign-in-icon"><i class="fa-solid fa-circle-plus"></i></p>
+                        <p id="sign-in-icon"><i class="fa-solid fa-flag-checkered"></i></p>
                     </div>
                 </div>
             </div>
-            <form action="submit" method='POST'>
+            <form action="" method='POST' id="close-out-form">
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
                     <div class="col-md-3 offset-md-1 mb-3">{{ field.label_tag }} </div>
-                    <div class="col-md-7 mb-3">{{ field }} </div>
+                    <div class="col-md-7 mb-3 p-0">{{ field }} </div>
                 </div>
                 {% endfor %}
                 <div class="col-md-4 offset-md-4 my-3">
@@ -30,6 +31,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 {% endblock%}
