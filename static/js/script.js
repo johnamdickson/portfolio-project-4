@@ -242,3 +242,25 @@ function statusFilter() {
         }
       });
 }
+
+
+const confirmAction = (event, emission) => {
+    // how to get the event source from stack overflow:
+    // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
+    let eventSourceText = event.srcElement.innerText
+    // switch the event source text to determine the text for the confirmation prompt.
+    switch(eventSourceText) {
+        case 'Close Emission':
+          confirmText = `Are you sure you want to close the emission?`
+          break;
+        case y:
+          // code block
+          break;
+        default:
+          // code block
+      }
+      if(!confirm(confirmText)) {
+        event.preventDefault();
+    }
+
+}

@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <div class="container form-section">
     <div class="row">
         <div class="col-xl-8 offset-xl-2 mt-4 col-md-10 offset-md-1 shadow pt-5 px-1 custom-container rounded">
@@ -25,7 +24,7 @@
                 </div>
                 {% endfor %}
                 <div class="col-md-4 offset-md-4 my-3">
-                <button type="submit" class="btn btn-custom shadow" value="Close">Close Emission</button>
+                <button type="submit" class="btn btn-custom shadow" value="Close" onclick="confirmAction(event, {{form.field.title}})" >Close Emission</button>
                 </div>
             </form>
         </div>
