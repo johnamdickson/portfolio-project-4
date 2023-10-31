@@ -61,7 +61,7 @@ class Emissions(View):
                     form.save()
                     messages.success(
                         request,
-                        f" {form.instance.title} has been closed."
+                        f" {form.instance.title} has been successfully closed."
                         )
                     return HttpResponseRedirect(reverse('emissions'))
                 else:
