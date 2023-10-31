@@ -58,7 +58,7 @@ class Emissions(View):
                     form.instance.closed_by = f'{User.objects.get(username=request.user)}'
                     form.instance.status = 1
                     form.instance.close_out_date = datetime.now()
-                    form.save() 
+                    form.save()
                     messages.success(
                         request,
                         f" {form.instance.title} has been closed."
@@ -79,7 +79,7 @@ class Emissions(View):
             return HttpResponseRedirect(reverse('emissions'))
 
         context = {'form': form}
-        return render(request, 'add-emission.html', context)
+        return render(request, 'close-emission.html', context)
 
 
 class EmissionChecks(generic.ListView):
