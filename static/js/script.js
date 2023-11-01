@@ -168,7 +168,8 @@ const showModal = (data) => {
                                             </table>
                                         <div class="modal-footer">
                                             <a href="" class="btn">Submit ${emissionArray.title} Emission Check</a>
-                                            <a href="${allEmissionsUrl}" class="btn">Go To All Emissions</a>
+                                            <a href="/${emissionArray.slug}/" class="btn">Go To Emission Detail Page</a>
+                                            <a href="${allEmissionsUrl}" class="btn">Go To All Emissions Page</a>
                                         </div>
                                     </div>
                                 </div>
