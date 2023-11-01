@@ -2,8 +2,8 @@
 
 {% block content %}
 <a href="{% url 'close-emission' slug%}" class="btn create-new-emission">Close Emission</a>
+<a href="{% url 'delete-emission' slug%}" class="btn create-new-emission" onclick="confirmAction(event)">Delete Emission</a>
 {{slug}}
-{{title}}
 
 <!-- <h1 class="emission-title">{{ title }}</h1>
 <h2>{{ description }}</h2>
