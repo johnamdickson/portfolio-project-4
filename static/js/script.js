@@ -244,18 +244,18 @@ function statusFilter() {
 }
 
 
-const confirmAction = (event, emission) => {
+const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
     let eventSourceText = event.srcElement.innerText
     // switch the event source text to determine the text for the confirmation prompt.
     switch(eventSourceText) {
         case 'Close Emission':
-          confirmText = `Are you sure you want to close the emission?`
-          break;
-        case y:
-          // code block
-          break;
+            confirmText = `Are you sure you want to close the emission?`
+            break;
+        case 'Delete Emission':
+            confirmText = `Are you sure you want to delete the emission? This action cannot be reveresed`
+            break;
         default:
           // code block
       }
