@@ -254,7 +254,7 @@ const confirmAction = (event) => {
             confirmText = `Are you sure you want to close the emission?`
             break;
         case 'Delete Emission':
-            confirmText = `Are you sure you want to delete the emission? This action cannot be reveresed`
+            confirmText = `Are you sure you want to delete the emission? This action cannot be reversed`
             break;
         default:
           // code block
