@@ -43,7 +43,7 @@ class Emissions(View):
             },
         )
 
-    def post(request, slug, *args, **kwargs):
+    def close(request, slug, *args, **kwargs):
         queryset = Emission.objects
         emission = get_object_or_404(queryset, slug=slug)
         form = EmissionCloseOutForm()
