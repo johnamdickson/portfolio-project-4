@@ -3,7 +3,7 @@
 
 {% block content %}
 <section>
-    <div class="container-fluid p-0 hero">
+    <div class="container-fluid p-0 hero shadow-lg">
         <div class="row home-row">
             <div class="col-md-6 offset-md-6 col-lg-6 offset-lg-6 mt-lg-5 mt-md-5 custom-welcome-body border">
                 <h3 class="callout-hidden">Welcome to the </h3>
@@ -152,6 +152,7 @@
 <section>
     <!-- input below contains url for javascript to return correct url in modal -->
     <input type="hidden" id="emissionUrl" data-url="{% url 'emissions' %}" />
+    <input type="hidden" id="emissionDetailUrl" data-url="{% url 'emissions' %}" />
     <!-- Modal -->
     <div class="modal fade" id="emissionModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="emissionModalCenterTitle" aria-hidden="true">

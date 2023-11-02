@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container form-section">
-    <div class="row">
+    <div class="row p-2 p-md-0">
         <div class="col-xl-8 offset-xl-2 mt-0 mt-md-4 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
             <div class="container">
                 <div class="row">
@@ -16,6 +16,7 @@
                 </div>
             </div>
             <form action="" method='POST' enctype="multipart/form-data" id="close-out-form">
+                <div class="container-fluid">
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
@@ -26,6 +27,7 @@
                 <div class="col-md-4 offset-md-4 my-3">
                 <button type="submit" class="btn btn-custom shadow" value="Upload" >Create Emission</button>
                 </div>
+            </div>
             </form>
         </div>
     </div>

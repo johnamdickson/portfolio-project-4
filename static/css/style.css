@@ -115,6 +115,10 @@ textarea {
     color: #fafafa
 }
 
+.form-section p {
+    font-size: clamp(0.9rem, 1.3vw, 1.25rem);
+}
+
 .form-section a:hover {
     color: lightblue;
 }
