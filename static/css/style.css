@@ -425,8 +425,12 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     color: #fafafa;
     border-color: #36454F;
     margin: auto;
-    width: 30%;
+    width: 32%;
+    padding:5px;
     font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    height:70px;
 }
 
 .modal-footer a:hover {
@@ -745,6 +749,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .table-fixed-head {
         border-radius: 35px 5px 35px 5px
+    }
+
+    .modal-footer a {
+        height: 80px;
     }
 }
 
