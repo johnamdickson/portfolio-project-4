@@ -1,12 +1,68 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href="{% url 'close-emission' slug%}" class="btn create-new-emission">Close Emission</a>
-<a href="{% url 'delete-emission' slug%}" class="btn create-new-emission" onclick="confirmAction(event)">Delete Emission</a>
-{{slug}}
 
+<!-- {% debug %} -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" class="img-responsive">
+        </div>
+        <div class="col-md-4">
+            <table>
+                <tr>
+                    <th>
+                        <h5>Title</h5>
+                    </th>
+                    <th>
+                        <h5>Location</h5>
+                    </th>
+                    <th>
+                        <h5>Date Created</h5>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>{{title}}</p>
+                    </td>
+                    <td>
+                        <p>{{location}}</p>
+                    </td>
+                    <td>
+                        <p>{{created_on | date:'M. d Y'}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <h5>Description</h5>
+                    </th>
+                    <th>
+                        <h5>Status</h5>
+                    </th>
+                    <th>
+                        <h5>Check Status</h5>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>{{description}}</p>
+                    </td>
+                    <td>
+                        <p>{{status}}</p>
+                    </td>
+                    <td>
+                        <p>{{check_complete}}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <a href="{% url 'close-emission' slug%}" class="btn create-new-emission">Close Emission</a>
+    <a href="{% url 'delete-emission' slug%}" class="btn create-new-emission" onclick="confirmAction(event)">Delete
+        Emission</a>
+</div>
 <!-- <h1 class="emission-title">{{ title }}</h1>
 <h2>{{ description }}</h2>
 <img src="{{ image_url }}" alt="Image of emission {{ title }}"> -->
 {% endblock %}
-

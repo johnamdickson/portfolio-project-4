@@ -31,6 +31,9 @@ class Emissions(View):
         description = emission.description
         image_url = emission.emission_image.url
         location = emission.location
+        created_on = emission.created_on
+        status = emission.calculate_status
+        check_complete = emission.calculate_check_complete
         return render(
             request,
             'emission_detail.html',
@@ -40,6 +43,9 @@ class Emissions(View):
                 "image_url": image_url,
                 "location": location,
                 "slug": slug,
+                "created_on": created_on,
+                "check_complete": check_complete,
+                "status": status
             },
         )
 
