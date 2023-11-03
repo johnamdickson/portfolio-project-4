@@ -2,9 +2,15 @@ body {
     background-color: #d3cfcf;
     font-family: 'Mate', serif;
     letter-spacing: 0.2rem;
+    /* min-height : 100vh; */
+    display: flex;
 }
 
 /* _________________________________________  Base html styling  __________________________________________ */
+
+nav {
+    flex:none;
+}
 
 .navbar {
     /* Overwrite navbar background colour. */
@@ -91,6 +97,14 @@ hr {
     width: 30px;
 }
 
+footer {
+    z-index: 2;
+    flex: none;
+}
+
+main {
+    flex: auto;
+}
 /* ________________________________________ Forms styling  ________________________________________ */
 
 /* custom form styling */
@@ -107,7 +121,11 @@ textarea {
 }
 
 .form-section {
-    margin-top: 3%;
+    background-color: #d3cfcf60;
+    backdrop-filter: blur(10px) grayscale(100%) ;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
 }
 
 .form-section a {
@@ -146,6 +164,18 @@ input[type='checkbox'] {
 #form-msg {
     z-index: 2;
 }
+
+.form-section ul {
+    font-size: clamp(0.8rem, 1.25vw, 1rem);
+    padding-left: 10px;
+}
+
+.form-background {
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1698934377/wepik-export-20231102141129NO0I_fr3gal.jpg') no-repeat center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
@@ -179,13 +209,10 @@ input[type='checkbox'] {
     font-size: clamp(1.3rem, 2.25vw, 2.35rem);
 }
 
-.home-row p,
-ul {
+.home-row p {
     font-size: clamp(0.9rem, 1.3vw, 1.25rem);
     padding-left: 10px;
 }
-
-
 
 /* style card fonts to responsively size */
 .custom-welcome-body {
@@ -230,6 +257,7 @@ ul {
 .custom-container {
     background-color: #dc3123;
     color: #fafafa;
+    border: 1px solid #fafafa
 }
 
 .btn-custom {

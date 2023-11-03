@@ -18,69 +18,72 @@
     <div class="col-md-10 offset-md-1 mt-4">
       <div class="alert alert-danger alert-dismissible fade show shadow-lg shadow-primary" id="form-msg" role="alert">
         <div class="container">
-        <div class="row p-2 p-md-0">
+          <div class="row p-2 p-md-0">
+            <div class="col-md-1">
+              <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
+                <use xlink:href="#exclamation-triangle-fill" />
+              </svg>
+            </div>
+            <div class="col-md-9">
+              {{ form.non_field_errors }}
+            </div>
+          </div>
           <div class="col-md-1">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
-              <use xlink:href="#exclamation-triangle-fill" />
-            </svg>
-          </div>
-          <div class="col-md-9">
-            {{ form.non_field_errors }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         </div>
-        <div class="col-md-1">
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      </div>
       </div>
     </div>
     {% endif %}
   </div>
 </div>
 
-<div class="container form-section">
-  <div class="row p-2 p-md-0">
-      <div class="col-xl-8 offset-xl-2 mt-0 mt-md-4 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
-          <div class="container">
-              <div class="row">
-                  <div class="p-0 p-md-2 col-md-5 mb-4 offset-md-1 mx-auto">
-          <h2>sign in</h2>
-        </div>
-        <div class="col-md-6">
-          <p id="sign-in-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></p>
-        </div>
-      </div>
+<div class="form-background">
+  <div class="container-fluid form-section">
+    <div class="row p-2 p-md-0">
+      <div
+        class="col-xl-8 offset-xl-2 mt-0 mt-md-5 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
+        <div class="container">
+          <div class="row">
+            <div class="p-0 p-md-2 col-md-5 mb-4 offset-md-1 mx-auto">
+              <h2>sign in</h2>
+            </div>
+            <div class="col-md-6">
+              <p id="sign-in-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></p>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-          <p>Welcome to the emissions monitoring tool, the one stop shop for monitoring, verifying and recording
-            your facilities emissions. </p>
-        </div>
-        <div class="col-md-10 offset-md-1 mb-3">
-          <p>{% blocktrans %}
-            If you have not created an account yet, then please
-            <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-        </div>
-      </div>
-      <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        <!-- customisation of django form to style elements:
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
+              <p>Welcome to the emissions monitoring tool, the one stop shop for monitoring, verifying and recording
+                your facilities emissions. </p>
+            </div>
+            <div class="col-md-10 offset-md-1 mb-3">
+              <p>{% blocktrans %}
+                If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+            </div>
+          </div>
+          <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <!-- customisation of django form to style elements:
         https://stackoverflow.com/questions/7769805/editing-django-form-as-p
        -->
-        {% for field in form %}
-        <div class="row">
-          <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
-          <div class="col-md-6 mb-3">{{ field }} </div>
-          <div>{{field.errors}}</div>
+            {% for field in form %}
+            <div class="row">
+              <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
+              <div class="col-md-6 mb-3">{{ field }} </div>
+              <div>{{field.errors}}</div>
+            </div>
+            {% endfor %}
+            <div class="row">
+              <div class="col-md-4 offset-md-4 my-3">
+                <button class="btn btn-custom shadow" type="submit">{% trans "log in" %}</button>
+              </div>
+            </div>
+          </form>
         </div>
-        {% endfor %}
-        <div class="row">
-          <div class="col-md-4 offset-md-4 my-3">
-            <button class="btn btn-custom shadow" type="submit">{% trans "log in" %}</button>
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
     </div>
   </div>
 </div>

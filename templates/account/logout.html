@@ -5,37 +5,39 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
 
 {% block content %}
-<div class="container form-section">
-  <div class="row p-2 p-md-0">
-      <div class="col-xl-8 offset-xl-2 mt-0 mt-md-4 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
-          <div class="container">
-              <div class="row">
-                  <div class="p-0 p-md-2 col-md-5 mb-4 offset-md-1 mx-auto">
-          <h2>{% trans "sign out" %}</h2>
-        </div>
-        <div class="col-md-6">
-          <p id="sign-in-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-          <p>{% trans 'Are you sure you want to leave?' %} </p>
-        </div>
-        <form method="post" action="{% url 'account_logout' %}">
-          {% csrf_token %}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
+<div class="form-background">
+  <div class="container-fluid form-section">
+    <div class="row p-2 p-md-0">
+      <div
+        class="col-xl-8 offset-xl-2 mt-0 mt-md-5 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
+        <div class="container">
           <div class="row">
-            <div class="col-md-4 offset-md-4 my-3 px-4">
-              <button class="btn btn-custom shadow" type="submit">{% trans "log out" %}</button>
+            <div class="p-0 p-md-2 col-md-5 mb-4 offset-md-1 mx-auto">
+              <h2>{% trans "sign out" %}</h2>
+            </div>
+            <div class="col-md-6">
+              <p id="sign-in-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></p>
             </div>
           </div>
-        </form>
-
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
+              <p>{% trans 'Are you sure you want to leave?' %} </p>
+            </div>
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <div class="row">
+                <div class="col-md-4 offset-md-4 my-3 px-4">
+                  <button class="btn btn-custom shadow" type="submit">{% trans "log out" %}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
-    {% endblock content %}
+{% endblock content %}
