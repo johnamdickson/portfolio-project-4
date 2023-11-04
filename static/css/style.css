@@ -2,9 +2,9 @@ body {
     background-color: #d3cfcf;
     font-family: 'Mate', serif;
     letter-spacing: 0.2rem;
-    /* min-height : 100vh; */
     display: flex;
 }
+
 
 /* _________________________________________  Base html styling  __________________________________________ */
 
@@ -507,7 +507,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     backdrop-filter: blur(20px);
     border: 0.5px solid #fafafa;
     text-align: center;
-
 }
 
 .emissions-table th > p {
@@ -546,6 +545,13 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     height: 85vh
 }
 
+.checks-complete-td {
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 .emission-page-img {
     object-fit: cover;
     height: 450px;
@@ -654,7 +660,82 @@ https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-b
     z-index: 1;
 }
 
-/* ___________________________________  General Responsive styling  __________________________________________ */
+/* _________________________________________  Emission Detail styling  ________________________________________________ */
+
+/* Table rounded corners with fill being retained - aspects of solution from stack overflow:
+https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only 
+*/
+
+.table-container{
+    border-radius: 10px 10px 10px 10px;
+    border: 2px solid #fafafa;
+    border-collapse: separate;
+    width: 100%
+}
+
+#emission-detail-table {
+    width: 100%;
+}
+
+#emission-detail-table th, .emission-detail-table td{
+    padding: 5px;
+    width: 25%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#emission-detail-table th {
+    background-color: #dc3123;
+    color: #fafafa;
+    height: 50px;
+    border: 1px solid #fafafa;
+    border-top: none;
+}
+
+#emission-detail-table td {
+    border: 1px solid #fafafa;
+    border-top: none;
+    border-bottom: none;
+}
+
+#emission-detail-img {
+    object-fit: cover;
+    border-radius: 10px 10px 10px 10px;
+    border: 2px solid #fafafa;
+}
+
+#emission-detail-table p {
+    font-size: clamp(0.7rem, 1.15vw, 1.3rem);
+    text-align: center;
+    margin-top: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+#emission-detail-table h5 {
+    font-size: clamp(0.8rem, 1.25vw, 1.4rem);
+    margin-top: 0.5rem;
+}
+
+#emission-detail-table thead th:first-of-type {
+  border-top-left-radius: 10px;
+  border-left: none;
+}
+#emission-detail-table thead th:last-of-type {
+  border-top-right-radius: 10px;
+  border-right: none;
+}
+#emission-detail-table td:first-of-type {
+    border-width: 1px;
+
+}
+#emission-detail-table td:last-of-type {
+    border-width: 1px;
+}
+
+.emission-detail-td-row {
+    flex-direction: row;
+}
+/* _______________________________________  General Responsive styling  ______________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
