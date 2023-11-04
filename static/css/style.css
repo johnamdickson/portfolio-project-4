@@ -37,6 +37,9 @@ hr {
     font-size: clamp(0.5rem, 2vw, 1.2rem);
 }
 
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    font-weight: 400;
+}
 .navbar-brand {
     font-size: 1.75rem;
     letter-spacing: 0.2em;
@@ -667,7 +670,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 */
 
 .table-container{
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 50px 10px 50px 10px;
     border: 2px solid #fafafa;
     border-collapse: separate;
     width: 100%
@@ -693,14 +696,15 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 }
 
 #emission-detail-table td {
-    border: 1px solid #fafafa;
+    border: 1px solid #36454F50;
     border-top: none;
     border-bottom: none;
+    background-color: #fafafa;
 }
 
 #emission-detail-img {
     object-fit: cover;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 50px 10px 50px;
     border: 2px solid #fafafa;
 }
 
@@ -715,22 +719,46 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     font-size: clamp(0.8rem, 1.25vw, 1.4rem);
     margin-top: 0.5rem;
 }
+/* apply border styling for thead, th and td to only have internal borders
+and follow border radii of the table container. */
+#emission-detail-table th:first-of-type {
+    border-left: none;
+  }
+  #emission-detail-table th:last-of-type {
+    border-right: none;
+  }
 
 #emission-detail-table thead th:first-of-type {
-  border-top-left-radius: 10px;
-  border-left: none;
+  border-top-left-radius: 50px;
 }
+
 #emission-detail-table thead th:last-of-type {
   border-top-right-radius: 10px;
-  border-right: none;
 }
+
 #emission-detail-table td:first-of-type {
     border-width: 1px;
-
+    border-left: none;
 }
 #emission-detail-table td:last-of-type {
     border-width: 1px;
+    border-right: none;
 }
+
+#emission-detail-table tr td:first-of-type {
+    border-width: 1px;
+    border-left: none;
+}
+/* access last row and first and last cells to change bottom right and left
+border radii to match table container border radii. Reference to this article:
+https://www.techonthenet.com/css/selectors/last_child.php#:~:text=With%20tag&text=In%20this%20CSS%20%3Alast%2Dchild%20example%2C%20the%20last%20row,the%20%3Alast%2Dchild%20selector. */
+#emission-detail-table tr:last-child td:last-of-type {
+border-bottom-right-radius: 48px;
+}
+
+#emission-detail-table tr:last-child td:first-of-type {
+    border-bottom-left-radius: 8px;
+ }
 
 .emission-detail-td-row {
     flex-direction: row;
