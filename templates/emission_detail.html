@@ -3,14 +3,16 @@
 {% block content %}
 
 <!-- {% debug %} -->
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
-            <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" class="img-responsive">
+        <div class="col-md-6 p-3">
+            <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%" id="emission-detail-img">
         </div>
-        <div class="col-md-4">
-            <table>
+        <div class="col-md-6 p-3">
+            <div class = "table-container">
+            <table id="emission-detail-table">
                 <tr>
+                    <thead>
                     <th>
                         <h5>Title</h5>
                     </th>
@@ -18,8 +20,12 @@
                         <h5>Location</h5>
                     </th>
                     <th>
+                        <h5>Type</h5>
+                    </th>
+                    <th>
                         <h5>Date Created</h5>
                     </th>
+                </thead>
                 </tr>
                 <tr>
                     <td>
@@ -29,32 +35,58 @@
                         <p>{{location}}</p>
                     </td>
                     <td>
+                        <p>{{type}}</p>
+                    </td>
+                    <td>
                         <p>{{created_on | date:'M. d Y'}}</p>
                     </td>
                 </tr>
                 <tr>
-                    <th>
+                    <th colspan="3">
                         <h5>Description</h5>
                     </th>
                     <th>
                         <h5>Status</h5>
                     </th>
-                    <th>
-                        <h5>Check Status</h5>
-                    </th>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="3">
                         <p>{{description}}</p>
                     </td>
                     <td>
                         <p>{{status}}</p>
                     </td>
-                    <td>
-                        <p>{{check_complete}}</p>
-                    </td>
                 </tr>
+            <tr>
+                <th>
+                    <h5>Check Status</h5>
+                </th>
+                <th>
+                    <h5>Last Checked</h5>
+                </th>
+                <th>
+                    <h5>Current Check Due</h5>
+                </th>
+                <th>
+                    <h5>Next Check Due</h5>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p class="check_status emission-detail-check_status">{{check_complete}}</p>
+                </td>
+                <td>
+                    <p>{{last_checked | date:'M. d Y'}}</p>
+                </td>
+                <td>
+                    <p>{{current_check | date:'M. d Y'}}</p>
+                </td>
+                <td>
+                    <p>{{next_check | date:'M. d Y'}}</p>
+                </td>
+            </tr>
             </table>
+        </div>
         </div>
     </div>
 
