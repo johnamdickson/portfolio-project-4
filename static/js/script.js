@@ -49,25 +49,44 @@ function hideElements() {
  */
 function updateChecksComplete() {
     let checkStatus = document.getElementsByClassName("check_status")
+
     for (let check of checkStatus) {
+        let className = check.className
         if (check.innerHTML === "Checks Complete") {
             // solution for fontawesome background from stack overflow:
             // https://stackoverflow.com/questions/26516353/font-awesome-background-color
-            check.innerHTML = `<p>
+            check.innerHTML = `<div class="checks-complete-td">
+                                <p>
                                     <span class="fa-stack" style="vertical-align: top;">
                                         <i class="fas fa-circle fa-stack-2x"style="color: #FFFFFF;"></i>
                                         <i class="fa-solid fa-circle-check fa-stack-2x fa-inverse" style="color: #00D100;"></i>
                                     </span>
                                 </p>
-                                <p>Complete</p>`
+                                <p>Complete</p>
+                                </div>`
+                                
         } else {
-            check.innerHTML = `<p>
+            check.innerHTML = `<div class="checks-complete-td">
+                                <p>
                                     <span class="fa-stack" style="vertical-align: top;">
                                         <i class="fas fa-circle fa-stack-2x" style="color: #FFFFFF;"></i>
                                         <i class="fa-solid fa-circle-xmark fa-stack-2x fa-inverse" style="color: #BF181D;"></i>
                                     </span>
                                 </p>
-                                <p>Outstanding</p>`
+                                <p>Outstanding</p>
+                                </div>`
+        }
+        if (className.includes('emission-detail-check_status')) {
+            updateChecksCompleteClassName()
+        }
+    }
+    // add a class name to enable css to set flex directio to row.
+    function updateChecksCompleteClassName() {
+        let checksCompleteTd = document.getElementsByClassName("checks-complete-td");
+        console.log(checksCompleteTd)
+        for (let check of checksCompleteTd) {
+            console.log(check)
+            check.className += " emission-detail-td-row";
         }
     }
 }
@@ -222,26 +241,29 @@ function startCarousel() {
 function statusFilter() {
     let closedRows = document.getElementsByClassName("closed-row");
     let filterText = document.getElementById("column-filter")
-    // initially hide closed emissions.
-    for (let row of closedRows) {
-        row.style.display = 'none';
-    }
-    let filterSwitch = document.getElementById('flexSwitchCheckChecked');
-    filterSwitch.addEventListener('change', function() {
-        // solution to accessing bootstrap switch status from stack overflow:
-        // https://stackoverflow.com/questions/65229118/how-to-check-switch-bootstrap-5-with-plain-javascript
-        if (this.checked) {
-            for (let row of closedRows) {
-                row.style.display = 'none';
-                filterText.innerText = 'Showing Open Emissions';
-            }
-        } else if (!this.checked){
-            for (let row of closedRows) {
-                row.style.display = 'table-row';
-                filterText.innerText = 'Showing Open & Closed Emissions';
-            }
+    // verify closed rows exist to prevent console errors
+    if (closedRows.length !== 0 ) {
+        // initially hide closed emissions.
+        for (let row of closedRows) {
+            row.style.display = 'none';
         }
-      });
+        let filterSwitch = document.getElementById('flexSwitchCheckChecked');
+        filterSwitch.addEventListener('change', function() {
+            // solution to accessing bootstrap switch status from stack overflow:
+            // https://stackoverflow.com/questions/65229118/how-to-check-switch-bootstrap-5-with-plain-javascript
+            if (this.checked) {
+                for (let row of closedRows) {
+                    row.style.display = 'none';
+                    filterText.innerText = 'Showing Open Emissions';
+                }
+            } else if (!this.checked){
+                for (let row of closedRows) {
+                    row.style.display = 'table-row';
+                    filterText.innerText = 'Showing Open & Closed Emissions';
+                }
+            }
+          });
+    }
 }
 
 
