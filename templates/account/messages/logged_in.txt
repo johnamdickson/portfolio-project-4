@@ -1,4 +1,4 @@
 {% load account %}
 {% load i18n %}
 {% user_display user as name %}
-{% blocktrans %}Welcome {{name}} you have successfully signed in.{% endblocktrans %}
+{% blocktrans %}<p>Welcome <strong>{{name}}</strong> you have successfully signed in.</p>{% endblocktrans %}
