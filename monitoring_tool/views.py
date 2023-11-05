@@ -32,8 +32,12 @@ class Emissions(View):
         image_url = emission.emission_image.url
         location = emission.location
         created_on = emission.created_on
+        type = emission.get_emission_type
         status = emission.calculate_status
         check_complete = emission.calculate_check_complete
+        last_checked = emission.last_checked
+        next_check_due = emission.next_check_due
+        current_check_due = emission.current_check_due
         return render(
             request,
             'emission_detail.html',
@@ -45,7 +49,11 @@ class Emissions(View):
                 "slug": slug,
                 "created_on": created_on,
                 "check_complete": check_complete,
-                "status": status
+                "status": status,
+                "type" : type,
+                "last_checked": last_checked,
+                "next_check" : next_check_due,
+                "current_check": current_check_due,
             },
         )
 
@@ -74,6 +82,8 @@ class Emissions(View):
                 else:
                     error = []
                     for field in form:
+                        # check that field has a value before proceeding. This is to prevent 
+                        # blank lines appearing in the alert.
                         if field is not None:
                             error += field.errors
                     messages.error(request, error)
