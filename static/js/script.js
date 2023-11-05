@@ -285,13 +285,13 @@ const buttonDisabled = (event) => {
     console.log(eventSourceText)
     switch(eventSourceText) {
         case 'Close Emission':
-            alertText = "You do not have the necessary permissions to close an emission.\n Please contact your system administrator."
+            alertText = `<p>You do not have the necessary permissions to <strong>close</strong> an emission.\n Please contact your system administrator.</p>`
             break;
         case 'Delete Emission':
-            alertText = "You do not have the necessary permissions to delete an emission.\n Please contact your system administrator."
+            alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission.\n Please contact your system administrator.</p>`
             break;
         case 'Add New Emission':
-            alertText = "You do not have the necessary permissions to add an emission.\n Please contact your system administrator."
+            alertText = `<p>You do not have the necessary permissions to <strong>add</strong> an emission.\n Please contact your system administrator.</p>`
             break;
         default:
           break;
