@@ -13,7 +13,7 @@ window.addEventListener('resize', function (event) {
 }, true);
 
 /**
- * Dismisses alerts after 2.5 seconds using setTimeout function.
+ * Dismisses alerts after 3.5 seconds using setTimeout function.
  * Improve user experience so that routine alerts are automatically
  * dismissed 
  */
@@ -21,7 +21,7 @@ setTimeout(function () {
     let messages = document.getElementById('msg');
     let alert = new bootstrap.Alert(messages);
     alert.close();
-}, 3000);
+}, 3500);
 
 /**
  * Hides elements depending on screen size.
@@ -80,12 +80,10 @@ function updateChecksComplete() {
             updateChecksCompleteClassName()
         }
     }
-    // add a class name to enable css to set flex directio to row.
+    // add a class name to enable css to set flex direction to row.
     function updateChecksCompleteClassName() {
         let checksCompleteTd = document.getElementsByClassName("checks-complete-td");
-        console.log(checksCompleteTd)
         for (let check of checksCompleteTd) {
-            console.log(check)
             check.className += " emission-detail-td-row";
         }
     }
@@ -99,7 +97,6 @@ const showModal = (data) => {
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
     let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
-    let createdDateArray = emissionArray.created.split(" ")
     const modalItem = document.getElementById('emissionModalCenter');
     modalItem.innerHTML = ` <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -111,7 +108,7 @@ const showModal = (data) => {
                                             <tr>
                                                 <img class="modal-img" src="${emissionArray.imageUrl}">
                                             </tr>
-                                            <table>
+                                            <table class="home-modal-table">
                                                 <tr>
                                                     <td>
                                                         <h5>Type:</h5>
@@ -119,15 +116,7 @@ const showModal = (data) => {
                                                     <td>
                                                         <p>${emissionArray.type}</p>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h5>Date Registered:</h5>
-                                                    </td>
-                                                    <td>
-                                                        <p>${createdDateArray[0]}</p>
-                                                    </td>
-                                                </tr>                                                
+                                                </tr>                                        
                                                 <tr>
                                                 <td>
                                                     <h5>Description:</h5>
@@ -142,14 +131,6 @@ const showModal = (data) => {
                                                     </td>
                                                     <td>
                                                         <p class="check_status">${emissionArray.location}</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h5>Emission Status:</h5>
-                                                    </td>
-                                                    <td>
-                                                        <p class="check_status">${emissionArray.status}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -265,8 +246,12 @@ function statusFilter() {
           });
     }
 }
-
-
+/**
+ * Arrow function to present a confirm dialogue using the 
+ * event source element inner text to determine text
+ * to display. Defensive design in event of closing or 
+ * deleting an emission.
+ */
 const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
@@ -274,16 +259,56 @@ const confirmAction = (event) => {
     // switch the event source text to determine the text for the confirmation prompt.
     switch(eventSourceText) {
         case 'Close Emission':
-            confirmText = `Are you sure you want to close the emission?`
+            confirmText = 'Are you sure you want to close the emission?'
             break;
         case 'Delete Emission':
-            confirmText = `Are you sure you want to delete the emission? This action cannot be reversed`
+            confirmText = 'Are you sure you want to delete the emission? This action cannot be reversed'
             break;
         default:
-          // code block
+          break;
       }
       if(!confirm(confirmText)) {
         event.preventDefault();
     }
 
+}
+/**
+ * go back function activated by a button where the window is not 
+ * represented in the nav bar items.
+ */
+function goBack() {
+    window.location.replace(document.referrer);
+}
+
+const buttonDisabled = (event) => {
+    let eventSourceText = event.srcElement.innerText
+    console.log(eventSourceText)
+    switch(eventSourceText) {
+        case 'Close Emission':
+            alertText = "You do not have the necessary permissions to close an emission.\n Please contact your system administrator."
+            break;
+        case 'Delete Emission':
+            alertText = "You do not have the necessary permissions to delete an emission.\n Please contact your system administrator."
+            break;
+        case 'Add New Emission':
+            alertText = "You do not have the necessary permissions to add an emission.\n Please contact your system administrator."
+            break;
+        default:
+          break;
+      }
+      let alert = document.getElementById('alert-col')
+      alert.innerHTML = `
+      <div class="alert alert-warning alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning or Error:">
+      <use xlink:href="#exclamation-triangle-fill"/>
+      </svg>
+      ${alertText}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+      `
+      setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3500);
 }

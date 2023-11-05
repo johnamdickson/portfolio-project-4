@@ -21,10 +21,18 @@ nav {
 }
 
 h2,
-h3,
-h4,
+h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+
+h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+}
 h5 {
     font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
 }
 
 hr {
@@ -34,7 +42,7 @@ hr {
 
 .navitem-text {
     font-weight: 300;
-    font-size: clamp(0.5rem, 2vw, 1.2rem);
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 
 .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
@@ -462,18 +470,26 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin: auto;
     width: 32%;
     padding:5px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     height:70px;
 }
 
 .modal-footer a:hover {
-    background-color: #fafafa;
+    background-color: #dc312390;
+    color:#fafafa;
     border-color: #dc3123;
-    color: #dc3123;
 }
 
+.home-modal-table {
+    width:80%;
+    margin-left: 10%;
+}
+
+.home-modal-table h5 {
+    font-weight: 400;
+}
 /* ________________________________________  Emissions Page styling  _________________________________________ */
 
 .emissions-img {
@@ -602,20 +618,82 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin-top: 5px;
 }
 
-.create-new-emission {
+.btn-white-back-red-font {
     background-color: #fafafa;
     color: #dc3123;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.1em;
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    padding:10px;
+    border: 1px solid #dc3123;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.btn-white-back-red-font:hover{
+    background-color: #fafafa90;
+    color:#dc3123;
+    border-color: #fafafa;
+}
+
+.btn-unavailable {
+    background-color: #36454F;
+    color: #fafafa;
+    opacity: 0.2;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    padding:10px;
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.btn-unavailable:hover{
+    background-color: #36454F;
+    color: #fafafa;
+    opacity: 0.2;
+}
+
+.btn-red-back-white-font {
+    background-color: #dc3123;
+    color: #fafafa;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.8rem, 1.25vw, 1.4rem);
     padding:10px;
     border: 1px solid #fafafa;
     text-align: center;
+    width: 100%;
+    height: 70px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
 }
 
-.create-new-emission:hover{
-    background-color: #dc3123;
+.btn-red-back-white-font:hover{
+    background-color: #dc312390;
     color:#fafafa;
-    border-color: #fafafa;
+    border-color: #dc3123;
+}
+
+.btn-red-back-white-font i {
+    font-size:20px;
+}
+
+.btn-red-back-white-font p {
+    margin: 0 0 0 1rem;
 }
 .form-check {
     display: flex;
@@ -673,11 +751,13 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     border-radius: 50px 10px 50px 10px;
     border: 2px solid #fafafa;
     border-collapse: separate;
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 
 #emission-detail-table {
     width: 100%;
+    height: 100%
 }
 
 #emission-detail-table th, .emission-detail-table td{
@@ -894,6 +974,11 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .modal-footer a {
         height: 90px;
+    }
+
+    .btn-white-back-red-font, .btn-red-back-white-font {
+        height: 50px;
+        margin-top: 0;
     }
 }
 

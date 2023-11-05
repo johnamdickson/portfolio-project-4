@@ -3,96 +3,139 @@
 {% block content %}
 
 <!-- {% debug %} -->
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid mt-md-5">
+
+
+
+    <div class="row mt-2">
         <div class="col-md-6 p-3">
-            <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%" id="emission-detail-img">
+            <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
+                id="emission-detail-img" class="shadow">
         </div>
         <div class="col-md-6 p-3">
-            <div class = "table-container">
-            <table id="emission-detail-table">
-                <tr>
-                    <thead>
-                    <th>
-                        <h5>Title</h5>
-                    </th>
-                    <th>
-                        <h5>Location</h5>
-                    </th>
-                    <th>
-                        <h5>Type</h5>
-                    </th>
-                    <th>
-                        <h5>Date Created</h5>
-                    </th>
-                </thead>
-                </tr>
-                <tr>
-                    <td>
-                        <p>{{title}}</p>
-                    </td>
-                    <td>
-                        <p>{{location}}</p>
-                    </td>
-                    <td>
-                        <p>{{type}}</p>
-                    </td>
-                    <td>
-                        <p>{{created_on | date:'M. d Y'}}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        <h5>Description</h5>
-                    </th>
-                    <th>
-                        <h5>Status</h5>
-                    </th>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <p>{{description}}</p>
-                    </td>
-                    <td>
-                        <p>{{status}}</p>
-                    </td>
-                </tr>
-            <tr>
-                <th>
-                    <h5>Check Status</h5>
-                </th>
-                <th>
-                    <h5>Last Checked</h5>
-                </th>
-                <th>
-                    <h5>Current Check Due</h5>
-                </th>
-                <th>
-                    <h5>Next Check Due</h5>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <p class="check_status emission-detail-check_status">{{check_complete}}</p>
-                </td>
-                <td>
-                    <p>{{last_checked | date:'M. d Y'}}</p>
-                </td>
-                <td>
-                    <p>{{current_check | date:'M. d Y'}}</p>
-                </td>
-                <td>
-                    <p>{{next_check | date:'M. d Y'}}</p>
-                </td>
-            </tr>
-            </table>
-        </div>
+
+                <div class="row g-3 mx-auto">
+                    <div class="col-4 mb-2 mt-0 mt-md-3">
+                        <button class="btn go-back btn-red-back-white-font" onclick="goBack()"><i
+                                class="fa-solid fa-left-long"></i>
+                            <p>Go Back</p>
+                        </button>
+                    </div>
+                    <!-- 
+                        Use user permissions to style close and delete buttons by applying different classes 
+                    as required. Solution for accessing permissions from stack overflow:
+                    https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
+                     -->
+                    {% if perms.monitoring_tool.change_emission %}
+                    <div class="col-4 mb-2 mt-0 mt-md-3">
+                        <a href="{% url 'close-emission' slug%}" class="btn btn-white-back-red-font">Close
+                            Emission</a>
+                    </div>
+                    {% else %}
+                    <div class="col-4 mb-2 mt-0 mt-md-3">
+                        <a href="#" onclick="buttonDisabled(event);" class="btn btn-unavailable">Close
+                            Emission</a>
+                    </div>
+                    {% endif %}
+                    {% if perms.monitoring_tool.delete_emissioncheck %}
+                    <div class="col-4 mb-2 mt-0 mt-md-3">
+                        <a href="{% url 'delete-emission' slug%}" class="btn btn-white-back-red-font"
+                            onclick="confirmAction(event)">Delete Emission</a>
+                    </div>
+                    {% else %}
+                    <div class="col-4 mb-2 mt-0 mt-md-3">
+                        <a href="#" class="btn btn-unavailable" aria-disabled="true"
+                            onclick="buttonDisabled(event);">Delete Emission</a>
+                    </div>
+                    {% endif %}
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-container shadow">
+                        <table id="emission-detail-table">
+                            <tr>
+                                <thead>
+                                    <th>
+                                        <h5>Title</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Location</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Type</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Date Created</h5>
+                                    </th>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>{{title}}</p>
+                                </td>
+                                <td>
+                                    <p>{{location}}</p>
+                                </td>
+                                <td>
+                                    <p>{{type}}</p>
+                                </td>
+                                <td>
+                                    <p>{{created_on | date:'M. d Y'}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+                                    <h5>Description</h5>
+                                </th>
+                                <th>
+                                    <h5>Status</h5>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p>{{description}}</p>
+                                </td>
+                                <td>
+                                    <p>{{status}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h5>Check Status</h5>
+                                </th>
+                                <th>
+                                    <h5>Last Checked</h5>
+                                </th>
+                                <th>
+                                    <h5>Current Check Due</h5>
+                                </th>
+                                <th>
+                                    <h5>Next Check Due</h5>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="check_status emission-detail-check_status">{{check_complete}}</p>
+                                </td>
+                                <td>
+                                    <p>{{last_checked | date:'M. d Y'}}</p>
+                                </td>
+                                <td>
+                                    <p>{{current_check | date:'M. d Y'}}</p>
+                                </td>
+                                <td>
+                                    <p>{{next_check | date:'M. d Y'}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <a href="{% url 'close-emission' slug%}" class="btn create-new-emission">Close Emission</a>
-    <a href="{% url 'delete-emission' slug%}" class="btn create-new-emission" onclick="confirmAction(event)">Delete
-        Emission</a>
+
+
 </div>
 <!-- <h1 class="emission-title">{{ title }}</h1>
 <h2>{{ description }}</h2>
