@@ -749,7 +749,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 */
 
 .table-container{
-    border-radius: 50px 10px 50px 10px;
+    border-radius: 10px;
     border: 2px solid #fafafa;
     border-collapse: separate;
     width: 100%;
@@ -785,7 +785,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 
 #emission-detail-img {
     object-fit: cover;
-    border-radius: 10px 50px 10px 50px;
+    border-radius: 10px;
     border: 2px solid #fafafa;
 }
 
@@ -810,7 +810,7 @@ and follow border radii of the table container. */
   }
 
 #emission-detail-table thead th:first-of-type {
-  border-top-left-radius: 50px;
+  border-top-left-radius: 10px;
 }
 
 #emission-detail-table thead th:last-of-type {
@@ -834,7 +834,7 @@ and follow border radii of the table container. */
 border radii to match table container border radii. Reference to this article:
 https://www.techonthenet.com/css/selectors/last_child.php#:~:text=With%20tag&text=In%20this%20CSS%20%3Alast%2Dchild%20example%2C%20the%20last%20row,the%20%3Alast%2Dchild%20selector. */
 #emission-detail-table tr:last-child td:last-of-type {
-border-bottom-right-radius: 48px;
+border-bottom-right-radius: 8px;
 }
 
 #emission-detail-table tr:last-child td:first-of-type {
