@@ -14,41 +14,6 @@
         </div>
         <div class="col-md-6 p-3">
 
-                <div class="row g-3 mx-auto">
-                    <div class="col-4 mb-2 mt-0 mt-md-3">
-                        <button class="btn go-back btn-red-back-white-font" onclick="goBack()"><i
-                                class="fa-solid fa-left-long"></i>
-                            <p>Go Back</p>
-                        </button>
-                    </div>
-                    <!-- 
-                        Use user permissions to style close and delete buttons by applying different classes 
-                    as required. Solution for accessing permissions from stack overflow:
-                    https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
-                     -->
-                    {% if perms.monitoring_tool.change_emission %}
-                    <div class="col-4 mb-2 mt-0 mt-md-3">
-                        <a href="{% url 'close-emission' slug%}" class="btn btn-white-back-red-font">Close
-                            Emission</a>
-                    </div>
-                    {% else %}
-                    <div class="col-4 mb-2 mt-0 mt-md-3">
-                        <a href="#" onclick="buttonDisabled(event);" class="btn btn-unavailable">Close
-                            Emission</a>
-                    </div>
-                    {% endif %}
-                    {% if perms.monitoring_tool.delete_emissioncheck %}
-                    <div class="col-4 mb-2 mt-0 mt-md-3">
-                        <a href="{% url 'delete-emission' slug%}" class="btn btn-white-back-red-font"
-                            onclick="confirmAction(event)">Delete Emission</a>
-                    </div>
-                    {% else %}
-                    <div class="col-4 mb-2 mt-0 mt-md-3">
-                        <a href="#" class="btn btn-unavailable" aria-disabled="true"
-                            onclick="buttonDisabled(event);">Delete Emission</a>
-                    </div>
-                    {% endif %}
-                </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-container shadow">
@@ -99,6 +64,7 @@
                                     <p>{{status}}</p>
                                 </td>
                             </tr>
+                            {% if status == 'Open' %}
                             <tr>
                                 <th>
                                     <h5>Check Status</h5>
@@ -127,15 +93,77 @@
                                     <p>{{next_check | date:'M. d Y'}}</p>
                                 </td>
                             </tr>
+                            {% else %}
+                            <tr>
+                                <th colspan="2">
+                                    <h5>Close Out Comments</h5>
+                                </th>
+                                <th>
+                                    <h5>Closed By</h5>
+                                </th>
+                                <th>
+                                    <h5>Close Out Date</h5>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p>{{close_out_comments}}</p>
+                                </td>
+                                <td>
+                                    <p>{{closed_by}}</p>
+                                </td>
+                                <td>
+                                    <p>{{close_out_date | date:'M. d Y'}}</p>
+                                </td>
+                            </tr>
+                            {% endif %}
                         </table>
                     </div>
                 </div>
             </div>
+
+            <div class="row gx-3">
+                <div class="col-4 mt-3">
+                    <button class="btn go-back btn-red-back-white-font shadow" onclick="goBack()"><i
+                            class="fa-solid fa-left-long"></i>
+                        <p>Go Back</p>
+                    </button>
+                </div>
+                <!-- 
+                    Use user permissions to style close and delete buttons by applying different classes 
+                as required. Solution for accessing permissions from stack overflow:
+                https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
+                 -->
+                {% if status == 'Closed' %}
+                <div class="col-4 mt-3">
+                    <a href="#" onclick="buttonDisabled(event, true);" class="btn btn-unavailable shadow">Close
+                        Emission</a>
+                </div>
+                {% elif perms.monitoring_tool.change_emission %}
+                <div class="col-4 mt-3">
+                    <a href="{% url 'close-emission' slug%}" class="btn btn-white-back-red-font shadow">Close
+                        Emission</a>
+                </div>
+                {% else %}
+                <div class="col-4 mt-3">
+                    <a href="#" onclick="buttonDisabled(event, false);" class="btn btn-unavailable shadow">Close
+                        Emission</a>
+                </div>
+                {% endif %}
+                {% if perms.monitoring_tool.delete_emissioncheck %}
+                <div class="col-4 mt-3">
+                    <a href="{% url 'delete-emission' slug%}" class="btn btn-white-back-red-font shadow"
+                        onclick="confirmAction(event, false)">Delete Emission</a>
+                </div>
+                {% else %}
+                <div class="col-4 mt-3">
+                    <a href="#" class="btn btn-unavailable shadow" aria-disabled="true"
+                        onclick="buttonDisabled(event, false);">Delete Emission</a>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
-
-
-
 </div>
 <!-- <h1 class="emission-title">{{ title }}</h1>
 <h2>{{ description }}</h2>

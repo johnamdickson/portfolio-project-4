@@ -38,6 +38,9 @@ class Emissions(View):
         last_checked = emission.last_checked
         next_check_due = emission.next_check_due
         current_check_due = emission.current_check_due
+        close_out_comments = emission.close_out_comments
+        closed_by = emission.closed_by
+        close_out_date = emission.close_out_date
         return render(
             request,
             'emission_detail.html',
@@ -54,6 +57,9 @@ class Emissions(View):
                 "last_checked": last_checked,
                 "next_check" : next_check_due,
                 "current_check": current_check_due,
+                "close_out_comments": close_out_comments,
+                "closed_by": closed_by,
+                "close_out_date": close_out_date,
             },
         )
 

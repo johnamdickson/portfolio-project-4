@@ -21,7 +21,7 @@ setTimeout(function () {
     let messages = document.getElementById('msg');
     let alert = new bootstrap.Alert(messages);
     alert.close();
-}, 3500);
+}, 4000);
 
 /**
  * Hides elements depending on screen size.
@@ -280,9 +280,14 @@ function goBack() {
     window.location.replace(document.referrer);
 }
 
-const buttonDisabled = (event) => {
+const buttonDisabled = (event, closed) => {
     let eventSourceText = event.srcElement.innerText
     console.log(eventSourceText)
+    console.log(closed)
+    if (closed && eventSourceText === 'Close Emission') {
+        alertText = `<p>This emission is already closed.</p>`
+    }
+    else{
     switch(eventSourceText) {
         case 'Close Emission':
             alertText = `<p>You do not have the necessary permissions to <strong>close</strong> an emission.\n Please contact your system administrator.</p>`
@@ -296,6 +301,7 @@ const buttonDisabled = (event) => {
         default:
           break;
       }
+    }
       let alert = document.getElementById('alert-col')
       alert.innerHTML = `
       <div class="alert alert-warning alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
@@ -310,5 +316,5 @@ const buttonDisabled = (event) => {
         let messages = document.getElementById('msg');
         let alert = new bootstrap.Alert(messages);
         alert.close();
-    }, 3500);
+    }, 4000);
 }
