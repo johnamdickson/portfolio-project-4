@@ -168,10 +168,14 @@
         </div>
     </div>
 </div>
-<script>
-    const latitude = '{{latitude}}';
-    const longitude = '{{longitude}}';
-    const markerTitle = '{{title}}';
-    const imageUrl = '{{image_url}}';
-</script>    
+<!-- solution to passing variables into JS:
+https://stackoverflow.com/questions/68394094/how-top-pass-data-to-javascript-in-django
+Found link indicating initial method may be insecure, solution to this below:
+https://www.django-antipatterns.com/antipattern/rendering-into-javascript.html
+ -->
+ {{ latitude|json_script:"latitudeJson" }}
+ {{ longitude|json_script:"longitudeJson" }}
+ {{ title|json_script:"titleJson" }}
+ {{ image_url|json_script:"imageUrlJson" }}
+
 {% endblock %}
