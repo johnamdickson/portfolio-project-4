@@ -41,6 +41,8 @@ class Emissions(View):
         close_out_comments = emission.close_out_comments
         closed_by = emission.closed_by
         close_out_date = emission.close_out_date
+        latitude = emission.latitude
+        longitude = emission.longitude
         return render(
             request,
             'emission_detail.html',
@@ -60,6 +62,8 @@ class Emissions(View):
                 "close_out_comments": close_out_comments,
                 "closed_by": closed_by,
                 "close_out_date": close_out_date,
+                "latitude": latitude,
+                "longitude": longitude,
             },
         )
 

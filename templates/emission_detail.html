@@ -2,18 +2,17 @@
 
 {% block content %}
 
-<!-- {% debug %} -->
-<div class="container-fluid mt-md-5">
-
-
-
-    <div class="row mt-2">
+<div class="container-fluid mt-md-3">
+    <div class="row mt-1">
         <div class="col-md-6 p-3">
-            <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
-                id="emission-detail-img" class="shadow">
+            <div class="row h-100">
+                <div class="col-12">
+                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
+                        id="emission-detail-img" class="shadow">
+                </div>
+            </div>
         </div>
         <div class="col-md-6 p-3">
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-container shadow">
@@ -121,7 +120,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row gx-3">
                 <div class="col-4 mt-3">
                     <button class="btn go-back btn-red-back-white-font shadow" onclick="goBack()"><i
@@ -164,8 +162,15 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 mt-md-3">
+            <div id="map"></div>
+        </div>
+    </div>
 </div>
-<!-- <h1 class="emission-title">{{ title }}</h1>
-<h2>{{ description }}</h2>
-<img src="{{ image_url }}" alt="Image of emission {{ title }}"> -->
+<script>
+    const latitude = '{{latitude}}';
+    const longitude = '{{longitude}}';
+    const markerTitle = '{{title}}'
+</script>    
 {% endblock %}

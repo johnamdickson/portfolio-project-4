@@ -844,6 +844,12 @@ border-bottom-right-radius: 8px;
 .emission-detail-td-row {
     flex-direction: row;
 }
+
+#map {
+    height: 600px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+  }
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:
@@ -942,6 +948,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .emission-callout {
         border-radius: 10px;
     }
+
+    #map {
+        height: 400px;
+      }
 }
 
 @media (min-width: 768px) {
@@ -1033,3 +1043,7 @@ https://www.codeply.com/p/0CWffz76Q9
     transition: transform 0.1s ease-out;
     opacity: 0;
 }
+
+
+
+

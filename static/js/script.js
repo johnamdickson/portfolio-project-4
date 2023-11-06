@@ -1,16 +1,29 @@
+
+
 window.addEventListener('load', function () {
     startCarousel()
+    initMap()
+})
+
+
+document.addEventListener('load', function() {
+    
 })
 
 window.addEventListener("DOMContentLoaded", function () {
     hideElements()
     updateChecksComplete()
     statusFilter()
+    console.log(latitude)
+    adjustMapZoom()
 });
 
 window.addEventListener('resize', function (event) {
     hideElements()
+    adjustMapZoom()
 }, true);
+
+
 
 /**
  * Dismisses alerts after 3.5 seconds using setTimeout function.
@@ -317,4 +330,61 @@ const buttonDisabled = (event, closed) => {
         let alert = new bootstrap.Alert(messages);
         alert.close();
     }, 4000);
+}
+
+
+
+// code for map implementation from google map documentation:
+// https://developers.google.com/maps/documentation/javascript
+
+let map;
+
+async function initMap() {
+  // The location of factory. In this instance I used an abandoned fish factory in Westport to demonstrate
+  // functionaility of feature.   
+  const position = { lat: 53.80185, lng: -9.55734 };
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+
+
+  // The map, centered at factory
+  map = new Map(document.getElementById("map"), {
+    center: position,
+      zoom: 19,
+      heading: 22,
+      tilt: 0,
+      mapTypeId: 'satellite',
+      mapId: "90f87356969d889c",
+    });
+// call add marker function and pass in detail taken from emission detail page.
+    addMarker(latitude, longitude, markerTitle)
+}
+// function for adding marker once map has initialised. Taking arguments from 
+// emission constants declared in emission detail html.
+async function addMarker(latitude, longitude, title) {
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    console.log(title)
+    const marker = new AdvancedMarkerElement({
+        map: map,
+        position: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+        title: title,
+      });
+    marker.setMap(map)
+}
+
+/**
+ * Adjust zoom of the map depending on screen size. 
+ * Called on page load and when the window is resized.
+ */
+function adjustMapZoom(){
+    if (window.innerWidth < 768) {
+        map.setZoom(17.8)
+       }
+       else if ((window.innerWidth < 1200)) {
+        map.setZoom(18.5)
+       }
+        else {
+            map.setZoom(19)
+        }
 }
