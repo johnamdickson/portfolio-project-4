@@ -856,8 +856,70 @@ border-bottom-right-radius: 8px;
     margin-left: 3px;
 }
 
-.gm-style-iw-d{
+@keyframes drop {
+    0% {
+      transform: translateY(-600px) scaleY(0.9);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(0px) scaleY(1);
+      opacity: 1;
+    }
+    65% {
+      transform: translateY(-50px) scaleY(0.9);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-75px) scaleY(0.9);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px) scaleY(1);
+      opacity: 1;
+    }
+  }
+  /* marker drops in from top of map on load */
+  .drop {
+    opacity: 0;
+    animation: drop 0.5s linear forwards 1.5s;
+  }
+  /* marker increases in size on hover */
+.grow {
+    transition: transform .2s;
+}
+
+.grow:hover {
+    transform: scale(1.3);
+    opacity: 0.9;
+}
+
+/* info window styling */
+.gm-style .gm-style-iw-c, .gm-style-iw-d{
+    /* style marker info window */
+    background-color: #dc3123;
+    max-width: 350px !important;
+    max-height:350px !important;
+    overflow: hidden !important;
+    padding: 5px !important;
+}
+
+.gm-style .gm-style-iw-c {
+    border: 1px solid #fafafa
+}
+
+.gm-style .gm-style-iw-d img{
     border-radius: 5px;
+}
+
+.gm-style .gm-style-iw-tc::after{
+    background-color: #dc3123;
+}
+.marker-title h5{
+    font-size: 1rem;
+    color:#fafafa;
 }
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 

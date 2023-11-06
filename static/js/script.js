@@ -349,12 +349,20 @@ async function initMap() {
       mapTypeId: 'satellite',
       mapId: "90f87356969d889c",
     });
-// call add marker function and pass in detail taken from emission detail page.
-    addMarker(latitude, longitude, markerTitle, imageUrl)
+// call add marker function.
+    addMarker()
 }
+
 // function for adding marker once map has initialised. Taking arguments from 
 // emission constants declared in emission detail html.
-async function addMarker(latitude, longitude, title, url) {
+async function addMarker() {
+    // obtain data from constants declared in HTML containing Django variables:
+    // https://www.django-antipatterns.com/antipattern/rendering-into-javascript.html
+    const lat = JSON.parse(document.getElementById('latitudeJson').textContent);
+    const lng = JSON.parse(document.getElementById('longitudeJson').textContent);
+    const title = JSON.parse(document.getElementById('titleJson').textContent);
+    const url = JSON.parse(document.getElementById('imageUrlJson').textContent);
+
     const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
 
@@ -367,20 +375,26 @@ async function addMarker(latitude, longitude, title, url) {
         background: "#dc3123",
         borderColor: "#fafafa",
       });
+
     const marker = new AdvancedMarkerElement({
         map: map,
-        position: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+        position: {lat: parseFloat(lat), lng: parseFloat(lng)},
         title: title,
         content: faPin.element,
       });
-    
+    //   add drop class for css animation
+    marker.content.classList.add('drop')
+    const markerContentParent = marker.content.parentElement
+    markerContentParent.classList.add('grow')
+    console.log(markerContentParent)
+
     const infoWindow = new InfoWindow();
-    marker.addListener("gmp-click", function() {
-    // const { target } = domEvent;
-    infoWindow.close();
-    infoWindow.setContent(marker.title + "<br><img width='200' src=" + url + ">");
-    infoWindow.open(marker.map, marker);
-    });
+      marker.addListener("gmp-click", function() {
+      infoWindow.close();
+      infoWindow.setContent(`<div class="marker-title"><h5>${marker.title}</h5></div>` + "<img width='200' src=" + url + ">");
+      infoWindow.open(marker.map, marker);
+      });
+
     marker.setMap(map)
 }
 
