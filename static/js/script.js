@@ -358,18 +358,38 @@ async function initMap() {
       mapId: "90f87356969d889c",
     });
 // call add marker function and pass in detail taken from emission detail page.
-    addMarker(latitude, longitude, markerTitle)
+    addMarker(latitude, longitude, markerTitle, imageUrl)
 }
 // function for adding marker once map has initialised. Taking arguments from 
 // emission constants declared in emission detail html.
-async function addMarker(latitude, longitude, title) {
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-    console.log(title)
+async function addMarker(latitude, longitude, title, url) {
+    const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+
+    const icon = document.createElement("div");
+    icon.classList.add('glyph-icon')
+    icon.innerHTML = '<i class="fa-solid fa-droplet"></i>';
+    const faPin = new PinElement({
+        glyph: icon,
+        glyphColor: "#fafafa",
+        background: "#dc3123",
+        borderColor: "#fafafa",
+      });
     const marker = new AdvancedMarkerElement({
         map: map,
         position: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
         title: title,
+        content: faPin.element,
       });
+    
+    const infoWindow = new InfoWindow();
+
+    marker.addListener("gmp-click", function() {
+    // const { target } = domEvent;
+    infoWindow.close();
+    infoWindow.setContent(marker.title + "<br><img width='200' src=" + url + ">");
+    infoWindow.open(marker.map, marker);
+    });
     marker.setMap(map)
 }
 
@@ -379,10 +399,10 @@ async function addMarker(latitude, longitude, title) {
  */
 function adjustMapZoom(){
     if (window.innerWidth < 768) {
-        map.setZoom(17.8)
+            map.setZoom(17.8)
        }
        else if ((window.innerWidth < 1200)) {
-        map.setZoom(18.5)
+            map.setZoom(18.5)
        }
         else {
             map.setZoom(19)

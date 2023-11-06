@@ -163,14 +163,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 mt-md-3">
-            <div id="map"></div>
+        <div class="col-12 mt-md-3">
+            <div id="map" class="shadow"></div>
         </div>
     </div>
 </div>
 <script>
     const latitude = '{{latitude}}';
     const longitude = '{{longitude}}';
-    const markerTitle = '{{title}}'
+    const markerTitle = '{{title}}';
+    const imageUrl = '{{image_url}}';
 </script>    
 {% endblock %}

@@ -850,6 +850,11 @@ border-bottom-right-radius: 8px;
     border-radius: 10px;
     border: 2px solid #fafafa;
   }
+
+.glyph-icon i{
+    font-size: 17px;
+    margin-left: 3px;
+}
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:
@@ -950,7 +955,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     #map {
-        height: 400px;
+        height: 450px;
       }
 }
 
