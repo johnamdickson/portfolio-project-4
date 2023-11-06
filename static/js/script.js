@@ -5,24 +5,16 @@ window.addEventListener('load', function () {
     initMap()
 })
 
-
-document.addEventListener('load', function() {
-    
-})
-
 window.addEventListener("DOMContentLoaded", function () {
     hideElements()
     updateChecksComplete()
     statusFilter()
-    console.log(latitude)
-    adjustMapZoom()
 });
 
 window.addEventListener('resize', function (event) {
     hideElements()
     adjustMapZoom()
 }, true);
-
 
 
 /**
@@ -383,7 +375,6 @@ async function addMarker(latitude, longitude, title, url) {
       });
     
     const infoWindow = new InfoWindow();
-
     marker.addListener("gmp-click", function() {
     // const { target } = domEvent;
     infoWindow.close();
