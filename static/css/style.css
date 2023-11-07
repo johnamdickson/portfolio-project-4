@@ -769,7 +769,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 }
 
 #emission-detail-table th {
-    background-color: #dc3123;
+    background-color: #36454F;
     color: #fafafa;
     height: 50px;
     border: 1px solid #fafafa;
@@ -785,8 +785,6 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 
 #emission-detail-img {
     object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid #fafafa;
 }
 
 #emission-detail-table p {
@@ -845,7 +843,11 @@ border-bottom-right-radius: 8px;
     flex-direction: row;
 }
 
-#title-cell h5{
+#emission-detail-table-title th{
+    background-color: #dc3123;
+}
+
+#emission-detail-table-title h5{
     font-size:clamp(1.25rem, 2.15vw, 1.75rem);
     font-weight: bold;
 }

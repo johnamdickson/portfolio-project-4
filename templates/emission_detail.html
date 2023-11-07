@@ -9,24 +9,23 @@
         </div>
     </div>
     <div class="row mt-3">
-        <!-- <div class="col-md-5 p-3 offset-md-1">
-            <div class="row h-100">
-                <div class="col-12">
-                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
-                        id="emission-detail-img" class="shadow">
-                </div>
-            </div>
-        </div> -->
         <div class="col-md-10 p-3 mx-auto mt-1 mt-md-3">
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-container shadow">
                         <table id="emission-detail-table">
                             <tr>
-                                <thead>
-                                    <th colspan="2" id="title-cell">
+                                <thead id="emission-detail-table-title">
+                                    <th colspan="5">
                                         <h5>{{title}}</h5>
                                     </th>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td rowspan="4" colspan="2">
+                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
+                                    id="emission-detail-img" class="shadow">
+                                </td>
                                     <th>
                                         <h5>Location</h5>
                                     </th>
@@ -36,13 +35,10 @@
                                     <th>
                                         <h5>Date Created</h5>
                                     </th>
-                                </thead>
+                                
                             </tr>
                             <tr>
-                                <td rowspan="3" colspan="2">
-                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
-                                    id="emission-detail-img" class="shadow">
-                                </td>
+                           
                                 <td>
                                     <p>{{location}}</p>
                                 </td>
@@ -82,7 +78,7 @@
                                 </th>
                             </tr>
                             <tr>
-                                <td>
+                                <td id="status-cell" class="bg-gradient">
                                     <p>{{status}}</p>
                                 </td>
                                 <td>
@@ -114,7 +110,7 @@
                                 </th>
                             </tr>
                             <tr>
-                                <td>
+                                <td id="status-cell" class="bg-gradient">
                                     <p>{{status}}</p>
                                 </td>
                                 <td colspan="2">
