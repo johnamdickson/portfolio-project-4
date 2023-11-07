@@ -126,14 +126,6 @@ class Emissions(View):
                 " system administrator.")
             return HttpResponseRedirect(reverse('emissions'))
 
-
-class EmissionChecks(generic.ListView):
-    model = EmissionCheck
-    queryset = EmissionCheck.objects.filter(status=0).order_by("-date_checked")
-    template_name = "emission_checks.html"
-    paginate_by = 6
-
-
 def addEmission(request):
     form = EmissionSubmissionForm()
     # check if user has permissions to add emissions ie emission admin.
@@ -184,3 +176,8 @@ def addEmission(request):
     return render(request, 'add-emission.html', context)
 
 
+class EmissionCheck(generic.ListView):
+    model = EmissionCheck
+    queryset = EmissionCheck.objects.order_by("-date_checked")
+    template_name = "emission_checks.html"
+    paginate_by = 20

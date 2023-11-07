@@ -1,5 +1,44 @@
 {% extends "base.html" %}
+<!-- Accessing data from foreign key per solution in stack overflow:
+https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-data-in-django-templates
+ -->
 
 {% block content %}
-EMISSION CHECKS
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="md-10 mx-auto">
+            <table class="emission-checks-table">
+                <tr>
+                    <th>
+                        <h5>Emission</h5>
+                    </th>
+                    <th>
+                        <h5>Comments</h5>
+                    </th>
+                    <th>
+                        <h5>Status</h5>
+                    </th>
+                    <th>
+                        <h5>Check Status</h5>
+                    </th>
+                    <th>
+                        <h5>Checked By</h5>
+                    </th>
+                </tr>
+            </table>
+    </div>
+    </div>
+</div>
+<div>{{checks}}
+    EMISSION CHECKS
+    {{emission}}
+    {% for check in emissioncheck_list %}
+    {{check.status}}
+    {{check.comments}}
+    {{check.title.description}}
+    <img src="{{check.title.emission_image.url}}" alt="Image of emission {{check.title}}" width="100%" height="100%"
+    id="emission-detail-img" class="shadow">
+    {% endfor %}</div>
+<!-- {% debug %} -->
 {% endblock%}
