@@ -9,11 +9,13 @@ window.addEventListener("DOMContentLoaded", function () {
     hideElements()
     updateChecksComplete()
     statusFilter()
+    updateStatus()
 });
 
 window.addEventListener('resize', function (event) {
     hideElements()
     adjustMapZoom()
+    updateStatus()
 }, true);
 
 
@@ -91,6 +93,18 @@ function updateChecksComplete() {
         for (let check of checksCompleteTd) {
             check.className += " emission-detail-td-row";
         }
+    }
+}
+
+function updateStatus() {
+    let status = document.getElementById('status-cell');
+    console.log(status.innerText)
+    if (status.innerText === 'Open') {
+        status.style.backgroundColor = ('green');
+        status.style.color = ('white');
+    } else if (status.innerText === 'Closed'){
+        status.style.backgroundColor = ('red');
+        status.style.color = ('white');
     }
 }
 /**
