@@ -3,24 +3,29 @@
 {% block content %}
 
 <div class="container-fluid mt-md-3">
-    <div class="row mt-1">
-        <div class="col-md-6 p-3">
+    <div class="row">
+        <div class="col-12 col-md-10 mt-1 mt-md-3 mx-auto">
+            <div id="map" class="shadow"></div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <!-- <div class="col-md-5 p-3 offset-md-1">
             <div class="row h-100">
                 <div class="col-12">
                     <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
                         id="emission-detail-img" class="shadow">
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 p-3">
+        </div> -->
+        <div class="col-md-10 p-3 mx-auto mt-1 mt-md-3">
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-container shadow">
                         <table id="emission-detail-table">
                             <tr>
                                 <thead>
-                                    <th>
-                                        <h5>Title</h5>
+                                    <th colspan="2" id="title-cell">
+                                        <h5>{{title}}</h5>
                                     </th>
                                     <th>
                                         <h5>Location</h5>
@@ -34,8 +39,9 @@
                                 </thead>
                             </tr>
                             <tr>
-                                <td>
-                                    <p>{{title}}</p>
+                                <td rowspan="3" colspan="2">
+                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
+                                    id="emission-detail-img" class="shadow">
                                 </td>
                                 <td>
                                     <p>{{location}}</p>
@@ -51,20 +57,17 @@
                                 <th colspan="3">
                                     <h5>Description</h5>
                                 </th>
-                                <th>
-                                    <h5>Status</h5>
-                                </th>
                             </tr>
                             <tr>
                                 <td colspan="3">
                                     <p>{{description}}</p>
                                 </td>
-                                <td>
-                                    <p>{{status}}</p>
-                                </td>
                             </tr>
                             {% if status == 'Open' %}
                             <tr>
+                                <th>
+                                    <h5>Status</h5>
+                                </th>
                                 <th>
                                     <h5>Check Status</h5>
                                 </th>
@@ -80,6 +83,9 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <p>{{status}}</p>
+                                </td>
+                                <td>
                                     <p class="check_status emission-detail-check_status">{{check_complete}}</p>
                                 </td>
                                 <td>
@@ -94,7 +100,10 @@
                             </tr>
                             {% else %}
                             <tr>
-                                <th colspan="2">
+                                <th>
+                                    <h5>Status</h5>
+                                </th>
+                                <th  colspan="2">
                                     <h5>Close Out Comments</h5>
                                 </th>
                                 <th>
@@ -105,6 +114,9 @@
                                 </th>
                             </tr>
                             <tr>
+                                <td>
+                                    <p>{{status}}</p>
+                                </td>
                                 <td colspan="2">
                                     <p>{{close_out_comments}}</p>
                                 </td>
@@ -120,8 +132,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row gx-3">
-                <div class="col-4 mt-3">
+            <div class="row gx-3 mt-md-3">
+                <div class="col-3 mt-3 mx-auto">
                     <button class="btn go-back btn-red-back-white-font shadow" onclick="goBack()"><i
                             class="fa-solid fa-left-long"></i>
                         <p>Go Back</p>
@@ -133,38 +145,33 @@
                 https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
                  -->
                 {% if status == 'Closed' %}
-                <div class="col-4 mt-3">
+                <div class="col-3 mt-3 mx-auto">
                     <a href="#" onclick="buttonDisabled(event, true);" class="btn btn-unavailable shadow">Close
                         Emission</a>
                 </div>
                 {% elif perms.monitoring_tool.change_emission %}
-                <div class="col-4 mt-3">
+                <div class="col-3 mt-3 mx-auto">
                     <a href="{% url 'close-emission' slug%}" class="btn btn-white-back-red-font shadow">Close
                         Emission</a>
                 </div>
                 {% else %}
-                <div class="col-4 mt-3">
+                <div class="col-3 mt-3 mx-auto">
                     <a href="#" onclick="buttonDisabled(event, false);" class="btn btn-unavailable shadow">Close
                         Emission</a>
                 </div>
                 {% endif %}
                 {% if perms.monitoring_tool.delete_emissioncheck %}
-                <div class="col-4 mt-3">
+                <div class="col-3 mt-3 mx-auto">
                     <a href="{% url 'delete-emission' slug%}" class="btn btn-white-back-red-font shadow"
                         onclick="confirmAction(event, false)">Delete Emission</a>
                 </div>
                 {% else %}
-                <div class="col-4 mt-3">
+                <div class="col-3 mt-3 mx-auto">
                     <a href="#" class="btn btn-unavailable shadow" aria-disabled="true"
                         onclick="buttonDisabled(event, false);">Delete Emission</a>
                 </div>
                 {% endif %}
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 mt-md-3">
-            <div id="map" class="shadow"></div>
         </div>
     </div>
 </div>
