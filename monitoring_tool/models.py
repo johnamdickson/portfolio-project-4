@@ -96,6 +96,14 @@ class EmissionCheck(models.Model):
         User, on_delete=models.RESTRICT
     )
 
+    def calculate_status(self):
+        if self.status == 1:
+            return "No Emission Detected"
+        elif self.status ==2:
+            return "Below Minimum Threshold"
+        elif self.status ==3:
+            return "Above Minimum Threshold"
+
 # solution to update field in Emission model from stack overflow:
 # https://stackoverflow.com/questions/71477386/update-a-model-field-when-another-modal-field-is-updated
     def save(self, *args, **kwargs):

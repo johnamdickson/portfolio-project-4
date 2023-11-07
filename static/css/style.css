@@ -935,6 +935,35 @@ border-bottom-right-radius: 8px;
     width: 100%;
 }
 
+/* Styling for text overlay on image from site below:
+https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/#:~:text=Overlaying%20Text%20on%20an%20Image%20in%20HTML%20and%20CSS,-HTML&text=In%20the%20body%20section%2C%20create,and%20add%20your%20text%20inside.
+ */
+
+.image-container{
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.image-container img {
+    width: 175px;
+    height: 100%;
+    margin: 0;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 125px;
+    background-color: #dc3123; 
+    color: #fafafa; 
+    padding: 5px 10px; 
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #fafafa
+  }
 
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
