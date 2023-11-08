@@ -12,8 +12,8 @@ body {
 https://stackoverflow.com/questions/50490814/how-to-change-bootstrap-primary-color-to-linear-gradient
 https://cssgradient.io/#:~:text=A%20CSS%20linear%20gradient%20can,customize%20your%20gradient%20even%20further.
  */
- .bg-gradient-primary {
-    background-image: linear-gradient(to right, #dc3123 0%,#dc3123 35%, #36454F 100%) ;
+ .nav-bg-gradient {
+    background-image: linear-gradient(45deg, #dc3123 0%,#dc3123 35%, #36454F 100%) ;
 
 }
 
@@ -238,7 +238,14 @@ input[type='checkbox'] {
 }
 
 /* style card fonts to responsively size */
+
+/* .custom-welcome-body-bg-gradient {
+    background-image: linear-gradient(180deg, #fafafa75 0%, #dc3123 5%, #dc3123 100%)  ;
+} */
+
 .custom-welcome-body {
+    /* embossed effect taken from my PP2 project Wildcards */
+    box-shadow: inset 5px 5px 8px 1px #fafafa50, inset -1px -5px 4px 2px #36454F50;
     background-color: #dc3123;
     color: #fafafa;
     border-radius: 100px 20px 100px 20px;
@@ -314,6 +321,11 @@ input[type='checkbox'] {
     border-radius: 15px 50px 15px 15px;
 }
 
+.card-bg-gradient {
+    background-image: linear-gradient(225deg, #fafafa90 0%, #36454F90 100%)  ;
+
+}
+
 .card {
     margin: 10px 25px;
     color: #fafafa;
@@ -381,7 +393,8 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .card:hover {
-    background-color: #36454F90;
+    background-image: linear-gradient(225deg, #fafafa 0%, #36454F 100%) ;
+
 }
 
 /* style carousel controls */
