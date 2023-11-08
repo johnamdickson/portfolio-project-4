@@ -291,6 +291,7 @@ const confirmAction = (event) => {
     }
 
 }
+
 /**
  * go back function activated by a button where the window is not 
  * represented in the nav bar items.
@@ -299,10 +300,12 @@ function goBack() {
     window.location.replace(document.referrer);
 }
 
+/**
+ * Function to read event text and determine appropriate response
+ * in the alert col by adjusting the inner html.
+ */
 const buttonDisabled = (event, closed) => {
     let eventSourceText = event.srcElement.innerText
-    console.log(eventSourceText)
-    console.log(closed)
     if (closed && eventSourceText === 'Close Emission') {
         alertText = `<p>This emission is already closed.</p>`
     }
