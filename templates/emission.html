@@ -7,9 +7,9 @@
   <div class="container-fluid">
     <div class="row emission-page-top p-3">
       <div class="d-none d-md-block col-md-5 p-4 mx-auto">
-        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img shadow">
+        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img custom-callout">
       </div>
-      <div class="p-sm-3 col-md-6 p-md-4 mx-auto emission-callout shadow">
+      <div class="p-sm-3 col-md-6 p-md-4 mx-auto emission-callout custom-callout">
           <h3 class="callout-hidden">Emissions List</h3>
           <ul>
             <li>
@@ -35,14 +35,14 @@
                   <p class=>Easily add a new emission to the system.</p>
                 </div>
             </li>
-            <li id="create-emission-button">
+            <li id="create-emission-li">
               {% if perms.monitoring_tool.add_emission %}
               <div>
-                  <a href="{% url 'add-emission' %}" class="btn btn-white-back-red-font">Add New Emission</a>
+                  <a href="{% url 'add-emission' %}" class="btn btn-white-back-red-font create-emission-button">Add New Emission</a>
               </div>
               {% else %}
               <div>
-                <a href="#" class="btn btn-unavailable" onclick="buttonDisabled(event);">Add New Emission</a>
+                <a href="#" class="btn btn-unavailable create-emission-button" onclick="buttonDisabled(event);">Add New Emission</a>
             </div>
             {% endif %}
           </li>
