@@ -8,7 +8,7 @@ EMISSION_TYPES = (
 )
 
 CHECK_STATUS = (
-    (1, ("None Detected")),
+    (1, ("No Emission Detected")),
     (2, ("Below Minimum Threshold")),
     (3, ("Above Minimum Threshold")),
 )
