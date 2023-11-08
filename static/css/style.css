@@ -13,7 +13,7 @@ https://stackoverflow.com/questions/50490814/how-to-change-bootstrap-primary-col
 https://cssgradient.io/#:~:text=A%20CSS%20linear%20gradient%20can,customize%20your%20gradient%20even%20further.
  */
  .nav-bg-gradient {
-    background-image: linear-gradient(45deg, #dc3123 0%,#dc3123 35%, #36454F 100%) ;
+    background-image: linear-gradient(45deg, #dc3123 0%,#dc3123 65%, #95150a 100%) ;
 
 }
 
@@ -239,11 +239,7 @@ input[type='checkbox'] {
 
 /* style card fonts to responsively size */
 
-/* .custom-welcome-body-bg-gradient {
-    background-image: linear-gradient(180deg, #fafafa75 0%, #dc3123 5%, #dc3123 100%)  ;
-} */
-
-.custom-welcome-body {
+.custom-callout {
     /* embossed effect taken from my PP2 project Wildcards */
     box-shadow: inset 5px 5px 8px 1px #fafafa50, inset -1px -5px 4px 2px #36454F50;
     background-color: #dc3123;
@@ -252,17 +248,17 @@ input[type='checkbox'] {
     padding: 10px;
 }
 
-.custom-welcome-body ul {
+.custom-callout ul {
     list-style: none;
     line-height: 1.7;
 }
 
-.custom-welcome-body .fa-solid,
+.custom-callout .fa-solid,
 .fa-brands {
     font-size: 15px;
 }
 
-.custom-welcome-body li {
+.custom-callout li {
     display: flex;
 }
 
@@ -593,7 +589,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     display: flex;
     align-items:center;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
 }
 .emission-page-img {
@@ -638,7 +634,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     display: flex;
 }
 
-#create-emission-button{
+#create-emission-li{
     justify-content: center;
     margin-top: 5px;
 }
@@ -647,7 +643,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     background-color: #fafafa;
     color: #dc3123;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    font-size: clamp(0.8rem, 1.4vw, 1.4rem);
     padding:10px;
     border: 1px solid #dc3123;
     text-align: center;
@@ -671,7 +667,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     color: #fafafa;
     opacity: 0.2;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    font-size: clamp(0.8rem, 1.4vw, 1.4rem);
     padding:10px;
     border: 1px solid black;
     text-align: center;
@@ -764,7 +760,10 @@ https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-b
     position: sticky;
     top: 0;
     z-index: 1;
+    background-image: linear-gradient(180deg, #fafafa90 0%, #36454F90 15%);
 }
+
+
 
 /* _________________________________________  Emission Detail styling  ________________________________________________ */
 
@@ -778,6 +777,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     border-collapse: separate;
     width: 100%;
     height: 100%;
+    overflow-x: auto;
 }
 
 #emission-detail-table {
@@ -792,7 +792,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     vertical-align: middle;
 }
 
-#emission-detail-table th {
+#emission-detail-table tbody th {
     background-color: #36454F;
     color: #fafafa;
     height: 50px;
@@ -800,7 +800,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     border-top: none;
 }
 
-#emission-detail-table td {
+#emission-detail-table tbody td {
     border: 1px solid #36454F50;
     border-top: none;
     border-bottom: none;
@@ -867,13 +867,20 @@ border-bottom-right-radius: 8px;
     flex-direction: row;
 }
 
+#emission-detail-table-title {
+    height: 85px;
+}
+
 #emission-detail-table-title th{
     background-color: #dc3123;
+    border-bottom: 1px solid #fafafa;
+    background-image: linear-gradient(0deg, #dc3123 0%,#dc3123 85%, #fafafa 100%) 
 }
 
 #emission-detail-table-title h5{
-    font-size:clamp(1.25rem, 2.15vw, 1.75rem);
+    font-size:clamp(1.5rem, 3vw, 2.1rem);
     font-weight: bold;
+    color: white;
 }
 
 #map {
@@ -1010,8 +1017,6 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .home-row {
         margin-right: 50px;
     }
-
-
 }
 
 @media only screen and (max-width: 992px) {
@@ -1074,12 +1079,12 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         line-height: 1;
     }
 
-    .custom-welcome-body {
+    .custom-callout {
         border-radius: 10px;
-        padding: 0;
+        padding: 15px;
     }
 
-    .custom-welcome-body ul {
+    .custom-callout ul {
         line-height: 1;
         margin: 10px 5px -1px 5px;
     }
@@ -1090,6 +1095,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     #map {
         height: 450px;
+      }
+
+      .create-emission-button {
+        height: 50px;
       }
 }
 
@@ -1126,9 +1135,21 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         height: 90px;
     }
 
-    .btn-white-back-red-font, .btn-red-back-white-font {
+    .btn-white-back-red-font, .btn-red-back-white-font, .btn-unavailable {
         height: 50px;
         margin-top: 0;
+    }
+
+    .btn-red-back-white-font p {
+        margin: 0 0.1rem 0 0.1rem;
+    }
+    
+    .checks-complete-td {
+        flex-wrap: wrap;
+    }
+
+    .checks-complete-td p{
+        margin: 0.1em !important;
     }
 }
 
