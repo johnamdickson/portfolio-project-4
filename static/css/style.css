@@ -8,6 +8,15 @@ body {
 
 /* _________________________________________  Base html styling  __________________________________________ */
 
+/* change boostrap primary gradient to match the theme colors
+https://stackoverflow.com/questions/50490814/how-to-change-bootstrap-primary-color-to-linear-gradient
+https://cssgradient.io/#:~:text=A%20CSS%20linear%20gradient%20can,customize%20your%20gradient%20even%20further.
+ */
+ .bg-gradient-primary {
+    background-image: linear-gradient(to right, #dc3123 0%,#dc3123 35%, #36454F 100%) ;
+
+}
+
 nav {
     flex:none;
 }
@@ -47,7 +56,9 @@ hr {
 
 .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
     font-weight: 400;
+    color: #fafafa;
 }
+
 .navbar-brand {
     font-size: 1.75rem;
     letter-spacing: 0.2em;
@@ -306,7 +317,7 @@ input[type='checkbox'] {
 .card {
     margin: 10px 25px;
     color: #fafafa;
-    background-color: #dc3123;
+    background-color: #36454F;
     border-radius: 15px 50px 15px 50px;
     border: 1px solid #fafafa;
     height: 100%;
@@ -352,7 +363,7 @@ input[type='checkbox'] {
 https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-only
  */
 .card table td {
-    border-left: 0.5px solid #36454F;
+    border-left: 0.5px solid #fafafa;
     padding: 5px;
 }
 
@@ -361,7 +372,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .card table tr {
-    border-top: 0.25px solid #36454F;
+    border-top: 0.25px solid #fafafa;
 }
 
 .card a {
@@ -370,7 +381,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .card:hover {
-    background-color: rgba(220, 49, 35, 0.85);
+    background-color: #36454F90;
 }
 
 /* style carousel controls */
