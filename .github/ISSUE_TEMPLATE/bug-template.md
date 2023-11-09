@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
-**Bug Description**
+**Epic:**
 
-**Actions to Resolve**
+**Bug Description:**
+
+**Actions to Resolve:**
