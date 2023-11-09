@@ -2,7 +2,6 @@
 
 window.addEventListener('load', function () {
     startCarousel()
-    initMap()
 })
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -415,6 +414,7 @@ async function addMarker() {
     marker.setMap(map)
 }
 
+initMap()
 /**
  * Adjust zoom of the map depending on screen size. 
  * Called on page load and when the window is resized.
