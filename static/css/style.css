@@ -13,8 +13,7 @@ https://stackoverflow.com/questions/50490814/how-to-change-bootstrap-primary-col
 https://cssgradient.io/#:~:text=A%20CSS%20linear%20gradient%20can,customize%20your%20gradient%20even%20further.
  */
  .nav-bg-gradient {
-    background-image: linear-gradient(45deg, #dc3123 0%,#dc3123 65%, #95150a 100%) ;
-
+    background-image: linear-gradient(270deg, #dc3123 0%,#dc3123 45%, #95150a 100%) ;
 }
 
 nav {
