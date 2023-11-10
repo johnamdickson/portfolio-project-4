@@ -1001,12 +1001,11 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
 .image-container{
     position: relative;
     display: inline-block;
-    height: 100%;
 }
 
 .image-container img {
     width: 175px;
-    height: 100%;
+    object-fit: cover;
     margin: 0;
   }
   
@@ -1047,56 +1046,47 @@ https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
     font-family: "FontAwesome";
     font-weight: 900;
     font-size: 1.5em;
-    left:6px;
+    left:8px;
     position:absolute;
     height: 100px;
     color: #36454F;
-    top:8px;
+    top:6px;
     content: "\f002";  /* this is your text. You can also use UTF-8 character codes as I do here */
   }
 
-  .btn-grey-back-red-font-small {
-    background-color: #d3cfcf;
+.btn-icon-grey-small i{
+font-size: 30px;
+color: #36454F;
+}
+
+.btn-icon-grey-small {
+    padding: 0;
+}
+
+.btn-icon-grey-small:hover{
+    color:#36454F90;
+}
+
+.btn-icon-red-small i{
+    font-size: 30px;
     color: #dc3123;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.7rem;
-    /* padding:10px; */
-    border: 1px solid #dc3123;
-    text-align: center;
-    width: 120px;
-    letter-spacing: 0.2em;
+}
+
+.btn-icon-red-small {
+    padding:0;
+}
+
+.btn-icon-red-small i:hover{
+    color:#dc312390;
+}
+
+.btn-row {
     display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-}
-
-.btn-grey-back-red-font-small:hover{
-    background-color: #d3cfcf90;
-    color:#dc3123;
-    border-color: #d3cfcf;
-}
-
-.btn-red-back-white-font-small {
-    background-color: #dc3123;
-    color: #fafafa;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.7rem;
-    border: 1px solid #d3cfcf;
-    text-align: center;
     width: 120px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
+    margin: 0;
+    justify-content: space-between;
 }
 
-.btn-red-back-white-font-small:hover{
-    background-color: #dc312390;
-    color:#fafafa;
-    border-color: #dc3123;
-}
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:

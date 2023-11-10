@@ -56,25 +56,27 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                             <td>
                                 {{check.calculate_status}}
                             </td>
-                            <td>
+                            <td class="checked-by">
                                 {{check.checked_by}}
                             </td>
                             <td>
                                 {{check.date_checked}}
                             </td>
                             <td>
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <a href="" class="btn btn-grey-back-red-font-small mb-2">Edit Check</a>
+                                    <div class="btn-row">
+                                        <!-- how to enable text on element hover:
+                                        https://stackoverflow.com/questions/11022843/add-hover-text-without-javascript-like-we-hover-on-a-users-reputation
+                                        -->
+                                        <div>
+                                            <a title="Add a New Emission Check for {{check.title}}" href="" class="btn btn-icon-grey-small"><i class="fa-solid fa-circle-plus btn-icon-grey-small"></i></a>
+                                        </div>
+                                        <div>
+                                            <a title="Edit this Emission Check" href="" class="btn btn-icon-grey-small"><i class="fa-solid fa-pen-to-square btn-icon-grey-small"></i></a>
+                                        </div>
+                                        <div>
+                                            <a title="Delete this Emission Check" href="" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <a href="" class="btn btn-red-back-white-font-small mb-2">Delete Check</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                         {% endfor %}
