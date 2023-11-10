@@ -566,8 +566,28 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .emissions-table tr {
     font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+    cursor: pointer;
+    opacity: 0;
+    animation: 1s ease-out 0s 1 appear forwards;
 }
 
+@keyframes appear {
+  0% {
+    opaity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+  
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 .emissions-table td {
     font-size: clamp(0.6rem, 1.2vw, 0.9rem);
     border: 0.5px solid #36454F;
