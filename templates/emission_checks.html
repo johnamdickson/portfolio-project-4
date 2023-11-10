@@ -9,60 +9,79 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
     <div class="row">
         <div class="md-10 mx-auto">
             <div class="table-responsive table-fixed-head shadow">
-            <table class="table-hover emissions-table">
-                <thead>
-                <tr>
-                    <th>
-                        Emission
-                    </th>
-                    <th>
-                        Comments
-                    </th>
-                    <th>
-                        Check Status
-                    </th>
-                    <th>
-                        Checked By
-                    </th>
-                    <th>
-                        Date Checked
-                    </th>
-                    <th>
-                        Options
-                    </th>
-                </tr>
-                </thead>
-                
-                {% for check in emissioncheck_list %}
-                <tr>
-                    <td>
-                        <div class="image-container">
-                            <img src="{{check.title.emission_image.url}}" alt="Image of emission {{check.title}}" width="120px">
-                            <div class="overlay-text">
-                                {{check.title}}
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p>{{check.comments}}</p>
-                    </td>
-                    <td>
-                        <p>{{check.calculate_status}}</p>
-                    </td>
-                    <td>
-                        <p>{{check.checked_by}}</p>
-                    </td>
-                    <td>
-                        <p>{{check.date_checked}}</p>
-                    </td>
-                    <td>
-                       
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
+                <table class="table-hover emissions-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Emission
+                            </th>
+                            <th>
+                                Comments
+                            </th>
+                            <th>
+                                Check Status
+                            </th>
+                            <th>
+                                Checked By
+                            </th>
+                            <th>
+                                Date Checked
+                            </th>
+                            <th>
+                                Options
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                        <tr>
+                            
+                            <td colspan="6">
+                                <input type="text" id="emissionCheckSearch" onkeyup="myFunction()" placeholder="Search by emission name" title="Type in an emission">
+                            </td>
+                        </tr>
+                        {% for check in emissioncheck_list %}
+                        <tr>
+                            <td class="table-img-td">
+                                <div class="image-container">
+                                    <img src="{{check.title.emission_image.url}}"
+                                        alt="Image of emission {{check.title}}" width="120px">
+                                    <div class="overlay-text">
+                                        {{check.title}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                {{check.comments}}
+                            </td>
+                            <td>
+                                {{check.calculate_status}}
+                            </td>
+                            <td>
+                                {{check.checked_by}}
+                            </td>
+                            <td>
+                                {{check.date_checked}}
+                            </td>
+                            <td>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href="" class="btn btn-grey-back-red-font-small mb-2">Edit Check</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href="" class="btn btn-red-back-white-font-small mb-2">Delete Check</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    
+                </table>
+            </div>
         </div>
-    </div>
     </div>
 </div>
 {% endblock%}
