@@ -1070,6 +1070,34 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
     border: 1px solid #fafafa
   }
 
+  #filter-container {
+    position: relative;
+    margin:10px;
+    border: 0.5px solid #36454F;
+    border-radius: 5px;
+ }
+
+  #emissionCheckSearch {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 10px 12px 40px;
+    border: none;
+    background-color: #ffffff00;
+  }
+/* How to use font awesome icons instead of background image:
+https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
+ */
+  #filter-container::before{
+    font-family: "FontAwesome";
+    font-weight: 900;
+    font-size: 1.5em;
+    left:6px;
+    position:absolute;
+    height: 100px;
+    color: #36454F;
+    top:8px;
+    content: "\f002";  /* this is your text. You can also use UTF-8 character codes as I do here */
+  }
 
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 

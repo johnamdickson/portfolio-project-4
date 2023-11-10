@@ -34,9 +34,11 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                     </thead>
                     
                         <tr>
-                            
+
                             <td colspan="6">
-                                <input type="text" id="emissionCheckSearch" onkeyup="myFunction()" placeholder="Search by emission name" title="Type in an emission">
+                                <div id="filter-container">
+                                    <input type="text" id="emissionCheckSearch" onkeyup="myFunction()" placeholder="Search by emission name" title="Type in an emission">
+                                </div>
                             </td>
                         </tr>
                         {% for check in emissioncheck_list %}
