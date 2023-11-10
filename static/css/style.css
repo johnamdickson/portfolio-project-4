@@ -237,6 +237,9 @@ input[type='checkbox'] {
 }
 
 /* style card fonts to responsively size */
+.embossed {
+    box-shadow: inset 5px 5px 8px 1px #fafafa50, inset -1px -5px 4px 2px #36454F50;
+}
 
 .custom-callout {
     /* embossed effect taken from my PP2 project Wildcards */
@@ -656,6 +659,29 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .btn-white-back-red-font:hover{
+    background-color: #fafafa90;
+    color:#dc3123;
+    border-color: #fafafa;
+}
+
+.btn-white-back-red-font-small {
+    background-color: #fafafa;
+    color: #dc3123;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.5rem, 0.8vw, 0.6rem);
+    padding:10px;
+    border: 1px solid #dc3123;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.btn-white-back-red-font-small:hover{
     background-color: #fafafa90;
     color:#dc3123;
     border-color: #fafafa;
