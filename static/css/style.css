@@ -690,51 +690,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     border-color: #fafafa;
 }
 
-.btn-grey-back-red-font-small {
-    background-color: #d3cfcf;
-    color: #dc3123;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(0.5rem, 0.8vw, 0.6rem);
-    /* padding:10px; */
-    border: 1px solid #dc3123;
-    text-align: center;
-    width: 120px;
-    height: 20px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-}
-
-.btn-grey-back-red-font-small:hover{
-    background-color: #d3cfcf90;
-    color:#dc3123;
-    border-color: #d3cfcf;
-}
-
-.btn-red-back-white-font-small {
-    background-color: #dc3123;
-    color: #fafafa;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(0.5rem, 0.8vw, 0.6rem);
-    border: 1px solid #d3cfcf;
-    text-align: center;
-    width: 120px;
-    height: 20px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-}
-
-.btn-red-back-white-font-small:hover{
-    background-color: #dc312390;
-    color:#fafafa;
-    border-color: #dc3123;
-}
-
 .btn-unavailable {
     background-color: #36454F;
     color: #fafafa;
@@ -1075,6 +1030,7 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
     margin:10px;
     border: 0.5px solid #36454F;
     border-radius: 5px;
+    background-color: #fafafa;
  }
 
   #emissionCheckSearch {
@@ -1099,6 +1055,48 @@ https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
     content: "\f002";  /* this is your text. You can also use UTF-8 character codes as I do here */
   }
 
+  .btn-grey-back-red-font-small {
+    background-color: #d3cfcf;
+    color: #dc3123;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem;
+    /* padding:10px; */
+    border: 1px solid #dc3123;
+    text-align: center;
+    width: 120px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.btn-grey-back-red-font-small:hover{
+    background-color: #d3cfcf90;
+    color:#dc3123;
+    border-color: #d3cfcf;
+}
+
+.btn-red-back-white-font-small {
+    background-color: #dc3123;
+    color: #fafafa;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem;
+    border: 1px solid #d3cfcf;
+    text-align: center;
+    width: 120px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.btn-red-back-white-font-small:hover{
+    background-color: #dc312390;
+    color:#fafafa;
+    border-color: #dc3123;
+}
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:

@@ -6,12 +6,19 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
 {% block content %}
 
 <div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-10 mx-auto">
+                    <div id="filter-container">
+                        <input type="text" id="emissionCheckSearch" onkeyup="filterChecks()" placeholder="Search by emission or username" title="Type in an emission">
+                    </div>
+        </div>
+    </div>
     <div class="row">
         <div class="md-10 mx-auto">
             <div class="table-responsive table-fixed-head shadow">
-                <table class="table-hover emissions-table">
+                <table class="table-hover emissions-table" id="emissionChecksTable">
                     <thead>
-                        <tr>
+                        <tr class="header">
                             <th>
                                 Emission
                             </th>
@@ -32,15 +39,6 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                             </th>
                         </tr>
                     </thead>
-                    
-                        <tr>
-
-                            <td colspan="6">
-                                <div id="filter-container">
-                                    <input type="text" id="emissionCheckSearch" onkeyup="myFunction()" placeholder="Search by emission name" title="Type in an emission">
-                                </div>
-                            </td>
-                        </tr>
                         {% for check in emissioncheck_list %}
                         <tr>
                             <td class="table-img-td">

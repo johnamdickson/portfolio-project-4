@@ -430,3 +430,28 @@ function adjustMapZoom(){
             map.setZoom(19)
         }
 }
+
+// solution to filtering table from Stack Overflow:
+// https://stackoverflow.com/questions/51187477/how-to-filter-a-html-table-using-simple-javascript
+
+const filterChecks = () => {
+    const columns = [
+      { name: 'Emission', index: 0, isFilter: true },
+      { name: 'Comments', index: 1, isFilter: false },
+      { name: 'Check Status', index: 2, isFilter: false },
+      { name: 'Checked By', index: 3, isFilter: true },
+    ]
+    const filterColumns = columns.filter(c => c.isFilter).map(c => c.index)
+    const trs = document.querySelectorAll(`#emissionChecksTable tr:not(.header)`)
+    const filter = document.querySelector('#emissionCheckSearch').value
+    const regex = new RegExp((filter), 'i')
+    const isFoundInTds = td => regex.test(td.innerHTML)
+    const isFound = childrenArr => childrenArr.some(isFoundInTds)
+    const setTrStyleDisplay = ({ style, children }) => {
+      style.display = isFound([
+        ...filterColumns.map(c => children[c]) // <-- filter Columns
+      ]) ? '' : 'none'
+    }
+    
+    trs.forEach(setTrStyleDisplay)
+  }
