@@ -42,9 +42,9 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                         {% for check in emissioncheck_list %}
                         <tr>
                             <td class="table-img-td">
-                                <div class="image-container">
+                                <div class="img-container">
                                     <img src="{{check.title.emission_image.url}}"
-                                        alt="Image of emission {{check.title}}" width="120px">
+                                        alt="Image of emission {{check.title}}">
                                     <div class="overlay-text">
                                         {{check.title}}
                                     </div>
@@ -63,7 +63,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                 {{check.date_checked}}
                             </td>
                             <td>
-                                    <div class="btn-row">
+                                    <div class="btn-row mx-auto">
                                         <!-- how to enable text on element hover:
                                         https://stackoverflow.com/questions/11022843/add-hover-text-without-javascript-like-we-hover-on-a-users-reputation
                                          -->
