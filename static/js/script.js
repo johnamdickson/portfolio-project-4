@@ -36,17 +36,36 @@ setTimeout(function () {
  */
 function hideElements() {
     let windowWidth = window.innerWidth;
+    let descriptionCells = document.getElementsByClassName("description-cell")
+    let hiddenCells = document.getElementsByClassName("hidden-col")
     let hiddenElements = document.getElementsByClassName("callout-hidden");
+    for (let cell of hiddenCells) {
+        if (windowWidth <= 982) {
+            cell.style.display = 'none'
+        } else if (windowWidth > 982){
+            cell.style.display = 'table-cell'
+            }
+    }
+    for (let cell of descriptionCells) {
+        if (windowWidth <= 982) {
+            cell.setAttribute('colspan', '2')
+        }
+        else if (windowWidth >982){
+            cell.setAttribute('colspan', '3')
+        }
+    }
     if (windowWidth <= 767) {
         for (let elements of hiddenElements) {
             elements.style.display = 'none'
         }
+
     } else {
         for (let elements of hiddenElements) {
             elements.style.display = 'block'
         }
     }
 }
+
 
 /**
  * Adds a fontawseome icon to home page html depending on element text.
@@ -273,19 +292,16 @@ function statusFilter() {
 const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
+    let eventSourceClassList = event.srcElement.classList
     let eventSourceText = event.srcElement.innerText
     // switch the event source text to determine the text for the confirmation prompt.
-    switch(eventSourceText) {
-        case 'Close Emission':
-            confirmText = 'Are you sure you want to close the emission?'
-            break;
-        case 'Delete Emission':
-            confirmText = 'Are you sure you want to delete the emission? This action cannot be reversed'
-            break;
-        default:
-          break;
-      }
-      if(!confirm(confirmText)) {
+    if (eventSourceText === "Close Emission") {
+        confirmText = 'Are you sure you want to close the emission?'
+    } else if (eventSourceClassList[1] === 'fa-trash-can') {
+        confirmText = 'Are you sure you want to delete the emission? This action cannot be reversed'
+    }
+
+    if(!confirm(confirmText)) {
         event.preventDefault();
     }
 
@@ -305,7 +321,6 @@ function goBack() {
  */
 const buttonDisabled = (event, closed) => {
     let eventSourceClassList = event.srcElement.classList
-    console.log(eventSourceClassList)
     if (closed && eventSourceClassList[1] === 'fa-flag-checkered') {
         alertText = `<p>This emission is already closed.</p>`
     }
