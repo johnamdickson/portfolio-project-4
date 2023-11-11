@@ -125,14 +125,21 @@
                             </tr>
                             {% endif %}
                         </table>
+                        
                     </div>
                 </div>
             </div>
-            <div class="row gx-3 mt-md-3">
-                <div class="col-3 mt-3 mx-auto">
-                    <button class="btn go-back btn-red-back-white-font shadow" onclick="goBack()"><i
-                            class="fa-solid fa-left-long"></i>
-                        <p>Go Back</p>
+            <div class="row gx-1 m mt-4 mt-md-5 emission-detail-options shadow ">
+                <div class="col-3 options-col">
+                    <div class="row h-100">
+                        <div class="col-10 my-auto m-3">
+                            <h4>Options</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 m-auto">
+                    <button title="Go Back" class="btn go-back btn-icon-grey" onclick="goBack()">
+                        <i class="fa-solid fa-circle-left"></i>
                     </button>
                 </div>
                 <!-- 
@@ -141,30 +148,27 @@
                 https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
                  -->
                 {% if status == 'Closed' %}
-                <div class="col-3 mt-3 mx-auto">
-                    <a href="#" onclick="buttonDisabled(event, true);" class="btn btn-unavailable shadow">Close
-                        Emission</a>
+                <div class="col-3 m-auto">
+                    <a title="Emission {{title}} is Closed" href="#" onclick="buttonDisabled(event, true);" class="btn btn-unavailable"><i class="fa-solid fa-flag-checkered"></i></a>
                 </div>
                 {% elif perms.monitoring_tool.change_emission %}
-                <div class="col-3 mt-3 mx-auto">
-                    <a href="{% url 'close-emission' slug%}" class="btn btn-white-back-red-font shadow">Close
-                        Emission</a>
+                <div class="col-3 m-auto">
+                    <a title="Close Emission {{title}}" href="{% url 'close-emission' slug%}" class="btn btn-icon-grey"><i class="fa-solid fa-flag-checkered"></i></a>
                 </div>
                 {% else %}
-                <div class="col-3 mt-3 mx-auto">
-                    <a href="#" onclick="buttonDisabled(event, false);" class="btn btn-unavailable shadow">Close
-                        Emission</a>
+                <div class="col-3 m-auto">
+                    <a title="Insufficient Permissions to Close Emission {{title}}" href="#" onclick="buttonDisabled(event, false);" class="btn btn-unavailable"><i class="fa-solid fa-flag-checkered"></i></a>
                 </div>
                 {% endif %}
                 {% if perms.monitoring_tool.delete_emissioncheck %}
-                <div class="col-3 mt-3 mx-auto">
-                    <a href="{% url 'delete-emission' slug%}" class="btn btn-white-back-red-font shadow"
-                        onclick="confirmAction(event, false)">Delete Emission</a>
+                <div class="col-3 m-auto">
+                    <a title="Delete Emission {{title}}" href="{% url 'delete-emission' slug%}" class="btn btn-icon-red"
+                        onclick="confirmAction(event, false)"><i class="fa-solid fa-trash-can"></i></a>
                 </div>
                 {% else %}
-                <div class="col-3 mt-3 mx-auto">
-                    <a href="#" class="btn btn-unavailable shadow" aria-disabled="true"
-                        onclick="buttonDisabled(event, false);">Delete Emission</a>
+                <div class="col-3 m-auto">
+                    <a title="Insufficient Permissions to Delete Emission {{title}}" href="#" class="btn btn-unavailable" aria-disabled="true"
+                        onclick="buttonDisabled(event, false);"><i class="fa-solid fa-trash-can"></i></a>
                 </div>
                 {% endif %}
             </div>

@@ -690,45 +690,11 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     border-color: #fafafa;
 }
 
-.btn-unavailable {
-    background-color: #36454F;
-    color: #fafafa;
-    opacity: 0.2;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(0.8rem, 1.4vw, 1.4rem);
-    padding:10px;
-    border: 1px solid black;
-    text-align: center;
+.add-btn-unavailable {
+    color: #fafafa80;
+    background-color: #d3cfcf50;
     width: 100%;
-    height: 70px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-}
-
-.btn-unavailable:hover{
-    background-color: #36454F;
-    color: #fafafa;
-    opacity: 0.2;
-}
-
-.btn-red-back-white-font {
-    background-color: #dc3123;
-    color: #fafafa;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(0.8rem, 1.25vw, 1.4rem);
-    padding:10px;
-    border: 1px solid #fafafa;
-    text-align: center;
-    width: 100%;
-    height: 70px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
+    /* opacity: 0.5; */
 }
 
 .btn-red-back-white-font:hover{
@@ -988,6 +954,68 @@ border-bottom-right-radius: 8px;
     color:#fafafa;
 }
 
+.emission-detail-options {
+    background-color: #fafafa;
+    border-radius: 10px;
+    border: 2px solid #fafafa
+}
+
+.emission-detail-options h4{
+    margin-bottom: 0;
+    color: #fafafa;
+}
+
+.options-col {
+    background-color: #36454F;
+    height: 100px;
+    border-radius: 8px 0 0 8px;
+}
+
+.btn-icon-red i{
+    font-size: 30px;
+    color: #dc3123;
+    text-align: center;
+}
+
+.btn-icon-red {
+    width:100%;
+}
+
+.btn-icon-red i{
+    color: #dc3123;
+    size: 50px;
+    text-align: center;
+}
+
+.btn-icon-red i:hover{
+    color:#dc312390;
+}
+
+.btn-icon-grey {
+    width: 100%;
+}
+
+.btn-icon-grey i{
+    color: #36454F;
+    size: 50px;
+    text-align: center;
+}
+    
+.btn-icon-grey i:hover{
+    color:#36454F90;
+}
+
+/* styling for when the add and delete buttons are unavailable */
+.btn-unavailable {
+    color: #d3cfcf;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.btn-unavailable:hover{
+    color: #d3cfcf;
+    opacity: 0.2;
+}
 /* _________________________________________  Emission Checks styling  ________________________________________________ */
 
 .emission-checks-table {
