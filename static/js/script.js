@@ -304,19 +304,20 @@ function goBack() {
  * in the alert col by adjusting the inner html.
  */
 const buttonDisabled = (event, closed) => {
-    let eventSourceText = event.srcElement.innerText
-    if (closed && eventSourceText === 'Close Emission') {
+    let eventSourceClassList = event.srcElement.classList
+    console.log(eventSourceClassList)
+    if (closed && eventSourceClassList[1] === 'fa-flag-checkered') {
         alertText = `<p>This emission is already closed.</p>`
     }
     else{
-    switch(eventSourceText) {
-        case 'Close Emission':
+    switch(eventSourceClassList[1]) {
+        case 'fa-flag-checkered':
             alertText = `<p>You do not have the necessary permissions to <strong>close</strong> an emission.\n Please contact your system administrator.</p>`
             break;
-        case 'Delete Emission':
+        case 'fa-trash-can':
             alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission.\n Please contact your system administrator.</p>`
             break;
-        case 'Add New Emission':
+        case 'add-btn-unavailable':
             alertText = `<p>You do not have the necessary permissions to <strong>add</strong> an emission.\n Please contact your system administrator.</p>`
             break;
         default:
