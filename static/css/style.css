@@ -600,6 +600,8 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 .emissions-table .table-img-td {
     padding: 0;
     color:white;
+    width: 200px;
+    min-width: 135px;
 }
 
 .blank-td{
@@ -610,7 +612,12 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin: 20px 20px;
     border-bottom: 1px solid #dee2e6;
     border-radius: 50px 10px 50px 10px;
-    height: 85vh
+    height: 80vh;
+}
+
+.table-fixed-head thead tr{
+    position: sticky;
+    z-index: 3;
 }
 
 .checks-complete-td {
@@ -871,10 +878,11 @@ border-bottom-right-radius: 8px;
     background-image: linear-gradient(0deg, #dc3123 0%,#dc3123 85%, #fafafa 100%) 
 }
 
-#emission-detail-table-title h5{
+#emission-detail-table-title h4{
     font-size:clamp(1.5rem, 3vw, 2.1rem);
     font-weight: bold;
     color: white;
+    margin-bottom: 0;
 }
 
 #map {
@@ -969,6 +977,7 @@ border-bottom-right-radius: 8px;
     background-color: #36454F;
     height: 100px;
     border-radius: 8px 0 0 8px;
+    text-align: center;
 }
 
 .btn-icon-red i{
@@ -1016,6 +1025,12 @@ border-bottom-right-radius: 8px;
     color: #d3cfcf;
     opacity: 0.2;
 }
+
+.options-title h4{
+    font-size:clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: bold;
+    color: white;
+}
 /* _________________________________________  Emission Checks styling  ________________________________________________ */
 
 .emission-checks-table {
@@ -1026,13 +1041,13 @@ border-bottom-right-radius: 8px;
 https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/#:~:text=Overlaying%20Text%20on%20an%20Image%20in%20HTML%20and%20CSS,-HTML&text=In%20the%20body%20section%2C%20create,and%20add%20your%20text%20inside.
  */
 
-.image-container{
+.img-container{
     position: relative;
     display: inline-block;
 }
 
-.image-container img {
-    width: 175px;
+.img-container img {
+    width: 100%;
     object-fit: cover;
     margin: 0;
   }
@@ -1138,14 +1153,6 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 }
 
-@media only screen and (max-width: 992px) {
-
-    /* hidden-col class to remove less important columns for responsive styling */
-    .hidden-col {
-        display: none;
-    }
-}
-
 /* target tablet screen size */
 @media (max-width: 768px) {
     .navbar-brand {
@@ -1219,6 +1226,16 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
       .create-emission-button {
         height: 50px;
       }
+
+      .options-col {
+        height: 50px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .detail-icons {
+        margin: 20px;
+        font-size: 40px;
+    }
 }
 
 @media (min-width: 768px) {
