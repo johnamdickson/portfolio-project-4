@@ -17,28 +17,28 @@
                             <tr>
                                 <thead id="emission-detail-table-title">
                                     <th colspan="5">
-                                        <h5>{{title}}</h5>
+                                        <h4>{{title}}</h4>
                                     </th>
                                 </thead>
                             </tr>
                             <tr>
                                 <td rowspan="4" colspan="2">
-                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%" height="100%"
-                                    id="emission-detail-img">
+                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%"
+                                        height="100%" id="emission-detail-img">
                                 </td>
-                                    <th>
-                                        <h5>Location</h5>
-                                    </th>
-                                    <th>
-                                        <h5>Type</h5>
-                                    </th>
-                                    <th class="hidden-col">
-                                        <h5>Date Created</h5>
-                                    </th>
-                                
+                                <th>
+                                    <h5>Location</h5>
+                                </th>
+                                <th>
+                                    <h5>Type</h5>
+                                </th>
+                                <th class="hidden-col">
+                                    <h5>Date Created</h5>
+                                </th>
+
                             </tr>
                             <tr>
-                           
+
                                 <td>
                                     <p>{{location}}</p>
                                 </td>
@@ -50,12 +50,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th colspan="3">
+                                <th colspan="3" class="description-cell">
                                     <h5>Description</h5>
                                 </th>
                             </tr>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="3" class="description-cell">
                                     <p>{{description}}</p>
                                 </td>
                             </tr>
@@ -99,7 +99,7 @@
                                 <th>
                                     <h5>Status</h5>
                                 </th>
-                                <th  colspan="2">
+                                <th colspan="2">
                                     <h5>Close Out Comments</h5>
                                 </th>
                                 <th>
@@ -125,21 +125,25 @@
                             </tr>
                             {% endif %}
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
-            <div class="row gx-1 m mt-4 mt-md-5 emission-detail-options shadow ">
-                <div class="col-3 options-col">
-                    <div class="row h-100">
-                        <div class="col-10 my-auto m-3">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-10 p-md-3 mx-auto mt-1">
+            <div class="row gx-1 emission-detail-options shadow ">
+                <div class="col-md-3 options-col">
+                    <div class="row h-100 w-100">
+                        <div class="col-12 my-auto options-title">
                             <h4>Options</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-3 m-auto">
-                    <button title="Go Back" class="btn go-back btn-icon-grey" onclick="goBack()">
-                        <i class="fa-solid fa-circle-left"></i>
+                    <button title="Go Back" class="btn go-back btn-icon-grey " onclick="goBack()">
+                        <i class="fa-solid fa-circle-left detail-icons"></i>
                     </button>
                 </div>
                 <!-- 
@@ -149,41 +153,48 @@
                  -->
                 {% if status == 'Closed' %}
                 <div class="col-3 m-auto">
-                    <a title="Emission {{title}} is Closed" href="#" onclick="buttonDisabled(event, true);" class="btn btn-unavailable"><i class="fa-solid fa-flag-checkered"></i></a>
+                    <a title="Emission {{title}} is Closed" href="#" onclick="buttonDisabled(event, true);"
+                        class="btn btn-unavailable"><i class="fa-solid fa-flag-checkered detail-icons"></i></a>
                 </div>
                 {% elif perms.monitoring_tool.change_emission %}
                 <div class="col-3 m-auto">
-                    <a title="Close Emission {{title}}" href="{% url 'close-emission' slug%}" class="btn btn-icon-grey"><i class="fa-solid fa-flag-checkered"></i></a>
+                    <a title="Close Emission {{title}}" href="{% url 'close-emission' slug%}"
+                        class="btn btn-icon-grey"><i class="fa-solid fa-flag-checkered detail-icons"></i></a>
                 </div>
                 {% else %}
                 <div class="col-3 m-auto">
-                    <a title="Insufficient Permissions to Close Emission {{title}}" href="#" onclick="buttonDisabled(event, false);" class="btn btn-unavailable"><i class="fa-solid fa-flag-checkered"></i></a>
+                    <a title="Insufficient Permissions to Close Emission {{title}}" href="#"
+                        onclick="buttonDisabled(event, false);" class="btn btn-unavailable"><i
+                            class="fa-solid fa-flag-checkered detail-icons"></i></a>
                 </div>
                 {% endif %}
                 {% if perms.monitoring_tool.delete_emissioncheck %}
                 <div class="col-3 m-auto">
                     <a title="Delete Emission {{title}}" href="{% url 'delete-emission' slug%}" class="btn btn-icon-red"
-                        onclick="confirmAction(event, false)"><i class="fa-solid fa-trash-can"></i></a>
+                        onclick="confirmAction(event, false)"><i class="fa-solid fa-trash-can detail-icons"></i></a>
                 </div>
                 {% else %}
                 <div class="col-3 m-auto">
-                    <a title="Insufficient Permissions to Delete Emission {{title}}" href="#" class="btn btn-unavailable" aria-disabled="true"
-                        onclick="buttonDisabled(event, false);"><i class="fa-solid fa-trash-can"></i></a>
+                    <a title="Insufficient Permissions to Delete Emission {{title}}" href="#"
+                        class="btn btn-unavailable" aria-disabled="true" onclick="buttonDisabled(event, false);"><i
+                            class="fa-solid fa-trash-can detail-icons"></i></a>
                 </div>
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
+</div>
+</div>
 <!-- solution to passing variables into JS:
 https://stackoverflow.com/questions/68394094/how-top-pass-data-to-javascript-in-django
 Found link indicating initial method may be insecure, solution to this below:
 https://www.django-antipatterns.com/antipattern/rendering-into-javascript.html
  -->
- {{ latitude|json_script:"latitudeJson" }}
- {{ longitude|json_script:"longitudeJson" }}
- {{ title|json_script:"titleJson" }}
- {{ image_url|json_script:"imageUrlJson" }}
+{{ latitude|json_script:"latitudeJson" }}
+{{ longitude|json_script:"longitudeJson" }}
+{{ title|json_script:"titleJson" }}
+{{ image_url|json_script:"imageUrlJson" }}
 
-    
+
 {% endblock %}
