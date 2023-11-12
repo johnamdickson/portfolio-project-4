@@ -42,7 +42,7 @@
               </div>
               {% else %}
               <div>
-                <a href="#" class="btn btn-unavailable create-emission-button" onclick="buttonDisabled(event);">Add New Emission</a>
+                <a href="#" class="btn add-btn-unavailable create-emission-button" onclick="buttonDisabled(event);">Add New Emission</a>
             </div>
             {% endif %}
           </li>
@@ -51,70 +51,77 @@
   </div>
 </section>
 <section>
-<div class="table-responsive table-fixed-head shadow">
-<table class="table table-hover table-sm  emissions-table scrollbar">
-    <thead>
-      <tr>
-        <th scope="col">Emission Title</th>
-        <th scope="col" class=" hidden-col">Image</th>
-        <th scope="col">Emission Type</th>
-        <th scope="col">Description</th>
-        <th scope="col">Location</th>
-        <th scope="col" class=" hidden-col" >Created On</th>
-        <th scope="col" class=" hidden-col">Next Check Due</th>
-        <th scope="col">Check Status</th>
-        <th scope="col"> <p>Emission Status</p>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-            <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive table-fixed-head shadow">
+          <table class="table table-hover table-sm  emissions-table scrollbar shadow">
+              <thead>
+                <tr>
+                  <th scope="col">Emission Title</th>
+                  <th scope="col" class=" hidden-col">Image</th>
+                  <th scope="col">Emission Type</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Location</th>
+                  <th scope="col" class=" hidden-col" >Created On</th>
+                  <th scope="col" class=" hidden-col">Next Check Due</th>
+                  <th scope="col">Check Status</th>
+                  <th scope="col"> <p>Emission Status</p>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                      <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
+                    </div>
+                  </th>
+          
+                </tr>
+              </thead>
+              <tbody>
+               
+          
+              {% for emission in emission_list %}
+              <!-- solution to clickable table rows to modal from Stack Overflow:
+              https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
+              -->
+                {% if emission.calculate_status == "Closed" %}
+                <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
+                <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')" class="closed-row">
+                {% else %} 
+                <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')">
+                {% endif %}
+                  <th scope="row">{{emission.title}}</th>
+                  {% if "placeholder" in emission.emission_image.url %}
+                  <td class="table-img-td hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
+                  {% else %}
+                  <td class="table-img-td hidden-col"><img src="{{ emission.emission_image.url }}" class="emissions-img" alt="Image of emission {{emission.title}}"></td>
+                  {% endif %}
+                  <td>{{emission.get_emission_type}}</td>
+                  <td>{{ emission.description }}</td>
+                  <td>{{emission.location}}</td>
+                  <!-- formatting dates in Django Template Language. Solution from Stack Overflow and documentation
+                  https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATE_FORMAT
+                  https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-languages
+                  -->
+                  <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td> 
+                  <!-- Conditional statement to check emission status. If closed then current and next check
+                  due dates and check status are superfluos -->
+                  {% if emission.calculate_status == "Closed" %}
+                  <td class=" hidden-col blank-td"></td> 
+                  <td class="blank-td"></td> 
+                  {% else %} 
+                  <td class=" hidden-col">{{ emission.next_check_due}}</td>  
+                  <td class="check_status">{{ emission.calculate_check_complete}}</td>  
+                  {% endif %}
+                  <td>{{ emission.calculate_status}}</td>        
+                </tr>
+          
+                  {% endfor %}
+              </tbody>
+            </table>
           </div>
-        </th>
+      </div>
+    </div>
+  </div>
 
-      </tr>
-    </thead>
-    <tbody>
-     
-
-    {% for emission in emission_list %}
-    <!-- solution to clickable table rows to modal from Stack Overflow:
-    https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
-    -->
-      {% if emission.calculate_status == "Closed" %}
-      <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
-      <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')" class="closed-row">
-      {% else %} 
-      <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')">
-      {% endif %}
-        <th scope="row">{{emission.title}}</th>
-        {% if "placeholder" in emission.emission_image.url %}
-        <td class="hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
-        {% else %}
-        <td class="hidden-col"><img src="{{ emission.emission_image.url }}" class="emissions-img" alt="Image of emission {{emission.title}}"></td>
-        {% endif %}
-        <td>{{emission.get_emission_type}}</td>
-        <td>{{ emission.description }}</td>
-        <td>{{emission.location}}</td>
-        <!-- formatting dates in Django Template Language. Solution from Stack Overflow and documentation
-        https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATE_FORMAT
-        https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-languages
-        -->
-        <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td> 
-        <!-- Conditional statement to check emission status. If closed then current and next check
-        due dates and check status are superfluos -->
-        {% if emission.calculate_status == "Closed" %}
-        <td class=" hidden-col blank-td"></td> 
-        <td class="blank-td"></td> 
-        {% else %} 
-        <td class=" hidden-col">{{ emission.next_check_due}}</td>  
-        <td class="check_status">{{ emission.calculate_check_complete}}</td>  
-        {% endif %}
-        <td>{{ emission.calculate_status}}</td>        
-      </tr>
-
-        {% endfor %}
-    </tbody>
-  </table>
-</div>
 </section>
 <section>
 <!-- hidden input to hold url for emissions detail from javascript -->
