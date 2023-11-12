@@ -188,6 +188,7 @@ def addCheck(request, slug):
     emission = get_object_or_404(queryset, slug=slug)
     print("HERE IS THE TITLE", emission.title)
     form = CheckSubmissionForm()
+    title = emission.title
     # check if user has permissions to add check.
     if request.user.has_perm('monitoring_tool.add_check'):
         if request.method == 'POST':
@@ -218,5 +219,5 @@ def addCheck(request, slug):
             " system administrator.")
         return HttpResponseRedirect(reverse('emission_checks'))
 
-    context = {'form': form}
+    context = {'form': form, 'title': title}
     return render(request, 'add-check.html', context)
