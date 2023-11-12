@@ -1,4 +1,4 @@
-from .models import Emission
+from .models import Emission, EmissionCheck
 from django import forms
 
 
@@ -54,4 +54,22 @@ class EmissionCloseOutForm(forms.ModelForm):
                                                  'placeholder': "Please enter "
                                                  "a close out comment for the emission.",
                                                  'required': "True"}),
+        }
+
+
+class CheckSubmissionForm(forms.ModelForm):
+
+    class Meta:
+        model = EmissionCheck
+        fields = ('status', 'comments')
+# solution for selecting form fields as date type and
+# for text area rows from stack overflow:
+# https://stackoverflow.com/que`stions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
+# https://stackoverflow.com/questions/6536373/how-can-i-set-the-size-of-rows-columns-in-textfield-in-django-models
+        widgets = {
+            'comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
+                                                 'placeholder': "Please enter "
+                                                 "a short description of the "
+                                                 "emission.",
+                                                 "required": True}),
         }

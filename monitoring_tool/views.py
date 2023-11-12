@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
-from .forms import EmissionSubmissionForm, EmissionCloseOutForm
+from .forms import EmissionSubmissionForm, EmissionCloseOutForm, CheckSubmissionForm
 from datetime import datetime
 
 
@@ -181,3 +181,42 @@ class EmissionCheck(generic.ListView):
     queryset = EmissionCheck.objects.order_by("-date_checked")
     template_name = "emission_checks.html"
     paginate_by = 20
+
+
+def addCheck(request, slug):
+    queryset = Emission.objects
+    emission = get_object_or_404(queryset, slug=slug)
+    print("HERE IS THE TITLE", emission.title)
+    form = CheckSubmissionForm()
+    # check if user has permissions to add check.
+    if request.user.has_perm('monitoring_tool.add_check'):
+        if request.method == 'POST':
+            form = CheckSubmissionForm(request.POST)
+            # access form image name from request.FILES and use conditional 
+            # code to proceed or generate error message.
+            if form.is_valid():
+                form.instance.title = emission
+                form.instance.checked_by = User.objects.get(
+                                    username=request.user)
+                form.save()
+                messages.success(
+                    request,
+                    f"Check {form.instance.title} successfully uploaded!"
+                    )
+                return HttpResponseRedirect(reverse('emission_checks'))
+            else:
+                error = []
+                for field in form:
+                    if field is not None:
+                        error += field.errors
+                messages.error(request, error)
+    else:
+        messages.warning(
+            request,
+            f"You do not have the necessary permissions "
+            "to uplaod a new emission check.\n Please contact your"
+            " system administrator.")
+        return HttpResponseRedirect(reverse('emission_checks'))
+
+    context = {'form': form}
+    return render(request, 'add-check.html', context)
