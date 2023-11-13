@@ -58,11 +58,10 @@
           <table class="table table-hover table-sm  emissions-table scrollbar shadow">
               <thead>
                 <tr>
-                  <th scope="col">Emission Title</th>
-                  <th scope="col" class=" hidden-col">Image</th>
+                  <th scope="col">Emission</th>
                   <th scope="col">Emission Type</th>
                   <th scope="col">Description</th>
-                  <th scope="col">Location</th>
+                  <th scope="col" class=" hidden-col">Location</th>
                   <th scope="col" class=" hidden-col" >Created On</th>
                   <th scope="col" class=" hidden-col">Next Check Due</th>
                   <th scope="col">Check Status</th>
@@ -88,15 +87,22 @@
                 {% else %} 
                 <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}')">
                 {% endif %}
-                  <th scope="row">{{emission.title}}</th>
                   {% if "placeholder" in emission.emission_image.url %}
-                  <td class="table-img-td hidden-col"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}"></td>
+                  <td class="table-img-td"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}">
+                  <div class="overlay-text">
+                      {{emission.title}}
+                  </div>
+                  </td>
                   {% else %}
-                  <td class="table-img-td hidden-col"><img src="{{ emission.emission_image.url }}" class="emissions-img" alt="Image of emission {{emission.title}}"></td>
+                  <td class="table-img-td"><img src="{{ emission.emission_image.url }}" class="emissions-img" alt="Image of emission {{emission.title}}">
+                    <div class="overlay-text">
+                      {{emission.title}}
+                  </div>
+                  </td>
                   {% endif %}
                   <td>{{emission.get_emission_type}}</td>
                   <td>{{ emission.description }}</td>
-                  <td>{{emission.location}}</td>
+                  <td class=" hidden-col">{{emission.location}}</td>
                   <!-- formatting dates in Django Template Language. Solution from Stack Overflow and documentation
                   https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATE_FORMAT
                   https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-languages
@@ -126,6 +132,8 @@
 <section>
 <!-- hidden input to hold url for emissions detail from javascript -->
   <input type="hidden" id="emissionDetailUrl" data-url="" />
+  <input type="hidden" id="emissionCheckUrl" data-url="" />
+  
 <!-- Modal -->
 
 <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel" aria-hidden="true">
@@ -140,7 +148,7 @@
         ...
       </div>
       <div class="modal-footer">
-        <a href="#emissionDetailUrl" class="btn" >Submit {{emission}} Emission Check</a>
+        <a href="${checkEmissionUrl}" class="btn" >Submit {{emission}} Emission Check</a>
         <a href="${allEmissionsUrl}" class="btn" id="emission-detail-a">Go To Emission Detail Page</a>
       </div>
     </div>

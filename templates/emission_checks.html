@@ -42,13 +42,13 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                         {% for check in emissioncheck_list %}
                         <tr>
                             <td class="table-img-td">
-                                <div class="img-container">
+              
                                     <img src="{{check.title.emission_image.url}}"
-                                        alt="Image of emission {{check.title}}">
+                                        alt="Image of emission {{check.title}}" class="emissions-img">
                                     <div class="overlay-text">
                                         {{check.title}}
                                     </div>
-                                </div>
+                            
                             </td>
                             <td>
                                 {{check.comments}}
