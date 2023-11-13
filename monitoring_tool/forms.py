@@ -52,7 +52,8 @@ class EmissionCloseOutForm(forms.ModelForm):
             # set fields as date input to prevent erroneous entries.
             'close_out_comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
                                                  'placeholder': "Please enter "
-                                                 "a close out comment for the emission.",
+                                                 "a close out comment for the emission"
+                                                 " max 100 characters.",
                                                  'required': "True"}),
         }
 

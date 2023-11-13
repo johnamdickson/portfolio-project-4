@@ -36,7 +36,7 @@ class Emission(models.Model):
     current_check_due = models.DateField(auto_now=False)
     status = models.IntegerField(choices=status_choices, default=0)
     type = models.IntegerField(choices=type_choices, default=0)
-    close_out_comments = models.TextField(max_length=50, blank=True)
+    close_out_comments = models.TextField(max_length=100, blank=True)
     closed_by = models.CharField(max_length=30, unique=False, blank=True)
     close_out_date = models.DateTimeField(auto_now_add=False, blank= True, null=True)
 
