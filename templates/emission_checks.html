@@ -74,13 +74,12 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                             <a title="Edit this Emission Check" href="" class="btn btn-icon-grey-small"><i class="fa-solid fa-pen-to-square btn-icon-grey-small"></i></a>
                                         </div>
                                         <div>
-                                            <a title="Delete this Emission Check" href="" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can"></i></a>
+                                            <a title="Delete this Emission Check" href="{% url 'delete-check' check.title.slug check.id%}" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can" onclick="confirmAction(event, false)"></i></a>
                                         </div>
                                     </div>
                             </td>
                         </tr>
                         {% endfor %}
-                    
                 </table>
             </div>
         </div>

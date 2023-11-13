@@ -178,12 +178,13 @@ def addEmission(request):
     return render(request, 'add-emission.html', context)
 
 
-class EmissionCheck(generic.ListView):
+class EmissionCheckList(generic.ListView):
     model = EmissionCheck
     queryset = EmissionCheck.objects.order_by("-date_checked")
     template_name = "emission_checks.html"
     paginate_by = 20
 
+    
 
 def addCheck(request, slug):
     queryset = Emission.objects
@@ -191,7 +192,7 @@ def addCheck(request, slug):
     form = CheckSubmissionForm()
     title = emission.title
     # check if user has permissions to add check.
-    if request.user.has_perm('monitoring_tool.add_emission_check'):
+    if request.user.has_perm('monitoring_tool.add_emissioncheck'):
         if request.method == 'POST':
             form = CheckSubmissionForm(request.POST)
             # access form image name from request.FILES and use conditional 
@@ -203,7 +204,7 @@ def addCheck(request, slug):
                 form.save()
                 messages.success(
                     request,
-                    f"Check {form.instance.title} successfully uploaded!"
+                    f"{form.instance.title} check successfully uploaded!"
                     )
                 return HttpResponseRedirect(reverse('emission_checks'))
             else:
@@ -222,3 +223,23 @@ def addCheck(request, slug):
 
     context = {'form': form, 'title': title}
     return render(request, 'add-check.html', context)
+
+
+def deleteCheck(request, slug, id):
+    emission_check_set = EmissionCheck.objects.all()
+    emission_check = emission_check_set.get(id=id)
+    check_id = emission_check.id
+    if request.user.has_perm('monitoring_tool.delete_emissioncheck'):
+        emission_check.delete()
+        messages.info(
+            request,
+            f" {emission_check.title} check number {check_id} has been deleted."
+            )
+        return HttpResponseRedirect(reverse('emission_checks'))
+    else:
+        messages.warning(
+            request,
+            f"You do not have the necessary permissions "
+            "to delete an emission check.\n Please contact your"
+            " system administrator.")
+        return HttpResponseRedirect(reverse('emission_checks'))
