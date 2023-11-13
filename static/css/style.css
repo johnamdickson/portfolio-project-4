@@ -198,6 +198,10 @@ input[type='checkbox'] {
     height: 100%;
     background-size: cover;
 }
+
+#id_status {
+    width:100%;
+}
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
@@ -601,6 +605,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .emissions-table .table-img-td {
+    position: relative;
     padding: 0;
     color:white;
     width: 200px;
@@ -1101,7 +1106,7 @@ https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
   }
 
 .btn-icon-grey-small i{
-font-size: 30px;
+font-size: 25px;
 color: #36454F;
 }
 
@@ -1114,7 +1119,7 @@ color: #36454F;
 }
 
 .btn-icon-red-small i{
-    font-size: 30px;
+    font-size: 25px;
     color: #dc3123;
 }
 
