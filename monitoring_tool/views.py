@@ -71,6 +71,7 @@ class Emissions(View):
         queryset = Emission.objects
         emission = get_object_or_404(queryset, slug=slug)
         form = EmissionCloseOutForm()
+        title = emission.title
         # check if user has permissions to add emissions ie emission admin.
         if request.user.has_perm('monitoring_tool.change_emission'):
             if request.method == 'POST':
@@ -105,7 +106,7 @@ class Emissions(View):
                 " system administrator.")
             return HttpResponseRedirect(reverse('emissions'))
 
-        context = {'form': form}
+        context = {'form': form, 'title': title}
         return render(request, 'close-emission.html', context)
 
     def delete(request, slug, *args, **kwargs):
@@ -132,6 +133,7 @@ def addEmission(request):
     # issue uploading image to DB from html form.
     # Solution from Stack Overflow:
     # https://stackoverflow.com/questions/45912825/image-upload-field-works-in-django-admin-but-not-working-in-template
+
     if request.user.has_perm('monitoring_tool.add_emission'):
         if request.method == 'POST':
             form = EmissionSubmissionForm(request.POST, request.FILES)
@@ -186,11 +188,10 @@ class EmissionCheck(generic.ListView):
 def addCheck(request, slug):
     queryset = Emission.objects
     emission = get_object_or_404(queryset, slug=slug)
-    print("HERE IS THE TITLE", emission.title)
     form = CheckSubmissionForm()
     title = emission.title
     # check if user has permissions to add check.
-    if request.user.has_perm('monitoring_tool.add_check'):
+    if request.user.has_perm('monitoring_tool.add_emission_check'):
         if request.method == 'POST':
             form = CheckSubmissionForm(request.POST)
             # access form image name from request.FILES and use conditional 
