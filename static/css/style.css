@@ -600,7 +600,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     border: 0.5px solid #fafafa;
     vertical-align: middle;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.563);
+    background-color: #b2beb580;
     padding: 5px;
 }
 
@@ -810,10 +810,10 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
 }
 
 #emission-detail-table tbody td {
-    border: 1px solid #36454F50;
+    border: 1px solid #fafafa;
     border-top: none;
     border-bottom: none;
-    background-color: #fafafa;
+    background-color: #b2beb580;
 }
 
 #emission-detail-img {
@@ -971,7 +971,7 @@ border-bottom-right-radius: 8px;
 }
 
 .emission-detail-options {
-    background-color: #fafafa;
+    background-color: #b2beb580;
     border-radius: 10px;
     border: 2px solid #fafafa
 }
@@ -1024,14 +1024,12 @@ border-bottom-right-radius: 8px;
 
 /* styling for when the add and delete buttons are unavailable */
 .btn-unavailable {
-    color: #d3cfcf;
+    color: #fafafa80;
     width: 100%;
-    opacity: 0.5;
 }
 
 .btn-unavailable:hover{
-    color: #d3cfcf;
-    opacity: 0.2;
+    color: #fafafa50;
 }
 
 .options-title h4{
@@ -1137,6 +1135,21 @@ color: #36454F;
     margin: 0;
     justify-content: space-between;
 }
+
+.btn-unavailable-small {
+    color: #fafafa80;
+    padding: 0;
+}
+
+.btn-unavailable-small i {
+    font-size: 25px;
+}
+
+
+.btn-unavailable-small:hover{
+    color: #fafafa50;
+}
+
 
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
