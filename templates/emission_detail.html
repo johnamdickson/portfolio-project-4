@@ -168,7 +168,7 @@
                             class="fa-solid fa-flag-checkered detail-icons"></i></a>
                 </div>
                 {% endif %}
-                {% if perms.monitoring_tool.delete_emissioncheck %}
+                {% if perms.monitoring_tool.delete_emission %}
                 <div class="col-3 m-auto">
                     <a title="Delete Emission {{title}}" href="{% url 'delete-emission' slug%}" class="btn btn-icon-red"
                         onclick="confirmAction(event, false)"><i class="fa-solid fa-trash-can detail-icons"></i></a>
