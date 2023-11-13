@@ -13,7 +13,7 @@ from django.core.validators import FileExtensionValidator
 class Emission(models.Model):
     type_choices = k.EMISSION_TYPES
     status_choices = k.STATUS
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=20, unique=True)
     location = models.CharField(max_length=50, unique=False)
     slug = models.SlugField(max_length=200, unique=True)
     username = models.ForeignKey(
@@ -26,7 +26,7 @@ class Emission(models.Model):
         'image', null=False, resource_type='auto',
         format="jpg"
         )
-    description = models.TextField(blank=True)
+    description = models.TextField(max_length=100, blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     updated_on = models.DateTimeField(auto_now=True)
@@ -36,8 +36,8 @@ class Emission(models.Model):
     current_check_due = models.DateField(auto_now=False)
     status = models.IntegerField(choices=status_choices, default=0)
     type = models.IntegerField(choices=type_choices, default=0)
-    close_out_comments = models.TextField(blank=True)
-    closed_by = models.CharField(max_length=50, unique=False, blank=True)
+    close_out_comments = models.TextField(max_length=50, blank=True)
+    closed_by = models.CharField(max_length=30, unique=False, blank=True)
     close_out_date = models.DateTimeField(auto_now_add=False, blank= True, null=True)
 
 # solution to accessing strings values from choices tuple:
@@ -91,7 +91,7 @@ class EmissionCheck(models.Model):
                               related_name="emissioncheck")
     date_checked = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=k.CHECK_STATUS, default=0)
-    comments = models.TextField()
+    comments = models.TextField(max_length=100)
     checked_by = models.ForeignKey(
         User, on_delete=models.RESTRICT
     )
