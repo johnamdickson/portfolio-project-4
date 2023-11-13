@@ -31,7 +31,7 @@ class EmissionSubmissionForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
                                                  'placeholder': "Please enter "
                                                  "a short description of the "
-                                                 "emission.",
+                                                 "emission max 100 characters.",
                                                  "required": True}),
             # set max and min values for latitude and longitude to prevent
             # erroneous entries in submission.
@@ -70,6 +70,6 @@ class CheckSubmissionForm(forms.ModelForm):
             'comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
                                                  'placeholder': "Please enter "
                                                  "a short description of the "
-                                                 "emission.",
+                                                 "check max 100 characters.",
                                                  "required": True}),
         }
