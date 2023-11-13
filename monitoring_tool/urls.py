@@ -11,5 +11,7 @@ urlpatterns = [
     path('delete-emission/<slug:slug>/', views.Emissions.delete, name="delete-emission"),
     path('<slug:slug>/', views.Emissions.as_view(), name='emission_detail'),
     path('add-check/<slug:slug>/', views.addCheck, name="add-check"),
+    # use of int:id from stack overflow:
+    # https://stackoverflow.com/questions/62296133/how-to-pass-an-id-from-template-to-view
     path('delete-check/<slug:slug>/<int:id>', views.deleteCheck, name="delete-check"),
 ]
