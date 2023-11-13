@@ -130,10 +130,7 @@
 
 </section>
 <section>
-<!-- hidden input to hold url for emissions detail from javascript -->
-  <input type="hidden" id="emissionDetailUrl" data-url="" />
-  <input type="hidden" id="emissionCheckUrl" data-url="" />
-  
+
 <!-- Modal -->
 
 <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel" aria-hidden="true">
@@ -148,7 +145,7 @@
         ...
       </div>
       <div class="modal-footer">
-        <a href="${checkEmissionUrl}" class="btn" >Submit {{emission}} Emission Check</a>
+        <a href="${checkEmissionUrl}" class="btn" id="emission-check-a">Submit {{emission}} Emission Check</a>
         <a href="${allEmissionsUrl}" class="btn" id="emission-detail-a">Go To Emission Detail Page</a>
       </div>
     </div>
