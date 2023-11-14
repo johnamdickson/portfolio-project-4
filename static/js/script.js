@@ -287,20 +287,27 @@ function statusFilter() {
 }
 /**
  * Arrow function to present a confirm dialogue using the 
- * event source element inner text to determine text
+ * event source element inner text or class list to determine text
  * to display. Defensive design in event of closing or 
  * deleting an emission.
  */
 const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
-    let eventSourceClassList = event.srcElement.classList
-    let eventSourceText = event.srcElement.innerText
+    let eventSourceClassList = event.srcElement.classList;
+    let eventSourceText = event.srcElement.innerText;
+    // use of value to access text area text solution from stack overflow:
+    //  https://stackoverflow.com/questions/16013899/javascript-get-contents-of-textarea-textcontent-vs-innerhtml-vs-innertext
+    let editCommentText = document.getElementById('editComments').value;
+    console.log(editCommentText)
     // switch the event source text to determine the text for the confirmation prompt.
     if (eventSourceText === "Close Emission") {
         confirmText = 'Are you sure you want to close the emission?'
     } else if (eventSourceClassList[1] === 'fa-trash-can') {
         confirmText = 'Are you sure you want to delete the emission? This action cannot be reversed'
+    } else if (eventSourceText === 'Edit Check') {
+        confirmText = `Please confirm you are happy with the edit comments: \n
+                        ${editCommentText}`
     }
 
     if(!confirm(confirmText)) {

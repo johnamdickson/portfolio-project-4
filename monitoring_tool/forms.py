@@ -89,5 +89,5 @@ class CheckEditForm(forms.ModelForm):
                                                  'placeholder': "Please enter "
                                                  "a reason for the edit"
                                                  " max 100 characters.",
-                                                 "required": True}),
+                                                 "required": True, "id":"editComments",}),
         }
