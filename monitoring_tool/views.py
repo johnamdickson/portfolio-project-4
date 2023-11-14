@@ -218,7 +218,7 @@ def addCheck(request, slug):
         messages.warning(
             request,
             f"You do not have the necessary permissions "
-            "to uplaod a new emission check.\n Please contact your"
+            "to upload a new emission check.\n Please contact your"
             " system administrator.")
         return HttpResponseRedirect(reverse('emission_checks'))
 
