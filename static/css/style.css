@@ -145,6 +145,7 @@ textarea {
 .form-section {
     background-color: #d3cfcf60;
     backdrop-filter: blur(10px) grayscale(100%) ;
+    -webkit-backdrop-filter: blur(10px) grayscale(100%);
     width: 100%;
     height: 100%;
     margin-bottom: 20px;
