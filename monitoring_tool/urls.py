@@ -14,4 +14,5 @@ urlpatterns = [
     # use of int:id from stack overflow:
     # https://stackoverflow.com/questions/62296133/how-to-pass-an-id-from-template-to-view
     path('delete-check/<slug:slug>/<int:id>', views.deleteCheck, name="delete-check"),
+    path('edit-check/<slug:slug>/<int:id>', views.editCheck, name="edit-check"),
 ]

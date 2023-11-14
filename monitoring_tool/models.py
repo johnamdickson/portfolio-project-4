@@ -89,12 +89,15 @@ class Emission(models.Model):
 class EmissionCheck(models.Model):
     title = models.ForeignKey(Emission, on_delete=models.CASCADE,
                               related_name="emissioncheck")
-    date_checked = models.DateTimeField(auto_now=True)
+    date_checked = models.DateTimeField(auto_now=False)
     status = models.IntegerField(choices=k.CHECK_STATUS, default=0)
     comments = models.TextField(max_length=100)
     checked_by = models.ForeignKey(
         User, on_delete=models.RESTRICT
     )
+    edit_comments = models.TextField(max_length=100, blank=True)
+    edited_by = models.CharField(max_length=30, unique=False, blank=True)
+    edit_date = models.DateTimeField(auto_now_add=False, blank= True, null=True)
 
     def calculate_status(self):
         if self.status == 1:

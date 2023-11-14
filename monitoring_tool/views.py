@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
-from .forms import EmissionSubmissionForm, EmissionCloseOutForm, CheckSubmissionForm
+from .forms import EmissionSubmissionForm, EmissionCloseOutForm, CheckSubmissionForm, CheckEditForm
 from datetime import datetime
 
 
@@ -199,6 +199,7 @@ def addCheck(request, slug):
             # code to proceed or generate error message.
             if form.is_valid():
                 form.instance.title = emission
+                form.instance.date_checked = datetime.now()
                 form.instance.checked_by = User.objects.get(
                                     username=request.user)
                 form.save()
@@ -229,7 +230,7 @@ def deleteCheck(request, slug, id):
     emission_check_set = EmissionCheck.objects.all()
     emission_check = emission_check_set.get(id=id)
     check_id = emission_check.id
-    if request.user.has_perm('monitoring_tool.delete_emissioncheck'):
+    if request.user.has_perm('monitoring_tool.change_emissioncheck'):
         emission_check.delete()
         messages.info(
             request,
@@ -243,3 +244,57 @@ def deleteCheck(request, slug, id):
             "to delete an emission check.\n Please contact your"
             " system administrator.")
         return HttpResponseRedirect(reverse('emission_checks'))
+
+def editCheck(request, slug, id):
+    emission_check_set = EmissionCheck.objects.all()
+    emission_check = emission_check_set.get(id=id)
+    title = emission_check.title
+    check_id = emission_check.id
+    checked_by = emission_check.checked_by
+    status = emission_check.status
+    check_date = emission_check.date_checked
+    check_comments = emission_check.comments
+    check_id = emission_check.id
+    # adding data from SQL DB using code below, source Stack Overflow:
+    # https://stackoverflow.com/questions/35134938/pass-database-value-in-form-django
+    form = CheckEditForm(initial={'comments': check_comments, 'status': status})
+    print(checked_by)
+    print(check_comments)
+    # check if the current user matches the person who submitted the check
+    # only allowing this person and superuser to edit. Check for superuser
+    # code from stack overflow:
+    # https://stackoverflow.com/questions/65421561/how-can-i-check-if-an-user-is-superuser-in-django
+    if request.user == emission_check.checked_by or request.user.is_superuser:
+        if request.user.has_perm('monitoring_tool.update_emissioncheck'):
+            if request.method == 'POST':
+                form = CheckEditForm(request.POST)
+                if form.is_valid():
+                    form.instance.id = check_id
+                    form.instance.date_checked = check_date
+                    form.instance.title = title
+                    form.instance.checked_by = checked_by
+                    form.instance.edited_by =(
+                        f'{User.objects.get(username=request.user)}')
+                    form.instance.edit_date = datetime.now()
+                    form.save()
+                    messages.success(
+                        request,
+                        f"{emission_check.title} check number {check_id} has been edited."
+                        )
+                    return HttpResponseRedirect(reverse('emission_checks'))
+                else:
+                    error = []
+                    for field in form:
+                        if field is not None:
+                            error += field.errors
+                    messages.error(request, error)
+    else:
+        messages.warning(
+            request,
+            f"You do not have the necessary permissions "
+            "to edit this check.\n Please contact your"
+            " system administrator.")
+        return HttpResponseRedirect(reverse('emission_checks'))
+    
+    context = {'form': form, 'title': title}
+    return render(request, 'edit-check.html', context)
