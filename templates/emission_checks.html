@@ -70,9 +70,15 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                         <div>
                                             <a title="Add a New Emission Check for {{check.title}}" href="{% url 'add-check' check.title.slug%}" class="btn btn-icon-grey-small"><i class="fa-solid fa-circle-plus btn-icon-grey-small"></i></a>
                                         </div>
+                                        {% if check.checked_by == user or user.is_superuser %}
                                         <div>
                                             <a title="Edit this Emission Check" href="{% url 'edit-check' check.title.slug check.id%}" class="btn btn-icon-grey-small"><i class="fa-solid fa-pen-to-square btn-icon-grey-small"></i></a>
                                         </div>
+                                        {% else %}
+                                        <div>
+                                            <a title="Insufficient Permissions to Edit Emission Check for {{check.title}}" href="#" class="btn btn-unavailable-small"><i class="fa-solid fa-pen-to-square" onclick="buttonDisabled(event, false)"></i></a>
+                                        </div>
+                                        {% endif %}
                                         {% if perms.monitoring_tool.delete_emissioncheck %}
                                         <div>
                                             <a title="Delete this Emission Check" href="{% url 'delete-check' check.title.slug check.id%}" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can" onclick="confirmAction(event, false)"></i></a>
