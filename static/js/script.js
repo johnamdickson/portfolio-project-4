@@ -134,6 +134,7 @@ const showModal = (data) => {
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
     let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
+    // let checkEmissionUrl = document.getElementById('emissionCheckUrl').getAttribute('data-url');
     const modalItem = document.getElementById('emissionModalCenter');
     modalItem.innerHTML = ` <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -204,7 +205,7 @@ const showModal = (data) => {
                                                 </tr>                                                   
                                             </table>
                                         <div class="modal-footer">
-                                            <a href="" class="btn">Submit ${emissionArray.title} Emission Check</a>
+                                            <a href= "add-check/${emissionArray.slug}/" class="btn">Submit ${emissionArray.title} Emission Check</a>
                                             <a href="/${emissionArray.slug}/" class="btn">Go To Emission Detail Page</a>
                                             <a href="${allEmissionsUrl}" class="btn">Go To All Emissions Page</a>
                                         </div>
@@ -223,9 +224,10 @@ const emissionModal = (data) => {
     const modalItem = document.getElementById('emissionModal');
     document.getElementById('emissionModalTitle').innerText = `Emission: ${emission.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
-    document.getElementById('emissionDetailUrl').setAttribute('data-url', `{% url 'emission_detail' /${emission.slug}/ %}`)
     // set hidden input href attribute to slug of the emission passed into this function.
     document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
+    document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
+
     new bootstrap.Modal(modalItem).show();
 
 }
@@ -330,7 +332,10 @@ const buttonDisabled = (event, closed) => {
             alertText = `<p>You do not have the necessary permissions to <strong>close</strong> an emission.\n Please contact your system administrator.</p>`
             break;
         case 'fa-trash-can':
-            alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission.\n Please contact your system administrator.</p>`
+            alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission/check.\n Please contact your system administrator.</p>`
+            break;
+        case 'fa-pen-to-square':
+            alertText = `<p>You do not have the necessary permissions to <strong>edit</strong> this check.\n Please contact your system administrator.</p>`
             break;
         case 'add-btn-unavailable':
             alertText = `<p>You do not have the necessary permissions to <strong>add</strong> an emission.\n Please contact your system administrator.</p>`
