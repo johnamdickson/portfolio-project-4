@@ -265,29 +265,28 @@ def editCheck(request, slug, id):
     # code from stack overflow:
     # https://stackoverflow.com/questions/65421561/how-can-i-check-if-an-user-is-superuser-in-django
     if request.user == emission_check.checked_by or request.user.is_superuser:
-        if request.user.has_perm('monitoring_tool.update_emissioncheck'):
-            if request.method == 'POST':
-                form = CheckEditForm(request.POST)
-                if form.is_valid():
-                    form.instance.id = check_id
-                    form.instance.date_checked = check_date
-                    form.instance.title = title
-                    form.instance.checked_by = checked_by
-                    form.instance.edited_by =(
-                        f'{User.objects.get(username=request.user)}')
-                    form.instance.edit_date = datetime.now()
-                    form.save()
-                    messages.success(
-                        request,
-                        f"{emission_check.title} check number {check_id} has been edited."
-                        )
-                    return HttpResponseRedirect(reverse('emission_checks'))
-                else:
-                    error = []
-                    for field in form:
-                        if field is not None:
-                            error += field.errors
-                    messages.error(request, error)
+        if request.method == 'POST':
+            form = CheckEditForm(request.POST)
+            if form.is_valid():
+                form.instance.id = check_id
+                form.instance.date_checked = check_date
+                form.instance.title = title
+                form.instance.checked_by = checked_by
+                form.instance.edited_by =(
+                    f'{User.objects.get(username=request.user)}')
+                form.instance.edit_date = datetime.now()
+                form.save()
+                messages.success(
+                    request,
+                    f"{emission_check.title} check number {check_id} has been edited."
+                    )
+                return HttpResponseRedirect(reverse('emission_checks'))
+            else:
+                error = []
+                for field in form:
+                    if field is not None:
+                        error += field.errors
+                messages.error(request, error)
     else:
         messages.warning(
             request,
