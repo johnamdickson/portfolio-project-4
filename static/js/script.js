@@ -298,14 +298,13 @@ const confirmAction = (event) => {
     let eventSourceText = event.srcElement.innerText;
     // use of value to access text area text solution from stack overflow:
     //  https://stackoverflow.com/questions/16013899/javascript-get-contents-of-textarea-textcontent-vs-innerhtml-vs-innertext
-    let editCommentText = document.getElementById('editComments').value;
-    console.log(editCommentText)
     // switch the event source text to determine the text for the confirmation prompt.
     if (eventSourceText === "Close Emission") {
         confirmText = 'Are you sure you want to close the emission?'
     } else if (eventSourceClassList[1] === 'fa-trash-can') {
         confirmText = 'Are you sure you want to delete the emission? This action cannot be reversed'
     } else if (eventSourceText === 'Edit Check') {
+        let editCommentText = document.getElementById('editComments').value;
         confirmText = `Please confirm you are happy with the edit comments: \n
                         ${editCommentText}`
     }
