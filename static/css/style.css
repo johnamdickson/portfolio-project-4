@@ -651,10 +651,10 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .emission-callout {
     background-image: linear-gradient(90deg, #95150a 0%, #dc3123 15%, #dc3123 85%, #95150a 100%) ;
-        color: #fafafa;
-        border-radius: 20px 80px 20px 80px;
-        padding: 10px;
-        border: 2px solid #fafafa;
+    color: #fafafa;
+    border-radius: 20px 80px 20px 80px;
+    padding: 10px;
+    border: 2px solid #fafafa;
 }
 
 
@@ -882,9 +882,9 @@ border-bottom-right-radius: 8px;
 }
 
 #emission-detail-table-title th{
-    background-color: #dc3123;
+    /* background-color: #dc3123; */
     border-bottom: 1px solid #fafafa;
-    background-image: linear-gradient(0deg, #dc3123 0%,#dc3123 85%, #fafafa 100%) 
+    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 25%, #dc3123 75%, #95150a 100%) ;
 }
 
 #emission-detail-table-title h4{
@@ -1066,12 +1066,13 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
     left: 50%; 
     transform: translate(-50%, -50%); 
     width: 125px;
-    background-color: #dc3123; 
+    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 15%, #dc3123 85%, #95150a 100%) ;
     color: #fafafa; 
     padding: 5px 10px; 
     text-align: center;
-    border-radius: 10px;
-    border: 1px solid #fafafa
+    border-radius: 3px 15px 3px 15px;
+    border: 1px solid #fafafa;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   #filter-container {
