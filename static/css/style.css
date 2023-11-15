@@ -1025,12 +1025,12 @@ border-bottom-right-radius: 8px;
 
 /* styling for when the add and delete buttons are unavailable */
 .btn-unavailable {
-    color: #fafafa80;
+    color: #fafafa50;
     width: 100%;
 }
 
 .btn-unavailable:hover{
-    color: #fafafa50;
+    color: #fafafa30;
 }
 
 .options-title h4{
@@ -1134,11 +1134,11 @@ color: #36454F;
     display: flex;
     width: 120px;
     margin: 0;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .btn-unavailable-small {
-    color: #fafafa80;
+    color: #fafafa50;
     padding: 0;
 }
 
@@ -1148,7 +1148,7 @@ color: #36454F;
 
 
 .btn-unavailable-small:hover{
-    color: #fafafa50;
+    color: #fafafa30;
 }
 
 
