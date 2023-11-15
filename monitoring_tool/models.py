@@ -21,8 +21,6 @@ class Emission(models.Model):
         User, on_delete=models.CASCADE,
         related_name="monitoring_tool_emissions"
     )
-    # use of FileExtensionValidator form this source:
-    # https://www.geeksforgeeks.org/fileextensionvalidator-validate-file-extensions-in-django/
     emission_image = CloudinaryField(
         'image', null=False, resource_type='auto',
         format="jpg"
@@ -44,6 +42,10 @@ class Emission(models.Model):
 # solution to accessing strings values from choices tuple:
 # https://stackoverflow.com/questions/60556709/how-do-i-get-the-string-value-of-the-tuple-in-django
     def get_emission_type(self):
+        """
+        Function to acess string values 
+        from choices tuple.
+        """
         return dict(self.type_choices).get(self.type)
     
     class Meta:
@@ -53,18 +55,30 @@ class Emission(models.Model):
         return self.title
 
     def calculate_check_complete(self):
+        """
+        Function to return a check completion string 
+        representation using the status number.
+        """
         if self.current_check_due <= self.last_checked <= self.next_check_due:
             return "Checks Complete"
         else:
             return "Checks Outstanding"
 
     def calculate_status(self):
+        """
+        Function to return a emission status string 
+        representation using the status number.
+        """
         if self.status == 0:
             return "Open"
         else:
             return "Closed"
 
     def javascript_data(self):
+        """
+        Function returns a json of the model instance values
+        for use in javascript.
+        """
         list = {"title": self.title, 
                 "location": self.location, 
                 "username": str(self.username),
@@ -104,10 +118,18 @@ class EmissionCheck(models.Model):
     # solution from stack overflow:
     # https://stackoverflow.com/questions/796008/cant-subtract-offset-naive-and-offset-aware-datetimes
     def check_less_than_24_hours (self):
+        """
+        Function to determine if the check 
+        is less than 24 hours since submitted.
+        """
         now_aware = datetime.now(timezone.utc)
         return now_aware < self.date_checked + timedelta(days=1)
 
     def calculate_status(self):
+        """
+        Function to return a status string 
+        representation using the status number.
+        """
         if self.status == 1:
             return "No Emission Detected"
         elif self.status ==2:
