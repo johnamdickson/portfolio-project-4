@@ -342,7 +342,7 @@ const buttonDisabled = (event, closed) => {
             alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission/check.\n Please contact your system administrator.</p>`
             break;
         case 'fa-pen-to-square':
-            alertText = `<p>You do not have the necessary permissions to <strong>edit</strong> this check.\n Please contact your system administrator.</p>`
+            alertText = `<p>You can only edit a check for up to 24 hours after submission or you do not have the necessary permissions to <strong>edit</strong> this check.\n Please contact your system administrator.</p>`
             break;
         case 'add-btn-unavailable':
             alertText = `<p>You do not have the necessary permissions to <strong>add</strong> an emission.\n Please contact your system administrator.</p>`

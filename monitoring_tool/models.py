@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User, Group
 import constants as k
+from datetime import timedelta, datetime, timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
@@ -98,6 +99,13 @@ class EmissionCheck(models.Model):
     edit_comments = models.TextField(max_length=100, blank=True)
     edited_by = models.CharField(max_length=30, unique=False, blank=True)
     edit_date = models.DateTimeField(auto_now_add=False, blank= True, null=True)
+    
+    # Bug with dattime comparisons can't "compare offset-naive and offset-aware datetimes"
+    # solution from stack overflow:
+    # https://stackoverflow.com/questions/796008/cant-subtract-offset-naive-and-offset-aware-datetimes
+    def check_less_than_24_hours (self):
+        now_aware = datetime.now(timezone.utc)
+        return now_aware < self.date_checked + timedelta(days=1)
 
     def calculate_status(self):
         if self.status == 1:
