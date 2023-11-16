@@ -115,14 +115,15 @@ function updateChecksComplete() {
 }
 
 function updateStatus() {
-    let status = document.getElementById('status-cell');
-    console.log(status.innerText)
-    if (status.innerText === 'Open') {
-        status.style.backgroundColor = ('green');
-        status.style.color = ('white');
-    } else if (status.innerText === 'Closed'){
-        status.style.backgroundColor = ('red');
-        status.style.color = ('white');
+    if (document.getElementById('status-cell')) {
+        let status = document.getElementById('status-cell');
+        if (status.innerText === 'Open') {
+            status.style.backgroundColor = ('green');
+            status.style.color = ('white');
+        } else if (status.innerText === 'Closed'){
+            status.style.backgroundColor = ('red');
+            status.style.color = ('white');
+        }
     }
 }
 /**
@@ -131,6 +132,7 @@ function updateStatus() {
  */
 const showModal = (data) => {
     let emissionArray = JSON.parse(data);
+    console.log(emissionArray)
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
     let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
