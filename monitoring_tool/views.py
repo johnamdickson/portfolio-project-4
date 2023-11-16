@@ -233,6 +233,11 @@ def addCheck(request, slug):
             if form.is_valid():
                 form.instance.title = emission
                 form.instance.date_checked = datetime.now()
+                # update the emission last checked data to now. Solution from 
+                # stack overflow:
+                # https://stackoverflow.com/questions/70683436/updating-data-in-a-model-from-views-django
+                emission.last_checked=datetime.now()
+                emission.save()
                 form.instance.checked_by = User.objects.get(
                                     username=request.user)
                 form.save()

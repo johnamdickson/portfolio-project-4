@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 import constants as k
 from datetime import timedelta, datetime, timezone
+from dateutil.relativedelta import relativedelta
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
@@ -30,7 +31,7 @@ class Emission(models.Model):
     longitude = models.FloatField()
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    last_checked = models.DateField(auto_now=True)
+    last_checked = models.DateField(auto_now=False)
     next_check_due = models.DateField(auto_now=False)
     current_check_due = models.DateField(auto_now=False)
     status = models.IntegerField(choices=status_choices, default=0)
@@ -136,12 +137,6 @@ class EmissionCheck(models.Model):
             return "Below Minimum Threshold"
         elif self.status ==3:
             return "Above Minimum Threshold"
-
-# solution to update field in Emission model from stack overflow:
-# https://stackoverflow.com/questions/71477386/update-a-model-field-when-another-modal-field-is-updated
-    def save(self, *args, **kwargs):
-        super().save(args, kwargs)
-        Emission.objects.update(last_checked=self.date_checked)
 
 
 # selection of user group on registration, solution from Stack Overflow:
