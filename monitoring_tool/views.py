@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Emission, EmissionCheck
 from .forms import EmissionSubmissionForm, EmissionCloseOutForm, CheckSubmissionForm, CheckEditForm
-from datetime import datetime
+from datetime import timedelta, datetime, timezone
+from dateutil.relativedelta import relativedelta
 
 
 class EmissionHome(generic.ListView):
@@ -16,10 +17,42 @@ class EmissionHome(generic.ListView):
 
 
 class EmissionList(generic.ListView):
+
+    def first_monday_current_month():
+        # how to access current month:
+        # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+        d = datetime(current_year, current_month, 7)
+        offset = -d.weekday() # weekday == 0 means Monday
+        return d + timedelta(offset)
+    
+    def first_monday_next_month():
+        # how to access current month:
+        # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
+        next_month_calc = datetime.now() + relativedelta(months=1)
+        next_month = int(next_month_calc.strftime("%m"))
+        year_plus_one_month = int(next_month_calc.strftime("%Y"))
+        d = datetime(year_plus_one_month, next_month, 7)
+        offset = -d.weekday() # weekday == 0 means Monday
+        return d + timedelta(offset)
+
     model = Emission
     queryset = Emission.objects.order_by("-created_on")
+    queryset.update(next_check_due=first_monday_next_month())
+    queryset.update()
     template_name = "emission.html"
     paginate_by = 20
+
+
+
+        # # how to access next month:
+        # # https://stackoverflow.com/questions/21145618/how-do-i-find-the-nth-day-of-the-next-month-in-python
+        # next_month_calc = datetime.now() + relativedelta(months=1)
+        # next_month = int(next_month_calc.strftime("%m"))
+        # print(next_month)
+        # # first_monday_current_month = 
+        # return f"Current Month is {current_month} next month is {next_month}"
 
 
 class Emissions(View):
