@@ -24,9 +24,11 @@ window.addEventListener('resize', function (event) {
  * dismissed 
  */
 setTimeout(function () {
-    let messages = document.getElementById('msg');
-    let alert = new bootstrap.Alert(messages);
-    alert.close();
+    if (document.getElementById('msg')) {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }
 }, 4000);
 
 /**
