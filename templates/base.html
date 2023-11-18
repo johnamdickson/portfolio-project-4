@@ -161,22 +161,22 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 mt-2">
+                <div class="col-12 mt-1">
                     <div class="row">
                         <div class="col-12">
                             {% if user.is_authenticated %}
                             <!-- solution to access username in base html from stack overflow:
                             https://stackoverflow.com/questions/65469645/how-do-i-get-the-username-of-a-logged-user-writing-a-text-and-display-it-beside
                              -->
-                            <p class="m-0 text-center text-black p-1">user: {{request.user.username}}</p>
+                            <p class="m-0 text-center text-black p-1"><small>User: {{request.user.username}}</small></p>
                             {% else %}
                             <p class="m-0 text-center text-black">no user logged in</p>
                             {% endif %}
                         </div>
                     </div>
                     <div class="socials p-1">
-                    <p class="m-0 text-center text-black">connect with us:</p>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin fa-2x m-3"></i></a>
+                    <p class="m-0 text-center text-black text-small"><small>Connect with us:</small></p>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin fa-2x m-1"></i></a>
                     </div>
                 </div>
             </div>
