@@ -22,19 +22,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3 m-auto p-3 error-back-button">
-                        <button title="Go Back" class="btn" onclick="goBack()">
-                            <i class="fa-solid fa-circle-left detail-icons"></i>
-                        </button>
-                    </div>
-                    <div class="col-9 m-auto p-3 error-redirect">
-                        <p>You will be redirected back to the site in <span id="error-timer">10</span> seconds.</p>
+                    <div class="col-12 m-auto p-3 error-redirect">
+                      <button title="Go to home page" class="btn" onclick="goHome()">
+                        <i class="fa-solid fa-circle-left detail-icons"></i>
+                    </button>
+                        <p>You will be automatically redirected back to the home page in <span id="error-timer">10</span> seconds.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</html>
+  </div>
+
 
 {% endblock%}

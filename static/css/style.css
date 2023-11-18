@@ -99,6 +99,9 @@ hr {
     position: relative;
 }
 
+.logo-text{
+    font-weight: 100;
+}
 /* set alert position to absolute so there is space under nav bar */
 .alert-row {
     position: absolute;
@@ -1176,20 +1179,14 @@ color: #36454F;
     font-weight: 900;
 }
 
-.error-back-button{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 .error-redirect {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
 .error-redirect p {
-    margin: 0;
+    margin: 0 10px;
 }
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
