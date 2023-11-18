@@ -45,16 +45,6 @@ class EmissionList(generic.ListView):
     paginate_by = 20
 
 
-
-        # # how to access next month:
-        # # https://stackoverflow.com/questions/21145618/how-do-i-find-the-nth-day-of-the-next-month-in-python
-        # next_month_calc = datetime.now() + relativedelta(months=1)
-        # next_month = int(next_month_calc.strftime("%m"))
-        # print(next_month)
-        # # first_monday_current_month = 
-        # return f"Current Month is {current_month} next month is {next_month}"
-
-
 class Emissions(View):
 
     def get(self, request, slug, *args, **kwargs):
