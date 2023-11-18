@@ -158,16 +158,30 @@
     </main>
     <!-- Footer -->
     <footer class="footer mt-auto py-3 light-bg">
-        {% if user.is_authenticated %}
-        <!-- solution to access username in base html from stack overflow:
-        https://stackoverflow.com/questions/65469645/how-do-i-get-the-username-of-a-logged-user-writing-a-text-and-display-it-beside
-         -->
-        <p class="m-0 text-center text-black">user: {{request.user.username}}</p>
-        {% endif %}
-        <p class="m-0 text-center text-black">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <div class="row">
+                        <div class="col-12">
+                            {% if user.is_authenticated %}
+                            <!-- solution to access username in base html from stack overflow:
+                            https://stackoverflow.com/questions/65469645/how-do-i-get-the-username-of-a-logged-user-writing-a-text-and-display-it-beside
+                             -->
+                            <p class="m-0 text-center text-black p-1">user: {{request.user.username}}</p>
+                            {% else %}
+                            <p class="m-0 text-center text-black">no user logged in</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="socials p-1">
+                    <p class="m-0 text-center text-black">connect with us:</p>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin fa-2x m-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </footer>
 
 

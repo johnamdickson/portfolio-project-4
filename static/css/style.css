@@ -126,12 +126,24 @@ hr {
 footer {
     z-index: 2;
     flex: none;
+    background-image: linear-gradient(90deg, #36454F50 0%, #fafafa50 25%, #fafafa50 75%, #36454F50 100%);
+    border-top: 0.25px solid #36454F50 
+}
+
+footer a {
+    color: #36454F
 }
 
 main {
     flex: auto;
 }
-/* ________________________________________ Forms styling  ________________________________________ */
+
+.socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* ________________________________________ Forms styling  ________________________________________ */
 
 /* custom form styling */
 input {
@@ -241,8 +253,8 @@ input[type='checkbox'] {
 }
 
 .home-row p {
-    font-size: clamp(0.9rem, 1.3vw, 1.25rem);
-    padding-left: 10px;
+    font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+    padding-left: 20px;
 }
 
 /* style card fonts to responsively size */
@@ -278,7 +290,7 @@ input[type='checkbox'] {
 }
 
 .list-text p {
-    font-size: clamp(0.7rem, 1.25vw, 1.3rem);
+    font-size: clamp(0.7rem, 1vw, 1.3rem);
     ;
 }
 
