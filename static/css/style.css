@@ -1201,6 +1201,10 @@ color: #36454F;
 .error-redirect p {
     margin: 0 10px;
 }
+
+.status-code-exception {
+    font-size: 1.2rem;
+}
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
 /* solution for vertical rulers between nav links from site below:

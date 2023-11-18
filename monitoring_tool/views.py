@@ -7,6 +7,8 @@ from .models import Emission, EmissionCheck
 from .forms import EmissionSubmissionForm, EmissionCloseOutForm, CheckSubmissionForm, CheckEditForm
 from datetime import timedelta, datetime, timezone
 from dateutil.relativedelta import relativedelta
+from django.core.exceptions import PermissionDenied
+
 
 
 class EmissionHome(generic.ListView):
@@ -122,12 +124,11 @@ class Emissions(View):
                             error += field.errors
                     messages.error(request, error)
         else:
-            messages.warning(
-                request,
-                f"You do not have the necessary permissions "
-                "to close an emission.\n Please contact your"
+            # raising a 403 error, solution from Stack Overflow:
+            # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
+            raise PermissionDenied("You do not have the necessary permissions "
+                "to close an emission. Please contact your"
                 " system administrator.")
-            return HttpResponseRedirect(reverse('emissions'))
 
         context = {'form': form, 'title': title}
         return render(request, 'close-emission.html', context)
@@ -143,12 +144,11 @@ class Emissions(View):
                 )
             return HttpResponseRedirect(reverse('emissions'))
         else:
-            messages.warning(
-                request,
-                f"You do not have the necessary permissions "
-                "to delete an emission.\n Please contact your"
+            # raising a 403 error, solution from Stack Overflow:
+            # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
+            raise PermissionDenied("You do not have the necessary permissions "
+                "to delete an emission. Please contact your"
                 " system administrator.")
-            return HttpResponseRedirect(reverse('emissions'))
 
 def addEmission(request):
     form = EmissionSubmissionForm()
@@ -165,7 +165,7 @@ def addEmission(request):
             form_images = request.FILES.getlist('emission_image', None)
             form_image = form_images[0]
             if str(form_image).endswith(
-                ('.jpg', '.jpeg', '.png', '.tiff', '.bmp')
+                ('.jpg', '.jpeg', '.png', '.tiff', '.bmp', 'webp')
                                         ):
                 if form.is_valid():
                     form.instance.username = User.objects.get(
@@ -187,15 +187,14 @@ def addEmission(request):
                 messages.error(
                     request,
                     "Incorrect image format. Please upload jpg, "
-                    "jpeg, png, tiff or bmp")
+                    "jpeg, png, tiff, webp or bmp")
 
     else:
-        messages.warning(
-            request,
-            f"You do not have the necessary permissions "
-            "to create a new emission.\n Please contact your"
+        # raising a 403 error, solution from Stack Overflow:
+        # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
+        raise PermissionDenied("You do not have the necessary permissions "
+            "to add an emission. Please contact your"
             " system administrator.")
-        return HttpResponseRedirect(reverse('emissions'))
 
     context = {'form': form}
     return render(request, 'add-emission.html', context)
@@ -243,12 +242,11 @@ def addCheck(request, slug):
                         error += field.errors
                 messages.error(request, error)
     else:
-        messages.warning(
-            request,
-            f"You do not have the necessary permissions "
-            "to upload a new emission check.\n Please contact your"
+        # raising a 403 error, solution from Stack Overflow:
+        # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
+        raise PermissionDenied("You do not have the necessary permissions "
+            f"to upload a new emission check for {title}. Please contact your"
             " system administrator.")
-        return HttpResponseRedirect(reverse('emission_checks'))
 
     context = {'form': form, 'title': title}
     return render(request, 'add-check.html', context)
@@ -262,16 +260,15 @@ def deleteCheck(request, slug, id):
         emission_check.delete()
         messages.info(
             request,
-            f" {emission_check.title} check number {check_id} has been deleted."
+            f" {emission_check.title} check has been deleted."
             )
         return HttpResponseRedirect(reverse('emission_checks'))
     else:
-        messages.warning(
-            request,
-            f"You do not have the necessary permissions "
-            "to delete an emission check.\n Please contact your"
+        # raising a 403 error, solution from Stack Overflow:
+        # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
+        raise PermissionDenied("You do not have the necessary permissions "
+            f"to delete {emission_check.title} emission check. Please contact your"
             " system administrator.")
-        return HttpResponseRedirect(reverse('emission_checks'))
 
 def editCheck(request, slug, id):
     emission_check_set = EmissionCheck.objects.all()
@@ -316,12 +313,11 @@ def editCheck(request, slug, id):
                         error += field.errors
                 messages.error(request, error)
     else:
-        messages.warning(
-            request,
-            f"You do not have the necessary permissions "
-            "to edit this check.\n Please contact your"
+        # raising a 403 error, solution from Stack Overflow:
+        # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
+        raise PermissionDenied("You do not have the necessary permissions "
+            f"to edit {emission_check.title} emission check. Please contact your"
             " system administrator.")
-        return HttpResponseRedirect(reverse('emission_checks'))
     
     context = {'form': form, 'title': title}
     return render(request, 'edit-check.html', context)
