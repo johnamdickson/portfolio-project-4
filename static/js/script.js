@@ -1,7 +1,7 @@
 
-
 window.addEventListener('load', function () {
     startCarousel()
+    errorCountdown()
 })
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -134,7 +134,7 @@ function updateStatus() {
  */
 const showModal = (data) => {
     let emissionArray = JSON.parse(data);
-    console.log(emissionArray)
+
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
     let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
@@ -433,7 +433,6 @@ async function addMarker() {
     marker.content.classList.add('drop')
     const markerContentParent = marker.content.parentElement
     markerContentParent.classList.add('grow')
-    console.log(markerContentParent)
 
     const infoWindow = new InfoWindow();
       marker.addListener("gmp-click", function() {
@@ -485,4 +484,27 @@ const filterChecks = () => {
     }
     
     trs.forEach(setTrStyleDisplay)
+  }
+
+/**
+ * Function to countdown and display back to user for status code error
+ * pages. Solution from codepen:
+ * https://codepen.io/joshua-golub/pen/LYYKrKg
+ */
+const errorCountdown = () => {
+    timeLeft = 10;
+    if (document.getElementById("error-timer")){
+        const errorSpan = document.getElementById("error-timer").innerText
+        function countdown() {
+            timeLeft--;
+            document.getElementById("error-timer").innerText = String( timeLeft );
+            if (timeLeft > 0) {
+                setTimeout(countdown, 1000);
+            } else {
+                goBack()
+            }
+        };
+        setTimeout(countdown, 1000);
+    }
+
   }

@@ -2,17 +2,39 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>ERROR 404</h1>
-    {{ exception_value }}{{value}}{{tb}}
-</body>
+<div class="form-background shadow">
+    <div class="container-fluid error-page-container">
+        <div class="row">
+            <div class="col-10 m-auto mt-5">
+                <div class="row">
+                    <div class="col-12 m-auto mt-4">
+                        <h2 class="display-1">404 Error</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-auto p-5">
+                        <i class="fa-solid fa-face-sad-tear fa-10x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-auto p-3">
+                        <h3 class="display-5">This page does not exist.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 m-auto p-3 error-back-button">
+                        <button title="Go Back" class="btn" onclick="goBack()">
+                            <i class="fa-solid fa-circle-left detail-icons"></i>
+                        </button>
+                    </div>
+                    <div class="col-9 m-auto p-3 error-redirect">
+                        <p>You will be redirected back to the site in <span id="error-timer">10</span> seconds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </html>
 
 {% endblock%}
