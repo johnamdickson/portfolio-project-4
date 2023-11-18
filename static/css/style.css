@@ -1087,7 +1087,8 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
     background-color: #fafafa;
  }
 
-  #emissionCheckSearch {
+  #emission-check-search {
+    font-weight: 100;
     width: 100%;
     font-size: 16px;
     padding: 12px 10px 12px 40px;
