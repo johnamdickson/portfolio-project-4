@@ -478,8 +478,8 @@ const filterChecks = () => {
       { name: 'Checked By', index: 3, isFilter: true },
     ]
     const filterColumns = columns.filter(c => c.isFilter).map(c => c.index)
-    const trs = document.querySelectorAll(`#emissionChecksTable tr:not(.header)`)
-    const filter = document.querySelector('#emissionCheckSearch').value
+    const trs = document.querySelectorAll(`#emission-checks-table tr:not(.header)`)
+    const filter = document.querySelector('#emission-check-search').value
     const regex = new RegExp((filter), 'i')
     const isFoundInTds = td => regex.test(td.innerHTML)
     const isFound = childrenArr => childrenArr.some(isFoundInTds)
