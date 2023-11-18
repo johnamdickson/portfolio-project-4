@@ -8,7 +8,7 @@ from .forms import EmissionSubmissionForm, EmissionCloseOutForm, CheckSubmission
 from datetime import timedelta, datetime, timezone
 from dateutil.relativedelta import relativedelta
 from django.core.exceptions import PermissionDenied
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class EmissionHome(generic.ListView):
@@ -18,7 +18,12 @@ class EmissionHome(generic.ListView):
     paginate_by = 20
 
 
-class EmissionList(generic.ListView):
+class EmissionList(LoginRequiredMixin, generic.ListView):
+    # use of login required mixin to verify user is logged in before accessing 
+    # emissions and checks. This is if a non logged in user types in extension into
+    # address bar. Solution from Stack Overflow:
+    # https://stackoverflow.com/questions/61440990/how-to-check-whether-user-is-logged-in-or-not
+    login_url = '/accounts/login/'
 
     def first_monday_current_month():
         # how to access current month:
@@ -200,10 +205,15 @@ def addEmission(request):
     return render(request, 'add-emission.html', context)
 
 
-class EmissionCheckList(generic.ListView):
+class EmissionCheckList(LoginRequiredMixin, generic.ListView):
+    # use of login required mixin to verify user is logged in before accessing 
+    # emissions and checks. This is if a non logged in user types in extension into
+    # address bar. Solution from Stack Overflow:
+    # https://stackoverflow.com/questions/61440990/how-to-check-whether-user-is-logged-in-or-not
+    login_url = '/accounts/login/'
     model = EmissionCheck
     queryset = EmissionCheck.objects.order_by("-date_checked")
-    template_name = "emission_checks.html"
+    template_name = "emission-checks.html"
     paginate_by = 20
 
     
@@ -234,7 +244,7 @@ def addCheck(request, slug):
                     request,
                     f"{form.instance.title} check successfully uploaded!"
                     )
-                return HttpResponseRedirect(reverse('emission_checks'))
+                return HttpResponseRedirect(reverse('emission-checks'))
             else:
                 error = []
                 for field in form:
@@ -262,7 +272,7 @@ def deleteCheck(request, slug, id):
             request,
             f" {emission_check.title} check has been deleted."
             )
-        return HttpResponseRedirect(reverse('emission_checks'))
+        return HttpResponseRedirect(reverse('emission-checks'))
     else:
         # raising a 403 error, solution from Stack Overflow:
         # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
@@ -305,7 +315,7 @@ def editCheck(request, slug, id):
                     request,
                     f"{emission_check.title} check number {check_id} has been edited."
                     )
-                return HttpResponseRedirect(reverse('emission_checks'))
+                return HttpResponseRedirect(reverse('emission-checks'))
             else:
                 error = []
                 for field in form:
