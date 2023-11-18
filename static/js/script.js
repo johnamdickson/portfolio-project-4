@@ -443,10 +443,11 @@ async function addMarker() {
     markerContentParent.classList.add('grow')
 
     const infoWindow = new InfoWindow();
-      marker.addListener("gmp-click", function() {
-      infoWindow.close();
-      infoWindow.setContent(`<div class="marker-title"><h5>${marker.title}</h5></div>` + "<img width='200' src=" + url + ">");
-      infoWindow.open(marker.map, marker);
+
+    marker.addListener("click", function() {
+        infoWindow.close();
+        infoWindow.setContent(`<div class="marker-title"><h5>${marker.title}</h5></div>` + "<img width='200' src=" + url + ">");
+        infoWindow.open(marker.map, marker);
       });
 
     marker.setMap(map)
