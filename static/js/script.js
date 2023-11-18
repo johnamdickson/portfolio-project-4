@@ -326,7 +326,13 @@ const confirmAction = (event) => {
 function goBack() {
     window.location.replace(document.referrer);
 }
-
+/**
+ * go home function activated by a button used in HTTP status code
+ * pages.
+ */
+function goHome() {
+    document.location.href="/";
+}
 /**
  * Function to read event text and determine appropriate response
  * in the alert col by adjusting the inner html.
@@ -501,7 +507,7 @@ const errorCountdown = () => {
             if (timeLeft > 0) {
                 setTimeout(countdown, 1000);
             } else {
-                goBack()
+                goHome()
             }
         };
         setTimeout(countdown, 1000);
