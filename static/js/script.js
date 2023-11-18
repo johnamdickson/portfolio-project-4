@@ -394,16 +394,18 @@ async function initMap() {
 
 
   // The map, centered at factory
-  map = new Map(document.getElementById("map"), {
-    center: position,
-      zoom: 19,
-      heading: 22,
-      tilt: 0,
-      mapTypeId: 'satellite',
-      mapId: "90f87356969d889c",
-    });
-// call add marker function.
-    addMarker()
+  if (document.getElementById("map")){
+    map = new Map(document.getElementById("map"), {
+        center: position,
+          zoom: 19,
+          heading: 22,
+          tilt: 0,
+          mapTypeId: 'satellite',
+          mapId: "90f87356969d889c",
+        });
+    // call add marker function.
+        addMarker()
+  }
 }
 
 // function for adding marker once map has initialised. Taking arguments from 
@@ -456,15 +458,17 @@ initMap()
  * Called on page load and when the window is resized.
  */
 function adjustMapZoom(){
+if (document.getElementById("map")){
     if (window.innerWidth < 768) {
-            map.setZoom(17.8)
-       }
-       else if ((window.innerWidth < 1200)) {
-            map.setZoom(18.5)
-       }
-        else {
-            map.setZoom(19)
-        }
+        map.setZoom(17.8)
+   }
+   else if ((window.innerWidth < 1200)) {
+        map.setZoom(18.5)
+   }
+    else {
+        map.setZoom(19)
+    }
+}
 }
 
 // solution to filtering table from Stack Overflow:
