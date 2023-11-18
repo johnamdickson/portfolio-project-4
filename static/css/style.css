@@ -1,6 +1,7 @@
 body {
     background-color: #d3cfcf;
     font-family: 'Taviraj', serif;
+    font-weight: 200;
     letter-spacing: 0.2rem;
     display: flex;
 }
