@@ -826,10 +826,6 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     cursor: pointer;
 }
 
-.emission-detail-table tbody:hover {
-    opacity: 0.5
-}
-
 
 .emission-detail-table th, .emission-detail-table td{
     padding: 5px;
