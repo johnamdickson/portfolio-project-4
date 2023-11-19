@@ -503,21 +503,23 @@ const filterChecks = () => {
  * https://codepen.io/joshua-golub/pen/LYYKrKg
  */
 const errorCountdown = () => {
-    let timeLeft
+    let timeLeft = 10
     // check if the error-code is 400 or 500 assign 60 to timeLeft based on 
     // fact that errors are not related to wrong page or forbidden so a 10 second
     // timer to go back to home page would be excessive.
-    if (document.getElementById("error-heading").innerText) {
+    if (document.getElementById("error-heading")) {
         timeLeft = 60;
+        document.getElementById("error-timer").innerText = '60';
     }
     else {
         timeLeft = 10;
     }
+
     if (document.getElementById("error-timer")){
-        let errorSpan = document.getElementById("error-timer").innerText
         function countdown() {
             timeLeft--;
-            errorSpan = String( timeLeft );
+            console.log('time left', timeLeft)
+            document.getElementById("error-timer").innerText = String( timeLeft );
             if (timeLeft > 0) {
                 setTimeout(countdown, 1000);
             } else {
