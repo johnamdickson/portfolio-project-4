@@ -55,47 +55,51 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
 class Emissions(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Emission.objects
-        emission = get_object_or_404(queryset, slug=slug)
-        title = emission.title
-        description = emission.description
-        image_url = emission.emission_image.url
-        location = emission.location
-        created_on = emission.created_on
-        type = emission.get_emission_type
-        status = emission.calculate_status
-        check_complete = emission.calculate_check_complete
-        last_checked = emission.last_checked
-        next_check_due = emission.next_check_due
-        current_check_due = emission.current_check_due
-        close_out_comments = emission.close_out_comments
-        closed_by = emission.closed_by
-        close_out_date = emission.close_out_date
-        latitude = emission.latitude
-        longitude = emission.longitude
-        return render(
-            request,
-            'emission_detail.html',
-            {
-                "title": title,
-                "description": description,
-                "image_url": image_url,
-                "location": location,
-                "slug": slug,
-                "created_on": created_on,
-                "check_complete": check_complete,
-                "status": status,
-                "type" : type,
-                "last_checked": last_checked,
-                "next_check" : next_check_due,
-                "current_check": current_check_due,
-                "close_out_comments": close_out_comments,
-                "closed_by": closed_by,
-                "close_out_date": close_out_date,
-                "latitude": latitude,
-                "longitude": longitude,
-            },
-        )
+        if request.user.is_authenticated:
+            queryset = Emission.objects
+            emission = get_object_or_404(queryset, slug=slug)
+            title = emission.title
+            description = emission.description
+            image_url = emission.emission_image.url
+            location = emission.location
+            created_on = emission.created_on
+            type = emission.get_emission_type
+            status = emission.calculate_status
+            check_complete = emission.calculate_check_complete
+            last_checked = emission.last_checked
+            next_check_due = emission.next_check_due
+            current_check_due = emission.current_check_due
+            close_out_comments = emission.close_out_comments
+            closed_by = emission.closed_by
+            close_out_date = emission.close_out_date
+            latitude = emission.latitude
+            longitude = emission.longitude
+            return render(
+                request,
+                'emission_detail.html',
+                {
+                    "title": title,
+                    "description": description,
+                    "image_url": image_url,
+                    "location": location,
+                    "slug": slug,
+                    "created_on": created_on,
+                    "check_complete": check_complete,
+                    "status": status,
+                    "type" : type,
+                    "last_checked": last_checked,
+                    "next_check" : next_check_due,
+                    "current_check": current_check_due,
+                    "close_out_comments": close_out_comments,
+                    "closed_by": closed_by,
+                    "close_out_date": close_out_date,
+                    "latitude": latitude,
+                    "longitude": longitude,
+                },
+            )
+        else:
+            return render (request, 'account/login.html')
+
 
     def close(request, slug, *args, **kwargs):
         queryset = Emission.objects
