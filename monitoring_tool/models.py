@@ -31,7 +31,7 @@ class Emission(models.Model):
     longitude = models.FloatField()
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    last_checked = models.DateField(auto_now=False)
+    last_checked = models.DateField(auto_now=False, blank= True, null=True)
     next_check_due = models.DateField(auto_now=False)
     current_check_due = models.DateField(auto_now=False)
     status = models.IntegerField(choices=status_choices, default=0)
@@ -60,10 +60,11 @@ class Emission(models.Model):
         Function to return a check completion string 
         representation using the status number.
         """
-        if self.current_check_due <= self.last_checked <= self.next_check_due:
-            return "Checks Complete"
-        else:
-            return "Checks Outstanding"
+        if self.last_checked:
+            if self.current_check_due <= self.last_checked <= self.next_check_due:
+                return "Checks Complete"
+            else:
+                return "Checks Outstanding"
 
     def calculate_status(self):
         """
