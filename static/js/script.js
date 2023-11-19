@@ -224,14 +224,22 @@ const showModal = (data) => {
  * Adds modal to the DOM and updates with JSON data passed in
  * from emission.html.
  */
-const emissionModal = (data) => {
+const emissionModal = (data, page) => {
     let emission = JSON.parse(data)
     const modalItem = document.getElementById('emissionModal');
     document.getElementById('emissionModalTitle').innerText = `Emission: ${emission.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
-    // set hidden input href attribute to slug of the emission passed into this function.
-    document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
-    document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
+        // select buttons for emission detail page.
+        if (page === 'emission-detail'){
+            // document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
+            // document.getElementsByClassName('close-emission-a')[0].setAttribute('href' , `/close-emission/${emission.slug}/`)
+        }
+        else {
+                // set hidden input href attribute to slug of the emission passed into this function.
+            document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
+            document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
+        }
+
 
     new bootstrap.Modal(modalItem).show();
 
@@ -299,14 +307,15 @@ function statusFilter() {
 const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
-    let eventSourceClassList = event.srcElement.classList;
     let eventSourceText = event.srcElement.innerText;
+    console.log(eventSourceText)
     // use of value to access text area text solution from stack overflow:
     //  https://stackoverflow.com/questions/16013899/javascript-get-contents-of-textarea-textcontent-vs-innerhtml-vs-innertext
     // switch the event source text to determine the text for the confirmation prompt.
+
     if (eventSourceText === "Close Emission") {
         confirmText = 'Are you sure you want to close the emission?'
-    } else if (eventSourceClassList[1] === 'fa-trash-can') {
+    } else if (eventSourceText === 'Delete Emission') {
         confirmText = 'Are you sure you want to delete the emission? This action cannot be reversed'
     } else if (eventSourceText === 'Edit Check') {
         let editCommentText = document.getElementById('editComments').value;
@@ -338,17 +347,17 @@ function goHome() {
  * Function to read event text and determine appropriate response
  * in the alert col by adjusting the inner html.
  */
-const buttonDisabled = (event, closed) => {
-    let eventSourceClassList = event.srcElement.classList
-    if (closed && eventSourceClassList[1] === 'fa-flag-checkered') {
+const buttonDisabled = (type, closed) => {
+    let alert = document.getElementById('alert-col')
+    if (closed && type === 'close') {
         alertText = `<p>This emission is already closed.</p>`
     }
     else{
-    switch(eventSourceClassList[1]) {
-        case 'fa-flag-checkered':
+    switch(type) {
+        case 'close':
             alertText = `<p>You do not have the necessary permissions to <strong>close</strong> an emission.\n Please contact your system administrator.</p>`
             break;
-        case 'fa-trash-can':
+        case 'delete':
             alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission/check.\n Please contact your system administrator.</p>`
             break;
         case 'fa-pen-to-square':
@@ -361,7 +370,6 @@ const buttonDisabled = (event, closed) => {
           break;
       }
     }
-      let alert = document.getElementById('alert-col')
       alert.innerHTML = `
       <div class="alert alert-warning alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
       <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning or Error:">
@@ -372,9 +380,11 @@ const buttonDisabled = (event, closed) => {
   </div>
       `
       setTimeout(function () {
-        let messages = document.getElementById('msg');
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
+        if (document.getElementById('msg')){
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }
     }, 4000);
 }
 
@@ -519,7 +529,6 @@ const errorCountdown = () => {
     if (document.getElementById("error-timer")){
         function countdown() {
             timeLeft--;
-            console.log('time left', timeLeft)
             document.getElementById("error-timer").innerText = String( timeLeft );
             if (timeLeft > 0) {
                 setTimeout(countdown, 1000);

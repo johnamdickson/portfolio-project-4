@@ -8,122 +8,139 @@
             <div id="map" class="shadow"></div>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row my-3">
         <div class="col-md-10 p-md-3 mx-auto mt-1 mt-md-3">
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-container shadow">
-                        <table id="emission-detail-table">
+                        <table class="emission-detail-table">
                             <tr>
-                                <thead id="emission-detail-table-title">
+                                <thead class="emission-detail-table-title">
                                     <th colspan="5">
-                                        <h4>{{title}}</h4>
+                                        <div class="container-fluid p-1">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <button title="Go Back" class="btn go-back p-2" onclick="goBack()">
+                                                        <i class="fa-solid fa-circle-left detail-icons"></i>
+                                                        <p>Go Back</p>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 my-auto">
+                                                    <h4>{{title}}</h4>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
                                     </th>
                                 </thead>
                             </tr>
-                            <tr>
-                                <td rowspan="4" colspan="2">
-                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%"
-                                        height="100%" id="emission-detail-img">
-                                </td>
-                                <th>
-                                    <h5>Location</h5>
-                                </th>
-                                <th>
-                                    <h5>Type</h5>
-                                </th>
-                                <th class="hidden-col">
-                                    <h5>Date Created</h5>
-                                </th>
+                            <tbody onclick="emissionModal('{{javascript_data|escapejs}}', 'emission-detail')">
+                                <tr>
+                                    <td rowspan="4" colspan="2">
+                                        <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%"
+                                            height="100%" id="emission-detail-img">
+                                    </td>
+                                    <th>
+                                        <h5>Location</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Type</h5>
+                                    </th>
+                                    <th class="hidden-col">
+                                        <h5>Date Created</h5>
+                                    </th>
 
-                            </tr>
-                            <tr>
-
-                                <td>
-                                    <p>{{location}}</p>
-                                </td>
-                                <td>
-                                    <p>{{type}}</p>
-                                </td>
-                                <td class="hidden-col">
-                                    <p>{{created_on | date:'M. d Y'}}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colspan="3" class="description-cell">
-                                    <h5>Description</h5>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="description-cell">
-                                    <p>{{description}}</p>
-                                </td>
-                            </tr>
-                            {% if status == 'Open' %}
-                            <tr>
-                                <th>
-                                    <h5>Status</h5>
-                                </th>
-                                <th>
-                                    <h5>Check Status</h5>
-                                </th>
-                                <th>
-                                    <h5>Last Checked</h5>
-                                </th>
-                                <th>
-                                    <h5>Current Check Due</h5>
-                                </th>
-                                <th class="hidden-col">
-                                    <h5>Next Check Due</h5>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td id="status-cell" class="bg-gradient">
-                                    <p>{{status}}</p>
-                                </td>
-                                <td>
-                                    <p class="check_status emission-detail-check_status">{{check_complete}}</p>
-                                </td>
-                                <td>
-                                    <p>{{last_checked | date:'M. d Y'}}</p>
-                                </td>
-                                <td>
-                                    <p>{{current_check | date:'M. d Y'}}</p>
-                                </td>
-                                <td class="hidden-col">
-                                    <p>{{next_check | date:'M. d Y'}}</p>
-                                </td>
-                            </tr>
-                            {% else %}
-                            <tr>
-                                <th>
-                                    <h5>Status</h5>
-                                </th>
-                                <th colspan="2">
-                                    <h5>Close Out Comments</h5>
-                                </th>
-                                <th>
-                                    <h5>Closed By</h5>
-                                </th>
-                                <th>
-                                    <h5>Close Out Date</h5>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td id="status-cell" class="bg-gradient">
-                                    <p>{{status}}</p>
-                                </td>
-                                <td colspan="2">
-                                    <p>{{close_out_comments}}</p>
-                                </td>
-                                <td>
-                                    <p>{{closed_by}}</p>
-                                </td>
-                                <td>
-                                    <p>{{close_out_date | date:'M. d Y'}}</p>
-                                </td>
-                            </tr>
-                            {% endif %}
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>{{location}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{type}}</p>
+                                    </td>
+                                    <td class="hidden-col">
+                                        <p>{{created_on | date:'M. d Y'}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="3" class="description-cell">
+                                        <h5>Description</h5>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="description-cell">
+                                        <p>{{description}}</p>
+                                    </td>
+                                </tr>
+                                {% if status == 'Open' %}
+                                <tr>
+                                    <th>
+                                        <h5>Status</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Check Status</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Last Checked</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Current Check Due</h5>
+                                    </th>
+                                    <th class="hidden-col">
+                                        <h5>Next Check Due</h5>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td id="status-cell" class="bg-gradient">
+                                        <p>{{status}}</p>
+                                    </td>
+                                    <td>
+                                        <p class="check_status emission-detail-check_status">{{check_complete}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{last_checked | date:'M. d Y'}}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>{{current_check | date:'M. d Y'}}</p>
+                                    </td>
+                                    <td class="hidden-col">
+                                        <p>{{next_check | date:'M. d Y'}}</p>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <th>
+                                        <h5>Status</h5>
+                                    </th>
+                                    <th colspan="2">
+                                        <h5>Close Out Comments</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Closed By</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Close Out Date</h5>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td id="status-cell" class="bg-gradient">
+                                        <p>{{status}}</p>
+                                    </td>
+                                    <td colspan="2">
+                                        <p>{{close_out_comments}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{closed_by}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{close_out_date | date:'M. d Y'}}</p>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
                         </table>
 
                     </div>
@@ -131,7 +148,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-3">
+    <!-- <div class="row mt-3">
         <div class="col-md-10 p-md-3 mx-auto mt-1">
             <div class="row gx-1 emission-detail-options shadow ">
                 <div class="col-md-3 options-col">
@@ -142,15 +159,9 @@
                     </div>
                 </div>
                 <div class="col-3 m-auto">
-                    <button title="Go Back" class="btn go-back btn-icon-grey " onclick="goBack()">
-                        <i class="fa-solid fa-circle-left detail-icons"></i>
-                    </button>
+
                 </div>
-                <!-- 
-                    Use user permissions to style close and delete buttons by applying different classes 
-                as required. Solution for accessing permissions from stack overflow:
-                https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
-                 -->
+ 
                 {% if status == 'Closed' %}
                 <div class="col-3 m-auto">
                     <a title="Emission {{title}} is Closed" href="#" onclick="buttonDisabled(event, true);"
@@ -158,7 +169,7 @@
                 </div>
                 {% elif perms.monitoring_tool.change_emission %}
                 <div class="col-3 m-auto">
-                    <a title="Close Emission {{title}}" href="{% url 'close-emission' slug%}"
+                    <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" 
                         class="btn btn-icon-grey"><i class="fa-solid fa-flag-checkered detail-icons"></i></a>
                 </div>
                 {% else %}
@@ -182,9 +193,63 @@
                 {% endif %}
             </div>
         </div>
+    </div> -->
+</div>
+
+<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="emissionModalTitle">Modal title</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body" id="emissionModalBody">
+                ...
+            </div>
+            <div class="modal-footer">
+                <a href="{% url 'add-check' slug%}" class="btn" id="emission-check-a">Submit {{emission}} Emission
+                    Check<i class="fa-solid fa-clipboard-list"></i></a>
+                <!-- 
+            Use user permissions to style close and delete buttons by applying different classes 
+            as required. Solution for accessing permissions from stack overflow:
+            https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
+            -->
+                {% if status == 'Closed' %}
+                <a href="#" title="Emission {{title}} is Closed" class="btn close-emission-a btn-unavailable"
+                    onclick="buttonDisabled('close', true); window.scrollTo(0, 0);" data-dismiss="modal">
+                    Close Emission
+                    <i class="fa-solid fa-flag-checkered"></i>
+                </a>
+                {% elif perms.monitoring_tool.change_emission %}
+                <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" class="btn close-emission-a">
+                    Close Emission
+                    <i class="fa-solid fa-flag-checkered" onclick="confirmAction(event, false)"></i>
+                </a>
+                {% else %}
+                <a href="#" class="btn close-emission-a btn-unavailable"
+                    onclick="buttonDisabled('close', false); window.scrollTo(0, 0);" data-dismiss="modal">
+                    Close Emission
+                    <i class="fa-solid fa-flag-checkered"></i>
+                </a>
+                {% endif %}
+                {% if perms.monitoring_tool.delete_emission %}
+                <a href="{% url 'delete-emission' slug%}" title="Delete Emission {{title}}"
+                    class="btn delete-emission-a" onclick="confirmAction(event, false)">
+                    Delete Emission
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+                {% else %}
+                <a href="#" class="btn delete-emission-a btn-unavailable"
+                    onclick="buttonDisabled('delete', false); window.scrollTo(0, 0);" data-dismiss="modal">
+                    Delete Emission
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </div>
 <!-- solution to passing variables into JS:
 https://stackoverflow.com/questions/68394094/how-top-pass-data-to-javascript-in-django

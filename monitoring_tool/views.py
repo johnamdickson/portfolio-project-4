@@ -74,6 +74,7 @@ class Emissions(View):
             close_out_date = emission.close_out_date
             latitude = emission.latitude
             longitude = emission.longitude
+            javascript_data = emission.javascript_data
             return render(
                 request,
                 'emission_detail.html',
@@ -95,6 +96,7 @@ class Emissions(View):
                     "close_out_date": close_out_date,
                     "latitude": latitude,
                     "longitude": longitude,
+                    "javascript_data": javascript_data,
                 },
             )
         else:
