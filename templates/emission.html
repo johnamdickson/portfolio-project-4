@@ -38,11 +38,11 @@
             <li id="create-emission-li">
               {% if perms.monitoring_tool.add_emission %}
               <div>
-                  <a href="{% url 'add-emission' %}" class="btn btn-white-back-red-font create-emission-button">Add New Emission</a>
+                  <a href="{% url 'add-emission' %}" class="btn btn-white-back-red-font create-emission-button">Add New Emission<i class="fa-solid fa-circle-plus fa-6x"></i></a>
               </div>
               {% else %}
               <div>
-                <a href="#" class="btn add-btn-unavailable create-emission-button" onclick="buttonDisabled(event);">Add New Emission</a>
+                <a href="#" class="btn add-btn-unavailable create-emission-button" onclick="buttonDisabled(event);">Add New Emission<i class="fa-solid fa-circle-plus fa-6x"></i></a>
             </div>
             {% endif %}
           </li>
@@ -145,8 +145,8 @@
         ...
       </div>
       <div class="modal-footer">
-        <a href="${checkEmissionUrl}" class="btn" id="emission-check-a">Submit {{emission}} Emission Check</a>
-        <a href="${allEmissionsUrl}" class="btn" id="emission-detail-a">Go To Emission Detail Page</a>
+        <a href="${checkEmissionUrl}" class="btn" id="emission-check-a">Submit {{emission}} Emission Check<i class="fa-solid fa-clipboard-list"></i></a>
+        <a href="${allEmissionsUrl}" class="btn" id="emission-detail-a">Go To Emission Detail Page<i class="fa-solid fa-circle-info"></i></a>
       </div>
     </div>
   </div>

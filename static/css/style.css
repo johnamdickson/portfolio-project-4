@@ -518,10 +518,15 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin: auto;
     width: 32%;
     padding:5px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
-    height:70px;
+    height:85px;
+}
+
+
+.modal-footer a i {
+    margin-left: 5px;
 }
 
 .modal-footer a:hover {
@@ -573,10 +578,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     background-color: #36454F;
     color: #fafafa;
     border-right: 0.5px solid #fafafa;
-    /* border: 0.5px solid #fafafa; */
     text-align: center;
-    /* box-shadow: inset 0 0px 0 #fafafa, inset 0 0px 0 #fafafa; */
-
 }
 
 .emissions-table th > p {
@@ -676,7 +678,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     padding: 10px;
     border: 2px solid #fafafa;
 }
-
 
 .emission-callout h3 {
     font-size: clamp(1.1rem, 2.5vw, 2.5rem);
@@ -793,7 +794,9 @@ https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-b
     background-image: linear-gradient(180deg, #fafafa90 0%, #36454F90 15%);
 }
 
-
+.create-emission-button i{
+    margin-left:10px;
+  }
 
 /* _________________________________________  Emission Detail styling  ________________________________________________ */
 
@@ -1303,7 +1306,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
       }
 
       .create-emission-button {
-        height: 50px;
+        height: 40px;
       }
 
       .options-col {
@@ -1319,6 +1322,14 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .my-auto {
         margin-bottom: 0 !important;
     }
+
+    .modal-footer a {
+        height: 100px;
+        width:30%;
+        justify-content: space-around;
+        flex-direction: column-reverse;
+        font-size: 0.65rem;
+    }
 }
 
 @media (min-width: 768px) {
@@ -1327,6 +1338,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         max-width: 600px;
         margin: 1.75rem auto;
     }
+    
 }
 
 /* target mobile screen size */
@@ -1351,7 +1363,8 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .modal-footer a {
-        height: 90px;
+        height: 120px;
+        width:32%;
     }
 
     .btn-white-back-red-font, .btn-red-back-white-font, .btn-unavailable {

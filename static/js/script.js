@@ -209,9 +209,10 @@ const showModal = (data) => {
                                                 </tr>                                                   
                                             </table>
                                         <div class="modal-footer">
-                                            <a href= "add-check/${emissionArray.slug}/" class="btn">Submit ${emissionArray.title} Emission Check</a>
-                                            <a href="/${emissionArray.slug}/" class="btn">Go To Emission Detail Page</a>
-                                            <a href="${allEmissionsUrl}" class="btn">Go To All Emissions Page</a>
+                                            <a href= "add-check/${emissionArray.slug}/" class="btn">Submit ${emissionArray.title} Emission Check<i class="fa-solid fa-clipboard-list"></i>
+                                            </a>
+                                            <a href="/${emissionArray.slug}/" class="btn">Go To Emission Detail Page<i class="fa-solid fa-circle-info"></i></a>
+                                            <a href="${allEmissionsUrl}" class="btn">Go To All Emissions Page<i class="fa-solid fa-table-list"></i></a>
                                         </div>
                                     </div>
                                 </div>
