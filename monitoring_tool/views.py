@@ -47,7 +47,7 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
     model = Emission
     queryset = Emission.objects.order_by("-created_on")
     queryset.update(next_check_due=first_monday_next_month())
-    queryset.update()
+    queryset.update(current_check_due=first_monday_current_month())
     template_name = "emission.html"
     paginate_by = 20
 
