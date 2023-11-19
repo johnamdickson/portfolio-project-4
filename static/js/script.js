@@ -514,8 +514,7 @@ const errorCountdown = () => {
         timeLeft = 10;
     }
     if (document.getElementById("error-timer")){
-        const errorSpan = document.getElementById("error-timer").innerText
-        
+        let errorSpan = document.getElementById("error-timer").innerText
         function countdown() {
             timeLeft--;
             errorSpan = String( timeLeft );
