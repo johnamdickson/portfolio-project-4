@@ -2,17 +2,49 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>500 error</h1>
-    {{ exception_value }}{{value}}{{tb}}
-</body>
-</html>
+
+
+<div class="form-background shadow">
+    <div class="container-fluid error-page-container">
+        <div class="row">
+            <div class="col-10 m-auto mt-3">
+                <div class="row">
+                    <div class="col-12 m-auto mt-3">
+                        <h2 class="display-1" id="error-heading">500 Error</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-auto p-4">
+                        <i class="fa-solid fa-face-sad-tear fa-10x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-auto p-3">
+                        <h3 class="display-4">Internal Server Error</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-auto p-3">
+                        <!-- text for bad request message from this site:
+                        https://wetopi.com/error-400-bad-request/
+                        -->
+                        <p class="status-code-exception">
+                            The server encountered an error and could not complete your request. If the problem persists please contact your administrator.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-auto p-3 error-redirect">
+                      <button title="Go to home page" class="btn" onclick="goHome()">
+                        <i class="fa-solid fa-circle-left detail-icons"></i>
+                    </button>
+                        <p>You will be automatically redirected back to the home page in <span id="error-timer">10</span> seconds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% debug %}
+  </div>
 
 {% endblock%}
