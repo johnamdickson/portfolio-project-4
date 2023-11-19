@@ -219,6 +219,10 @@ input[type='checkbox'] {
 #id_status {
     width:100%;
 }
+
+button, input, optgroup, select, textarea {
+    font-weight: 100;
+}
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
