@@ -174,16 +174,18 @@
                     Submit {{emission}} Emission Check
                     <i class="fa-solid fa-clipboard-list"></i>
                 </a>
-                <a href="#" title="Emission {{title}} is Closed" class="btn close-emission-a btn-unavailable"
-                    onclick="buttonDisabled('close', true); window.scrollTo(0, 0);" data-dismiss="modal">
-                    Close Emission
-                    <i class="fa-solid fa-flag-checkered"></i>
-                </a>
                 {% elif status == 'Open' %}
                     <a href="{% url 'add-check' slug%}" class="btn">
                         Submit {{emission}} Emission Check
                         <i class="fa-solid fa-clipboard-list"></i>
                     </a>
+                {% endif %}
+                {% if status == 'Closed' %}
+                <a href="#" title="Emission {{title}} is Closed" class="btn close-emission-a btn-unavailable"
+                    onclick="buttonDisabled('close', true); window.scrollTo(0, 0);" data-dismiss="modal">
+                    Close Emission
+                    <i class="fa-solid fa-flag-checkered"></i>
+                </a>
                 {% elif perms.monitoring_tool.change_emission %}
                 <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" class="btn close-emission-a">
                     Close Emission
