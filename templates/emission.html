@@ -117,7 +117,7 @@
                   <td class=" hidden-col">{{ emission.next_check_due}}</td>  
                   <td class="check_status">{{ emission.calculate_check_complete}}</td>  
                   {% endif %}
-                  <td>{{ emission.calculate_status}}</td>        
+                  <td class="status-cell" >{{ emission.calculate_status}}</td>        
                 </tr>
           
                   {% endfor %}

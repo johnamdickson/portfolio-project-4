@@ -117,14 +117,18 @@ function updateChecksComplete() {
 }
 
 function updateStatus() {
-    if (document.getElementById('status-cell')) {
-        let status = document.getElementById('status-cell');
-        if (status.innerText === 'Open') {
-            status.style.backgroundColor = ('green');
-            status.style.color = ('white');
-        } else if (status.innerText === 'Closed'){
-            status.style.backgroundColor = ('red');
-            status.style.color = ('white');
+    if (document.getElementsByClassName('status-cell')) {
+        let statusCells = document.getElementsByClassName('status-cell');
+        console.log(statusCells)
+        for(let status of statusCells) {
+            console.log(status)
+            if (status.innerText === 'Open') {
+                status.style.backgroundColor = ('green');
+                status.style.color = ('white');
+            } else if (status.innerText === 'Closed'){
+                status.style.backgroundColor = ('red');
+                status.style.color = ('white');
+            }
         }
     }
 }

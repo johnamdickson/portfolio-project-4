@@ -126,7 +126,7 @@
                                     </th>
                                 </tr>
                                 <tr>
-                                    <td id="status-cell" class="bg-gradient">
+                                    <td class="status-cell" class="bg-gradient">
                                         <p>{{status}}</p>
                                     </td>
                                     <td colspan="2">
@@ -148,52 +148,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="row mt-3">
-        <div class="col-md-10 p-md-3 mx-auto mt-1">
-            <div class="row gx-1 emission-detail-options shadow ">
-                <div class="col-md-3 options-col">
-                    <div class="row h-100 w-100">
-                        <div class="col-12 my-auto options-title">
-                            <h4>Options</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 m-auto">
-
-                </div>
- 
-                {% if status == 'Closed' %}
-                <div class="col-3 m-auto">
-                    <a title="Emission {{title}} is Closed" href="#" onclick="buttonDisabled(event, true);"
-                        class="btn btn-unavailable"><i class="fa-solid fa-flag-checkered detail-icons"></i></a>
-                </div>
-                {% elif perms.monitoring_tool.change_emission %}
-                <div class="col-3 m-auto">
-                    <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" 
-                        class="btn btn-icon-grey"><i class="fa-solid fa-flag-checkered detail-icons"></i></a>
-                </div>
-                {% else %}
-                <div class="col-3 m-auto">
-                    <a title="Insufficient Permissions to Close Emission {{title}}" href="#"
-                        onclick="buttonDisabled(event, false);" class="btn btn-unavailable"><i
-                            class="fa-solid fa-flag-checkered detail-icons"></i></a>
-                </div>
-                {% endif %}
-                {% if perms.monitoring_tool.delete_emission %}
-                <div class="col-3 m-auto">
-                    <a title="Delete Emission {{title}}" href="{% url 'delete-emission' slug%}" class="btn btn-icon-red"
-                        onclick="confirmAction(event, false)"><i class="fa-solid fa-trash-can detail-icons"></i></a>
-                </div>
-                {% else %}
-                <div class="col-3 m-auto">
-                    <a title="Insufficient Permissions to Delete Emission {{title}}" href="#"
-                        class="btn btn-unavailable" aria-disabled="true" onclick="buttonDisabled(event, false);"><i
-                            class="fa-solid fa-trash-can detail-icons"></i></a>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </div> -->
 </div>
 
 <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel"
