@@ -355,6 +355,8 @@ const buttonDisabled = (type, closed) => {
     let alert = document.getElementById('alert-col')
     if (closed && type === 'close') {
         alertText = `<p>This emission is already closed.</p>`
+    } else if (closed && type === 'submit') {
+        alertText = `<p>This emission is closed so no further checks are required.</p>`
     }
     else{
     switch(type) {

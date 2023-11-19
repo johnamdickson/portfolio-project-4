@@ -163,19 +163,27 @@
                 ...
             </div>
             <div class="modal-footer">
-                <a href="{% url 'add-check' slug%}" class="btn" id="emission-check-a">Submit {{emission}} Emission
-                    Check<i class="fa-solid fa-clipboard-list"></i></a>
+
                 <!-- 
             Use user permissions to style close and delete buttons by applying different classes 
             as required. Solution for accessing permissions from stack overflow:
             https://stackoverflow.com/questions/9469590/check-permission-inside-a-template-in-django
             -->
                 {% if status == 'Closed' %}
+                <a href="#" class="btn close-emission-a btn-unavailable" onclick="buttonDisabled('submit', true); window.scrollTo(0, 0);" data-dismiss="modal">
+                    Submit {{emission}} Emission Check
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </a>
                 <a href="#" title="Emission {{title}} is Closed" class="btn close-emission-a btn-unavailable"
                     onclick="buttonDisabled('close', true); window.scrollTo(0, 0);" data-dismiss="modal">
                     Close Emission
                     <i class="fa-solid fa-flag-checkered"></i>
                 </a>
+                {% elif status == 'Open' %}
+                    <a href="{% url 'add-check' slug%}" class="btn">
+                        Submit {{emission}} Emission Check
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </a>
                 {% elif perms.monitoring_tool.change_emission %}
                 <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" class="btn close-emission-a">
                     Close Emission
