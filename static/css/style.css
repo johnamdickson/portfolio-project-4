@@ -186,6 +186,10 @@ input[type='checkbox'] {
     float: left;
 }
 
+.form-title {
+    text-align: center;
+}
+
 #forgot-password-link {
     text-align: center;
 }
@@ -222,6 +226,11 @@ input[type='checkbox'] {
 
 button, input, optgroup, select, textarea {
     font-weight: 100;
+}
+
+.form-button-row {
+    display: flex;
+    justify-content: center;
 }
 /* _________________________________________  Home Page styling  __________________________________________ */
 
@@ -708,11 +717,10 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     background-color: #fafafa;
     color: #dc3123;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(0.8rem, 1.4vw, 1.4rem);
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
     padding:10px;
     border: 1px solid #dc3123;
     text-align: center;
-    width: 100%;
     height: 70px;
     letter-spacing: 0.2em;
     display: flex;
@@ -725,6 +733,10 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     background-color: #fafafa90;
     color:#dc3123;
     border-color: #fafafa;
+}
+
+.btn-white-back-red-font i {
+    margin-left: 20px;
 }
 
 .add-btn-unavailable {
@@ -798,8 +810,9 @@ https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-b
     font-family:'Josefin Sans', sans-serif;
   }
 
-.create-emission-button i{
+.create-emission-button .fa-solid{
     margin-left:10px;
+    font-size: 30px;
   }
 
 /* _________________________________________  Emission Detail styling  ________________________________________________ */
@@ -1340,7 +1353,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
       }
 
       .create-emission-button {
-        height: 40px;
+        height: 50px;
       }
 
       .options-col {
@@ -1402,7 +1415,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .btn-white-back-red-font, .btn-red-back-white-font, .btn-unavailable {
-        height: 50px;
+        height: 60px;
         margin-top: 0;
     }
 

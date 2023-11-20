@@ -39,50 +39,51 @@
   <div class="container-fluid form-section">
     <div class="row p-2 p-md-0">
       <div
-        class="col-xl-8 offset-xl-2 mt-0 mt-md-5 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
-        <div class="container">
+      class="col-xl-6 mx-auto mt-0 mt-md-5 col-md-8 shadow pt-3 pt-md-4 px-1 custom-container rounded">
+      <div class="container">
           <div class="row">
-            <div class="p-0 p-md-2 col-md-5 mb-4 offset-md-1 mx-auto">
-          <h2>{% trans "sign up" %}</h2>
-        </div>
-        <div class="col-md-6">
-          <p id="sign-in-icon"><i class="fa-solid fa-user-plus"></i></p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-          <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-        </div>
+            <div class="p-0 p-md-2 col-md-12 mb-4 mx-auto form-title">
+              <h2>Sign Up</h2>
+                  </div>
               </div>
-      <form class="login" method="POST" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        <!-- customisation of django form to style elements:
-        https://stackoverflow.com/questions/7769805/editing-django-form-as-p
-       -->
-        {% for field in form %}
-        <div class="row">
-          <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
-          <div class="col-md-5 mb-3">{{ field }} </div>
-
-        </div>
-        <div class="row" id="help-text">
-          {% if field.help_text %}
-          <div class="col-md-10 offset-md-1 my-2">
-            {{ field.help_text|safe }}
           </div>
-        {% endif %}
-        </div>
-        {% endfor %}
-        <div class="row">
-          <div class="col-md-4 offset-md-4 my-3">
-            <button class="btn btn-white-back-red-font shadow" type="submit">{% trans "register" %} &raquo;</button>
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
+              <p>Welcome to the emissions monitoring tool, the one stop shop for monitoring, verifying and recording
+                your facilities emissions. </p>
+            </div>
+            <div class="col-md-10 offset-md-1 mb-3">
+              <p>{% blocktrans %}
+                If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+            </div>
           </div>
-        </div>
-      </form>
+          <form class="login" method="POST" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            <!-- customisation of django form to style elements:
+            https://stackoverflow.com/questions/7769805/editing-django-form-as-p
+           -->
+            {% for field in form %}
+            <div class="row">
+              <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
+              <div class="col-md-5 mb-3">{{ field }} </div>
+    
+            </div>
+            <div class="row" id="help-text">
+              {% if field.help_text %}
+              <div class="col-md-10 offset-md-1 my-2">
+                {{ field.help_text|safe }}
+              </div>
+            {% endif %}
+            </div>
+            {% endfor %}
+            <div class="row">
+              <div class="col-md-6 mx-auto  my-3 px-4 form-button-row">
+                <button class="btn btn-white-back-red-font shadow" type="submit">{% trans "Register" %}<i class="fa-solid fa-user-plus"></i></button>
+              </div>
+            </div>
+          </form>
       </div>
-    </div>
   </div>
-</div>
 </div>
 {% endblock content %}

@@ -5,34 +5,29 @@
 <div class="form-background shadow">
     <div class="container-fluid form-section">
       <div class="row p-2 p-md-0">
-        <div
-          class="col-xl-8 offset-xl-2 mt-0 mt-md-5 col-md-10 offset-md-1 shadow pt-3 pt-md-5 px-1 custom-container rounded">
-          <div class="container">
+        <div class="col-xl-6 mx-auto mt-0 mt-md-5 col-md-8 shadow pt-3 pt-md-4 px-1 custom-container rounded">          
+            <div class="container">
             <div class="row">
-              <div class="p-0 p-md-2 col-md-8 mb-4 offset-md-1 mx-auto">
+              <div class="p-0 p-md-2 col-md-12 mb-4 mx-auto form-title">
                         <h2>Submit a Check for {{title}}</h2>
-                    </div>
-                    <div class="col-md-4 mx-auto">
-                        <p id="sign-in-icon"><i class="fa-solid fa-circle-plus"></i></p>
                     </div>
                 </div>
             </div>
-            <form action="" method='POST' enctype="multipart/form-data" id="close-out-form">
-                <div class="container-fluid">
+            <form action="" method='POST' id="close-out-form">
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
-                    <div class="col-md-3 offset-md-1 mb-3">{{ field.label_tag }} </div>
-                    <div class="col-md-7 mb-3">{{ field }} </div>
+                    <div class="col-md-3 offset-md-1 mb-3 ps-3">{{ field.label_tag }} </div>
+                    <div class="col-md-7 mb-3 p-3 p-md-0">{{ field }} </div>
                 </div>
                 {% endfor %}
-                <div class="col-md-4 offset-md-4 my-3">
-                <button type="submit" class="btn btn-white-back-red-font shadow" value="Upload" >Add Check</button>
+                <div class="col-md-6 mx-auto  my-3 px-4 form-button-row">
+                <button type="submit" class="btn btn-white-back-red-font shadow" value="Add Check">Add Check<i class="fa-solid fa-clipboard-list"></i></button>
                 </div>
-            </div>
             </form>
         </div>
     </div>
 </div>
-</div>
+
+
 {% endblock%}
