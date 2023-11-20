@@ -189,7 +189,7 @@
                 {% elif perms.monitoring_tool.change_emission %}
                 <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" class="btn close-emission-a">
                     Close Emission
-                    <i class="fa-solid fa-flag-checkered" onclick="confirmAction(event, false)"></i>
+                    <i class="fa-solid fa-flag-checkered" onclick="confirmAction(event)"></i>
                 </a>
                 {% else %}
                 <a href="#" class="btn close-emission-a btn-unavailable"
@@ -200,7 +200,7 @@
                 {% endif %}
                 {% if perms.monitoring_tool.delete_emission %}
                 <a href="{% url 'delete-emission' slug%}" title="Delete Emission {{title}}"
-                    class="btn delete-emission-a" onclick="confirmAction(event, false)">
+                    class="btn delete-emission-a" onclick="confirmAction(event)">
                     Delete Emission
                     <i class="fa-solid fa-trash-can"></i>
                 </a>

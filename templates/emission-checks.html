@@ -83,7 +83,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                         {% endif %}
                                         {% if perms.monitoring_tool.delete_emissioncheck %}
                                         <div>
-                                            <a title="Delete this Emission Check" href="{% url 'delete-check' check.title.slug check.id%}" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can" onclick="confirmAction(event, false)"></i></a>
+                                            <a title="Delete this Emission Check" href="{% url 'delete-check' check.title.slug check.id%}" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can" onclick="confirmAction(event)"></i></a>
                                         </div>
                                         {% endif %}
                                     </div>
