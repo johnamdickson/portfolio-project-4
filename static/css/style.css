@@ -735,7 +735,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     border-color: #fafafa;
 }
 
-.btn-white-back-red-font i {
+.btn-white-back-red-font i, .btn-white-back-red-font i{
     margin-left: 20px;
 }
 
