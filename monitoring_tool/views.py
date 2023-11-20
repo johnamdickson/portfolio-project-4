@@ -319,7 +319,7 @@ def editCheck(request, slug, id):
                 form.save()
                 messages.success(
                     request,
-                    f"{emission_check.title} check number {check_id} has been edited."
+                    f"{emission_check.title} check has been edited."
                     )
                 return HttpResponseRedirect(reverse('emission-checks'))
             else:
