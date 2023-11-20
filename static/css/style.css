@@ -740,10 +740,19 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .add-btn-unavailable {
-    color: #fafafa80;
+    color: #fafafa70;
     background-color: #d3cfcf50;
     width: 100%;
-    /* opacity: 0.5; */
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+    padding:10px;
+    border: 1px solid #36454F50;
+    text-align: center;
+    height: 70px;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
 }
 
 .btn-red-back-white-font:hover{
@@ -1414,7 +1423,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         width:32%;
     }
 
-    .btn-white-back-red-font, .btn-red-back-white-font, .btn-unavailable {
+    .btn-white-back-red-font, .btn-red-back-white-font, .btn-unavailable, .add-btn-unavailable {
         height: 60px;
         margin-top: 0;
     }
