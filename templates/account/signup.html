@@ -42,17 +42,17 @@
       class="col-xl-6 mx-auto mt-0 mt-md-5 col-md-8 shadow pt-3 pt-md-4 px-1 custom-container rounded">
       <div class="container">
           <div class="row">
-            <div class="p-0 p-md-2 col-md-12 mb-4 mx-auto form-title">
+            <div class="p-0 p-md-2 col-md-12 mb-2 mx-auto form-title">
               <h2>Sign Up</h2>
                   </div>
               </div>
           </div>
           <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-11 mx-auto">
               <p>Welcome to the emissions monitoring tool, the one stop shop for monitoring, verifying and recording
                 your facilities emissions. </p>
             </div>
-            <div class="col-md-10 offset-md-1 mb-3">
+            <div class="col-11 mx-auto">
               <p>{% blocktrans %}
                 If you have not created an account yet, then please
                 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
@@ -65,13 +65,13 @@
            -->
             {% for field in form %}
             <div class="row">
-              <div class="col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
-              <div class="col-md-5 mb-3">{{ field }} </div>
+              <div class="col-10 offset-1 col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
+              <div class="col-10 offset-1 col-md-5 mb-3">{{ field }} </div>
     
             </div>
             <div class="row" id="help-text">
               {% if field.help_text %}
-              <div class="col-md-10 offset-md-1 my-2">
+              <div class="col-11 mx-auto">
                 {{ field.help_text|safe }}
               </div>
             {% endif %}
