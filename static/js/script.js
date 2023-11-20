@@ -119,9 +119,7 @@ function updateChecksComplete() {
 function updateStatus() {
     if (document.getElementsByClassName('status-cell')) {
         let statusCells = document.getElementsByClassName('status-cell');
-        console.log(statusCells)
         for(let status of statusCells) {
-            console.log(status)
             if (status.innerText === 'Open') {
                 status.style.backgroundColor = ('green');
                 status.style.color = ('white');
@@ -233,20 +231,34 @@ const emissionModal = (data, page) => {
     const modalItem = document.getElementById('emissionModal');
     document.getElementById('emissionModalTitle').innerText = `Emission: ${emission.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
+    console.log(emission.status)
         // select buttons for emission detail page.
-        if (page === 'emission-detail'){
-            // document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
-            // document.getElementsByClassName('close-emission-a')[0].setAttribute('href' , `/close-emission/${emission.slug}/`)
-        }
-        else {
+        if (page === 'emission' && emission.status === 'Closed'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-            document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
-            document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
+                let checkButton = document.getElementById('emission-check-a')
+                checkButton.setAttribute('href' , '#')
+                checkButton.onclick = emissionClosedFunction
+                // add btn-unavailable class when the emission is closed.
+                checkButton.classList.add('btn-unavailable')
+                document.getElementById('emission-detail-a').setAttribute('href' ,  `/${emission.slug}/`)
+
+        }
+        else if (page === 'emission' && emission.status === 'Open'){
+                // set hidden input href attribute to slug of the emission passed into this function.
+                console.log('called')
+                document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
+                document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
         }
 
 
-    new bootstrap.Modal(modalItem).show();
+    let emissionModal = new bootstrap.Modal(modalItem);
+    emissionModal.show();
 
+    function emissionClosedFunction() {
+        emissionModal.hide()
+        // new bootstrap.Modal(modalItem).hide();
+        buttonDisabled('submit', true)
+    }
 }
 
 // functionality below for carousel from:
@@ -312,7 +324,6 @@ const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
     let eventSourceText = event.srcElement.innerText;
-    console.log(eventSourceText)
     // use of value to access text area text solution from stack overflow:
     //  https://stackoverflow.com/questions/16013899/javascript-get-contents-of-textarea-textcontent-vs-innerhtml-vs-innertext
     // switch the event source text to determine the text for the confirmation prompt.
