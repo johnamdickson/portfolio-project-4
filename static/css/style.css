@@ -527,12 +527,17 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin: auto;
     width: 32%;
     padding:5px;
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
     display: flex;
     align-items: center;
     height:100px;
 }
 
+.modal-footer a p {
+    margin: 0;
+    padding: 5px;
+    font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+}
 
 .modal-footer a i {
     margin-left: 5px;
@@ -1387,7 +1392,6 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .modal-footer a {
         height: 125px;
-        width:30%;
         justify-content: space-around;
         flex-direction: column-reverse;
         font-size: 0.65rem;
@@ -1425,8 +1429,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .modal-footer a {
-        height: 120px;
-        width:32%;
+        height: 100px;
+        margin-top: 10px;
+        padding-top: 10px;
+        width: 60%;
     }
 
     .btn-white-back-red-font, .btn-red-back-white-font, .btn-unavailable, .add-btn-unavailable {
