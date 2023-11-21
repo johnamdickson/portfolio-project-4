@@ -1382,10 +1382,6 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         font-size: 40px;
     }
 
-    .my-auto {
-        margin-bottom: 0 !important;
-    }
-
     .modal-footer a {
         height: 125px;
         justify-content: space-around;
