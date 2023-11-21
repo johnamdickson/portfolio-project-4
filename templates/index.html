@@ -53,20 +53,20 @@
     <!-- multi item carousel solution:
     https://www.codeply.com/p/0CWffz76Q9
     -->
-    <div class="container-fluid text-center mt-3 mb-4">
+    <div class="container-fluid text-center mt-4">
         <div class="row my-auto justify-content-center">
             <div id="emission-carousel" class="carousel slide" data-interval="false" data-ride="carousel">
                 <div class="carousel-indicators">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="carousel-prev-col">
+                        <div class="row justify-content-center">
+                            <div class="col-1 carousel-prev-col">
                                     <div class="row carousel-prev-row">
                                         <a class="carousel-control-prev bg-transparent w-aut" href="#emission-carousel"
                                             role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
                                                 aria-hidden="true"></span> </a>
                                     </div>
                             </div>
-                            <div class="carousel-indicators-col">
+                            <div class="col-9 col-md-8 col-lg-6 col-xl-4 carousel-indicators-col">
                                 <div class="row card-indicators-row">
                                         <!-- Use of for loop counter to get index for carousel indicators
                                 https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template -->
@@ -84,7 +84,7 @@
                                         {% endfor %}
                                 </div>
                             </div>
-                            <div class="carousel-next-col">
+                            <div class="col-1 carousel-next-col">
                                 <div class="row carousel-next-row">
                                         <a class="carousel-control-next bg-transparent w-aut" href="#emission-carousel"
                                             role="button" data-bs-slide="next"> <span class="carousel-control-next-icon"
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-inner" role="listbox">
+                <div class="carousel-inner mt-4" role="listbox">
                     <!-- accessing list index to give cards appropriate class solution from stack overflow
                     https://stackoverflow.com/questions/4651172/reference-list-item-by-index-within-django-template
                  -->

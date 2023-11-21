@@ -434,7 +434,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-    background-size: 110% 110%;
+    background-size: 80% 80%;
 }
 
 .carousel-control-next-icon {
@@ -466,7 +466,9 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .carousel-indicators [data-bs-target] {
     background-color: #36454F;
-    width: 5%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     margin: 0 20px;
 }
 
@@ -490,9 +492,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     width: 10%;
 }
 
-.carousel-indicators-col {
-    width:75%;
-}
 /* style home page modal */
 
 .modal-content {
