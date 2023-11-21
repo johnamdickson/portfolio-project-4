@@ -226,47 +226,79 @@ const showModal = (data) => {
  * Adds modal to the DOM and updates with JSON data passed in
  * from emission.html.
  */
-const emissionModal = (data, page, checkId) => {
-    checkIdInt = parseInt(checkId)
-    let emission = JSON.parse(data)
+const emissionModal = (data, page, checkId, user, superuser) => {
+    const checkIdInt = parseInt(checkId)
+    const parsedData = JSON.parse(data)
+    console.log(parsedData.status)
+    console.log(page)
     const modalItem = document.getElementById('emissionModal');
-    document.getElementById('emissionModalTitle').innerText = `Emission: ${emission.title}`;
+    document.getElementById('emissionModalTitle').innerText = `Emission: ${parsedData.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
     let checkButton = document.getElementById('emission-check-a')
-    checkButton.innerHTML = `Submit a Check for\n${emission.title}<i class="fa-solid fa-clipboard-list"></i>`
+    checkButton.innerHTML = `Submit a Check for\n${parsedData.title}<i class="fa-solid fa-clipboard-list"></i>`
+
     let emissionDetail = document.getElementById('emission-detail-a')
     if (emissionDetail) {
-        emissionDetail.setAttribute('href' ,  `/${emission.slug}/`)
+        emissionDetail.setAttribute('href' ,  `/${parsedData.slug}/`)
+        emissionDetail.innerHTML = `Go to Emission Detail Page for\n${parsedData.title}<i class="fa-solid fa-circle-info"></i>`
     }
     let emissionEdit = document.getElementById('emission-edit-a')
     if (emissionEdit) {
-        emissionEdit.setAttribute('href', `/edit-check/${emission.slug}/${checkIdInt}`)
+        
     }
 
         // select buttons for emission detail page.
-        if (page === 'emission' && emission.status === 'Closed'){
+        if (page === 'emission' && parsedData.status === 'Closed'){
                 // set hidden input href attribute to slug of the emission passed into this function.
+                console.log('closed')
                 checkButton.setAttribute('href' , '#')
                 checkButton.onclick = emissionClosedFunction
                 // add btn-unavailable class when the emission is closed.
                 checkButton.classList.add('btn-unavailable')
-          } else if (page === 'emission' && emission.status === 'Open'){
+          } else if (page === 'emission' && parsedData.status === 'Open'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                checkButton.setAttribute('href' , `/add-check/${emission.slug}/`)
-        } else if (page === 'emission-check' && emission.status === 'Closed'){
+                checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)
+        // select add check button for emission-check page based on emission status
+        } else if (page === 'emission-check' && parsedData.emission_status === 'Closed'){
             checkButton.setAttribute('href' , '#')
             checkButton.onclick = emissionClosedFunction
             checkButton.classList.add('btn-unavailable')    
-        } else if (page === 'emission-check' && emission.status === 'Open'){
-            checkButton.setAttribute('href' , `/add-check/${emission.slug}/`)
+        } else if (page === 'emission-check' && parsedData.emission_status === 'Open'){
+            checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)
+        }
+        // select edit check button for emission check page based on checked by and less than 24 hours parameters.
+        if (page === 'emission-check' && parsedData.check_less_than_24 && (parsedData.checked_by === user || superuser === 'True') && parsedData.emission_status == 'Open') {
+            emissionEdit.setAttribute('href', `/edit-check/${parsedData.slug}/${checkIdInt}`)
+        } else if (page === 'emission-check'){
+            emissionEdit.setAttribute('href', `#`)
+            emissionEdit.classList.add('btn-unavailable')
+            emissionEdit.onclick = emissionClosedFunction
         }
 
     let emissionModal = new bootstrap.Modal(modalItem);
     emissionModal.show();
 
-    function emissionClosedFunction() {
+    function emissionClosedFunction(event) {
+        console.log(parsedData.emission_status)
+        eventText = event.srcElement.innerText
         emissionModal.hide()
-        buttonDisabled('submit', true)
+        if (eventText === 'Edit Emission Check' && parsedData.emission_status === 'Closed'){
+            
+            buttonDisabled('edit', true)
+        } 
+        else if (eventText === 'Edit Emission Check' && parsedData.checked_by !== user) {
+            // emissionModal.hide()
+            buttonDisabled('edit_not_user', false)
+        }
+        else if (eventText === 'Edit Emission Check') {
+            
+            // emissionModal.hide()
+            buttonDisabled('edit', false)
+        } 
+        else {
+            // emissionModal.hide()
+            buttonDisabled('submit', true)
+        }
     }
 }
 
@@ -379,7 +411,10 @@ const buttonDisabled = (type, closed) => {
         alertText = `<p>This emission is already closed.</p>`
     } else if (closed && type === 'submit') {
         alertText = `<p>This emission is closed so no further checks are required.</p>`
+    } else if (closed && type === 'edit') {
+        alertText = `<p>This emission is closed so no further edits are allowed.</p>`
     }
+
     else{
     switch(type) {
         case 'close':
@@ -388,8 +423,11 @@ const buttonDisabled = (type, closed) => {
         case 'delete':
             alertText = `<p>You do not have the necessary permissions to <strong>delete</strong> an emission/check.\n Please contact your system administrator.</p>`
             break;
-        case 'fa-pen-to-square':
-            alertText = `<p>You can only <strong>edit</strong> a check for <strong>up to 24 hours</strong> after submission or you do not have the necessary permissions to <strong>edit</strong>.\n Please contact your system administrator.</p>`
+        case 'edit':
+            alertText = `<p>A check can only be <strong>edited</strong> for <strong>up to 24 hours</strong> after submission.</p>`
+            break;
+        case 'edit_not_user':
+            alertText = `<p>Only the user who <strong>created</strong> this emission or a superuser can <strong>edit</strong> it.</p>`
             break;
         case 'add':
             alertText = `<p>You do not have the necessary permissions to <strong>add</strong> an emission.\n Please contact your system administrator.</p>`

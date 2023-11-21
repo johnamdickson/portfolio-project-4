@@ -139,7 +139,21 @@ class EmissionCheck(models.Model):
         elif self.status ==3:
             return "Above Minimum Threshold"
 
-
+    def javascript_data(self):
+        """
+        Function returns a json of the model instance values
+        for use in javascript.
+        """
+        list = {"title": str(self.title), 
+                "check_status": self.calculate_status(),
+                "checked_by": str(self.checked_by),
+                "slug": str(self.title.slug),
+                "emission_status": str(self.title.calculate_status()),
+                "emission_id": int(self.title.id),
+                "check_less_than_24": self.check_less_than_24_hours(),
+                }
+        return json.dumps(list)
+        
 # selection of user group on registration, solution from Stack Overflow:
 # https://stackoverflow.com/questions/48544176/how-to-set-default-group-for-new-user-in-django
 @receiver(post_save, sender=User)
