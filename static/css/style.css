@@ -1406,7 +1406,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 /* target mobile screen size */
 @media (max-width: 480px) {
     .navbar-brand {
-        font-size: 1rem;
+        font-size: 1.1rem;
         letter-spacing: 0.1rem;
     }
 
@@ -1444,6 +1444,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .checks-complete-td p{
         margin: 0.1em !important;
+    }
+
+    .navbar-toggler {
+        padding: 0 5px;
     }
 }
 
