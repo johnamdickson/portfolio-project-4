@@ -244,10 +244,11 @@ const emissionModal = (data, page, checkId, user, superuser) => {
         emissionDetail.setAttribute('href' ,  `/${parsedData.slug}/`)
         emissionDetail.innerHTML = `Go to Emission Detail Page for\n${parsedData.title}<i class="fa-solid fa-circle-info"></i>`
     }
+// get emission check edit button (only in emission-checks.html hence logic to check) and assign href for accessing emission
+// detail with innerHTML set as per submit check above.
     let emissionEdit = document.getElementById('emission-edit-a')
     if (emissionEdit) {
         emissionEdit.innerHTML = `Edit ${parsedData.title} Emission Check<i class="fa-solid fa-pen-to-square"></i>`
-
     }
 
         // select buttons for emission detail page.
@@ -259,15 +260,17 @@ const emissionModal = (data, page, checkId, user, superuser) => {
                 checkButton.classList.add('btn-unavailable')
           } else if (page === 'emission' && parsedData.status === 'Open'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)
+                checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)   
+        } 
         // select add check button for emission-check page based on emission status
-        } else if (page === 'emission-check' && parsedData.emission_status === 'Closed'){
+        if (page === 'emission-check' && parsedData.emission_status === 'Closed'){
             checkButton.setAttribute('href' , '#')
             checkButton.onclick = emissionClosedFunction
             checkButton.classList.add('btn-unavailable')    
         } else if (page === 'emission-check' && parsedData.emission_status === 'Open'){
             checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)
         }
+
         // select edit check button for emission check page based on checked by and less than 24 hours parameters.
         if (page === 'emission-check' && parsedData.check_less_than_24 && (parsedData.checked_by === user || superuser === 'True') && parsedData.emission_status == 'Open') {
             emissionEdit.setAttribute('href', `/edit-check/${parsedData.slug}/${checkIdInt}`)
