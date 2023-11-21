@@ -126,8 +126,8 @@ hr {
 footer {
     z-index: 2;
     flex: none;
-    background-image: linear-gradient(90deg, #36454F50 0%, #fafafa50 25%, #fafafa50 75%, #36454F50 100%);
-    border-top: 0.25px solid #36454F50 
+    background-image: linear-gradient(180deg, #36454F20 0%, #fafafa20 25%, #fafafa20 75%, #36454F20 100%);
+    border-top: 0.25px solid #36454F30 
 }
 
 footer a {
@@ -271,13 +271,8 @@ button, input, optgroup, select, textarea {
 }
 
 /* style card fonts to responsively size */
-.embossed {
-    box-shadow: inset 5px 5px 8px 1px #fafafa50, inset -1px -5px 4px 2px #36454F50;
-}
 
 .custom-callout {
-    /* embossed effect taken from my PP2 project Wildcards */
-    box-shadow: inset 5px 5px 8px 1px #fafafa50, inset -1px -5px 4px 2px #36454F50;
     background-color: #dc3123;
     color: #fafafa;
     border-radius: 100px 20px 100px 20px;
@@ -672,10 +667,12 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     flex-direction: column;
 }
 .emission-page-img {
+    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 5%, #dc3123 95%, #95150a 100%) ;
+    padding: 20px;
     object-fit: cover;
     height: 450px;
     width: 100%;
-    border-radius: 100px 20px 100px 20px;
+    border-radius: 100px 30px 100px 30px;
     border: 2px solid #fafafa;
 }
 
@@ -685,7 +682,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .emission-callout {
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 15%, #dc3123 85%, #95150a 100%) ;
+    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 5%, #dc3123 95%, #95150a 100%) ;
     color: #fafafa;
     border-radius: 20px 80px 20px 80px;
     padding: 10px;
