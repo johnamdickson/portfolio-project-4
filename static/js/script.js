@@ -19,7 +19,7 @@ window.addEventListener('resize', function (event) {
 
 
 /**
- * Dismisses alerts after 3.5 seconds using setTimeout function.
+ * Dismisses alerts after 4 seconds using setTimeout function.
  * Improve user experience so that routine alerts are automatically
  * dismissed 
  */
@@ -380,7 +380,7 @@ const buttonDisabled = (type, closed) => {
         case 'fa-pen-to-square':
             alertText = `<p>You can only <strong>edit</strong> a check for <strong>up to 24 hours</strong> after submission or you do not have the necessary permissions to <strong>edit</strong>.\n Please contact your system administrator.</p>`
             break;
-        case 'add-btn-unavailable':
+        case 'add':
             alertText = `<p>You do not have the necessary permissions to <strong>add</strong> an emission.\n Please contact your system administrator.</p>`
             break;
         default:

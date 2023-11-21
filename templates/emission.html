@@ -42,7 +42,7 @@
               </div>
               {% else %}
               <div>
-                <a href="#" class="btn add-btn-unavailable create-emission-button" onclick="buttonDisabled(event);">Add New Emission<i class="fa-solid fa-circle-plus"></i></a>
+                <a href="#" class="btn add-btn-unavailable create-emission-button" onclick="buttonDisabled('add', false);">Add New Emission<i class="fa-solid fa-circle-plus"></i></a>
             </div>
             {% endif %}
           </li>
@@ -117,7 +117,7 @@
                   <td class=" hidden-col">{{ emission.next_check_due}}</td>  
                   <td class="check_status">{{ emission.calculate_check_complete}}</td>  
                   {% endif %}
-                  <td class="status-cell" >{{ emission.calculate_status}}</td>        
+                  <td class="status-cell" >{{ emission.calculate_status }}</td>        
                 </tr>
           
                   {% endfor %}

@@ -37,12 +37,23 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                             <th>
                                 Options
                             </th>
+                            <th>
+                                Status
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                    <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
+                                  </div>
+                            </th>
                         </tr>
                     </thead>
                         {% for check in emissioncheck_list %}
-                        <tr>
+                        {% if check.title.calculate_status == "Closed" %}
+                        <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
+                        <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission-check')" class="closed-row">
+                        {% else %} 
+                        <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission-check')">
+                        {% endif %}
                             <td class="table-img-td">
-              
                                     <img src="{{check.title.emission_image.url}}"
                                         alt="Image of emission {{check.title}}" class="emissions-img">
                                     <div class="overlay-text">
@@ -87,6 +98,8 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                         </div>
                                         {% endif %}
                                     </div>
+                            </td>
+                            <td class="status-cell" class="bg-gradient"><p>{{ check.title.calculate_status }}</p>
                             </td>
                         </tr>
                         {% endfor %}
