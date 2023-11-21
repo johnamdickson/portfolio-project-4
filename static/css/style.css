@@ -530,7 +530,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     font-size: 0.75rem;
     display: flex;
     align-items: center;
-    height:85px;
+    height:100px;
 }
 
 
@@ -1355,7 +1355,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .custom-callout ul {
         line-height: 1;
-        margin: 10px 5px -1px 5px;
+        margin: 10px 0px 0px -15px;
     }
 
     .emission-callout {
@@ -1386,7 +1386,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .modal-footer a {
-        height: 100px;
+        height: 125px;
         width:30%;
         justify-content: space-around;
         flex-direction: column-reverse;
