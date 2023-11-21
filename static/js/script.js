@@ -237,25 +237,26 @@ const emissionModal = (data, page, checkId, user, superuser) => {
 // get submit check button and assign inner HTML with emission title and icon
     let submitEmissionCheckButton = document.getElementById('emission-check-a')
     if (submitEmissionCheckButton) {
-        submitEmissionCheckButton.innerHTML = `Submit a Check for\n${parsedData.title}<i class="fa-solid fa-clipboard-list"></i>`
+        submitEmissionCheckButton.innerHTML = `<p>Submit a Check for\n${parsedData.title}</p><i class="fa-solid fa-clipboard-list"></i>`
     }
 // get emission detail button (only in emission.html hence logic to check) and assign href for accessing emission
 // detail with innerHTML set as per submit check above.
     let emissionDetailButton = document.getElementById('emission-detail-a')
     if (emissionDetailButton) {
         emissionDetailButton.setAttribute('href' ,  `/${parsedData.slug}/`)
-        emissionDetailButton.innerHTML = `Go to Emission Detail Page for\n${parsedData.title}<i class="fa-solid fa-circle-info"></i>`
+        emissionDetailButton.innerHTML = `<p>Go to Emission Detail Page for\n${parsedData.title}</p><i class="fa-solid fa-circle-info"></i>`
     }
 // get emission check edit button (only in emission-checks.html hence logic to check) and assign href for accessing emission
 // detail with innerHTML set as per submit check above.
     let emissionCheckEditButton = document.getElementById('emission-edit-a')
     if (emissionCheckEditButton) {
-        emissionCheckEditButton.innerHTML = `Edit ${parsedData.title} Emission Check<i class="fa-solid fa-pen-to-square"></i>`
+        emissionCheckEditButton.innerHTML = `<p>Edit ${parsedData.title} Emission Check</p><i class="fa-solid fa-pen-to-square"></i>`
     }
 
     let emissionCheckDeleteButton = document.getElementById('emission-check-delete-a')
     if (emissionCheckDeleteButton) {
         emissionCheckDeleteButton.setAttribute ('href', `/delete-check/${parsedData.slug}/${checkIdInt}`)
+        emissionCheckDeleteButton.innerHTML = `<p>Delete ${parsedData.title} Check</p><i class="fa-solid fa-trash-can"></i>`
     }
 
         // select buttons for emission detail page.
@@ -299,7 +300,7 @@ const emissionModal = (data, page, checkId, user, superuser) => {
 // create instance of bootstrap modal and instantiate.
     let emissionModal = new bootstrap.Modal(modalItem);
     emissionModal.show();
-    
+
 // helper function
     function emissionClosedFunction(event) {
         eventText = event.srcElement.innerText
