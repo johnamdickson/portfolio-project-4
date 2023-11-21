@@ -49,9 +49,9 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                         {% for check in emissioncheck_list %}
                         {% if check.title.calculate_status == "Closed" %}
                         <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
-                        <tr onclick="emissionModal('{{check.title.javascript_data|escapejs}}', 'emission-check', '{{check.id}}')" class="closed-row">
+                        <tr onclick="emissionModal('{{check.javascript_data|escapejs}}', 'emission-check', '{{check.id}}', '{{user.username}}', '{{user.is_superuser}}')" class="closed-row">
                         {% else %} 
-                        <tr onclick="emissionModal('{{check.title.javascript_data|escapejs}}', 'emission-check', '{{check.id}}')">
+                        <tr onclick="emissionModal('{{check.javascript_data|escapejs}}', 'emission-check', '{{check.id}}', '{{user.username}}', '{{user.is_superuser}}')">
                         {% endif %}
                             <td class="table-img-td">
                                     <img src="{{check.title.emission_image.url}}"
@@ -124,8 +124,8 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
             ...
           </div>
           <div class="modal-footer">
-            <a href="${checkEmissionUrl}" class="btn" id="emission-check-a">Submit {{check.title}} Emission Check<i class="fa-solid fa-clipboard-list"></i></a>
-            <a href="${allEmissionsUrl}" class="btn" id="emission-edit-a">Edit {{check.title}} Emission Check<i class="fa-solid fa-circle-info"></i></a>
+            <a href="${checkEmissionUrl}" class="btn" id="emission-check-a"></a>
+            <a href="${allEmissionsUrl}" class="btn" id="emission-edit-a">Edit {{check.title}} Emission Check</a>
           </div>
         </div>
       </div>

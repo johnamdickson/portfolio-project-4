@@ -224,19 +224,21 @@ const showModal = (data) => {
 
 /**
  * Adds modal to the DOM and updates with JSON data passed in
- * from emission.html.
+ * from emission.html or emission-checks.html.
  */
 const emissionModal = (data, page, checkId, user, superuser) => {
+// delcare constants from JSON, checkId
     const checkIdInt = parseInt(checkId)
     const parsedData = JSON.parse(data)
-    console.log(parsedData.status)
-    console.log(page)
+//  delcare constant for modal and assign detail to title and body
     const modalItem = document.getElementById('emissionModal');
     document.getElementById('emissionModalTitle').innerText = `Emission: ${parsedData.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
+// get submit check button and assign inner HTML with emission title and icon
     let checkButton = document.getElementById('emission-check-a')
     checkButton.innerHTML = `Submit a Check for\n${parsedData.title}<i class="fa-solid fa-clipboard-list"></i>`
-
+// get emission detail button (only in emission.html hence logic to check) and assign href for accessing emission
+// detail with innerHTML set as per submit check above.
     let emissionDetail = document.getElementById('emission-detail-a')
     if (emissionDetail) {
         emissionDetail.setAttribute('href' ,  `/${parsedData.slug}/`)
@@ -244,13 +246,13 @@ const emissionModal = (data, page, checkId, user, superuser) => {
     }
     let emissionEdit = document.getElementById('emission-edit-a')
     if (emissionEdit) {
-        
+        emissionEdit.innerHTML = `Edit ${parsedData.title} Emission Check<i class="fa-solid fa-pen-to-square"></i>`
+
     }
 
         // select buttons for emission detail page.
         if (page === 'emission' && parsedData.status === 'Closed'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                console.log('closed')
                 checkButton.setAttribute('href' , '#')
                 checkButton.onclick = emissionClosedFunction
                 // add btn-unavailable class when the emission is closed.
@@ -282,16 +284,13 @@ const emissionModal = (data, page, checkId, user, superuser) => {
         console.log(parsedData.emission_status)
         eventText = event.srcElement.innerText
         emissionModal.hide()
-        if (eventText === 'Edit Emission Check' && parsedData.emission_status === 'Closed'){
-            
+        if (eventText.includes('Emission Check') && parsedData.emission_status === 'Closed'){
             buttonDisabled('edit', true)
         } 
-        else if (eventText === 'Edit Emission Check' && parsedData.checked_by !== user) {
-            // emissionModal.hide()
+        else if (eventText.includes('Emission Check') && parsedData.checked_by !== user) {
             buttonDisabled('edit_not_user', false)
         }
-        else if (eventText === 'Edit Emission Check') {
-            
+        else if (eventText.includes('Emission Check') && parsedData.emission_status === 'Open') {
             // emissionModal.hide()
             buttonDisabled('edit', false)
         } 
