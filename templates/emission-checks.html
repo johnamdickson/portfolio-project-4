@@ -4,7 +4,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
  -->
 
 {% block content %}
-
+<section>
 <div class="container-fluid mb-5">
     <div class="row mt-3">
         <div class="col-md-8 mx-auto">
@@ -16,7 +16,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
     <div class="row">
         <div class="col-md-10 mx-auto">
             <div class="table-responsive table-fixed-head shadow">
-                <table class="table-hover emissions-table" id="emission-checks-table">
+                <table class="table table-hover emissions-table" id="emission-checks-table">
                     <thead>
                         <tr class="header">
                             <th>
@@ -38,7 +38,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                 Options
                             </th>
                             <th>
-                                Status
+                                Emission Status
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
                                     <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
@@ -49,9 +49,9 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                         {% for check in emissioncheck_list %}
                         {% if check.title.calculate_status == "Closed" %}
                         <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
-                        <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission-check')" class="closed-row">
+                        <tr onclick="emissionModal('{{check.title.javascript_data|escapejs}}', 'emission-check', '{{check.id}}')" class="closed-row">
                         {% else %} 
-                        <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission-check')">
+                        <tr onclick="emissionModal('{{check.title.javascript_data|escapejs}}', 'emission-check', '{{check.id}}')">
                         {% endif %}
                             <td class="table-img-td">
                                     <img src="{{check.title.emission_image.url}}"
@@ -108,4 +108,28 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
         </div>
     </div>
 </div>
+</section>
+<section>
+    <!-- Modal -->
+    
+    <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="emissionModalTitle">Modal title</h4>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body" id="emissionModalBody">
+            ...
+          </div>
+          <div class="modal-footer">
+            <a href="${checkEmissionUrl}" class="btn" id="emission-check-a">Submit {{check.title}} Emission Check<i class="fa-solid fa-clipboard-list"></i></a>
+            <a href="${allEmissionsUrl}" class="btn" id="emission-edit-a">Edit {{check.title}} Emission Check<i class="fa-solid fa-circle-info"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+          </div>
+    </section>
 {% endblock%}

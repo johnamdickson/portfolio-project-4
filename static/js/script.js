@@ -226,37 +226,46 @@ const showModal = (data) => {
  * Adds modal to the DOM and updates with JSON data passed in
  * from emission.html.
  */
-const emissionModal = (data, page) => {
+const emissionModal = (data, page, checkId) => {
+    checkIdInt = parseInt(checkId)
     let emission = JSON.parse(data)
     const modalItem = document.getElementById('emissionModal');
     document.getElementById('emissionModalTitle').innerText = `Emission: ${emission.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
-    console.log(emission.status)
+    let checkButton = document.getElementById('emission-check-a')
+    checkButton.innerHTML = `Submit a Check for\n${emission.title}<i class="fa-solid fa-clipboard-list"></i>`
+    let emissionDetail = document.getElementById('emission-detail-a')
+    if (emissionDetail) {
+        emissionDetail.setAttribute('href' ,  `/${emission.slug}/`)
+    }
+    let emissionEdit = document.getElementById('emission-edit-a')
+    if (emissionEdit) {
+        emissionEdit.setAttribute('href', `/edit-check/${emission.slug}/${checkIdInt}`)
+    }
+
         // select buttons for emission detail page.
         if (page === 'emission' && emission.status === 'Closed'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                let checkButton = document.getElementById('emission-check-a')
                 checkButton.setAttribute('href' , '#')
                 checkButton.onclick = emissionClosedFunction
                 // add btn-unavailable class when the emission is closed.
                 checkButton.classList.add('btn-unavailable')
-                document.getElementById('emission-detail-a').setAttribute('href' ,  `/${emission.slug}/`)
-
-        }
-        else if (page === 'emission' && emission.status === 'Open'){
+          } else if (page === 'emission' && emission.status === 'Open'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                console.log('called')
-                document.getElementById('emission-detail-a').setAttribute('href' , `/${emission.slug}/`)
-                document.getElementById('emission-check-a').setAttribute('href' , `/add-check/${emission.slug}/`)
+                checkButton.setAttribute('href' , `/add-check/${emission.slug}/`)
+        } else if (page === 'emission-check' && emission.status === 'Closed'){
+            checkButton.setAttribute('href' , '#')
+            checkButton.onclick = emissionClosedFunction
+            checkButton.classList.add('btn-unavailable')    
+        } else if (page === 'emission-check' && emission.status === 'Open'){
+            checkButton.setAttribute('href' , `/add-check/${emission.slug}/`)
         }
-
 
     let emissionModal = new bootstrap.Modal(modalItem);
     emissionModal.show();
 
     function emissionClosedFunction() {
         emissionModal.hide()
-        // new bootstrap.Modal(modalItem).hide();
         buttonDisabled('submit', true)
     }
 }
