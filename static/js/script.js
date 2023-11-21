@@ -309,10 +309,12 @@ function statusFilter() {
                 for (let row of closedRows) {
                     row.style.display = 'table-row';
                     filterText.innerText = 'Showing Open & Closed Emissions';
+                    updateStatus();
                 }
             }
           });
     }
+    
 }
 /**
  * Arrow function to present a confirm dialogue using the 
