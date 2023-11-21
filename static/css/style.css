@@ -540,7 +540,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .modal-footer a:hover {
     background-color: #dc312390;
-    color:#fafafa;
+    color:#36454F;
     border-color: #dc3123;
 }
 
@@ -731,7 +731,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .btn-white-back-red-font:hover{
     background-color: #fafafa90;
-    color:#dc3123;
+    color:#95150a;
     border-color: #fafafa;
 }
 
@@ -755,6 +755,11 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     justify-content: center;
 }
 
+.add-btn-unavailable:hover {
+    color: #fafafa70;
+    background-color: #d3cfcf50;
+    cursor: auto;
+}
 .btn-red-back-white-font:hover{
     background-color: #dc312390;
     color:#fafafa;
@@ -1108,7 +1113,8 @@ using important due to specificity of modal footer a rule.
 }
 
 .btn-unavailable:hover{
-    color: #fafafa30;
+    color: #fafafa80 !important;
+    border-color: #36454F80 !important;
 }
 
 .options-title h4{
