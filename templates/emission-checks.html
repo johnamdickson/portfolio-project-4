@@ -35,9 +35,6 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                 Date Checked
                             </th>
                             <th>
-                                Options
-                            </th>
-                            <th>
                                 Emission Status
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
@@ -73,32 +70,6 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                             <td>
                                 {{check.date_checked}}
                             </td>
-                            <td>
-                                    <div class="btn-row mx-auto">
-                                        <!-- how to enable text on element hover:
-                                        https://stackoverflow.com/questions/11022843/add-hover-text-without-javascript-like-we-hover-on-a-users-reputation
-                                        -->
-                                        <div>
-                                            <a title="Add a New Emission Check for {{check.title}}" href="{% url 'add-check' check.title.slug%}" class="btn btn-icon-grey-small"><i class="fa-solid fa-circle-plus btn-icon-grey-small"></i></a>
-                                        </div>
-                                        <!-- logic to asecrtain if the check is less than 24 hours AND the original check submitted but current user
-                                        OR user is a superuser -->
-                                        {% if check.check_less_than_24_hours and check.checked_by == user or user.is_superuser  %}
-                                        <div>
-                                            <a title="Edit this Emission Check" href="{% url 'edit-check' check.title.slug check.id%}" class="btn btn-icon-grey-small"><i class="fa-solid fa-pen-to-square btn-icon-grey-small"></i></a>
-                                        </div>
-                                        {% elif not check.check_less_than_24_hours and check.checked_by == user %}
-                                        <div>
-                                            <a title="You can only edit a check for up to 24 hours after submission" href="#" class="btn btn-unavailable-small"><i class="fa-solid fa-pen-to-square" onclick="buttonDisabled(event, false)"></i></a>
-                                        </div>
-                                        {% endif %}
-                                        {% if perms.monitoring_tool.delete_emissioncheck %}
-                                        <div>
-                                            <a title="Delete this Emission Check" href="{% url 'delete-check' check.title.slug check.id%}" class="btn btn-icon-red-small"><i class="fa-solid fa-trash-can" onclick="confirmAction(event)"></i></a>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                            </td>
                             <td class="status-cell"><p>{{ check.title.calculate_status }}</p>
                             </td>
                         </tr>
@@ -125,7 +96,10 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
           </div>
           <div class="modal-footer">
             <a href="${checkEmissionUrl}" class="btn" id="emission-check-a"></a>
-            <a href="${allEmissionsUrl}" class="btn" id="emission-edit-a">Edit {{check.title}} Emission Check</a>
+            <a href="${allEmissionsUrl}" class="btn" id="emission-edit-a"></a>
+            {% if perms.monitoring_tool.delete_emissioncheck %}
+            <a href="" class="btn" id="emission-check-delete-a" onclick="confirmAction(event)">Delete Check<i class="fa-solid fa-trash-can"></i></a>
+            {% endif %}
           </div>
         </div>
       </div>

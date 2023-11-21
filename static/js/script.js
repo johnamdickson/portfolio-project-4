@@ -235,70 +235,85 @@ const emissionModal = (data, page, checkId, user, superuser) => {
     document.getElementById('emissionModalTitle').innerText = `Emission: ${parsedData.title}`;
     document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
 // get submit check button and assign inner HTML with emission title and icon
-    let checkButton = document.getElementById('emission-check-a')
-    checkButton.innerHTML = `Submit a Check for\n${parsedData.title}<i class="fa-solid fa-clipboard-list"></i>`
+    let submitEmissionCheckButton = document.getElementById('emission-check-a')
+    if (submitEmissionCheckButton) {
+        submitEmissionCheckButton.innerHTML = `Submit a Check for\n${parsedData.title}<i class="fa-solid fa-clipboard-list"></i>`
+    }
 // get emission detail button (only in emission.html hence logic to check) and assign href for accessing emission
 // detail with innerHTML set as per submit check above.
-    let emissionDetail = document.getElementById('emission-detail-a')
-    if (emissionDetail) {
-        emissionDetail.setAttribute('href' ,  `/${parsedData.slug}/`)
-        emissionDetail.innerHTML = `Go to Emission Detail Page for\n${parsedData.title}<i class="fa-solid fa-circle-info"></i>`
+    let emissionDetailButton = document.getElementById('emission-detail-a')
+    if (emissionDetailButton) {
+        emissionDetailButton.setAttribute('href' ,  `/${parsedData.slug}/`)
+        emissionDetailButton.innerHTML = `Go to Emission Detail Page for\n${parsedData.title}<i class="fa-solid fa-circle-info"></i>`
     }
 // get emission check edit button (only in emission-checks.html hence logic to check) and assign href for accessing emission
 // detail with innerHTML set as per submit check above.
-    let emissionEdit = document.getElementById('emission-edit-a')
-    if (emissionEdit) {
-        emissionEdit.innerHTML = `Edit ${parsedData.title} Emission Check<i class="fa-solid fa-pen-to-square"></i>`
+    let emissionCheckEditButton = document.getElementById('emission-edit-a')
+    if (emissionCheckEditButton) {
+        emissionCheckEditButton.innerHTML = `Edit ${parsedData.title} Emission Check<i class="fa-solid fa-pen-to-square"></i>`
+    }
+
+    let emissionCheckDeleteButton = document.getElementById('emission-check-delete-a')
+    if (emissionCheckDeleteButton) {
+        emissionCheckDeleteButton.setAttribute ('href', `/delete-check/${parsedData.slug}/${checkIdInt}`)
     }
 
         // select buttons for emission detail page.
         if (page === 'emission' && parsedData.status === 'Closed'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                checkButton.setAttribute('href' , '#')
-                checkButton.onclick = emissionClosedFunction
+                submitEmissionCheckButton.setAttribute('href' , '#')
+                submitEmissionCheckButton.onclick = emissionClosedFunction
                 // add btn-unavailable class when the emission is closed.
-                checkButton.classList.add('btn-unavailable')
+                submitEmissionCheckButton.classList.add('btn-unavailable')
           } else if (page === 'emission' && parsedData.status === 'Open'){
                 // set hidden input href attribute to slug of the emission passed into this function.
-                checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)   
+                submitEmissionCheckButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)   
         } 
         // select add check button for emission-check page based on emission status
         if (page === 'emission-check' && parsedData.emission_status === 'Closed'){
-            checkButton.setAttribute('href' , '#')
-            checkButton.onclick = emissionClosedFunction
-            checkButton.classList.add('btn-unavailable')    
+            submitEmissionCheckButton.setAttribute('href' , '#')
+            submitEmissionCheckButton.onclick = emissionClosedFunction
+            submitEmissionCheckButton.classList.add('btn-unavailable')    
         } else if (page === 'emission-check' && parsedData.emission_status === 'Open'){
-            checkButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)
+            submitEmissionCheckButton.setAttribute('href' , `/add-check/${parsedData.slug}/`)
         }
 
+        // select edit check button for emission check page based on emission status being closed.
+        if (page =='emission-check' && parsedData.emission_status == 'Closed') {
+            emissionCheckEditButton.setAttribute('href', `#`)
+            emissionCheckEditButton.classList.add('btn-unavailable')
+            emissionCheckEditButton.onclick = emissionClosedFunction
         // select edit check button for emission check page based on checked by and less than 24 hours parameters.
-        if (page === 'emission-check' && parsedData.check_less_than_24 && (parsedData.checked_by === user || superuser === 'True') && parsedData.emission_status == 'Open') {
-            emissionEdit.setAttribute('href', `/edit-check/${parsedData.slug}/${checkIdInt}`)
-        } else if (page === 'emission-check'){
-            emissionEdit.setAttribute('href', `#`)
-            emissionEdit.classList.add('btn-unavailable')
-            emissionEdit.onclick = emissionClosedFunction
-        }
-
+        } else if (page === 'emission-check' && parsedData.check_less_than_24 && (parsedData.checked_by === user || superuser === 'True') && parsedData.emission_status == 'Open') {
+            emissionCheckEditButton.setAttribute('href', `/edit-check/${parsedData.slug}/${checkIdInt}`)
+         // select edit check button for emission check page based on more than 24 hours parameters but allowing superuser to complete action.
+        } else if (page === 'emission-check' && !parsedData.check_less_than_24 && superuser === 'True' && parsedData.emission_status == 'Open') {
+            emissionCheckEditButton.setAttribute('href', `/edit-check/${parsedData.slug}/${checkIdInt}`)
+        } 
+         // select edit check button for emission check page for all other conditions.
+        else if (page =='emission-check') {
+            emissionCheckEditButton.setAttribute('href', `#`)
+            emissionCheckEditButton.classList.add('btn-unavailable')
+            emissionCheckEditButton.onclick = emissionClosedFunction
+            }
+// create instance of bootstrap modal and instantiate.
     let emissionModal = new bootstrap.Modal(modalItem);
     emissionModal.show();
-
+    
+// helper function
     function emissionClosedFunction(event) {
-        console.log(parsedData.emission_status)
         eventText = event.srcElement.innerText
         emissionModal.hide()
         if (eventText.includes('Emission Check') && parsedData.emission_status === 'Closed'){
             buttonDisabled('edit', true)
         } 
+        else if (eventText.includes('Emission Check') && !parsedData.check_less_than_24) {
+            buttonDisabled('edit', false)
+        } 
         else if (eventText.includes('Emission Check') && parsedData.checked_by !== user) {
             buttonDisabled('edit_not_user', false)
         }
-        else if (eventText.includes('Emission Check') && parsedData.emission_status === 'Open') {
-            // emissionModal.hide()
-            buttonDisabled('edit', false)
-        } 
         else {
-            // emissionModal.hide()
             buttonDisabled('submit', true)
         }
     }
@@ -372,7 +387,6 @@ const confirmAction = (event) => {
     // use of value to access text area text solution from stack overflow:
     //  https://stackoverflow.com/questions/16013899/javascript-get-contents-of-textarea-textcontent-vs-innerhtml-vs-innertext
     // switch the event source text to determine the text for the confirmation prompt.
-
     if (eventSourceText === "Close Emission") {
         confirmText = 'Are you sure you want to close the emission?'
     } else if (eventSourceText === 'Delete Emission') {
@@ -381,8 +395,9 @@ const confirmAction = (event) => {
         let editCommentText = document.getElementById('editComments').value;
         confirmText = `Please confirm you are happy with the edit comments: \n
                         ${editCommentText}`
+    } else if (eventSourceText === 'Delete Check') {
+        confirmText = 'Are you sure you want to delete the check? This action cannot be reversed'
     }
-
     if(!confirm(confirmText)) {
         event.preventDefault();
     }
