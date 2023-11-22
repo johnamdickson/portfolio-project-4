@@ -20,8 +20,8 @@
                                         <div class="container-fluid p-1">
                                             <div class="row">
                                                 <div class="col-3">
-                                                    <button title="Go Back" class="btn go-back p-2" onclick="goBack()">
-                                                        <i class="fa-solid fa-circle-left detail-icons"></i>
+                                                    <button title="Go Back" class="go-back-btn" onclick="goBack()">
+                                                        <i class="fa-solid fa-circle-left"></i>
                                                         <p>Go Back</p>
                                                     </button>
                                                 </div>
@@ -38,7 +38,7 @@
                             </tr>
                             <tbody onclick="emissionModal('{{javascript_data|escapejs}}', 'emission-detail')">
                                 <tr>
-                                    <td rowspan="4" colspan="2">
+                                    <td rowspan="4" colspan="2" class="p-0">
                                         <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%"
                                             height="100%" id="emission-detail-img">
                                     </td>
