@@ -190,6 +190,11 @@ input[type='checkbox'] {
     text-align: center;
 }
 
+.form-title h2{
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
 #forgot-password-link {
     text-align: center;
 }
@@ -231,6 +236,29 @@ button, input, optgroup, select, textarea {
 .form-button-row {
     display: flex;
     justify-content: center;
+}
+.form-go-back {
+    background-color: #fafafa;
+    color: #dc3123;
+    font-family: 'Josefin Sans', sans-serif;
+    border: 1px solid #dc3123;
+    text-align: center;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    padding: 5px;
+}
+.form-go-back i{
+    margin-left: 0 !important;
+    font-size: 20px;
+}
+
+.form-go-back p{
+    margin: 0 5px;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-weight: 300;
 }
 /* _________________________________________  Home Page styling  __________________________________________ */
 
