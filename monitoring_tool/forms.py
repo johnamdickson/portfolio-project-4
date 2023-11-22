@@ -12,7 +12,6 @@ class EmissionSubmissionForm(forms.ModelForm):
         model = Emission
         fields = ('title', 'location', 'emission_image',
                   'description', 'latitude', 'longitude',
-                  'next_check_due', 'current_check_due',
                   'type')
 # solution for selecting form fields as date type and
 # for text area rows from stack overflow:
@@ -26,8 +25,6 @@ class EmissionSubmissionForm(forms.ModelForm):
                                                   'i.e module, block or '
                                                   'building'}),
             # set fields as date input to prevent erroneous entries.
-            'next_check_due': DateInput(),
-            'current_check_due': DateInput(),
             'description': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
                                                  'placeholder': "Please enter "
                                                  "a short description of the "

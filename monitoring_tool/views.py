@@ -55,6 +55,7 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
 class Emissions(View):
 
     def get(self, request, slug, *args, **kwargs):
+        # check if user is authenticated.
         if request.user.is_authenticated:
             queryset = Emission.objects
             emission = get_object_or_404(queryset, slug=slug)
@@ -100,6 +101,7 @@ class Emissions(View):
                 },
             )
         else:
+            # if not authenticate, direct to login page
             return render (request, 'account/login.html')
 
 
@@ -181,6 +183,8 @@ def addEmission(request):
                 if form.is_valid():
                     form.instance.username = User.objects.get(
                                         username=request.user)
+                    form.instance.current_check_due = EmissionList.first_monday_current_month()
+                    form.instance.next_check_due = EmissionList.first_monday_next_month()
                     form.instance.status = 0
                     form.save()
                     messages.success(
@@ -222,7 +226,6 @@ class EmissionCheckList(LoginRequiredMixin, generic.ListView):
     template_name = "emission-checks.html"
     paginate_by = 20
 
-    
 
 def addCheck(request, slug):
     queryset = Emission.objects
