@@ -53,8 +53,12 @@
 <section>
   <div class="container-fluid mb-5">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 position-relative">
         <div class="table-responsive table-fixed-head shadow">
+          <div class="scroll-buttons position-absolute">
+            <i class="fa-solid fa-circle-chevron-down" id="to-bottom"></i>
+            <i class="fa-solid fa-circle-chevron-up" id="to-top"></i>
+            </div>
           <table class="table table-hover table-sm  emissions-table scrollbar shadow">
               <thead>
                 <tr>
@@ -71,7 +75,6 @@
                       <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
                     </div>
                   </th>
-          
                 </tr>
               </thead>
               <tbody>

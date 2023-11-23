@@ -2,6 +2,7 @@
 window.addEventListener('load', function () {
     startCarousel()
     errorCountdown()
+    scrollButtons()
 })
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -624,3 +625,65 @@ const errorCountdown = () => {
     }
 
   }
+
+
+
+
+
+    
+
+    // use of jquery to utilise smooth animated scrolling in tables
+    // https://stackoverflow.com/questions/1144805/scroll-to-the-top-of-the-page-using-javascript
+
+
+function scrollButtons() {
+    
+    const tables = document.getElementsByClassName('table-fixed-head');
+    let table = tables[0]
+    // assign css to elements using jquery:
+    // https://www.codecademy.com/learn/learn-jquery/modules/learn-jquery-style-methods/cheatsheet
+    $('#to-top').css({
+        opacity: 0.5
+    })
+    $("#to-bottom").on('click', function() {
+
+        $(table).animate({ scrollTop: table.scrollHeight}, "slow")
+
+    })
+
+    $("#to-top").on('click', function() {
+
+        // console.log($table)
+        $(table).animate({ scrollTop: 0}, "slow")
+
+    })
+    // scroll function from jquery docs:
+    // https://api.jquery.com/scroll/
+    $(table).on('scroll', function(){
+        let tableHeight = (table.scrollHeight) - (table.clientHeight)
+        // dealing with fractional part of scrollTop function
+        if (Math.round($(table).scrollTop()) >= tableHeight) {
+            $('#to-top').css({
+                opacity: 0.9
+            })
+            $('#to-bottom').css({
+                opacity: 0.5
+            })
+        } else if ($(table).scrollTop() === 0) {
+            $('#to-top').css({
+                opacity: 0.5
+            })
+            $('#to-bottom').css({
+                opacity: 0.9
+            })
+        } else {
+            $('#to-top').css({
+                opacity: 0.9
+            })
+            $('#to-bottom').css({
+                opacity: 0.9
+            })
+        }
+    })
+}
+

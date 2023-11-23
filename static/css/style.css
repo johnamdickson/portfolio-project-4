@@ -601,6 +601,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 .emissions-table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 0;
 }
 
 .emissions-table th {
@@ -1148,6 +1149,13 @@ using important due to specificity of modal footer a rule.
     font-weight: bold;
     color: white;
 }
+
+.scroll-buttons {
+    z-index: 10;
+    bottom: 15px;
+    right: 30px;
+    color:#fafafa;
+}
 /* _________________________________________  Emission Checks styling  ________________________________________________ */
 
 .emission-checks-table {
@@ -1467,7 +1475,8 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 
     .table-fixed-head {
-        border-radius: 35px 5px 35px 5px
+        border-radius: 35px 5px 35px 5px;
+        scroll-behavior: smooth;
     }
 
     .modal-footer a {
