@@ -191,7 +191,7 @@ input[type='checkbox'] {
 }
 
 .form-title h2{
-    font-size: 1.5rem;
+    font-size: clamp(1.4rem, 3.2vw, 1.9rem);
     margin-top: 0.5rem;
 }
 
@@ -238,10 +238,11 @@ button, input, optgroup, select, textarea {
     justify-content: center;
 }
 .go-back-btn {
+    width: 105px;
     background-color: #fafafa;
     color: #dc3123;
     font-family: 'Josefin Sans', sans-serif;
-    border: 1px solid #dc3123;
+    border: 1px solid #95150a;
     border-radius: 20px;
     text-align: center;
     letter-spacing: 0.1em;
@@ -749,7 +750,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     font-family: 'Josefin Sans', sans-serif;
     font-size: clamp(1.1rem, 1.4vw, 1.4rem);
     padding:10px;
-    border: 1px solid #dc3123;
+    border: 1px solid #95150a;
     text-align: center;
     height: 70px;
     letter-spacing: 0.2em;
@@ -1326,6 +1327,24 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     }
 }
 
+@media (max-width: 992px) {
+    .go-back-btn{
+        margin-top: -7px;
+        width: 50px;
+        background: none;
+        color: #fafafa;
+        border: none;
+        box-shadow: none !important;
+    }
+    .go-back-btn p{
+        display: none;
+    }
+
+    .go-back-btn i{
+        font-size: 30px;
+    }
+}
+
 /* target tablet screen size */
 @media (max-width: 768px) {
     .navbar-brand {
@@ -1421,6 +1440,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .logo-text {
         font-weight: 300;
     }
+
 }
 
 @media (min-width: 768px) {
