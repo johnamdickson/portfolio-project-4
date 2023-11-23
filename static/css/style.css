@@ -1435,7 +1435,9 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
     .logo-text {
         font-weight: 300;
     }
-
+    .card {
+        width: 75vw;
+    }
 }
 
 @media (min-width: 768px) {
@@ -1494,6 +1496,9 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .navbar-toggler {
         padding: 0 5px;
+    }
+    .card {
+        width: 90vw;
     }
 }
 
