@@ -42,6 +42,7 @@ function hideElements() {
     let descriptionCells = document.getElementsByClassName("description-cell")
     let hiddenCells = document.getElementsByClassName("hidden-col")
     let hiddenElements = document.getElementsByClassName("callout-hidden");
+    let closeOutComments = document.getElementsByClassName('close-out-comments');
     for (let cell of hiddenCells) {
         if (windowWidth <= 982) {
             cell.style.display = 'none'
@@ -55,6 +56,16 @@ function hideElements() {
         }
         else if (windowWidth >982){
             cell.setAttribute('colspan', '3')
+        }
+    }
+    if (closeOutComments) {
+        for(let cell of closeOutComments) {
+            if (windowWidth <= 982) {
+                cell.setAttribute('colspan', '1')
+            }
+            else if (windowWidth >982){
+                cell.setAttribute('colspan', '2')
+            }
         }
     }
     if (windowWidth <= 767) {
