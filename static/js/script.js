@@ -132,10 +132,10 @@ function updateStatus() {
     if (document.getElementsByClassName('status-cell')) {
         let statusCells = document.getElementsByClassName('status-cell');
         for(let status of statusCells) {
-            if (status.innerText === 'Open') {
+            if (status.innerText.includes('Open')) {
                 status.style.backgroundColor = ('green');
                 status.style.color = ('white');
-            } else if (status.innerText === 'Closed'){
+            } else if (status.innerText.includes('Closed')){
                 status.style.backgroundColor = ('red');
                 status.style.color = ('white');
             }
