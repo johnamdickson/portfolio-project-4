@@ -1,12 +1,19 @@
 from django.test import TestCase
-from monitoring_tool.views import EmissionList
+from .views import first_monday_current_month, first_monday_next_month
+from datetime import datetime
 
 
 # Create your tests here.
 
+class FirstMonday(TestCase):
 
-class EmissionList(TestCase):
-    
-     def test_false_is_false(self):
-        print("Method: test_false_is_false.")
-        self.assertFalse(False)
+   first_monday_this_month = first_monday_current_month()
+   first_monday_next_month = first_monday_next_month()
+
+   def test_return_datetime(self):
+      """
+      Test that the functions return a datetime object.
+      """
+      self.assertEqual(type(self.first_monday_this_month), datetime)
+      self.assertEqual(type(self.first_monday_next_month), datetime)
+
