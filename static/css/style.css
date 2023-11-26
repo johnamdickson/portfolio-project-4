@@ -262,6 +262,12 @@ button, input, optgroup, select, textarea {
     font-size: clamp(0.7rem, 0.9vw, 0.8rem) !important;
     font-weight: 300;
 }
+
+.go-back-btn:hover{
+    background-color: #fafafa90;
+    color:#95150a;
+    border-color: #fafafa;
+}
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
@@ -1096,28 +1102,6 @@ border-bottom-right-radius: 8px;
     color:#dc312390;
 }
 
-.go-back {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: #fafafa;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.go-back i, .go-back p{
-    z-index: 5;
-    margin: 0;
-    margin-top: 0;
-}
-
-.go-back p {
-    margin-left:10px;
-}
-
-.go-back:hover {
-    color: #fafafa80;
-}
-
 .btn-icon-grey {
     width: 100%;
 }
@@ -1346,6 +1330,10 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .go-back-btn i{
         font-size: 30px;
+    }
+
+    .go-back-btn:hover{
+        background-color: transparent
     }
 }
 
