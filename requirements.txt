@@ -5,6 +5,7 @@ dj3-cloudinary-storage==0.0.6
 Django==3.2.22
 django-allauth==0.57.0
 django-upload-validator==1.1.6
+freezegun==1.2.2
 gunicorn==21.2.0
 oauthlib==3.2.2
 psycopg2==2.9.9
