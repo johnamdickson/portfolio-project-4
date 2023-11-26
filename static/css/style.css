@@ -844,7 +844,7 @@ https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-b
     position: sticky;
     top: 0;
     z-index: 1;
-    background-image: linear-gradient(180deg, #fafafa90 0%, #36454F90 15%);
+    background-image: linear-gradient(180deg, #fafafa90 0%, #36454F90 7.5%);
 }
 
 .create-emission-button{
