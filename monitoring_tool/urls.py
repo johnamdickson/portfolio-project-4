@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("", views.EmissionHome.as_view(), name="home"),
@@ -15,4 +16,9 @@ urlpatterns = [
     # https://stackoverflow.com/questions/62296133/how-to-pass-an-id-from-template-to-view
     path('delete-check/<slug:slug>/<int:id>', views.deleteCheck, name="delete-check"),
     path('edit-check/<slug:slug>/<int:id>', views.editCheck, name="edit-check"),
+        path(
+        "accounts/login/",
+        auth_views.LoginView.as_view(template_name="account/login.html"),
+        name="login",
+    ),
 ]
