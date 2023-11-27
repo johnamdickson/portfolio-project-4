@@ -23,8 +23,16 @@ class Emission(models.Model):
         related_name="monitoring_tool_emissions"
     )
     emission_image = CloudinaryField(
-        'image', null=False, resource_type='auto',
-        format="jpg"
+        'image', 
+        null=False, 
+        resource_type='auto',
+        format="jpg",         
+        transformation={
+            'crop': 'limit',
+            'width': 800,
+            'height': 800,
+            'quality': 'auto:eco'
+        },
         )
     description = models.TextField(max_length=100, blank=True)
     latitude = models.FloatField()
