@@ -491,14 +491,16 @@ const buttonDisabled = (type, closed) => {
 
 let map;
 
+
 async function initMap() {
   // The location of factory. In this instance I used an abandoned fish factory in Westport to demonstrate
   // functionaility of feature.   
   const position = { lat: 53.80185, lng: -9.55734 };
   // Request needed libraries.
   //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
 
+  const { Map } = await google.maps.importLibrary("maps");
+  
 
   // The map, centered at factory
   if (document.getElementById("map")){
@@ -517,6 +519,7 @@ async function initMap() {
 
 // function for adding marker once map has initialised. Taking arguments from 
 // emission constants declared in emission detail html.
+
 async function addMarker() {
     // obtain data from constants declared in HTML containing Django variables:
     // https://www.django-antipatterns.com/antipattern/rendering-into-javascript.html
@@ -637,8 +640,7 @@ const errorCountdown = () => {
 
   }
 
-
-
+module.exports = errorCountdown
 
 
     

@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-project-4",
+  "version": "1.0.0",
+  "description": "![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnamdickson/portfolio-project-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnamdickson/portfolio-project-4/issues"
+  },
+  "homepage": "https://github.com/johnamdickson/portfolio-project-4#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "dependencies": {
+    "@googlemaps/jest-mocks": "^2.20.2",
+    "npx": "^10.2.2"
+  }
+}
