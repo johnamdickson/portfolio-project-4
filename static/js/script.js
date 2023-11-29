@@ -24,7 +24,9 @@ window.addEventListener('resize', function (event) {
  * Improve user experience so that routine alerts are automatically
  * dismissed 
  */
-setTimeout(function () {
+// change to set interval to allow running more than once:
+// https://stackoverflow.com/questions/70436333/settimeout-runs-only-once-then-not-working
+setInterval(function () {
     if (document.getElementById('msg')) {
         let messages = document.getElementById('msg');
         let alert = new bootstrap.Alert(messages);
@@ -484,13 +486,6 @@ const buttonDisabled = (type, closed) => {
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
       `
-      setTimeout(function () {
-        if (document.getElementById('msg')){
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }
-    }, 4000);
 }
 
 
