@@ -985,6 +985,7 @@ border-bottom-right-radius: 8px;
     font-weight: bold;
     color: white;
     margin-bottom: 0;
+    line-height: 4.5rem;
 }
 
 #map {
@@ -1141,6 +1142,17 @@ using important due to specificity of modal footer a rule.
     right: 30px;
     color:#fafafa;
 }
+.image-cell{
+    display: table-cell;
+    height: 250px;
+    width: auto;
+    padding: 0;
+}
+
+.image-cell img{
+    height: 100%;
+}
+
 /* _________________________________________  Emission Checks styling  ________________________________________________ */
 
 .emission-checks-table {
@@ -1334,6 +1346,11 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     .go-back-btn:hover{
         background-color: transparent
+    }
+
+    .image-cell{
+        height: 200px;
+        width: auto;
     }
 }
 

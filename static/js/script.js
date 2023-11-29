@@ -43,6 +43,7 @@ function hideElements() {
     let hiddenCells = document.getElementsByClassName("hidden-col")
     let hiddenElements = document.getElementsByClassName("callout-hidden");
     let closeOutComments = document.getElementsByClassName('close-out-comments');
+    let imageCells = document.getElementsByClassName('image-cell')
     for (let cell of hiddenCells) {
         if (windowWidth <= 982) {
             cell.style.display = 'none'
@@ -52,10 +53,18 @@ function hideElements() {
     }
     for (let cell of descriptionCells) {
         if (windowWidth <= 982) {
-            cell.setAttribute('colspan', '2')
+            cell.setAttribute('colspan', '4')
         }
         else if (windowWidth >982){
             cell.setAttribute('colspan', '3')
+        }
+    }
+    for (let cell of imageCells) {
+        if (windowWidth <= 982) {
+            cell.setAttribute('rowspan', '2')
+        }
+        else if (windowWidth >982){
+            cell.setAttribute('rowspan', '4')
         }
     }
     if (closeOutComments) {
@@ -639,10 +648,6 @@ const errorCountdown = () => {
     }
 
   }
-
-module.exports = errorCountdown
-
-
     
 
     // use of jquery to utilise smooth animated scrolling in tables
@@ -700,3 +705,4 @@ function scrollButtons() {
     })
 }
 
+module.exports = errorCountdown
