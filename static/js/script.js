@@ -245,7 +245,7 @@ const showModal = (data) => {
 
 /**
  * Adds modal to the DOM and updates with JSON data passed in
- * from emission.html or emission-checks.html.
+ * from emissions.html or emission-checks.html.
  */
 const emissionModal = (data, page, checkId, user, superuser) => {
 // delcare constants from JSON, checkId
