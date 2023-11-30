@@ -188,6 +188,13 @@ input[type='checkbox'] {
 
 .form-title {
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    color: #fafafa;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: bold;
+    margin-bottom: 0;
+    line-height: 4.5rem;
 }
 
 .form-title h2{
@@ -257,7 +264,7 @@ button, input, optgroup, select, textarea {
     font-size: 20px;
 }
 
-.go-back-btn p{
+.go-back-btn span{
     margin: 0 5px !important;
     font-size: clamp(0.7rem, 0.9vw, 0.8rem) !important;
     font-weight: 300;
@@ -893,6 +900,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     width: 20%;
     text-align: center;
     vertical-align: middle;
+
 }
 
 .emission-detail-table tbody th {
@@ -901,6 +909,8 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     height: 50px;
     border: 1px solid #fafafa;
     border-top: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
 }
 
 .emission-detail-table tbody td {
@@ -1151,6 +1161,7 @@ using important due to specificity of modal footer a rule.
 
 .image-cell img{
     height: 100%;
+    width: 100%;
 }
 
 /* _________________________________________  Emission Checks styling  ________________________________________________ */
@@ -1336,7 +1347,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
         border: none;
         box-shadow: none !important;
     }
-    .go-back-btn p{
+    .go-back-btn span{
         display: none;
     }
 
