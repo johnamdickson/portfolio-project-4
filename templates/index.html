@@ -5,10 +5,15 @@
 <section>
     <div class="container-fluid p-0 hero shadow-lg">
         <div class="row home-row h-100">
-            <div class="col-md-6 offset-md-6 col-lg-6 offset-lg-6 mt-auto my-md-auto  emission-callout custom-callout shadow">
+            <!-- home page callout with key messaging -->
+            <div
+                class="col-md-6 offset-md-6 col-lg-6 offset-lg-6 mt-auto my-md-auto  emission-callout custom-callout shadow">
                 <h3 class="callout-hidden mt-1">Welcome to the </h3>
-                <h4 class="callout-hidden pb-2 logo-text">emissions <i class="fa-solid fa-droplet"></i> monitoring tool</h4>
-                <p class="callout-hidden">Your one stop shop for mangaging industrial emissions on your asset or facility.</p>
+                <h4 class="callout-hidden pb-2 logo-text">emissions <i class="fa-solid fa-droplet"></i> monitoring tool
+                </h4>
+                <p class="callout-hidden">Your one stop shop for mangaging industrial emissions on your asset or
+                    facility.</p>
+                <!-- add callout hidden class for Javascript to hide on small screens -->
                 <p class="callout-hidden">With this tool you can:</p>
                 <ul>
                     <li>
@@ -55,40 +60,40 @@
     -->
     <div class="container-fluid text-center my-4">
         <div class="row my-auto justify-content-center">
-            <div id="emission-carousel" class="carousel slide" >
+            <div id="emission-carousel" class="carousel slide">
                 <div class="carousel-indicators">
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-1 carousel-prev-col">
-                                    <div class="row carousel-prev-row">
-                                        <a class="carousel-control-prev bg-transparent w-aut" href="#emission-carousel"
-                                            role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
-                                                aria-hidden="true"></span> </a>
-                                    </div>
+                                <div class="row carousel-prev-row">
+                                    <a class="carousel-control-prev bg-transparent w-aut" href="#emission-carousel"
+                                        role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                            aria-hidden="true"></span> </a>
+                                </div>
                             </div>
                             <div class="col-9 col-md-8 col-lg-6 col-xl-4 carousel-indicators-col">
                                 <div class="row card-indicators-row">
-                                        <!-- Use of for loop counter to get index for carousel indicators
+                                    <!-- Use of for loop counter to get index for carousel indicators
                                 https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template -->
-                                        {% for i in emission_list %}
-                                        {% if forloop.counter0 == 0%}
-                                        <!-- add active class for first item in loop -->
-                                        <button type="button" data-bs-target="#emission-carousel"
-                                            data-bs-slide-to="{{ forloop.counter0 }}" class="active"
-                                            aria-label="Slide {{ forloop.counter }}"></button>
-                                        {% else %}
-                                        <button type="button" data-bs-target="#emission-carousel"
-                                            data-bs-slide-to="{{ forloop.counter0 }}"
-                                            aria-label="Slide {{ forloop.counter }}"></button>
-                                        {% endif %}
-                                        {% endfor %}
+                                    {% for i in emission_list %}
+                                    {% if forloop.counter0 == 0%}
+                                    <!-- add active class for first item in loop -->
+                                    <button type="button" data-bs-target="#emission-carousel"
+                                        data-bs-slide-to="{{ forloop.counter0 }}" class="active"
+                                        aria-label="Slide {{ forloop.counter }}"></button>
+                                    {% else %}
+                                    <button type="button" data-bs-target="#emission-carousel"
+                                        data-bs-slide-to="{{ forloop.counter0 }}"
+                                        aria-label="Slide {{ forloop.counter }}"></button>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div class="col-1 carousel-next-col">
                                 <div class="row carousel-next-row">
-                                        <a class="carousel-control-next bg-transparent w-aut" href="#emission-carousel"
-                                            role="button" data-bs-slide="next"> <span class="carousel-control-next-icon"
-                                                aria-hidden="true"></span> </a>
+                                    <a class="carousel-control-next bg-transparent w-aut" href="#emission-carousel"
+                                        role="button" data-bs-slide="next"> <span class="carousel-control-next-icon"
+                                            aria-hidden="true"></span> </a>
                                 </div>
                             </div>
                         </div>
@@ -111,9 +116,11 @@
                                             <div class="pad15">
                                                 {% if "placeholder" in emission.emission_image.url %}
                                                 <img class="card-img-top"
-                                                    src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" alt="A placeholder image where no image is available.">
+                                                    src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png"
+                                                    alt="A placeholder image where no image is available.">
                                                 {% else %}
-                                                <img class="card-img-top" src=" {{ emission.emission_image.url }}" alt="An image of emission at {{emission.title}}">
+                                                <img class="card-img-top" src=" {{ emission.emission_image.url }}"
+                                                    alt="An image of emission at {{emission.title}}">
                                                 {% endif %}
                                                 <h4 class="lead">{{emission.title}}</h4>
                                                 <table>
@@ -130,7 +137,8 @@
                                                             <h5>Check Status:</h5>
                                                         </td>
                                                         <td>
-                                                            <p class="check_status">{{emission.calculate_check_complete}}</p>
+                                                            <p class="check_status">
+                                                                {{emission.calculate_check_complete}}</p>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -146,17 +154,11 @@
             </div>
         </div>
 </section>
-
-
-    <!-- input below contains url for javascript to return correct url in modal -->
-    <input type="hidden" id="emissionUrl" data-url="{% url 'emissions' %}">
-    <input type="hidden" id="emissionDetailUrl" data-url="{% url 'emissions' %}">
-    <!-- Modal -->
-    <div class="modal fade" id="emissionModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-        <!-- modal will be autopopulated with emission data by JS -->
-    </div>
-
-
-
-
+<!-- input below contains url for javascript to return correct url in modal -->
+<input type="hidden" id="emissionUrl" data-url="{% url 'emissions' %}">
+<input type="hidden" id="emissionDetailUrl" data-url="{% url 'emissions' %}">
+<!-- Modal -->
+<div class="modal fade" id="emissionModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- modal will be autopopulated with emission data by JS -->
+</div>
 {% endblock%}

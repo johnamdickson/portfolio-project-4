@@ -7,20 +7,22 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
 <div class="container-fluid mb-5">
     <div class="row mt-3">
         <div class="col-md-8 mx-auto">
-                    <div id="filter-container">
-                        <input type="text" id="emission-check-search" onkeyup="filterChecks()" placeholder="Search by emission or username" title="Type in an emission">
-                    </div>
+            <!-- search bar for filtering checks table -->
+            <div id="filter-container">
+                <input type="text" id="emission-check-search" onkeyup="filterChecks()"
+                    placeholder="Search by emission or username" title="Type in an emission">
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-10 mx-auto position-relative">
+            <!-- emission checks table -->
             <div class="table-responsive table-fixed-head shadow ">
                 <div class="scroll-buttons position-absolute">
                     <i class="fa-solid fa-circle-chevron-down" id="to-bottom"></i>
                     <i class="fa-solid fa-circle-chevron-up" id="to-top"></i>
-                    </div>
+                </div>
                 <table class="table table-hover emissions-table" id="emission-checks-table">
-
                     <thead>
                         <tr class="header">
                             <th>
@@ -40,71 +42,81 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                             </th>
                             <th>
                                 Emission Status
+                                <!-- toggle switch for filtering open or open/closed emissions -->
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                    <label id="column-filter" class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
-                                  </div>
+                                    <label id="column-filter" class="form-check-label"
+                                        for="flexSwitchCheckChecked">Showing Open Emissions</label>
+                                </div>
                             </th>
                         </tr>
                     </thead>
-                        {% for check in emissioncheck_list %}
-                        {% if check.title.calculate_status == "Closed" %}
-                        <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
-                        <tr onclick="emissionModal('{{check.javascript_data|escapejs}}', 'emission-check', '{{check.id}}', '{{user.username}}', '{{user.is_superuser}}')" class="closed-row">
-                        {% else %} 
-                        <tr onclick="emissionModal('{{check.javascript_data|escapejs}}', 'emission-check', '{{check.id}}', '{{user.username}}', '{{user.is_superuser}}')">
+                    <!-- loop through emissionchecks list and render a row for each check -->
+                    {% for check in emissioncheck_list %}
+                    {% if check.title.calculate_status == "Closed" %}
+                    <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
+                    <tr onclick="emissionModal('{{check.javascript_data|escapejs}}', 'emission-check', '{{check.id}}', '{{user.username}}', '{{user.is_superuser}}')"
+                        class="closed-row">
+                        {% else %}
+                    <tr
+                        onclick="emissionModal('{{check.javascript_data|escapejs}}', 'emission-check', '{{check.id}}', '{{user.username}}', '{{user.is_superuser}}')">
                         {% endif %}
-                            <td class="table-img-td">
-                                    <img src="{{check.title.emission_image.url}}"
-                                        alt="Image of emission {{check.title}}" class="emissions-img">
-                                    <div class="overlay-text">
-                                        {{check.title}}
-                                    </div>
-                            
-                            </td>
-                            <td>
-                                {{check.comments}}
-                            </td>
-                            <td>
-                                {{check.calculate_status}}
-                            </td>
-                            <td class="checked-by hidden-col">
-                                {{check.checked_by}}
-                            </td>
-                            <td>
-                                {{check.date_checked}}
-                            </td>
-                            <td class="status-cell"><p>{{check.title.calculate_status}}</p>
-                            </td>
-                        </tr>
-                        {% endfor %}
+                        <td class="table-img-td">
+                            <img src="{{check.title.emission_image.url}}" alt="Image of emission {{check.title}}"
+                                class="emissions-img">
+                            <div class="overlay-text">
+                                {{check.title}}
+                            </div>
+                        </td>
+                        <td>
+                            {{check.comments}}
+                        </td>
+                        <td>
+                            {{check.calculate_status}}
+                        </td>
+                        <!-- add a hidden-col class which Javascript responsively hides the td on smaller screens -->
+                        <td class="checked-by hidden-col">
+                            {{check.checked_by}}
+                        </td>
+                        <td>
+                            {{check.date_checked}}
+                        </td>
+                        <!-- add a status-cell class for Javascript to format background green for open or red for close -->
+                        <td class="status-cell">
+                            <p>{{check.title.calculate_status}}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
     </div>
 </div>
-    <!-- Modal -->
-    
-    <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+<!-- Modal -->
+
+<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="emissionModalTitle">Modal title</h4>
-            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-            </button>
-          </div>
-          <div class="modal-body" id="emissionModalBody">
-            ...
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn" id="emission-check-a"></a>
-            <a href="#" class="btn" id="emission-edit-a"></a>
-            {% if perms.monitoring_tool.delete_emissioncheck %}
-            <a href="#" class="btn" id="emission-check-delete-a" onclick="confirmAction(event)"></a>
-            {% endif %}
-          </div>
+            <div class="modal-header">
+                <h4 class="modal-title" id="emissionModalTitle">Modal title</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body" id="emissionModalBody">
+                ...
+            </div>
+            <div class="modal-footer">
+                <!-- buttons for submitting or editing emission check  -->
+                <a href="#" class="btn" id="emission-check-a"></a>
+                <a href="#" class="btn" id="emission-edit-a"></a>
+                <!-- check if user has permission to delete emission and present button if so. This button is not 
+            added to DOM and greyed out like others for reason that the option should be fully reserved to superuser. -->
+                {% if perms.monitoring_tool.delete_emissioncheck %}
+                <a href="#" class="btn" id="emission-check-delete-a" onclick="confirmAction(event)"></a>
+                {% endif %}
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
 {% endblock%}

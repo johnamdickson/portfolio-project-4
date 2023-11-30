@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 
@@ -7,133 +6,151 @@
   <div class="container-fluid">
     <div class="row emission-page-top p-3">
       <div class="d-none d-md-block col-md-5 p-4 mx-auto">
-        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img custom-callout shadow" alt="A woman in coveralls and wearing a hard hat with ear defenders around her next completing checks on an ipad.">
+        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg"
+          class="emission-page-img custom-callout shadow"
+          alt="A woman in coveralls and wearing a hard hat with ear defenders around her next completing checks on an ipad.">
       </div>
+      <!-- emissions callout -->
       <div class="p-sm-3 col-md-6 p-md-4 mx-auto emission-callout custom-callout shadow">
-          <h3 class="callout-hidden">Emissions List</h3>
-          <ul>
-            <li>
-                <div class="list-icons callout-hidden"><i class="fa-solid fa-table-list"></i>
-                </div>
-                <div class="list-text callout-hidden">
-                    <p>View a full summary of all your facilities emissions in a handy table format.</p>
-                </div>
-            </li>
-            <li>
-                <div class="list-icons callout-hidden">
-                  <i class="fa-solid fa-arrow-pointer"></i>
-                </div>
-                <div class="list-text callout-hidden">
-                    <p>Select an emission row for options to view individual details or submit a check.</p>
-                </div>
-            </li>
-            <li>
-                <div class="list-icons">
-                  <i class="fa-solid fa-file-arrow-up"></i>
-                </div>
-                <div class="list-text">
-                  <p>Easily add a new emission to the system.</p>
-                </div>
-            </li>
-            <li id="create-emission-li">
-              {% if perms.monitoring_tool.add_emission %}
-              <div>
-                  <a href="{% url 'add-emission' %}" class="btn btn-white-back-red-font create-emission-button">Add New Emission<i class="fa-solid fa-circle-plus fa-6x"></i></a>
-              </div>
-              {% else %}
-              <div>
-                <a href="#" class="btn add-btn-unavailable create-emission-button" onclick="buttonDisabled('add', false);">Add New Emission<i class="fa-solid fa-circle-plus"></i></a>
+        <h3 class="callout-hidden">Emissions List</h3>
+        <ul>
+          <li>
+            <div class="list-icons callout-hidden"><i class="fa-solid fa-table-list"></i>
+            </div>
+            <!-- add callout hidden class for Javascript to hide on small screens -->
+            <div class="list-text callout-hidden">
+              <p>View a full summary of all your facilities emissions in a handy table format.</p>
+            </div>
+          </li>
+          <li>
+            <!-- add callout hidden class for Javascript to hide on small screens -->
+            <div class="list-icons callout-hidden">
+              <i class="fa-solid fa-arrow-pointer"></i>
+            </div>
+            <!-- add callout hidden class for Javascript to hide on small screens -->
+            <div class="list-text callout-hidden">
+              <p>Select an emission row for options to view individual details or submit a check.</p>
+            </div>
+          </li>
+          <li>
+            <div class="list-icons">
+              <i class="fa-solid fa-file-arrow-up"></i>
+            </div>
+            <div class="list-text">
+              <p>Easily add a new emission to the system.</p>
+            </div>
+          </li>
+          <!-- Add emission button. Logic permissions to add an emission and style accordingly with distinct classes -->
+          <li id="create-emission-li">
+            {% if perms.monitoring_tool.add_emission %}
+            <div>
+              <a href="{% url 'add-emission' %}" class="btn btn-white-back-red-font create-emission-button">Add New
+                Emission<i class="fa-solid fa-circle-plus fa-6x"></i></a>
+            </div>
+            {% else %}
+            <div>
+              <a href="#" class="btn add-btn-unavailable create-emission-button"
+                onclick="buttonDisabled('add', false);">Add New Emission<i class="fa-solid fa-circle-plus"></i></a>
             </div>
             {% endif %}
           </li>
-          </ul>
+        </ul>
       </div>
     </div>
   </div>
 </section>
-  <div class="container-fluid mb-5">
-    <div class="row">
-      <div class="col-12 position-relative">
-        <div class="table-responsive table-fixed-head shadow">
-          <div class="scroll-buttons position-absolute">
-            <i class="fa-solid fa-circle-chevron-down" id="to-bottom"></i>
-            <i class="fa-solid fa-circle-chevron-up" id="to-top"></i>
-            </div>
-          <table class="table table-hover table-sm  emissions-table scrollbar shadow">
-              <thead>
-                <tr>
-                  <th scope="col">Emission</th>
-                  <th scope="col">Emission Type</th>
-                  <th scope="col">Description</th>
-                  <th scope="col" class=" hidden-col">Location</th>
-                  <th scope="col" class=" hidden-col" >Created On</th>
-                  <th scope="col" class=" hidden-col">Next Check Due</th>
-                  <th scope="col">Check Status</th>
-                  <th scope="col"> <p>Emission Status</p>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                      <label id="column-filter" class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-               
-          
-              {% for emission in emission_list %}
-              <!-- solution to clickable table rows to modal from Stack Overflow:
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-12 position-relative">
+      <div class="table-responsive table-fixed-head shadow">
+        <div class="scroll-buttons position-absolute">
+          <i class="fa-solid fa-circle-chevron-down" id="to-bottom"></i>
+          <i class="fa-solid fa-circle-chevron-up" id="to-top"></i>
+        </div>
+        <!-- emissions table -->
+        <table class="table table-hover table-sm  emissions-table scrollbar shadow">
+          <thead>
+            <tr>
+              <th scope="col">Emission</th>
+              <th scope="col">Emission Type</th>
+              <th scope="col">Description</th>
+              <!-- add a hidden-col class which Javascript responsively hides the td on smaller screens -->
+              <th scope="col" class=" hidden-col">Location</th>
+              <th scope="col" class=" hidden-col">Created On</th>
+              <th scope="col" class=" hidden-col">Next Check Due</th>
+              <th scope="col">Check Status</th>
+              <th scope="col">
+                <p>Emission Status</p>
+                <!-- add a status-cell class for Javascript to format background green for open or red for close -->
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label id="column-filter" class="form-check-label" for="flexSwitchCheckChecked">Showing Open
+                    Emissions</label>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for emission in emission_list %}
+            <!-- solution to clickable table rows to modal from Stack Overflow:
               https://stackoverflow.com/questions/18995461/how-can-i-show-data-using-a-modal-when-clicking-a-table-row-using-bootstrap
               -->
-                {% if emission.calculate_status == "Closed" %}
-                <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
-                <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission')" class="closed-row">
-                {% else %} 
-                <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission')">
-                {% endif %}
-                  {% if "placeholder" in emission.emission_image.url %}
-                  <td class="table-img-td"><img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" class="emissions-img " alt="Image of emission {{emission.title}}">
-                  <div class="overlay-text">
-                      {{emission.title}}
-                  </div>
-                  </td>
-                  {% else %}
-                  <td class="table-img-td"><img src="{{ emission.emission_image.url }}" class="emissions-img" alt="Image of emission {{emission.title}}">
-                    <div class="overlay-text">
-                      {{emission.title}}
-                  </div>
-                  </td>
-                  {% endif %}
-                  <td>{{emission.get_emission_type}}</td>
-                  <td>{{ emission.description }}</td>
-                  <td class=" hidden-col">{{emission.location}}</td>
-                  <!-- formatting dates in Django Template Language. Solution from Stack Overflow and documentation
+            {% if emission.calculate_status == "Closed" %}
+            <!-- check if the emission is closed and assign class to allow for filtering from JS function -->
+            <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission')" class="closed-row">
+              {% else %}
+            <tr onclick="emissionModal('{{emission.javascript_data|escapejs}}', 'emission')">
+              {% endif %}
+              {% if "placeholder" in emission.emission_image.url %}
+              <!-- use placeholder image -->
+              <td class="table-img-td"><img
+                  src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png"
+                  class="emissions-img " alt="Image of emission {{emission.title}}">
+                <!-- add an overlay to house title which will sit on top of emission image -->
+                <div class="overlay-text">
+                  {{emission.title}}
+                </div>
+              </td>
+              {% else %}
+              <!-- use image from Elephant SQL -->
+              <td class="table-img-td"><img src="{{ emission.emission_image.url }}" class="emissions-img"
+                  alt="Image of emission {{emission.title}}">
+                <!-- add an overlay to house title which will sit on top of emission image -->
+                <div class="overlay-text">
+                  {{emission.title}}
+                </div>
+              </td>
+              {% endif %}
+              <td>{{emission.get_emission_type}}</td>
+              <td>{{ emission.description }}</td>
+              <!-- add a hidden-col class which Javascript responsively hides the td on smaller screens -->
+              <td class=" hidden-col">{{emission.location}}</td>
+              <!-- formatting dates in Django Template Language. Solution from Stack Overflow and documentation
                   https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATE_FORMAT
                   https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-languages
                   -->
-                  <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td> 
-                  <!-- Conditional statement to check emission status. If closed then current and next check
+              <td class=" hidden-col">{{ emission.created_on | date:'M. d Y'}}</td>
+              <!-- Conditional statement to check emission status. If closed then current and next check
                   due dates and check status are superfluos -->
-                  {% if emission.calculate_status == "Closed" %}
-                  <td class=" hidden-col blank-td"></td> 
-                  <td class="blank-td"></td> 
-                  {% else %} 
-                  <td class=" hidden-col">{{ emission.next_check_due}}</td>  
-                  <td class="check_status">{{ emission.calculate_check_complete}}</td>  
-                  {% endif %}
-                  <td class="status-cell" >{{ emission.calculate_status }}</td>        
-                </tr>
-          
-                  {% endfor %}
-              </tbody>
-            </table>
-          </div>
+              {% if emission.calculate_status == "Closed" %}
+              <td class=" hidden-col blank-td"></td>
+              <td class="blank-td"></td>
+              {% else %}
+              <td class=" hidden-col">{{ emission.next_check_due}}</td>
+              <td class="check_status">{{ emission.calculate_check_complete}}</td>
+              {% endif %}
+              <td class="status-cell">{{ emission.calculate_status }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-
+</div>
 
 <!-- Modal -->
-
+<!-- Javascript function emissionModal adds elements with corresponding data to DOM with JSON information on tr click above -->
 <div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -147,7 +164,8 @@
       </div>
       <div class="modal-footer">
         <a href="#" class="btn" id="emission-check-a"></a>
-        <a href="#" class="btn" id="emission-detail-a">Go To Emission Detail Page<i class="fa-solid fa-circle-info"></i></a>
+        <a href="#" class="btn" id="emission-detail-a">Go To Emission Detail Page<i
+            class="fa-solid fa-circle-info"></i></a>
       </div>
     </div>
   </div>
