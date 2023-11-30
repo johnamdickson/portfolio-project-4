@@ -19,10 +19,10 @@
                                         <div class="container-fluid mx-auto">
                                             <div class="row">
                                                 <div class="col-2 p-0 my-auto">
-                                                    <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><p>Go Back</p></button>
+                                                    <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><span>Go Back</span></button>
                                                 </div>
                                                 <div class="p-0 col-9 my-auto form-title">
-                                                    <h4>{{title}}</h4>
+                                                    {{title}}
                                                 </div>
                                             </div>
                                         </div>
@@ -32,17 +32,17 @@
                         <tbody onclick="emissionModal('{{javascript_data|escapejs}}', 'emission-detail')">
                             <tr>
                                 <td rowspan="4" colspan="2" class="p-0 image-cell">
-                                    <img src="{{image_url}}" alt="Image of emission {{title}}" width="100%"
+                                    <img src="{{image_url}}" alt="Image of emission {{title}}"
                                      id="emission-detail-img">
                                 </td>
                                 <th>
-                                    <h5>Location</h5>
+                                    Location
                                 </th>
                                 <th>
-                                    <h5>Type</h5>
+                                    Type
                                 </th>
                                 <th class="hidden-col">
-                                    <h5>Date Created</h5>
+                                    Date Created
                                 </th>
                             </tr>
                             <tr>
@@ -58,7 +58,7 @@
                             </tr>
                             <tr>
                                 <th colspan="3" class="description-cell">
-                                    <h5>Description</h5>
+                                    Description
                                 </th>
                             </tr>
                             <tr>
@@ -69,23 +69,23 @@
                             {% if status == 'Open' %}
                             <tr>
                                 <th>
-                                    <h5>Status</h5>
+                                    Status
                                 </th>
                                 <th>
-                                    <h5>Check Status</h5>
+                                    Check Status
                                 </th>
                                 <th>
-                                    <h5>Last Checked</h5>
+                                    Last Checked
                                 </th>
                                 <th>
-                                    <h5>Current Check Due</h5>
+                                    Current Check Due
                                 </th>
                                 <th class="hidden-col">
-                                    <h5>Next Check Due</h5>
+                                    Next Check Due
                                 </th>
                             </tr>
                             <tr>
-                                <td class="status-cell" class="bg-gradient">
+                                <td class="status-cell bg-gradient">
                                     <p>{{status}}</p>
                                 </td>
                                 <td>
@@ -105,16 +105,16 @@
                             {% else %}
                             <tr>
                                 <th>
-                                    <h5>Status</h5>
+                                    Status
                                 </th>
                                 <th colspan="2" class="close-out-comments">
-                                    <h5>Close Out Comments</h5>
+                                    Close Out Comments
                                 </th>
                                 <th>
-                                    <h5>Closed By</h5>
+                                    Closed By
                                 </th>
                                 <th>
-                                    <h5>Close Out Date</h5>
+                                    Close Out Date
                                 </th>
                             </tr>
                             <tr>
@@ -140,9 +140,8 @@
         </div>
     </div>
 </div>
-</div>
 
-<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel"
+<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
