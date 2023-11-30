@@ -111,9 +111,9 @@
                                             <div class="pad15">
                                                 {% if "placeholder" in emission.emission_image.url %}
                                                 <img class="card-img-top"
-                                                    src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png">
+                                                    src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698183943/Screenshot_2023-10-24_at_22.45.11_e7ebta.png" alt="A placeholder image where no image is available.">
                                                 {% else %}
-                                                <img class="card-img-top" src=" {{ emission.emission_image.url }}">
+                                                <img class="card-img-top" src=" {{ emission.emission_image.url }}" alt="An image of emission at {{emission.title}}">
                                                 {% endif %}
                                                 <h4 class="lead">{{emission.title}}</h4>
                                                 <table>
@@ -145,17 +145,92 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <section>
     <!-- input below contains url for javascript to return correct url in modal -->
-    <input type="hidden" id="emissionUrl" data-url="{% url 'emissions' %}" />
-    <input type="hidden" id="emissionDetailUrl" data-url="{% url 'emissions' %}" />
+    <input type="hidden" id="emissionUrl" data-url="{% url 'emissions' %}">
+    <input type="hidden" id="emissionDetailUrl" data-url="{% url 'emissions' %}">
     <!-- Modal -->
     <div class="modal fade" id="emissionModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="emissionModalCenterTitle" aria-hidden="true">
+        aria-labelledby="emissionModalLongTitle" aria-hidden="true">
         <!-- modal will be autopopulated with emission data by JS -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="emissionModalLongTitle">${emissionArray.title}</h4>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                    <tr>
+                        <img class="modal-img" src="${emissionArray.imageUrl}">
+                    </tr>
+                    <table class="home-modal-table">
+                        <tr>
+                            <td>
+                                <h5>Type:</h5>
+                            </td>
+                            <td>
+                                <p>${emissionArray.type}</p>
+                            </td>
+                        </tr>                                        
+                        <tr>
+                        <td>
+                            <h5>Description:</h5>
+                        </td>
+                        <td>
+                            <p class="check_status">${emissionArray.description}</p>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Location:</h5>
+                            </td>
+                            <td>
+                                <p class="check_status">${emissionArray.location}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Checks Status:</h5>
+                            </td>
+                            <td>
+                                <p class="check_status">${emissionArray.checkComplete}</p>
+                            </td>
+                        </tr>                                               
+                        <tr>
+                            <td>
+                                <h5>Current Check Due:</h5>
+                            </td>
+                            <td>
+                                <p class="check_status">${emissionArray.currentCheck}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Last Checked:</h5>
+                            </td>
+                            <td>
+                                <p class="check_status">${emissionArray.lastCheck}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Next Check Due:</h5>
+                            </td>
+                            <td>
+                                <p class="check_status">${emissionArray.nextCheck}</p>
+                            </td>
+                        </tr>                                                   
+                    </table>
+                <div class="modal-footer">
+                    <a href= "add-check/${emissionArray.slug}/" class="btn">Submit ${emissionArray.title} Emission Check<i class="fa-solid fa-clipboard-list"></i>
+                    </a>
+                    <a href="/${emissionArray.slug}/" class="btn">Go To Emission Detail Page<i class="fa-solid fa-circle-info"></i></a>
+                    <a href="${allEmissionsUrl}" class="btn">Go To All Emissions Page<i class="fa-solid fa-table-list"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

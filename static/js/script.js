@@ -168,13 +168,11 @@ const showModal = (data) => {
     modalItem.innerHTML = ` <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="exampleModalLongTitle">${emissionArray.title}</h4>
+                                            <h4 class="modal-title" id="emissionModalLongTitle">${emissionArray.title}</h4>
                                             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                                             </button>
                                         </div>
-                                            <tr>
                                                 <img class="modal-img" src="${emissionArray.imageUrl}">
-                                            </tr>
                                             <table class="home-modal-table">
                                                 <tr>
                                                     <td>
