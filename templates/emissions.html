@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <div class="row emission-page-top p-3">
       <div class="d-none d-md-block col-md-5 p-4 mx-auto">
-        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img custom-callout shadow">
+        <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/v1698614641/emissions-checks_x06g1j.jpg" class="emission-page-img custom-callout shadow" alt="A woman in coveralls and wearing a hard hat with ear defenders around her next completing checks on an ipad.">
       </div>
       <div class="p-sm-3 col-md-6 p-md-4 mx-auto emission-callout custom-callout shadow">
           <h3 class="callout-hidden">Emissions List</h3>
@@ -32,7 +32,7 @@
                   <i class="fa-solid fa-file-arrow-up"></i>
                 </div>
                 <div class="list-text">
-                  <p class=>Easily add a new emission to the system.</p>
+                  <p>Easily add a new emission to the system.</p>
                 </div>
             </li>
             <li id="create-emission-li">
@@ -46,11 +46,11 @@
             </div>
             {% endif %}
           </li>
+          </ul>
       </div>
     </div>
   </div>
 </section>
-<section>
   <div class="container-fluid mb-5">
     <div class="row">
       <div class="col-12 position-relative">
@@ -72,7 +72,7 @@
                   <th scope="col"> <p>Emission Status</p>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                      <label id="column-filter"class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
+                      <label id="column-filter" class="form-check-label" for="flexSwitchCheckChecked">Showing Open Emissions</label>
                     </div>
                   </th>
                 </tr>
@@ -131,12 +131,10 @@
     </div>
   </div>
 
-</section>
 
-<section>
 <!-- Modal -->
 
-<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-labelledby="emissionModalLabel" aria-hidden="true">
+<div class="modal fade" id="emissionModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -148,12 +146,11 @@
         ...
       </div>
       <div class="modal-footer">
-        <a href="${checkEmissionUrl}" class="btn" id="emission-check-a"></a>
-        <a href="${allEmissionsUrl}" class="btn" id="emission-detail-a">Go To Emission Detail Page<i class="fa-solid fa-circle-info"></i></a>
+        <a href="#" class="btn" id="emission-check-a"></a>
+        <a href="#" class="btn" id="emission-detail-a">Go To Emission Detail Page<i class="fa-solid fa-circle-info"></i></a>
       </div>
     </div>
   </div>
 </div>
-      </div>
-</section>
+
 {% endblock%}
