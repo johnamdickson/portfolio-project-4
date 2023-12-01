@@ -34,11 +34,9 @@
         </div>
       </div>
     </div>
-    {% endif %}
   </div>
 </div>
-
-
+    {% endif %}
 <div class="form-background shadow">
   <div class="container-fluid form-section">
     <div class="row p-2 p-md-0">
@@ -74,7 +72,7 @@
               <div class="col-10 offset-1 col-md-5 mb-3">{{ field }} </div>
     
             </div>
-            <div class="row" id="help-text">
+            <div class="row">
               {% if field.help_text %}
               <div class="col-11 mx-auto">
                 {{ field.help_text|safe }}
@@ -90,5 +88,6 @@
           </form>
       </div>
   </div>
+</div>
 </div>
 {% endblock content %}
