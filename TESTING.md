@@ -35,3 +35,13 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
  | add-check| ❌| <sub>Error: Bad value for attribute action on element form: Must be non-empty.<br> Error: End tag main seen, but there were open elements.<br>Error: Unclosed element div.</sub>|✅ |![html_checker](TESTING-files/html-validator/add-check.png) 
  | close-emission| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/close-emission.png) 
   | edit-check| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/edit-check.png) 
+
+### CSS
+
+The site was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/). There were 220 warnings assoiated with Bootstrap CSS and 6 in static CSS file associated with webkit code. These warnings are unavoidable in the validator because they are vendor extensions. However looking at feedback given to other students on Slack who had a similar issue, it appears to be safe to ignore these warnings. 
+
+The warnings and errors that are detailed in the table below reflect problems within the static CSS file and were duly corrected.
+
+**First Pass**|**Errors**|**Warnings**|**Second Pass<br><sup><sub>(Post Fix)</sub></sup>**|**Screenshot**
+:-----:|:-----|:-----|:-----:|:-----:
+| ❌|Property opaity doesn't exist. The closest matching property name is opacity : 0 <br>Property size doesn't exist. The closest matching property name is resize : 50px<br>Property size doesn't exist. The closest matching property name is resize : 50px|.go-back-btn	Same color for background-color and color<br> .go-back-button Same color for background-color and border-color|✅|![css_checker](TESTING-files/css-validator/css-validator.png) 
