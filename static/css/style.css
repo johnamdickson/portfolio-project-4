@@ -639,21 +639,13 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 @keyframes appear {
   0% {
-    opaity: 0;
+    opacity: 0;
   }
   100% {
     opacity: 1;
   }
 }
-  
-  @keyframes slideInFromRight {
-    0% {
-      transform: translateX(50%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
+
 .emissions-table td {
     font-size: clamp(0.6rem, 1.2vw, 0.9rem);
     border: 0.5px solid #fafafa;
@@ -821,7 +813,7 @@ https://stackoverflow.com/questions/632100/apply-css-style-to-child-elements
 }
 .form-switch .form-check-input:checked {
     background-color: #30D158;
-    border-color: #30D158;
+    border-color: #30D15890;
     border: none;
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
 }
@@ -1243,6 +1235,7 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
 @media (max-width: 992px) {
     .go-back-btn{
+        background-color: transparent;
         margin-top: -7px;
         width: 50px;
         background: none;
