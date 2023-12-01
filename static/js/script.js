@@ -424,7 +424,7 @@ const confirmAction = (event) => {
         let editCommentText = document.getElementById('editComments').value;
         confirmText = `Please confirm you are happy with the edit comments: \n
                         ${editCommentText}`
-    } else if (eventSourceText === 'Delete Check') {
+    } else if (eventSourceText.includes('Delete') && eventSourceText.includes('Check')) {
         confirmText = 'Are you sure you want to delete the check? This action cannot be reversed'
     }
     if(!confirm(confirmText)) {
