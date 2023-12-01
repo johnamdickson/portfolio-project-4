@@ -202,13 +202,6 @@ input[type='checkbox'] {
     margin-top: 0.5rem;
 }
 
-#forgot-password-link {
-    text-align: center;
-}
-
-#help-text {
-    font-size: small;
-}
 
 /* remove bullet point from login error messages */
 #login-error-message ul {
