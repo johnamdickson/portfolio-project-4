@@ -6,34 +6,38 @@
 
 {% block content %}
 
-<div class="container">
   {% if form.errors %}
-  <div class="row">
-    <div class="col-md-10 offset-md-1 mt-2">
+  <div class="container-fluid">
+  <div class="row alert-row">
+    <div class="col-md-10 col-lg-8 mx-auto mt-4">
       <div class="alert alert-danger alert-dismissible fade show shadow-lg shadow-primary" id="form-msg" role="alert">
-        <div class="row">
-          <div class="col-md-1">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
-              <use xlink:href="#exclamation-triangle-fill" />
-            </svg>
-          </div>
-          <div class="col-md-9">
-            {% for field in form%}
-              {% if field != None%}
+        <div class="container">
+          <div class="row p-2 p-md-0">
+            <div class="col-md-1">
+              <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
+                <use xlink:href="#exclamation-triangle-fill" />
+              </svg>
+            </div>
+            <div class="col-md-10">
+              <!-- loop through fields in form to access errors, discarding fields that are None to stop blank lines being
+              displayed on the alert. -->
+              {% for field in form%}
+                {% if field != None%}
                 {{field.errors}}
-              {% endif %}
-            {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="col-md-1">
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
           </div>
-        </div>
-        <div class="col-md-1">
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       </div>
     </div>
-
     {% endif %}
   </div>
 </div>
+
 
 <div class="form-background shadow">
   <div class="container-fluid form-section">
@@ -43,7 +47,7 @@
       <div class="container-fluid mx-auto mb-4">
         <div class="row">
             <div class="col-2 p-0 my-auto">
-                <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><p>Go Back</p></button>
+                <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><span>Go Back</span></button>
             </div>
             <div class="p-0 col-9 my-auto form-title">
                 <h2>Sign Up</h2>

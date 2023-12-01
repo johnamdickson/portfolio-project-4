@@ -7,15 +7,10 @@
 
 {% block content %}
 
-<div class="container" id="login-error-message">
-  <!-- alert customisation from the links below:
-              https://toruskit.com/docs/components/alerts/
-              https://getbootstrap.com/docs/5.0/components/alerts/
-  -->
-
   {% if form.errors %}
-  <div class="row">
-    <div class="col-md-10 offset-md-1 mt-4">
+  <div class="container-fluid">
+  <div class="row alert-row">
+    <div class="col-md-10 col-lg-8 mx-auto mt-4">
       <div class="alert alert-danger alert-dismissible fade show shadow-lg shadow-primary" id="form-msg" role="alert">
         <div class="container">
           <div class="row p-2 p-md-0">
@@ -24,19 +19,20 @@
                 <use xlink:href="#exclamation-triangle-fill" />
               </svg>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
               {{ form.non_field_errors }}
             </div>
-          </div>
-          <div class="col-md-1">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="col-md-1">
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    {% endif %}
   </div>
 </div>
+    {% endif %}
+
 
 <div class="form-background shadow">
   <div class="container-fluid form-section">
@@ -46,7 +42,7 @@
                     <div class="container-fluid mx-auto mb-4">
                 <div class="row">
                     <div class="col-2 p-0 my-auto">
-                        <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><p>Go Back</p></button>
+                        <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><span>Go Back</span></button>
                     </div>
                     <div class="p-0 col-9 my-auto form-title">
                         <h2>Sign In</h2>
@@ -64,7 +60,7 @@
                 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
             </div>
           </div>
-          <form action="" method='POST' id="close-out-form">
+          <form action="{% url 'account_login' %}" method='POST' id="close-out-form">
               {% csrf_token %}
               {% for field in form %}
               <div class="row">
@@ -81,6 +77,7 @@
           </form>
       </div>
   </div>
+</div>
 </div>
 
 {% endblock content %}
