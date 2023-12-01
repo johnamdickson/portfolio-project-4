@@ -275,6 +275,17 @@ button, input, optgroup, select, textarea {
     color:#95150a;
     border-color: #fafafa;
 }
+/* style form alert error ul and li */
+.errorlist {
+    padding-left: 1rem;
+    text-align: left;
+    list-style: circle;
+}
+
+.errorlist li{
+    padding-left: 0.5rem;
+    padding-bottom: 0.75rem;
+}
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {

@@ -33,7 +33,14 @@ setInterval(function () {
         alert.close();
     }
 }, 4000);
-
+// set interval same for form message error alert
+setInterval(function () {
+    if (document.getElementById('form-msg')) {
+        let messages = document.getElementById('form-msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }
+}, 4000);
 /**
  * Hides elements depending on screen size.
  * For example, on home page titles are hidden to improve responsive
