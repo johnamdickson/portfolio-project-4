@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-            <form action="" method='POST' id="close-out-form">
+            <form action="{% url 'close-emission' slug%}" method='POST' id="close-out-form">
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
@@ -29,6 +29,7 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 
 {% endblock%}

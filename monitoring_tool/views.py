@@ -110,6 +110,7 @@ class Emissions(View):
         emission = get_object_or_404(queryset, slug=slug)
         form = EmissionCloseOutForm()
         title = emission.title
+        slug = emission.slug
         # check if user has permissions to add emissions ie emission admin.
         if request.user.has_perm('monitoring_tool.change_emission'):
             if request.method == 'POST':
@@ -143,7 +144,7 @@ class Emissions(View):
                 "to close an emission. Please contact your"
                 " system administrator.")
 
-        context = {'form': form, 'title': title}
+        context = {'form': form, 'title': title, 'slug': slug}
         return render(request, 'close-emission.html', context)
 
     def delete(request, slug, *args, **kwargs):
@@ -232,6 +233,7 @@ def addCheck(request, slug):
     emission = get_object_or_404(queryset, slug=slug)
     form = CheckSubmissionForm()
     title = emission.title
+    slug = emission.slug
     # check if user has permissions to add check.
     if request.user.has_perm('monitoring_tool.add_emissioncheck'):
         if request.method == 'POST':
@@ -267,7 +269,7 @@ def addCheck(request, slug):
             f"to upload a new emission check for {title}. Please contact your"
             " system administrator.")
 
-    context = {'form': form, 'title': title}
+    context = {'form': form, 'title': title, 'slug': slug}
     return render(request, 'add-check.html', context)
 
 
@@ -299,6 +301,7 @@ def editCheck(request, slug, id):
     check_date = emission_check.date_checked
     check_comments = emission_check.comments
     check_id = emission_check.id
+    slug = emission_check.title.slug
     # adding data from SQL DB using code below, source Stack Overflow:
     # https://stackoverflow.com/questions/35134938/pass-database-value-in-form-django
     form = CheckEditForm(initial={'comments': check_comments, 'status': status})
@@ -338,5 +341,5 @@ def editCheck(request, slug, id):
             f"to edit {emission_check.title} emission check. Please contact your"
             " system administrator.")
     
-    context = {'form': form, 'title': title}
+    context = {'form': form, 'title': title, 'id': check_id, 'slug': slug}
     return render(request, 'edit-check.html', context)

@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <form action="" method='POST' enctype="multipart/form-data" id="create-emission-form">
+            <form action="{% url 'add-emission' %}" method='POST' enctype="multipart/form-data" id="create-emission-form">
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
@@ -30,5 +30,6 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 {% endblock%}

@@ -51,7 +51,7 @@ class EmissionCloseOutForm(forms.ModelForm):
                                                  'placeholder': "Please enter "
                                                  "a close out comment for the emission"
                                                  " max 100 characters.",
-                                                 'required': "True"}),
+                                                 'required': True}),
         }
 
 
