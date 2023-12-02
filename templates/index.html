@@ -110,9 +110,8 @@
                         <div class="carousel-item">
                             {% endif %}
                             <div class="col-md-6 col-lg-4 card-column">
-                                <div class="card shadow-sm card-bg-gradient">
-                                    <a href="javascript:showModal('{{emission.javascript_data}}')">
-                                        <div class="item">
+                                <div class="card shadow-sm card-bg-gradient" onclick="showModal('{{emission.javascript_data|escapejs}}')">
+                                        <div class="item" >
                                             <div class="pad15">
                                                 {% if "placeholder" in emission.emission_image.url %}
                                                 <img class="card-img-top"
@@ -144,7 +143,6 @@
                                                 </table>
                                             </div>
                                         </div>
-                                    </a>
                                 </div>
                             </div>
                         </div>
