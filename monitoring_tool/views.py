@@ -10,34 +10,58 @@ from dateutil.relativedelta import relativedelta
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-def first_monday_current_month():
-    # how to access current month:
-    # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
-    current_month = datetime.now().month
-    current_year = datetime.now().year
-    d = datetime(current_year, current_month, 7)
-    offset = -d.weekday() # weekday == 0 means Monday
-    return d + timedelta(offset)
 
-def first_monday_next_month():
-    # how to access current month:
-    # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
-    next_month_calc = datetime.now() + relativedelta(months=1)
-    next_month = int(next_month_calc.strftime("%m"))
-    year_plus_one_month = int(next_month_calc.strftime("%Y"))
-    d = datetime(year_plus_one_month, next_month, 7)
-    offset = -d.weekday() # weekday == 0 means Monday
-    return d + timedelta(offset)
+class FirstMonday():
+    # how to make functions class private from Stack Overflow:
+    # https://stackoverflow.com/questions/61806295/how-to-define-method-in-class-that-can-only-be-called-from-init-method
 
-def first_monday_last_month():
-    # how to access current month:
-    # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
-    next_month_calc = datetime.now() - relativedelta(months=1)
-    next_month = int(next_month_calc.strftime("%m"))
-    year_plus_one_month = int(next_month_calc.strftime("%Y"))
-    d = datetime(year_plus_one_month, next_month, 7)
-    offset = -d.weekday() # weekday == 0 means Monday
-    return d + timedelta(offset)
+    def __first_monday_current_month(self):
+        # how to access current month:
+        # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+        d = datetime(current_year, current_month, 7)
+        offset = -d.weekday() # weekday == 0 means Monday
+        return d + timedelta(offset)
+
+    def __first_monday_next_month(self):
+        # how to access current month:
+        # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
+        next_month_calc = datetime.now() + relativedelta(months=1)
+        next_month = int(next_month_calc.strftime("%m"))
+        year_plus_one_month = int(next_month_calc.strftime("%Y"))
+        d = datetime(year_plus_one_month, next_month, 7)
+        offset = -d.weekday() # weekday == 0 means Monday
+        return d + timedelta(offset)
+
+    def __first_monday_last_month(self):
+        # how to access current month:
+        # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
+        next_month_calc = datetime.now() - relativedelta(months=1)
+        next_month = int(next_month_calc.strftime("%m"))
+        year_plus_one_month = int(next_month_calc.strftime("%Y"))
+        d = datetime(year_plus_one_month, next_month, 7)
+        offset = -d.weekday() # weekday == 0 means Monday
+        return d + timedelta(offset)
+
+    def calculate_next_check_due(self):
+        first_monday_current_month = self.__first_monday_current_month()
+        first_monday_next_month = self.__first_monday_next_month()
+        now = datetime.now()
+        if now < first_monday_current_month:
+            return first_monday_current_month
+        else:
+            return first_monday_next_month
+
+    def calculate_current_check_due(self):
+        first_monday_current_month = self.__first_monday_current_month()
+        first_monday_last_month = self.__first_monday_last_month()
+        now = datetime.now()
+        if now < first_monday_current_month:
+            return first_monday_last_month
+        else:
+            return first_monday_current_month
+
 
 class EmissionHome(generic.ListView):
     model = Emission
@@ -54,18 +78,9 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
     login_url = '/accounts/login/'
     model = Emission
     queryset = Emission.objects.order_by("-created_on")
-    first_monday_current_month = first_monday_current_month()
-    first_monday_next_month = first_monday_next_month()
-    first_monday_last_month = first_monday_last_month()
-    now = datetime.now()
-    if now < first_monday_current_month:
-        print("Updating because ", now, "<" , first_monday_current_month)
-        print(queryset)
-        queryset.update(next_check_due=first_monday_current_month)
-        queryset.update(current_check_due=first_monday_last_month)
-    else:
-        queryset.update(next_check_due=first_monday_next_month)
-        queryset.update(current_check_due=first_monday_current_month)
+    first_monday = FirstMonday()
+    queryset.update(current_check_due=first_monday.calculate_current_check_due())
+    queryset.update(next_check_due=first_monday.calculate_next_check_due())
     template_name = "emissions.html"
     paginate_by = 20
 
@@ -185,6 +200,8 @@ class Emissions(View):
 
 def addEmission(request):
     form = EmissionSubmissionForm()
+    first_monday = FirstMonday()
+
     # check if user has permissions to add emissions ie emission admin.
     # issue uploading image to DB from html form.
     # Solution from Stack Overflow:
@@ -203,8 +220,8 @@ def addEmission(request):
                 if form.is_valid():
                     form.instance.username = User.objects.get(
                                         username=request.user)
-                    form.instance.current_check_due = datetime.now()
-                    form.instance.next_check_due = first_monday_next_month()
+                    form.instance.current_check_due = first_monday.calculate_current_check_due()
+                    form.instance.next_check_due = first_monday.calculate_next_check_due()
                     form.instance.status = 0
                     form.save()
                     messages.success(
