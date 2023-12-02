@@ -66,13 +66,17 @@ class Emission(models.Model):
     def calculate_check_complete(self):
         """
         Function to return a check completion string 
-        representation using the status number.
+        representation using the status number. The logic is wrapped in a try/except block
+        which returns an error if the last checked property is none. If successful, the last checked 
+        instance property is checked to be between the current_check_due and next_check_due.
         """
-        if self.last_checked:
+        try:
             if self.current_check_due <= self.last_checked <= self.next_check_due:
                 return "Checks Complete"
             else:
                 return "Checks Outstanding"
+        except:
+            return "No Check Completed"
 
     def calculate_status(self):
         """

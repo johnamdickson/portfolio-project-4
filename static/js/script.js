@@ -109,7 +109,8 @@ function updateChecksComplete() {
 
     for (let check of checkStatus) {
         let className = check.className
-        if (check.innerHTML === "Checks Complete") {
+        console.log(check.innerHTML)
+        if (check.innerText.includes("Checks Complete")) {
             // solution for fontawesome background from stack overflow:
             // https://stackoverflow.com/questions/26516353/font-awesome-background-color
             check.innerHTML = `<div class="checks-complete-td">
@@ -119,19 +120,29 @@ function updateChecksComplete() {
                                         <i class="fa-solid fa-circle-check fa-stack-2x fa-inverse" style="color: #00D100;"></i>
                                     </span>
                                 </p>
-                                <p>Complete</p>
+                                <p>Checks Complete</p>
                                 </div>`
                                 
-        } else {
+        } else if (check.innerText.includes("Outstanding")){
             check.innerHTML = `<div class="checks-complete-td">
                                 <p>
                                     <span class="fa-stack" style="vertical-align: top;">
-                                        <i class="fas fa-circle fa-stack-2x" style="color: #FFFFFF;"></i>
-                                        <i class="fa-solid fa-circle-xmark fa-stack-2x fa-inverse" style="color: #BF181D;"></i>
+                                        <i class="fas fa-circle fa-stack-2x" style="color: #36454F;"></i>
+                                        <i class="fa-solid fa-circle-xmark fa-stack-2x fa-inverse" style="color: #FFA500;"></i>
                                     </span>
                                 </p>
-                                <p>Outstanding</p>
+                                <p>Checks Outstanding</p>
                                 </div>`
+        } else if (check.innerText.includes("No Check")){
+            check.innerHTML = `<div class="checks-complete-td">
+            <p>
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fas fa-circle fa-stack-2x" style="color: #FFFFFF;"></i>
+                    <i class="fa-solid fa-circle-exclamation fa-stack-2x fa-inverse" style="color: #BF181D;"></i>
+                </span>
+            </p>
+            <p>No Checks \nCompleted Yet</p>
+            </div>`
         }
         if (className.includes('emission-detail-check_status')) {
             updateChecksCompleteClassName()
