@@ -388,6 +388,7 @@ button, input, optgroup, select, textarea {
     border-left: 0;
     height: 100%;
     min-height: 560px;
+    cursor: pointer;
 }
 
 .card a {
