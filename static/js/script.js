@@ -21,7 +21,10 @@ window.addEventListener('load', function () {
     // add event listener to checks search input which calls the filter checks function
     // on key up
     let searchChecks = document.querySelector('#emission-check-search');
-    searchChecks.addEventListener("keyup", filterChecks);
+    if (searchChecks){
+        searchChecks.addEventListener("keyup", filterChecks);
+    }
+    
 });
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -316,9 +319,9 @@ const emissionModal = (data, page, checkId, user, superuser) => {
     if (emissionCheckEditButton) {
         emissionCheckEditButton.innerHTML = `<p>Edit ${parsedData.title} Emission Check</p><i class="fa-solid fa-pen-to-square"></i>`;
     }
-
     let emissionCheckDeleteButton = document.getElementById('emission-check-delete-a');
     if (emissionCheckDeleteButton) {
+        emissionCheckDeleteButton.addEventListener("click", confirmAction);
         emissionCheckDeleteButton.setAttribute ('href', `/delete-check/${parsedData.slug}/${checkIdInt}`);
         emissionCheckDeleteButton.innerHTML = `<p>Delete ${parsedData.title} Check</p><i class="fa-solid fa-trash-can"></i>`;
     }
