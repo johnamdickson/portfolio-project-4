@@ -17,6 +17,9 @@ https://cssgradient.io/#:~:text=A%20CSS%20linear%20gradient%20can,customize%20yo
     background-image: linear-gradient(90deg, #95150a 0%, #dc3123 25%, #dc3123 75%, #95150a 100%) ;
 }
 
+/* change flex to none so that body always sits between navbar and footer.
+https://stackoverflow.com/questions/206652/how-to-create-div-to-fill-all-space-between-header-and-footer-div
+ */
 nav {
     flex:none;
 }
@@ -24,11 +27,11 @@ nav {
 .navbar {
     /* Overwrite navbar background colour. */
     font-family: 'Josefin Sans', sans-serif;
-    background-color: #dc3123;
     /* z index to move in front of hero image in index.html */
     z-index: 2;
 }
 
+/* style header tags */
 h2,
 h3 {
     font-family: 'Josefin Sans', sans-serif;
@@ -44,6 +47,7 @@ h5 {
     font-weight: 300;
 }
 
+/* style horizontal rule betwee */
 hr {
     margin: 20px 40% 0 40%;
     border: 1px solid #36454F;
@@ -76,9 +80,9 @@ hr {
     height: 5vw;
 }
 
+/* adjust menu toggler icon */
 .navbar-dark .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%28255, 255, 255' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-
 }
 
 .navbar-dark .navbar-toggler {
@@ -145,7 +149,6 @@ main {
 }
     /* ________________________________________ Forms styling  ________________________________________ */
 
-/* custom form styling */
 input {
     width: 100%;
 }
@@ -154,10 +157,7 @@ textarea {
     width: 100%;
 }
 
-#sign-in-icon {
-    text-align: right;
-}
-
+/* add a backdrop filter to form-section to create a blurred greyscale effect of the hero image */
 .form-section {
     background-color: #d3cfcf60;
     backdrop-filter: blur(10px) grayscale(100%) ;
@@ -168,7 +168,6 @@ textarea {
 }
 
 .form-section a {
-
     color: #fafafa
 }
 
@@ -180,6 +179,7 @@ textarea {
     color: lightblue;
 }
 
+/* align checkbox with inputs */
 input[type='checkbox'] {
     width: auto;
     margin-top: 5px;
@@ -218,15 +218,12 @@ input[type='checkbox'] {
     padding-left: 10px;
 }
 
+/* hero image to be blurred out by backdrop filter mentioned above */
 .form-background {
     background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1698934377/wepik-export-20231102141129NO0I_fr3gal.jpg') no-repeat center center;
     width: 100%;
     height: 100%;
     background-size: cover;
-}
-
-#id_status {
-    width:100%;
 }
 
 button, input, optgroup, select, textarea {
@@ -237,6 +234,8 @@ button, input, optgroup, select, textarea {
     display: flex;
     justify-content: center;
 }
+
+/* style go back button with text for medium screens up */
 .go-back-btn {
     width: 105px;
     background-color: #fafafa;
@@ -252,6 +251,8 @@ button, input, optgroup, select, textarea {
     justify-content: center;
     padding: 5px;
 }
+
+/* important required to override bootstrap classes */
 .go-back-btn i{
     margin-left: 0 !important;
     font-size: 20px;
@@ -286,6 +287,7 @@ button, input, optgroup, select, textarea {
     height: 550px;
     width: 100%;
     background-size: cover;
+    /* margin top to be just underneath navbar bottom border radii  */
     margin-top: -5px;
 }
 
@@ -295,7 +297,6 @@ button, input, optgroup, select, textarea {
     margin-right: 20px;
 }
 
-/* style card fonts to responsively size */
 .home-row h3 {
     font-size: clamp(1.1rem, 2.5vw, 2.5rem);
     line-height: 1.5;
@@ -317,8 +318,7 @@ button, input, optgroup, select, textarea {
     padding-left: 20px;
 }
 
-/* style card fonts to responsively size */
-
+/* style callouts on both index and emissions pages. */
 .custom-callout {
     background-color: #dc3123;
     color: #fafafa;
@@ -548,7 +548,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin: auto;
     width: 32%;
     padding:5px;
-    /* font-size: 0.75rem; */
     display: flex;
     align-items: center;
     height:100px;
@@ -606,6 +605,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin-bottom: 0;
 }
 
+/* style th so that table rows scroll underneath them. */
 .emissions-table th {
     position: sticky;
     font-family: 'Josefin Sans', sans-serif;
@@ -630,6 +630,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     display: block;
 }
 
+/* smooth animation appearance when closed rows are filtered for. */
 .emissions-table tr {
     font-size: clamp(0.6rem, 1.2vw, 0.9rem);
     cursor: pointer;
@@ -663,6 +664,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     min-width: 135px;
 }
 
+/* blank td with no data required in case of closed emission */
 .blank-td{
     opacity: 0.4;
 }
@@ -674,7 +676,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .table-fixed-head thead tr{
-    /* background-clip: padding-box; */
     position: sticky;
     z-index: 3;
 }
@@ -686,6 +687,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     flex-wrap: nowrap;
     flex-direction: column;
 }
+
 .emission-page-img {
     background-image: linear-gradient(90deg, #95150a 0%, #dc3123 5%, #dc3123 95%, #95150a 100%) ;
     padding: 20px;
@@ -734,6 +736,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin-top: 5px;
 }
 
+/* style buttons to appear on red background */
 .btn-white-back-red-font {
     background-color: #fafafa;
     color: #dc3123;
@@ -760,6 +763,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     margin-left: 20px;
 }
 
+/* style add emission button when it is unavailable to the user */
 .add-btn-unavailable {
     color: #fafafa70;
     background-color: #d3cfcf50;
@@ -781,6 +785,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     cursor: auto;
 }
 
+/* style th containing filter */
 .form-check {
     display: flex;
     flex-direction: column;
@@ -902,6 +907,7 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     font-size: clamp(0.8rem, 1.25vw, 1.4rem);
     margin-top: 0.5rem;
 }
+
 /* apply border styling for thead, th and td to only have internal borders
 and follow border radii of the table container. */
 .emission-detail-table th:first-of-type {
@@ -932,6 +938,7 @@ and follow border radii of the table container. */
     border-width: 1px;
     border-left: none;
 }
+
 /* access last row and first and last cells to change bottom right and left
 border radii to match table container border radii. Reference to this article:
 https://www.techonthenet.com/css/selectors/last_child.php#:~:text=With%20tag&text=In%20this%20CSS%20%3Alast%2Dchild%20example%2C%20the%20last%20row,the%20%3Alast%2Dchild%20selector. */
@@ -952,7 +959,6 @@ border-bottom-right-radius: 8px;
 }
 
 .emission-detail-table-title th{
-    /* background-color: #dc3123; */
     border-bottom: 1px solid #fafafa;
     background-image: linear-gradient(90deg, #95150a 0%, #dc3123 25%, #dc3123 75%, #95150a 100%) ;
 }
@@ -1060,7 +1066,6 @@ border-bottom-right-radius: 8px;
     text-align: center;
 }
 
-
 /* styling for when the add and delete buttons are unavailable
 using important due to specificity of modal footer a rule.
 */
@@ -1080,6 +1085,7 @@ using important due to specificity of modal footer a rule.
     color: white;
 }
 
+/* style scroll buttons to sit at bottom right of tables */
 .scroll-buttons {
     z-index: 10;
     bottom: 15px;
@@ -1151,7 +1157,8 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
     border: none;
     background-color: #ffffff00;
   }
-/* How to use font awesome icons instead of background image:
+
+/* How to use font awesome icons instead of background image in search box:
 https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
  */
   #filter-container::before{
@@ -1163,9 +1170,8 @@ https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
     height: 100px;
     color: #36454F;
     top:6px;
-    content: "\f002";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f002";
   }
-
 
 .btn-row {
     display: flex;
@@ -1284,10 +1290,6 @@ https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
 
     input[type='checkbox'] {
         margin-top: 0;
-    }
-
-    #sign-in-icon {
-        display: none;
     }
 
     .hero {
