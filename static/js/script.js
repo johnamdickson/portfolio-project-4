@@ -5,6 +5,24 @@ window.addEventListener('load', function () {
     errorCountdown();
     scrollButtons();
 
+// add event listener to each go back button that on click runs the code to 
+// return to previous page.
+let goBackButton = this.document.querySelectorAll('.go-back-btn');
+for (let button of goBackButton) {
+    button.addEventListener("click", function(){
+        window.location.replace(document.referrer);
+    });
+}
+// add event listener to each button requiring a confirm action which calls that 
+// function from button click.
+let confirmActionButton = document.querySelectorAll('.confirm-action');
+for (let button of confirmActionButton) {
+    button.addEventListener("click", confirmAction);
+}
+// add event listener to checks search input which calls the filter checks function
+// on key up
+let searchChecks = document.querySelector('#emission-check-search');
+searchChecks.addEventListener("keyup", filterChecks);
 });
 
 window.addEventListener("DOMContentLoaded", function () {

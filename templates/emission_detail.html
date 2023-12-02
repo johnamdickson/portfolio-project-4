@@ -19,7 +19,7 @@
                                         <div class="container-fluid mx-auto">
                                             <div class="row">
                                                 <div class="col-2 p-0 my-auto">
-                                                    <button title="Go Back" class="go-back-btn shadow" onclick="goBack()"><i class="fa-solid fa-circle-left"></i><span>Go Back</span></button>
+                                                    <button title="Go Back" class="go-back-btn shadow" ><i class="fa-solid fa-circle-left"></i><span>Go Back</span></button>
                                                 </div>
                                                 <div class="p-0 col-9 my-auto form-title">
                                                     {{title}}
@@ -181,7 +181,7 @@
                 {% elif perms.monitoring_tool.change_emission %}
                 <a href="{% url 'close-emission' slug%}" title="Close Emission {{title}}" class="btn close-emission-a">
                     Close Emission
-                    <i class="fa-solid fa-flag-checkered" onclick="confirmAction(event)"></i>
+                    <i class="fa-solid fa-flag-checkered confirm-action"></i>
                 </a>
                 {% else %}
                 <a href="#" class="btn close-emission-a btn-unavailable"
@@ -192,7 +192,7 @@
                 {% endif %}
                 {% if perms.monitoring_tool.delete_emission %}
                 <a href="{% url 'delete-emission' slug%}" title="Delete Emission {{title}}"
-                    class="btn delete-emission-a" onclick="confirmAction(event)">
+                    class="btn delete-emission-a confirm-action">
                     Delete Emission
                     <i class="fa-solid fa-trash-can"></i>
                 </a>

@@ -9,7 +9,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
         <div class="col-md-8 mx-auto">
             <!-- search bar for filtering checks table -->
             <div id="filter-container">
-                <input type="text" id="emission-check-search" onkeyup="filterChecks()"
+                <input type="text" id="emission-check-search"
                     placeholder="Search by emission or username" title="Type in an emission">
             </div>
         </div>
@@ -112,7 +112,7 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                 <!-- check if user has permission to delete emission and present button if so. This button is not 
             added to DOM and greyed out like others for reason that the option should be fully reserved to superuser. -->
                 {% if perms.monitoring_tool.delete_emissioncheck %}
-                <a href="#" class="btn" id="emission-check-delete-a" onclick="confirmAction(event)"></a>
+                <a href="#" class="btn" id="emission-check-delete-a confirm-action"></a>
                 {% endif %}
             </div>
         </div>
