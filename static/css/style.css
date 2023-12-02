@@ -521,7 +521,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     padding: 10px 25px;
     color: #36454F;
     backdrop-filter: blur(20px);
-    /* background-image: linear-gradient(90deg, #95150a 0%, #dc3123 5%, #dc3123 65%, #95150a 100%); */
+    -webkit-backdrop-filter: blur(20px);
     background-color: rgba(250, 250, 250, 0.6);
     border-radius: 50px 50px 50px 50px;
     border: 3px solid #36454F;
