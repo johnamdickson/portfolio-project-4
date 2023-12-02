@@ -1,28 +1,27 @@
-/*jshint esversion: 8 */
 
 window.addEventListener('load', function () {
     startCarousel();
     errorCountdown();
     scrollButtons();
 
-// add event listener to each go back button that on click runs the code to 
-// return to previous page.
-let goBackButton = this.document.querySelectorAll('.go-back-btn');
-for (let button of goBackButton) {
-    button.addEventListener("click", function(){
-        window.location.replace(document.referrer);
-    });
-}
-// add event listener to each button requiring a confirm action which calls that 
-// function from button click.
-let confirmActionButton = document.querySelectorAll('.confirm-action');
-for (let button of confirmActionButton) {
-    button.addEventListener("click", confirmAction);
-}
-// add event listener to checks search input which calls the filter checks function
-// on key up
-let searchChecks = document.querySelector('#emission-check-search');
-searchChecks.addEventListener("keyup", filterChecks);
+    // add event listener to each go back button that on click runs the code to 
+    // return to previous page.
+    let goBackButton = this.document.querySelectorAll('.go-back-btn');
+    for (let button of goBackButton) {
+        button.addEventListener("click", function(){
+            window.location.replace(document.referrer);
+        });
+    }
+    // add event listener to each button requiring a confirm action which calls that 
+    // function from button click.
+    let confirmActionButton = document.querySelectorAll('.confirm-action');
+    for (let button of confirmActionButton) {
+        button.addEventListener("click", confirmAction);
+    }
+    // add event listener to checks search input which calls the filter checks function
+    // on key up
+    let searchChecks = document.querySelector('#emission-check-search');
+    searchChecks.addEventListener("keyup", filterChecks);
 });
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -39,14 +38,15 @@ window.addEventListener('resize', function (event) {
 }, true);
 
 
+
+// change to set interval to allow running more than once:
+// https://stackoverflow.com/questions/70436333/settimeout-runs-only-once-then-not-working
+setInterval(function () {
 /**
  * Dismisses alerts after 4 seconds using setTimeout function.
  * Improve user experience so that routine alerts are automatically
  * dismissed 
  */
-// change to set interval to allow running more than once:
-// https://stackoverflow.com/questions/70436333/settimeout-runs-only-once-then-not-working
-setInterval(function () {
     if (document.getElementById('msg')) {
         let messages = document.getElementById('msg');
         let alert = new bootstrap.Alert(messages);
@@ -61,12 +61,14 @@ setInterval(function () {
         alert.close();
     }
 }, 4000);
+
+function hideElements() {
 /**
  * Hides elements depending on screen size.
- * For example, on home page titles are hidden to improve responsive
- * design. 
+ * On home page titles are hidden to improve responsive
+ * design. On pages with tables, some columns/cells are hidden
+ * or cells column/row span is altered.
  */
-function hideElements() {
     let windowWidth = window.innerWidth;
     let descriptionCells = document.getElementsByClassName("description-cell");
     let hiddenCells = document.getElementsByClassName("hidden-col");
@@ -118,13 +120,12 @@ function hideElements() {
     }
 }
 
-
+function updateChecksComplete() {
 /**
  * Adds a fontawseome icon to home page html depending on element text.
  * For checks complete a checkmark icon with green background
  * is returned else a red x mark icon.
  */
-function updateChecksComplete() {
     let checkStatus = document.getElementsByClassName("check_status");
 
     for (let check of checkStatus) {
@@ -177,26 +178,29 @@ function updateChecksComplete() {
 }
 
 function updateStatus() {
+/**
+ * Applies color formatting to status cells with green for open and red 
+ * for closed.
+ */
     if (document.getElementsByClassName('status-cell')) {
         let statusCells = document.getElementsByClassName('status-cell');
         for(let status of statusCells) {
+            status.style.color = ('white');
             if (status.innerText.includes('Open')) {
                 status.style.backgroundColor = ('green');
-                status.style.color = ('white');
             } else if (status.innerText.includes('Closed')){
                 status.style.backgroundColor = ('red');
-                status.style.color = ('white');
             }
         }
     }
 }
+
+const showModal = (data) => {
 /**
  * Adds modal to the DOM and updates with JSON data passed in
  * from index html.
  */
-const showModal = (data) => {
     let emissionArray = JSON.parse(data);
-
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
     let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
@@ -280,11 +284,13 @@ const showModal = (data) => {
     new bootstrap.Modal(modalItem).show();
 };
 
+
+const emissionModal = (data, page, checkId, user, superuser) => {
 /**
  * Adds modal to the DOM and updates with JSON data passed in
  * from emissions.html or emission-checks.html.
  */
-const emissionModal = (data, page, checkId, user, superuser) => {
+
 // delcare constants from JSON, checkId
     const checkIdInt = parseInt(checkId);
     const parsedData = JSON.parse(data);
@@ -432,13 +438,14 @@ function statusFilter() {
     }
     
 }
+
+const confirmAction = (event) => {
 /**
  * Arrow function to present a confirm dialogue using the 
  * event source element inner text or class list to determine text
- * to display. Defensive design in event of closing or 
+ * to display. Defensive design in event of closing,editing or 
  * deleting an emission.
  */
-const confirmAction = (event) => {
     // how to get the event source from stack overflow:
     // https://stackoverflow.com/questions/10428562/how-to-get-javascript-event-source-element
     let eventSourceText = event.srcElement.innerText;
@@ -462,19 +469,19 @@ const confirmAction = (event) => {
     }
 };
 
-
+function goHome() {
 /**
  * go home function activated by a button used in HTTP status code
  * pages.
  */
-function goHome() {
     document.location.href="/";
 }
+
+const buttonDisabled = (type, closed) => {
 /**
  * Function to read event text and determine appropriate response
  * in the alert col by adjusting the inner html.
  */
-const buttonDisabled = (type, closed) => {
     let alert = document.getElementById('alert-col');
     let alertText;
     if (closed && type === 'close') {
@@ -486,6 +493,7 @@ const buttonDisabled = (type, closed) => {
     }
       
     else{
+    // switch button type argument to determine what text the alert should show to user.
     switch(type) {
         case 'close':
             alertText = `<p>You do not have the necessary permissions to <strong>close</strong> an emission.\n Please contact your system administrator.</p>`;
@@ -517,11 +525,11 @@ const buttonDisabled = (type, closed) => {
       `;
 };
 
+
 // code for map implementation from google map documentation:
 // https://developers.google.com/maps/documentation/javascript
 
 let map;
-
 
 async function initMap() {
   // The location of factory. In this instance I used an abandoned fish factory in Westport to demonstrate
@@ -532,7 +540,6 @@ async function initMap() {
 
   const { Map } = await google.maps.importLibrary("maps");
   
-
   // The map, centered at factory
   if (document.getElementById("map")){
     map = new Map(document.getElementById("map"), {
@@ -595,28 +602,34 @@ async function addMarker() {
 }
 
 initMap();
+
+function adjustMapZoom(){
 /**
  * Adjust zoom of the map depending on screen size. 
  * Called on page load and when the window is resized.
  */
-function adjustMapZoom(){
-if (document.getElementById("map")){
-    if (window.innerWidth < 768) {
-        map.setZoom(17.8);
-   }
-   else if ((window.innerWidth < 1200)) {
-        map.setZoom(18.5);
-   }
-    else {
-        map.setZoom(19);
+
+    if (document.getElementById("map")){
+        if (window.innerWidth < 768) {
+            map.setZoom(17.8);
     }
-}
+    else if ((window.innerWidth < 1200)) {
+            map.setZoom(18.5);
+    }
+        else {
+            map.setZoom(19);
+        }
+    }
 }
 
 // solution to filtering table from Stack Overflow:
 // https://stackoverflow.com/questions/51187477/how-to-filter-a-html-table-using-simple-javascript
 
 const filterChecks = () => {
+/**
+ * Funciton to dynamically filter checks table based 
+ * upon text input into search filed.
+ */
     const columns = [
       { name: 'Emission', index: 0, isFilter: true },
       { name: 'Comments', index: 1, isFilter: false },
@@ -638,12 +651,12 @@ const filterChecks = () => {
     trs.forEach(setTrStyleDisplay);
   };
 
+const errorCountdown = () => {
 /**
  * Function to countdown and display back to user for status code error
  * pages. Solution from codepen:
  * https://codepen.io/joshua-golub/pen/LYYKrKg
  */
-const errorCountdown = () => {
     let timeLeft = 10;
     // check if the error-code is 400 or 500 assign 60 to timeLeft based on 
     // fact that errors are not related to wrong page or forbidden so a 10 second
@@ -675,6 +688,12 @@ const errorCountdown = () => {
 
 
 function scrollButtons() {
+/**
+ * Function to allow for user to scroll to top or 
+ * bottom of table using up/down chevron buttons.
+ * Buttons opacity changes depending if they are 
+ * maxed out at the particular position. 
+ */
     
     const tables = document.getElementsByClassName('table-fixed-head');
     let table = tables[0];
