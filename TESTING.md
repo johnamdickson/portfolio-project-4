@@ -20,7 +20,9 @@
 
 ### HTML
 
-All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/) with the home page checked using address and every other page using page source text input. The results can be found in the table below:
+All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/) with the home page checked using address and every other page using page source text input. The text input was obtained by navaigating to the page to test and then right clicking on the window. From the menu, the view page source option was selected which opened a new tab containing the DOM for the page. The test was then performed by copying and pasting the code into the text input field in the validator.
+
+Results for all HTML pages can be found in the table below:
 
 **Page**|**First Pass**|**Warnings/Errors**|**Second Pass<br><sup><sub>(Post Fix)</sub></sup>**|**Screenshot**
 :-----:|:-----:|:-----|:-----:|:-----:
@@ -34,7 +36,11 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
  | add-emission| ❌| <sub>Error: Bad value for attribute action on element form: Must be non-empty.<br>Error: End tag main seen, but there were open elements.<br>Error: Unclosed element div.<br>Error: Stray end tag a.</sub>|✅ |![html_checker](TESTING-files/html-validator/add-emission.png) 
  | add-check| ❌| <sub>Error: Bad value for attribute action on element form: Must be non-empty.<br> Error: End tag main seen, but there were open elements.<br>Error: Unclosed element div.</sub>|✅ |![html_checker](TESTING-files/html-validator/add-check.png) 
  | close-emission| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/close-emission.png) 
-  | edit-check| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/edit-check.png) 
+   | edit-check| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/edit-check.png)  
+  | 400 error| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/400.png)
+  | 403 error| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/403.png) 
+  | 404 error| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/404.png) 
+  | 500 error| ✅| N/A| N/A | ![html_checker](TESTING-files/html-validator/500.png) 
 
 ### CSS
 
