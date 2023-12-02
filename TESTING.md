@@ -20,7 +20,7 @@
 
 ### HTML
 
-All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/) with the home, login and signup pages checked using address and every other page using page source text input. The text input was obtained by navaigating to the page to test and then right clicking on the window. From the menu, the view page source option was selected which opened a new tab containing the DOM for the page. The test was then performed by copying and pasting the code into the text input field in the validator.
+All HTML pages were checked using the [W3C HTML Validator](https://validator.w3.org/) with the home, login and signup pages checked using address and every other page using page source text input. The text input was obtained by navaigating to the page to test and then right clicking on the window. From the menu, the view page source option was selected which opened a new tab containing the DOM for the page. The test was then performed by copying and pasting the code into the text input field in the validator.
 
 Results for all HTML pages can be found in the table below:
 
@@ -44,10 +44,22 @@ Results for all HTML pages can be found in the table below:
 
 ### CSS
 
-The site was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/). There were 220 warnings assoiated with Bootstrap CSS and 6 in static CSS file associated with webkit code. These warnings are unavoidable in the validator because they are vendor extensions. However, looking at feedback given to other students on Slack who had a similar issue, it appears to be safe to ignore these warnings. 
+The site CSS was checked using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/). There were 220 warnings assoiated with Bootstrap CSS and 6 in static CSS file associated with webkit code. These warnings are unavoidable in the validator because they are vendor extensions. However, looking at feedback given to other students on Slack who had a similar issue, it appears to be safe to ignore these warnings. 
 
 The warnings and errors that are detailed in the table below reflect problems within the static CSS file and were duly corrected.
 
 **First Pass**|**Errors**|**Warnings**|**Second Pass<br><sup><sub>(Post Fix)</sub></sup>**|**Screenshot**
 :-----:|:-----|:-----|:-----:|:-----:
 | ❌|Property opaity doesn't exist. The closest matching property name is opacity : 0 <br>Property size doesn't exist. The closest matching property name is resize : 50px<br>Property size doesn't exist. The closest matching property name is resize : 50px|.go-back-btn	Same color for background-color and color<br> .go-back-button Same color for background-color and border-color|✅|![css_checker](TESTING-files/css-validator/css-validator.png) 
+
+### Javascript
+
+The site Javascsript functionality was checked using [JS Hint](https://jshint.com/)
+
+**Warnings**|**Warnings Remaining<br><sup><sub>(Post Fix)</sub></sup>**|**Screenshot**
+:-----|:-----|:-----:|
+|Numerous missing semi-colon warnings.<br>Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.<br>Six undefined variables<br>Six unused variables|Two undefined variables: bootstrap and google. No action taken as they are vendor API<br>Two unused variables: no action taken as they are all called from DOM events that pass over data from the templates to JS code.|![js-checker](TESTING-files/javascript-validator/jshint.png) 
+
+
+
+  
