@@ -25,11 +25,12 @@ class EmissionSubmissionForm(forms.ModelForm):
                                                   'i.e module, block or '
                                                   'building'}),
             # set fields as date input to prevent erroneous entries.
-            'description': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
-                                                 'placeholder': "Please enter "
-                                                 "a short description of the "
-                                                 "emission max 100 characters.",
-                                                 "required": True}),
+            'description':
+            forms.Textarea(attrs={'rows': 3, 'cols': 40,
+                                  'placeholder': "Please enter "
+                                  "a short description of the "
+                                  "emission max 100 characters.",
+                                  "required": True}),
             # set max and min values for latitude and longitude to prevent
             # erroneous entries in submission.
             'latitude':
@@ -47,11 +48,12 @@ class EmissionCloseOutForm(forms.ModelForm):
             )
         widgets = {
             # set fields as date input to prevent erroneous entries.
-            'close_out_comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
-                                                 'placeholder': "Please enter "
-                                                 "a close out comment for the emission"
-                                                 " max 100 characters.",
-                                                 'required': True}),
+            'close_out_comments':
+            forms.Textarea(attrs={'rows': 3, 'cols': 40,
+                                  'placeholder': "Please enter "
+                                  "a close out comment for the emission"
+                                  " max 100 characters.",
+                                  'required': True}),
         }
 
 
@@ -65,12 +67,14 @@ class CheckSubmissionForm(forms.ModelForm):
 # https://stackoverflow.com/que`stions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
 # https://stackoverflow.com/questions/6536373/how-can-i-set-the-size-of-rows-columns-in-textfield-in-django-models
         widgets = {
-            'comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
-                                                 'placeholder': "Please enter "
-                                                 "a short description of the "
-                                                 "check max 100 characters.",
-                                                 "required": True}),
+            'comments':
+            forms.Textarea(attrs={'rows': 3, 'cols': 40,
+                                  'placeholder': "Please enter "
+                                  "a short description of the "
+                                  "check max 100 characters.",
+                                  "required": True}),
         }
+
 
 class CheckEditForm(forms.ModelForm):
 
@@ -82,9 +86,10 @@ class CheckEditForm(forms.ModelForm):
 # https://stackoverflow.com/que`stions/22846048/django-form-as-p-datefield-not-showing-input-type-as-date
 # https://stackoverflow.com/questions/6536373/how-can-i-set-the-size-of-rows-columns-in-textfield-in-django-models
         widgets = {
-            'edit_comments': forms.Textarea(attrs={'rows': 3, 'cols': 40, 
-                                                 'placeholder': "Please enter "
-                                                 "a reason for the edit"
-                                                 " max 100 characters.",
-                                                 "required": True, "id":"editComments",}),
+            'edit_comments':
+            forms.Textarea(attrs={'rows': 3, 'cols': 40,
+                                  'placeholder': "Please enter "
+                                  "a reason for the edit"
+                                  " max 100 characters.",
+                                  'required': True, 'id': 'editComments'})
         }

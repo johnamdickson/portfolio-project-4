@@ -1,3 +1,4 @@
+
 """
 Django settings for emissions project.
 
@@ -31,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -93,10 +94,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'libraries': {
-                         'template_tag_name':
-                         'monitoring_tool.template_tag_name.template_tag_name',
-            }
         },
     },
 ]
@@ -108,8 +105,10 @@ WSGI_APPLICATION = 'emissions.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-# solution to running tests on local db from SamuelSadovoi in Slack, referencing Stack Overflow:
+# solution to running tests on local db from SamuelSadovoi
+#  in Slack, referencing Stack Overflow:
 # https://stackoverflow.com/questions/4650509/different-db-for-testing-in-django
+
 if 'test' in sys.argv:
 
     DATABASES = {
@@ -122,9 +121,6 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
