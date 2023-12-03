@@ -60,6 +60,17 @@ The site Javascsript functionality was checked using [JS Hint](https://jshint.co
 :-----|:-----|:-----:|
 |Numerous missing semi-colon warnings.<br>Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.<br>Six undefined variables<br>Six unused variables|Two undefined variables: bootstrap and google. No action taken as they are vendor API<br>Two unused variables: no action taken as they are all called from DOM events that pass over data from the templates to JS code.|![js-checker](TESTING-files/javascript-validator/jshint.png) 
 
+### Python
 
+Each of the site Python files were passed through the [Code Institute Python Linter](https://pep8ci.herokuapp.com/). Initial errors can be found in this file. The table below list each file with screenshot of the results after resolving errors and warnings.
 
-  
+**File**|**Initial Errors/Warnings**|**Screenshot**
+|:-----:|:------|:-----:|
+|asgi.py|N/A|![python-checker](TESTING-files/python-validator/asgi.png)
+|settings.py|Errors/warnings returned, click [here](TESTING-files/python-validator/settings-errors.md) to view|![python-checker](TESTING-files/python-validator/settings.png)
+|emissions/urls.py|N/A|![python-checker](TESTING-files/python-validator/emissions-urls.png)
+|wsgi.py|N/A|![python-checker](TESTING-files/python-validator/wsgi.png)
+|admin.py|Errors/warnings returned, click [here](TESTING-files/python-validator/admin-errors.md) to view|![python-checker](TESTING-files/python-validator/admin.png)
+|apps.py|N/A|![python-checker](TESTING-files/python-validator/apps.png)
+|forms.py|Errors/warnings returned, click [here](TESTING-files/python-validator/forms-errors.md) to view|![python-checker](TESTING-files/python-validator/forms.png)
+|models.py|Errors/warnings returned, click [here](TESTING-files/python-validator/models-errors.md) to view|![python-checker](TESTING-files/python-validator/models.png)
