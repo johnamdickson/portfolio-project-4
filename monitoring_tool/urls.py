@@ -32,7 +32,7 @@ urlpatterns = [
     path(
         '<slug:slug>/',
         views.Emissions.as_view(),
-        name='emission_detail'
+        name='emission-detail'
         ),
     path(
         'add-check/<slug:slug>/',

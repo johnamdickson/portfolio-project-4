@@ -157,7 +157,7 @@ class Emissions(View):
             javascript_data = emission.javascript_data
             return render(
                 request,
-                'emission_detail.html',
+                'emission-detail.html',
                 {
                     "title": title,
                     "description": description,
