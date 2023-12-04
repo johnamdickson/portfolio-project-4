@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Emissions monitoring tool to monitor, verify and report your industrial emissions.">
     <meta name="keywords" content="monitoring, audit, reporting, emissions, fugitive emissions, industry, weeps, seeps">
     <title>Emissions Monitoring Tool</title>
@@ -16,22 +16,19 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&family=Taviraj:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap link and script -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
     <!-- link to css sheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- favicon for tab logo -->
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
     <!-- google maps script containing api to run map in emission detail page -->
     <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
             ({ key: "AIzaSyDFRRlo1ePBYrJnuCMcVFvqRJa_9UQMa4I", v: "weekly" });</script>
-    <!-- favicon for tab logo -->
-    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
