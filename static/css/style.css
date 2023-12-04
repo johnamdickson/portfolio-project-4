@@ -283,7 +283,7 @@ button, input, optgroup, select, textarea {
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1697952356/checks-ipad_copy_2_gj4mf5.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_1747/v1697952261/checks-ipad_copy_rma9aj.jpg') no-repeat center center;
     height: 550px;
     width: 100%;
     background-size: cover;
@@ -453,7 +453,6 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 /* style carousel controls */
-
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
