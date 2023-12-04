@@ -1,5 +1,6 @@
 # Table of Contents
 - [User Story Testing](#user-story-testing)
+  * [Project Setup Epic](#project-setup-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -12,11 +13,16 @@
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
   * [Fixed Bugs](#fixed-bugs)
-
   * [Unfixed bugs:](#unfixed-bugs-)
 
+## User Story Testing
 
-
+### Project Setup Epic
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+As a **Site Admin** I can **deploy the project early** so that **fault finding through to deployment commences at the start of build**|Project was deployed to Heroku with an `<h1>` of Heroku Test added to the DOM. This was confirmed to be present on deployment| ✅|![user_stories](TESTING-files/user-story-testing/project-setup/deploy-early.png) 
+As a **Site Owner** I can **review wireframes** so that **site layout can be provisionally agreed** |Wireframes developed and uploaded to repository for review.|✅|Click [here](README-files/pp4-wireframes.pdf) to access the wireframes.
+As a **Site Admin** I can **confirm that the SQL database is functional** so that **the connection to project and corresponding models is assured**|Database created in Elephant SQL and confirmed operational from project by creating an emission and emission check in the Django admin panel and then confirming they appear in the DB|✅|![user_stories](TESTING-files/user-story-testing/project-setup/emission-to-database.png) ![user_stories](TESTING-files/user-story-testing/project-setup/emission-check-to-database.png) 
 
 
 ## Validator Testing
