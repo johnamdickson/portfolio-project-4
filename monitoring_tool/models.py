@@ -29,9 +29,11 @@ class Emission(models.Model):
         format="jpg",
         transformation={
             'crop': 'limit',
-            'width': 800,
-            'height': 800,
-            'quality': 'auto:eco'
+            'width': 400,
+            'height': 400,
+            'quality': 'auto',
+            'fetch_format': 'auto',
+            'responsive': True,
         },
         )
     description = models.TextField(max_length=100, blank=True)
