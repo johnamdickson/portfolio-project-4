@@ -12,10 +12,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class FirstMonday():
+    """
+    Class to contain private functions for calculating the first Monday of last, this and next month.
+    These functions then feed into calculators for next and current check due dates.
+    """
     # how to make functions class private from Stack Overflow:
     # https://stackoverflow.com/questions/61806295/how-to-define-method-in-class-that-can-only-be-called-from-init-method
 
     def __first_monday_current_month(self):
+        """
+        Function to calculate the first Monday of the current month and return this as a
+        datetime object.
+        """
         # how to access current month:
         # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
         current_month = datetime.now().month
@@ -25,6 +33,10 @@ class FirstMonday():
         return d + timedelta(offset)
 
     def __first_monday_next_month(self):
+        """
+        Function to calculate the first Monday of next month and return this as a
+        datetime object.
+        """
         # how to access current month:
         # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
         next_month_calc = datetime.now() + relativedelta(months=1)
@@ -35,6 +47,10 @@ class FirstMonday():
         return d + timedelta(offset)
 
     def __first_monday_last_month(self):
+        """
+        Function to calculate the first Monday of last month and return this as a
+        datetime object.
+        """
         # how to access current month:
         # https://stackoverflow.com/questions/28189442/datetime-current-year-and-month-in-python
         next_month_calc = datetime.now() - relativedelta(months=1)
@@ -45,6 +61,11 @@ class FirstMonday():
         return d + timedelta(offset)
 
     def calculate_next_check_due(self):
+        """
+        Function to calculate the next check due date using the current and next month functions
+        above and working out which one to apply based on current date to ensure checks that fall between
+        start of month and 1st Monday are not deemed to have expired erroneously. 
+        """
         first_monday_current_month = self.__first_monday_current_month()
         first_monday_next_month = self.__first_monday_next_month()
         now = datetime.now()
@@ -54,6 +75,11 @@ class FirstMonday():
             return first_monday_next_month
 
     def calculate_current_check_due(self):
+        """
+        Function to calculate the current check due date using the current and last month functions
+        above and working out which one to apply based on current date to ensure checks that fall between
+        start of month and 1st Monday are not deemed to have expired erroneously. 
+        """
         first_monday_current_month = self.__first_monday_current_month()
         first_monday_last_month = self.__first_monday_last_month()
         now = datetime.now()
@@ -78,6 +104,8 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
     login_url = '/accounts/login/'
     model = Emission
     queryset = Emission.objects.order_by("-created_on")
+    # update all emissions in the queryset with the current and next check due using FirstMonday class 
+    # and methods.
     first_monday = FirstMonday()
     queryset.update(current_check_due=first_monday.calculate_current_check_due())
     queryset.update(next_check_due=first_monday.calculate_next_check_due())
@@ -85,10 +113,14 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
     paginate_by = 20
 
 
-
 class Emissions(View):
 
     def get(self, request, slug, *args, **kwargs):
+        """
+        Function to get emissions and return key data for use in 
+        the emission detail page. Checks that user is authenticated
+        and if not returns them to the log in page.
+        """
         # check if user is authenticated.
         if request.user.is_authenticated:
             queryset = Emission.objects
@@ -135,11 +167,18 @@ class Emissions(View):
                 },
             )
         else:
-            # if not authenticate, direct to login page
+            # if not authenticated, direct to login page
             return render (request, 'account/login.html')
 
 
     def close(request, slug, *args, **kwargs):
+        """
+        Function to close an emission, essentially allowing users to edit the 
+        emission. The emission slug is required to access the emission on the DB and 
+        on successful closure the user is returned to the emissions page. There is also
+        error handling attached for form field errors. If the user does not have permissions
+        the function raises a PermissionDenied exception.
+        """
         queryset = Emission.objects
         emission = get_object_or_404(queryset, slug=slug)
         form = EmissionCloseOutForm()
@@ -182,6 +221,12 @@ class Emissions(View):
         return render(request, 'close-emission.html', context)
 
     def delete(request, slug, *args, **kwargs):
+        """
+        Function to delete an emission provided user has the correct permission. 
+        The emission slug is required to access the emission on the DB and 
+        on successful deletion the user is returned to the emissions page. If the 
+        user does not have permissions the function raises a PermissionDenied exception.
+        """
         queryset = Emission.objects
         emission = get_object_or_404(queryset, slug=slug)
         if request.user.has_perm('monitoring_tool.delete_emission'):
@@ -194,11 +239,23 @@ class Emissions(View):
         else:
             # raising a 403 error, solution from Stack Overflow:
             # https://stackoverflow.com/questions/51168730/which-exception-will-python-throw-when-it-does-not-have-sufficent-permissions-to
-            raise PermissionDenied("You do not have the necessary permissions "
-                "to delete an emission. Please contact your"
-                " system administrator.")
+            raise PermissionDenied(
+                "You do not have the necessary permissions to delete an emission."
+                " Please contact your system administrator."
+                )
 
 def addEmission(request):
+    """
+    Function to add an emission provided user has the correct permission. 
+    The FirstMonday class is used to populate two fields in the form instance.
+    There is logic to check upload image has the specified extension returning
+    a message using messages framework with information for the user in an alert. 
+    Similarly, the form is checked for validity with errors again returned to user through
+    messages framework. If the form submission was successful, the data is saved to DB and
+    the user is informed of success again via messages whilst being redirected to 
+    the emissions page. If the user does not have permissions the function raises a 
+    PermissionDenied exception.
+    """
     form = EmissionSubmissionForm()
     first_monday = FirstMonday()
 
@@ -265,6 +322,15 @@ class EmissionCheckList(LoginRequiredMixin, generic.ListView):
 
 
 def addCheck(request, slug):
+    """
+    Function to add a check provided user has the correct permission. The 
+    emission to check is first accessed using slug passed into function.
+    The form is checked for validity with errors returned to user through
+    messages framework. If the form submission is successful, the data is saved to DB and
+    the user is informed of success again via messages whilst being redirected to 
+    the emission-checks page. If the user does not have permissions the function raises a 
+    PermissionDenied exception.
+    """
     queryset = Emission.objects
     emission = get_object_or_404(queryset, slug=slug)
     form = CheckSubmissionForm()
@@ -310,6 +376,13 @@ def addCheck(request, slug):
 
 
 def deleteCheck(request, slug, id):
+    """
+    Function to delete a check provided user has the correct permission. 
+    The emission check is accessed using the id passed into the function.
+    On successful deletion the user is returned to the emission-checks page 
+    whilst informing the user via the messages framework. If the user does 
+    not have permissions the function raises a PermissionDenied exception.
+    """
     emission_check_set = EmissionCheck.objects.all()
     emission_check = emission_check_set.get(id=id)
     check_id = emission_check.id
@@ -328,6 +401,17 @@ def deleteCheck(request, slug, id):
             " system administrator.")
 
 def editCheck(request, slug, id):
+    """
+    Function to edit a check provided user has the correct permission. The 
+    check is first accessed using the id passed into function. A number of check variables
+    are accessed, two of which are presented in the form and are available for edit.
+    The other variables are used on form submission so that the original data is not lost.
+    The form is checked for validity with errors returned to user through
+    messages framework. If the form submission is successful, the data is saved to DB and
+    the user is informed of success again via messages whilst being redirected to 
+    the emission-checks page. If the user does not have permissions the function raises a 
+    PermissionDenied exception.
+    """
     emission_check_set = EmissionCheck.objects.all()
     emission_check = emission_check_set.get(id=id)
     title = emission_check.title
@@ -341,8 +425,6 @@ def editCheck(request, slug, id):
     # adding data from SQL DB using code below, source Stack Overflow:
     # https://stackoverflow.com/questions/35134938/pass-database-value-in-form-django
     form = CheckEditForm(initial={'comments': check_comments, 'status': status})
-    print(checked_by)
-    print(check_comments)
     # check if the current user matches the person who submitted the check
     # only allowing this person and superuser to edit. Check for superuser
     # code from stack overflow:
