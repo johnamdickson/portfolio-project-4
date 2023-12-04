@@ -283,7 +283,7 @@ button, input, optgroup, select, textarea {
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_1747/v1697952261/checks-ipad_copy_rma9aj.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,q_auto,w_1347/v1697952261/checks-ipad_copy_rma9aj.webp') no-repeat center center;
     height: 550px;
     width: 100%;
     background-size: cover;
