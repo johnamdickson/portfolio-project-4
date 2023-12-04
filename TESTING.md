@@ -16,6 +16,9 @@
   * [Unfixed bugs:](#unfixed-bugs-)
 
 
+
+
+
 ## Validator Testing
 
 ### HTML
@@ -81,7 +84,16 @@ Each of the site Python files were passed through the [Code Institute Python Lin
 
 ### Lighthouse
 
-**File**|**Result**|
-|:-----:|:------|
-|index.html|![lighthouse-results](TESTING-files/lighthouse/index.png)
-|emissions.html|![lighthouse-results](TESTING-files/lighthouse/emissions.png)
+All HTML pages were checked using [Chrome DevTools Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/). The results were generally optimal for desktop devices as shown in the table below. The status code pages returned an error on Lighthouse in Navigation mode, possibly owing to the fact that they redirect after a countdown period. Based on their content simplicity and the fact they should be rarely accessed, the Snapshot mode was selected. Each page returned the same score which is shown at the bottom of the table.
+
+For mobile devices, the performance score was in the 60-70 region. This was improved by changing the image format to webp and moving all scripts to bottom of body with the exeption of those essential to the page function. The Google maps API also affected performance, especially on the emissions detail page where the map is rendered. Upon researching this performance dip it would appear that this is commonplace and to be expected without any countermeasures involving workarounds. These countermeasures and any further alterations towards improving the mobile performance score were considered but in the interests of project progress this was not implemented.
+**File**|**Desktop Results**|**Mobile Results**|
+|:-----:|:-----:|:-----:|
+|index.html|![lighthouse-desktop-results](TESTING-files/lighthouse/index-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/index-mobile.png)
+|emissions.html|![lighthouse-results](TESTING-files/lighthouse/emissions-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/emissions-mobile.png)
+|emission-detail.html|![lighthouse-results](TESTING-files/lighthouse/emission-detail-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/emission-detail-mobile.png)
+|emission-checks.html|![lighthouse-results](TESTING-files/lighthouse/emission-checks-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/emission-checks-mobile.png)
+|login.html|![lighthouse-results](TESTING-files/lighthouse/login-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/login-mobile.png)
+|logout.html|![lighthouse-results](TESTING-files/lighthouse/logout-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/logout-mobile.png)
+|signup.html|![lighthouse-results](TESTING-files/lighthouse/signup-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/signup-mobile.png)
+error-pages|![lighthouse-results](TESTING-files/lighthouse/error-pages-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/error-pages-mobile.png)
