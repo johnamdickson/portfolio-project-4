@@ -56,9 +56,10 @@ The warnings and errors that are detailed in the table below reflect problems wi
 
 The site Javascsript functionality was checked using [JS Hint](https://jshint.com/)
 
-**Warnings**|**Warnings Remaining<br><sup><sub>(Post Fix)</sub></sup>**|**Screenshot**
-:-----|:-----|:-----:|
-|Numerous missing semi-colon warnings.<br>Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.<br>Six undefined variables<br>Six unused variables|Two undefined variables: bootstrap and google. No action taken as they are vendor API<br>Two unused variables: no action taken as they are all called from DOM events that pass over data from the templates to JS code.|![js-checker](TESTING-files/javascript-validator/jshint.png) 
+**File**|**Warnings**|**Warnings Remaining<br><sup><sub>(Post Fix)</sub></sup>**|**Screenshot**
+|:-----:|:-----|:-----|:-----:|
+script.js |Warnings returned, click [here](TESTING-files/javascript-validator/script-errors.md) to view|Two undefined variables: bootstrap and google. No action taken as they are vendor API<br>Two unused variables: no action taken as they are all called from DOM events that pass over data from the templates to JS code.|![js-checker](TESTING-files/javascript-validator/script.png) 
+script.test.js |Warnings returned, click [here](TESTING-files/javascript-validator/script.test-errors.md) to view|Ten warnings were ignored. Six warnings are attributable to the google maps api and the remaining four are related to Jest testing code<br>Six undefined variables: no action taken as they are all Jest function calls.|![js-checker](TESTING-files/javascript-validator/script.test.png) 
 
 ### Python
 
@@ -74,3 +75,6 @@ Each of the site Python files were passed through the [Code Institute Python Lin
 |apps.py|N/A|![python-checker](TESTING-files/python-validator/apps.png)
 |forms.py|Errors/warnings returned, click [here](TESTING-files/python-validator/forms-errors.md) to view|![python-checker](TESTING-files/python-validator/forms.png)
 |models.py|Errors/warnings returned, click [here](TESTING-files/python-validator/models-errors.md) to view|![python-checker](TESTING-files/python-validator/models.png)
+|tests.py|Errors/warnings returned, click [here](TESTING-files/python-validator/tests-errors.md) to view|![python-checker](TESTING-files/python-validator/tests.png)
+|monitoring_tool/urls.py|Errors/warnings returned, click [here](TESTING-files/python-validator/monitoring_tool-urls-errors.md) to view|![python-checker](TESTING-files/python-validator/monitoring_tool-urls.png)
+|views.py|Errors/warnings returned, click [here](TESTING-files/python-validator/views-errors.md) to view|![python-checker](TESTING-files/python-validator/views.png)
