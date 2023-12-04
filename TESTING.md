@@ -78,3 +78,10 @@ Each of the site Python files were passed through the [Code Institute Python Lin
 |tests.py|Errors/warnings returned, click [here](TESTING-files/python-validator/tests-errors.md) to view|![python-checker](TESTING-files/python-validator/tests.png)
 |monitoring_tool/urls.py|Errors/warnings returned, click [here](TESTING-files/python-validator/monitoring_tool-urls-errors.md) to view|![python-checker](TESTING-files/python-validator/monitoring_tool-urls.png)
 |views.py|Errors/warnings returned, click [here](TESTING-files/python-validator/views-errors.md) to view|![python-checker](TESTING-files/python-validator/views.png)
+
+### Lighthouse
+
+**File**|**Result**|
+|:-----:|:------|
+|index.html|![lighthouse-results](TESTING-files/lighthouse/index.png)
+|emissions.html|![lighthouse-results](TESTING-files/lighthouse/emissions.png)
