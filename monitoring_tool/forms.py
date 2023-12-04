@@ -19,7 +19,9 @@ class EmissionSubmissionForm(forms.ModelForm):
 # https://stackoverflow.com/questions/6536373/how-can-i-set-the-size-of-rows-columns-in-textfield-in-django-models
         widgets = {
             'title':
-            forms.TextInput(attrs={'placeholder': 'Please enter a title'}),
+            forms.TextInput(
+                attrs={'placeholder': 'Please enter a title max 15 characters'}
+                ),
             'location':
             forms.TextInput(attrs={'placeholder': 'Please enter a location '
                                                   'i.e module, block or '

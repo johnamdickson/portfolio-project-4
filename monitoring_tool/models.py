@@ -15,8 +15,8 @@ from django.core.validators import FileExtensionValidator
 class Emission(models.Model):
     type_choices = k.EMISSION_TYPES
     status_choices = k.STATUS
-    title = models.CharField(max_length=20, unique=True)
-    location = models.CharField(max_length=50, unique=False)
+    title = models.CharField(max_length=15, unique=True)
+    location = models.CharField(max_length=40, unique=False)
     slug = models.SlugField(max_length=200, unique=True)
     username = models.ForeignKey(
         User, on_delete=models.CASCADE,
