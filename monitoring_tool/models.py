@@ -26,7 +26,7 @@ class Emission(models.Model):
         'image',
         null=False,
         resource_type='auto',
-        format="jpg",
+        format="webp",
         transformation={
             'crop': 'limit',
             'width': 400,
