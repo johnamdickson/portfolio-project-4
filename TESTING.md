@@ -2,6 +2,7 @@
 - [User Story Testing](#user-story-testing)
   * [Project Setup Epic](#project-setup-epic)
   * [Basic Site Navigation Epic](#basic-site-navigation-epic)
+  * [Site Administration Epic](#site-administration-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -31,6 +32,13 @@
 [As a **User** I can **navigate the website** so that **I am able to access different pages with ease.**](https://github.com/johnamdickson/portfolio-project-4/issues/8)|Navbar created and HTML structure set up in templates for required pages.|✅|![user_stories](TESTING-files/user-story-testing/basic-navigation/html-pages.png) ![user_stories](TESTING-files/user-story-testing/basic-navigation/navbar.png) 
 [As a **User** I can **create a new account** so that **I am able to access the monitoring tool.**](https://github.com/johnamdickson/portfolio-project-4/issues/9)|A signup page exists with a form for the new user to fill out and submit.|✅|![user_stories](TESTING-files/user-story-testing/basic-navigation/signup-page.png) 
 [As a **User** I can **effortlessly sign in and sign out of my account** so that **my access to the account is secure.**](https://github.com/johnamdickson/portfolio-project-4/issues/10)|Login and logout pages exist which are easily accessible from the navbar.|✅|![user_stories](TESTING-files/user-story-testing/basic-navigation/login-page.png) ![user_stories](TESTING-files/user-story-testing/basic-navigation/logout-page.png) 
+
+### [Site Administration Epic](https://github.com/johnamdickson/portfolio-project-4/issues/11)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+[As a **Site Admin** I can **create, read, update and delete emissions on the provided Django panel** so that **the monitoring tool is current and reflective of emissions status**](https://github.com/johnamdickson/portfolio-project-4/issues/12)|Test emission and test emission check added to database from Django admin page.|✅|![user_stories](TESTING-files/user-story-testing/site-administration/admin-panel-add-emission.png) ![user_stories](TESTING-files/user-story-testing/site-administration/admin-panel-add-emission.png) 
+[As a **Site Admin** I can **verify that emissions are locked for editing to non-superusers** so that **the monitoring tool content is locked for auditing purposes**](https://github.com/johnamdickson/portfolio-project-4/issues/13)|Time based deletion deemed unnecessary, preferring time based editing instead.|N/A|N/A
+[As a **Site Admin** I can **allow certain users  to create of emissions on a linked page** so that **the monitoring tool is current and reflective of emissions status**](https://github.com/johnamdickson/portfolio-project-4/issues/14)|Two different users groups created: emission_user and emission_admin. The emission_admin user is able to add a new emission whilst the emission_user is not. When a new user is created, they are automatically assigned to the emission_user group.|✅|![user_stories](TESTING-files/user-story-testing/site-administration/admin-panel-emission-admin.png) ![user_stories](TESTING-files/user-story-testing/site-administration/admin-panel-emission-user.png) 
 
 ## Validator Testing
 
