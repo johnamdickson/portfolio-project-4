@@ -1,6 +1,7 @@
 # Table of Contents
 - [User Story Testing](#user-story-testing)
   * [Project Setup Epic](#project-setup-epic)
+  * [Basic Site Navigation Epic](#basic-site-navigation-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -17,13 +18,19 @@
 
 ## User Story Testing
 
-### Project Setup Epic
+### [Project Setup Epic](https://github.com/johnamdickson/portfolio-project-4/issues/1)
 **User Story**|**Test**|**Result**|**Evidence**
 :------|:------|:----:|:-----:
-As a **Site Admin** I can **deploy the project early** so that **fault finding through to deployment commences at the start of build**|Project was deployed to Heroku with an `<h1>` of Heroku Test added to the DOM. This was confirmed to be present on deployment| ✅|![user_stories](TESTING-files/user-story-testing/project-setup/deploy-early.png) 
-As a **Site Owner** I can **review wireframes** so that **site layout can be provisionally agreed** |Wireframes developed and uploaded to repository for review.|✅|Click [here](README-files/pp4-wireframes.pdf) to access the wireframes.
-As a **Site Admin** I can **confirm that the SQL database is functional** so that **the connection to project and corresponding models is assured**|Database created in Elephant SQL and confirmed operational from project by creating an emission and emission check in the Django admin panel and then confirming they appear in the DB|✅|![user_stories](TESTING-files/user-story-testing/project-setup/emission-to-database.png) ![user_stories](TESTING-files/user-story-testing/project-setup/emission-check-to-database.png) 
+[As a **Site Admin** I can **deploy the project early** so that **fault finding through to deployment commences at the start of build**](https://github.com/johnamdickson/portfolio-project-4/issues/2)|Project was deployed to Heroku with an `<h1>` of Heroku Test added to the DOM. This was confirmed to be present on deployment| ✅|![user_stories](TESTING-files/user-story-testing/project-setup/deploy-early.png) 
+[As a **Site Owner** I can **review wireframes** so that **site layout can be provisionally agreed**](https://github.com/johnamdickson/portfolio-project-4/issues/3) |Wireframes developed and uploaded to repository for review.|✅|Click [here](README-files/pp4-wireframes.pdf) to access the wireframes.
+[As a **Site Admin** I can **confirm that the SQL database is functional** so that **the connection to project and corresponding models is assured**](https://github.com/johnamdickson/portfolio-project-4/issues/4)|Database created in Elephant SQL and confirmed operational from project by creating an emission and emission check in the Django admin panel and then confirming they appear in the DB|✅|![user_stories](TESTING-files/user-story-testing/project-setup/emission-to-database.png) ![user_stories](TESTING-files/user-story-testing/project-setup/emission-check-to-database.png) 
 
+### [Basic Site Navigation Epic](https://github.com/johnamdickson/portfolio-project-4/issues/7)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+[As a **User** I can **navigate the website** so that **I am able to access different pages with ease.**](https://github.com/johnamdickson/portfolio-project-4/issues/8)|Navbar created and HTML structure set up in templates for required pages.|✅|![user_stories](TESTING-files/user-story-testing/basic-navigation/html-pages.png) ![user_stories](TESTING-files/user-story-testing/basic-navigation/navbar.png) 
+[As a **User** I can **create a new account** so that **I am able to access the monitoring tool.**](https://github.com/johnamdickson/portfolio-project-4/issues/9)|A signup page exists with a form for the new user to fill out and submit.|✅|![user_stories](TESTING-files/user-story-testing/basic-navigation/signup-page.png) 
+[As a **User** I can **effortlessly sign in and sign out of my account** so that **my access to the account is secure.**](https://github.com/johnamdickson/portfolio-project-4/issues/10)|Login and logout pages exist which are easily accessible from the navbar.|✅|![user_stories](TESTING-files/user-story-testing/basic-navigation/login-page.png) ![user_stories](TESTING-files/user-story-testing/basic-navigation/logout-page.png) 
 
 ## Validator Testing
 
