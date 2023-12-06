@@ -171,6 +171,7 @@ class EmissionCheck(models.Model):
         list = {"title": str(self.title),
                 "check_status": self.calculate_status(),
                 "checked_by": str(self.checked_by),
+                "date_checked": str(self.date_checked),
                 "slug": str(self.title.slug),
                 "emission_status": str(self.title.calculate_status()),
                 "emission_id": int(self.title.id),

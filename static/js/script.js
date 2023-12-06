@@ -297,10 +297,27 @@ const emissionModal = (data, page, checkId, user, superuser) => {
 // delcare constants from JSON, checkId
     const checkIdInt = parseInt(checkId);
     const parsedData = JSON.parse(data);
-//  delcare constant for modal and assign detail to title and body
+    const date = new Date(parsedData.date_checked);
+    const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    // working with Javascript date options with support from this tutorial:
+    // https://www.influxdata.com/blog/how-get-convert-format-javascript-date-timestamp/#:~:text=Once%20you%20have%20a%20Date,the%20hour%2C%20and%20so%20on.
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+//  delcare constants for modal iteself, title and body and assign detail as innerText to title and body.
     const modalItem = document.getElementById('emissionModal');
-    document.getElementById('emissionModalTitle').innerText = `Emission: ${parsedData.title}`;
-    document.getElementById('emissionModalBody').innerText = 'Please make a selection from the options below:';
+    let modalTitle = document.getElementById('emissionModalTitle');
+    modalTitle.innerText = `Emission: ${parsedData.title}`;
+     // check if the page is emission-check and add formatted check date to the modal body.
+    let modalBody = document.getElementById('emissionModalBody');
+    if (page === 'emission-check') {
+        modalBody.innerHTML = `${parsedData.title} Emission Check completed<br>
+                                on <strong>${formattedDate}</strong> at <strong>${time}</strong>
+                                <br>Please make a selection from the options below:`;
+    }
+    else {
+        modalBody.innerText = 'Please make a selection from the options below:';
+    }
+   
 // get submit check button and assign inner HTML with emission title and icon
     let submitEmissionCheckButton = document.getElementById('emission-check-a');
     if (submitEmissionCheckButton) {
@@ -359,11 +376,13 @@ const emissionModal = (data, page, checkId, user, superuser) => {
             emissionCheckEditButton.setAttribute('href', `/edit-check/${parsedData.slug}/${checkIdInt}`);
         } 
          // select edit check button for emission check page for all other conditions.
-        else if (page =='emission-check') {
+        else if (page === 'emission-check') {
             emissionCheckEditButton.setAttribute('href', `#`);
             emissionCheckEditButton.classList.add('btn-unavailable');
             emissionCheckEditButton.onclick = emissionClosedFunction;
             }
+        
+
 // create instance of bootstrap modal and instantiate.
     let emissionModal = new bootstrap.Modal(modalItem);
     emissionModal.show();
