@@ -7,6 +7,7 @@
   * [Emissions Display and Interaction Epic](#emissions-display-and-interaction-epic)
   * [Emission Checks Display and Interaction Epic](#emission-checks-display-and-interaction-epic)
   * [Emission Detail Page and Interaction Epic](#emission-detail-page-and-interaction-epic)
+  * [Maps API Epic](#maps-api-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -84,7 +85,14 @@
 [As a **Site Owner** I can **verify permissions to close and delete emissions** so that   **they are not moved to an undesirable position in error.**](https://github.com/johnamdickson/portfolio-project-4/issues/31)|Options to close and delete emissions are based on user status. An emission_user cannot close nor delete, an emission_admin can close but not delete whilst a superuser can both close and delete an emission. This is reflected in the styling of the respective buttons.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/close-delete-emission-no-permissions.png)![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/close-delete-emission-close-permissions.png)![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/close-delete-emission-superuser.png)
 [As a **Site Admin and User** I can **view the relevant emission detail based on status** so that **only pertinent information is visible**](https://github.com/johnamdickson/portfolio-project-4/issues/32)|Emission detail tables are formatted to display relevant information based upon the emission status being open or closed.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-table-open.png)![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-table-closed.png)
 
+### [Maps API Epic](https://github.com/johnamdickson/portfolio-project-4/issues/33)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
 [As a **Site Admin** I can **implement a map API** so that **maps showing emission location can be made available to the user.**](https://github.com/johnamdickson/portfolio-project-4/issues/22)|Map API added to project and confirmed operational on the emission-detail page.|✅|![user_stories](TESTING-files/user-story-testing/create-home-page/map-api.png)
+[As a **User** I can **view the emission location on a map** so that **I can visualise the emissions location**](https://github.com/johnamdickson/portfolio-project-4/issues/30)|Map added to emission detail page.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-map-view.png)
+[As a **User** I can **see all of the emissions on a map ** so that **their location is immediately obvious and given context with the users location.**](https://github.com/johnamdickson/portfolio-project-4/issues/34)|User story will not be implemented in this version of the app.|❌|N/A
+[As a **User** I can **select the emission location using a map and pin** so that **I do not need to work out the latitude and longitude manually**](https://github.com/johnamdickson/portfolio-project-4/issues/70)|User story will not be implemented in this version of the app.|❌|N/A
+
 ## Validator Testing
 
 ### HTML
