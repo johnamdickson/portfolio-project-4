@@ -863,6 +863,9 @@ https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only
     width: 100%;
     height: 100%
 }
+.emission-detail-table tbody {
+    border-bottom: #d3cfcf;
+}
 
 .emission-detail-table tbody tr {
     cursor: pointer;
