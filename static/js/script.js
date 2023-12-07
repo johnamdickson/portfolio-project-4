@@ -310,12 +310,12 @@ const emissionModal = (data, page, checkId, user, superuser) => {
      // check if the page is emission-check and add formatted check date to the modal body.
     let modalBody = document.getElementById('emissionModalBody');
     if (page === 'emission-check') {
-        modalBody.innerHTML = `${parsedData.title} Emission Check completed<br>
-                                on <strong>${formattedDate}</strong> at <strong>${time}</strong>
-                                <br>Please make a selection from the options below:`;
+        modalBody.innerHTML = `<p>${parsedData.title} Emission Check completed on:</p>
+                               <p class="text-center"><strong>${formattedDate}</strong> at <strong>${time}</strong></p>
+                               <p>Please make a selection from the options below:</p>`;
     }
     else {
-        modalBody.innerText = 'Please make a selection from the options below:';
+        modalBody.innerHTML = `Please make a selection from the options below:`;
     }
    
 // get submit check button and assign inner HTML with emission title and icon
