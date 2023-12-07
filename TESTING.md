@@ -9,6 +9,8 @@
   * [Emission Detail Page and Interaction Epic](#emission-detail-page-and-interaction-epic)
   * [Maps API Epic](#maps-api-epic)
   * [Managing HTTP Status Codes Epic](#managing-http-status-codes-epic)
+  * [Fine Tuning User Experience and Site Admin Epic](#fine-tuning-user-experience-and-site-admin-epic)
+  
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -98,7 +100,19 @@
 **User Story**|**Test**|**Result**|**Evidence**
 :------|:------|:----:|:-----:
 [As a **Site Admin** I can **ensure users are informed of client error responses (400,403 and 404) in an informative and design friendly manner** so that **they can be made aware of the issue whilst maintaining the site aesthetic**](https://github.com/johnamdickson/portfolio-project-4/issues/53)|A separate page exists for 400, 403 and 404 errors which all are triggered by the appropriate error and are formatted to suit the site styling.|✅|![user_stories](TESTING-files/user-story-testing/managing-http-status-codes/404-error.png)
-[ As a **Site Admin** I can **ensure users are informed of the server error response (500) in an informative and design friendly manner** so that **they can be made aware of the issue whilst maintaining the site aesthetic**](https://github.com/johnamdickson/portfolio-project-4/issues/54)|A page exists for 500 error code which iw triggered by the appropriate error and is formatted to suit the site styling.|✅|![user_stories](TESTING-files/user-story-testing/managing-http-status-codes/500-error.png)
+[As a **Site Admin** I can **ensure users are informed of the server error response (500) in an informative and design friendly manner** so that **they can be made aware of the issue whilst maintaining the site aesthetic**](https://github.com/johnamdickson/portfolio-project-4/issues/54)|A page exists for 500 error code which iw triggered by the appropriate error and is formatted to suit the site styling.|✅|![user_stories](TESTING-files/user-story-testing/managing-http-status-codes/500-error.png)
+
+### [Fine Tuning User Experience and Site Admin Epic](https://github.com/johnamdickson/portfolio-project-4/issues/55)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+[As a **User** I can **scroll to the bottom of overflowing emissions tables** so that **I have a better experience of using the tables and I can visualise that there is overflow content.**](https://github.com/johnamdickson/portfolio-project-4/issues/56)|Both the emissions and emissions checks tables have scroll buttons that are styled dynamically to indicate whereabouts in the table the user is.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/scroll-buttons.gif)
+[As a **Site Admin** I can **provide a confirm prompt that fits with site styling** so that **users experience a fluent and seamless styling in all aspects of the site**](https://github.com/johnamdickson/portfolio-project-4/issues/57)|User story will not be implemented in this version of the app.|❌|N/A
+[As a **User** I can **exit form without submission using a cancel / go back button in the window as opposed to browser back button** so that **I can navigate from the site at point of use instead of using browser control.**](https://github.com/johnamdickson/portfolio-project-4/issues/58)|Each form has a go back button which enables the user to go back to the previous page without using the browser controls.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/edit-form-go-back-button.png)
+[As a **User** I can **traverse the site using commonly styled buttons** so that **the navigation experience is consistent and intuitive**](https://github.com/johnamdickson/portfolio-project-4/issues/60)|All butons across the site styled for consistency which essentially breaks down as two types: white background/red font and red background/white font.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/button-white-background-red-font.png)![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/button-red-background-white-font.png)
+[As a **Site Admin** I can **condense all form htmls into a template for extension** so that **DRY principle can be adhered to.**](https://github.com/johnamdickson/portfolio-project-4/issues/61)|User story will not be implemented in this version of the app.|❌|N/A
+[As a **User** I can **log onto the monitoring tool with single sign on** so that **logging is a simple and secure process using a familiar log in**](https://github.com/johnamdickson/portfolio-project-4/issues/63)|User story will not be implemented in this version of the app.|❌|N/A
+[As a **Site Admin** I can **check a users log in status** so that **those not logged in are only able to access the home page**](https://github.com/johnamdickson/portfolio-project-4/issues/64)|When no user is logged in, any attempt to access another page such as emissions will result in the user being returned to the login page.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/redirect-to-login-page.gif)
+[As a **Site Admin** I can **ensure that the add emission form contains the correct inputs** so that **unnecessary fields are removed.**](https://github.com/johnamdickson/portfolio-project-4/issues/64)|Current and next check due form fields removed as these values are automatically calculated.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/add-emission-form-with-check-due.png)![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/add-emission-form-without-check-due.png)
 
 
 ## Validator Testing
