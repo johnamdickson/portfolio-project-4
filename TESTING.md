@@ -6,6 +6,7 @@
   * [Create Home Page Epic](#create-home-page-epic)
   * [Emissions Display and Interaction Epic](#emissions-display-and-interaction-epic)
   * [Emission Checks Display and Interaction Epic](#emission-checks-display-and-interaction-epic)
+  * [Emission Detail Page and Interaction Epic](#emission-detail-page-and-interaction-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -75,7 +76,13 @@
 [As a **Site Admin** I can **update emission check due dates automatically** so that **they do not have to be manually updated by users**](https://github.com/johnamdickson/portfolio-project-4/issues/46)|The FirstMonday class contains methods to automatically calculate the current and next checks due. Theses methods are accessed in the emission detail page and also when creating a new emission and will updates the respective fields in the database without requiring any input from the user.|✅|![user_stories](TESTING-files/user-story-testing/emission-checks-display-and-interaction/first-monday-class.png)![user_stories](TESTING-files/user-story-testing/emission-checks-display-and-interaction/current-last-check.png)
 [As a **User** I can **filter checks that are open or open/closed** so that **checks on open emissions are prioritised for the user**](https://github.com/johnamdickson/portfolio-project-4/issues/66)|On the emission checks table there is a toggle switch which will hide/unhide checks associated with closed emissions.|✅|![user_stories](TESTING-files/user-story-testing/emission-checks-display-and-interaction/checks-filter-switch.gif)
 
-
+### [Emission Detail Page and Interaction Epic](https://github.com/johnamdickson/portfolio-project-4/issues/28)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+[As a **User** I can **view all emission details on one page** so that **I can see all of the information that exists for it.**](https://github.com/johnamdickson/portfolio-project-4/issues/29)|An emission detail page exists for each emission with a table containing all the information related to that particular emission.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-table.png)
+[As a **User** I can **view the emission location on a map** so that **I can visualise the emissions location**](https://github.com/johnamdickson/portfolio-project-4/issues/30)|A map view exists on the emission detail page with a marker indicating the location of the emission.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-map-view.png)
+[As a **Site Owner** I can **verify permissions to close and delete emissions** so that   **they are not moved to an undesirable position in error.**](https://github.com/johnamdickson/portfolio-project-4/issues/31)|Options to close and delete emissions are based on user status. An emission_user cannot close nor delete, an emission_admin can close but not delete whilst a superuser can both close and delete an emission. This is reflected in the styling of the respective buttons.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/close-delete-emission-no-permissions.png)![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/close-delete-emission-close-permissions.png)![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/close-delete-emission-superuser.png)
+[As a **Site Admin and User** I can **view the relevant emission detail based on status** so that **only pertinent information is visible**](https://github.com/johnamdickson/portfolio-project-4/issues/32)|Emission detail tables are formatted to display relevant information based upon the emission status being open or closed.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-table-open.png)![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-table-closed.png)
 
 [As a **Site Admin** I can **implement a map API** so that **maps showing emission location can be made available to the user.**](https://github.com/johnamdickson/portfolio-project-4/issues/22)|Map API added to project and confirmed operational on the emission-detail page.|✅|![user_stories](TESTING-files/user-story-testing/create-home-page/map-api.png)
 ## Validator Testing
