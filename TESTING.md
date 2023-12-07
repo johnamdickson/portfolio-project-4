@@ -8,6 +8,7 @@
   * [Emission Checks Display and Interaction Epic](#emission-checks-display-and-interaction-epic)
   * [Emission Detail Page and Interaction Epic](#emission-detail-page-and-interaction-epic)
   * [Maps API Epic](#maps-api-epic)
+  * [Managing HTTP Status Codes Epic](#managing-http-status-codes-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -90,8 +91,15 @@
 :------|:------|:----:|:-----:
 [As a **Site Admin** I can **implement a map API** so that **maps showing emission location can be made available to the user.**](https://github.com/johnamdickson/portfolio-project-4/issues/22)|Map API added to project and confirmed operational on the emission-detail page.|✅|![user_stories](TESTING-files/user-story-testing/create-home-page/map-api.png)
 [As a **User** I can **view the emission location on a map** so that **I can visualise the emissions location**](https://github.com/johnamdickson/portfolio-project-4/issues/30)|Map added to emission detail page.|✅|![user_stories](TESTING-files/user-story-testing/emission-detail-page-and-interaction/emission-detail-map-view.png)
-[As a **User** I can **see all of the emissions on a map ** so that **their location is immediately obvious and given context with the users location.**](https://github.com/johnamdickson/portfolio-project-4/issues/34)|User story will not be implemented in this version of the app.|❌|N/A
+[As a **User** I can **see all of the emissions on a map** so that **their location is immediately obvious and given context with the users location.**](https://github.com/johnamdickson/portfolio-project-4/issues/34)|User story will not be implemented in this version of the app.|❌|N/A
 [As a **User** I can **select the emission location using a map and pin** so that **I do not need to work out the latitude and longitude manually**](https://github.com/johnamdickson/portfolio-project-4/issues/70)|User story will not be implemented in this version of the app.|❌|N/A
+
+### [Managing HTTP Status Codes Epic](https://github.com/johnamdickson/portfolio-project-4/issues/51)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+[As a **Site Admin** I can **ensure users are informed of client error responses (400,403 and 404) in an informative and design friendly manner** so that **they can be made aware of the issue whilst maintaining the site aesthetic**](https://github.com/johnamdickson/portfolio-project-4/issues/53)|A separate page exists for 400, 403 and 404 errors which all are triggered by the appropriate error and are formatted to suit the site styling.|✅|![user_stories](TESTING-files/user-story-testing/managing-http-status-codes/404-error.png)
+[ As a **Site Admin** I can **ensure users are informed of the server error response (500) in an informative and design friendly manner** so that **they can be made aware of the issue whilst maintaining the site aesthetic**](https://github.com/johnamdickson/portfolio-project-4/issues/54)|A page exists for 500 error code which iw triggered by the appropriate error and is formatted to suit the site styling.|✅|![user_stories](TESTING-files/user-story-testing/managing-http-status-codes/500-error.png)
+
 
 ## Validator Testing
 
