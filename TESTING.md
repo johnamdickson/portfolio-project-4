@@ -17,8 +17,9 @@
   * [Javascript](#javascript)
   * [Python](#python)
   * [Lighthouse](#lighthouse)
-- [Browser Testing](#browser-testing)
-- [Device Testing](#device-testing)
+- [Responsiveness Testing](#responsiveness-testing)
+  * [Browser Testing](#browser-testing)
+  * [Device Testing](#device-testing)
 - [Automated Testing](#automated-testing)
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
@@ -193,3 +194,10 @@ For mobile devices, the performance score was in the 60-70 region. This was impr
 |logout.html|![lighthouse-results](TESTING-files/lighthouse/logout-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/logout-mobile.png)
 |signup.html|![lighthouse-results](TESTING-files/lighthouse/signup-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/signup-mobile.png)
 error-pages|![lighthouse-results](TESTING-files/lighthouse/error-pages-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/error-pages-mobile.png)
+
+## Responsiveness Testing
+
+### Browser Testing
+
+The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance and responsiveness on each platform was satisfactory. The only exception was an anomaly observed on Safari, where the background colour of the status cells on emissions and emissions checks tables is applied after the page loads or the filter toggle switch is moved. The result is a stepped transition which looks out of place with other transitions in the app and can be seen in the gif below. This is a minor issue so will not be addressed in the first revision of the the app. It will be recorded as an [unresolved bug](https://github.com/johnamdickson/portfolio-project-4/issues/87) with a view to resolving in any future app updates.
+![responsiveness-results](TESTING-files/responsiveness-testing/browser-testing/safari-testing.gif)
