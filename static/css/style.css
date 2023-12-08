@@ -553,12 +553,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     display: flex;
     align-items: center;
     height:100px;
-}
-
-.modal-footer a p {
-    margin: 0;
-    padding: 5px;
-    font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+    font-size: clamp(0.7rem, 1.4vw, 0.9rem);
 }
 
 .modal-footer a i {
