@@ -10,7 +10,6 @@
   * [Maps API Epic](#maps-api-epic)
   * [Managing HTTP Status Codes Epic](#managing-http-status-codes-epic)
   * [Fine Tuning User Experience and Site Admin Epic](#fine-tuning-user-experience-and-site-admin-epic)
-  
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -199,5 +198,11 @@ error-pages|![lighthouse-results](TESTING-files/lighthouse/error-pages-desktop.p
 
 ### Browser Testing
 
-The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance and responsiveness on each platform was satisfactory. The only exception was an anomaly observed on Safari, where the background colour of the status cells on emissions and emissions checks tables is applied after the page loads or the filter toggle switch is moved. The result is a stepped transition which looks out of place with other transitions in the app and can be seen in the gif below. This is a minor issue so will not be addressed in the first revision of the the app. It will be recorded as an [unresolved bug](https://github.com/johnamdickson/portfolio-project-4/issues/87) with a view to resolving in any future app updates.
+The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance and responsiveness on each platform was satisfactory. The only exception was an anomaly observed on Safari, where the background colour of the status cells on emissions and emissions checks tables is applied after the page loads or the filter toggle switch is moved. The result is a stepped transition which looks out of place with other transitions in the app and can be seen in the gif below. This is a minor issue so will not be addressed in the first revision of the the app. It will be recorded as an [unresolved bug](https://github.com/johnamdickson/portfolio-project-4/issues/87) with a view to resolving in any future app updates.<br><br>
 ![responsiveness-results](TESTING-files/responsiveness-testing/browser-testing/safari-testing.gif)
+
+### Device Testing
+
+**Device**|**Summary**|**Screenshot**|
+|:-----:|:------|:-----:|
+|iPhone 12 Pro Max <br><sup><sub>(Physical Device)</sub></sup>|The app's responsiveness was tested on a physical device and the results were satisfactory with only two minor issues. The first issue is as previously described in browser testing whereby the status cell background colour transition is stepped in appearance. This makes sense given iOS uses Safari as the main browser and any resolution will be considered during future updates. The second issue relates to the overlay text in emissions and emissions checks tables being difficult to read. The font-weight was changed to 400 to try and make the text stand out more. All of the test screenshots can be found [here.](TESTING-files/responsiveness-testing/device-testing)|![device-testing](TESTING-files/responsiveness-testing/device-testing/home-page-responsiveness.gif)|![device-testing](TESTING-files/responsiveness-testing/device-testing/home-page-responsiveness.gif)
