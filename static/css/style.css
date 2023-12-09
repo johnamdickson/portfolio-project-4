@@ -1139,6 +1139,7 @@ https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/
     border-radius: 3px 15px 3px 15px;
     border: 1px solid #fafafa;
     font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
   }
 
   #filter-container {
