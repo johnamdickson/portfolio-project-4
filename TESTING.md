@@ -20,6 +20,8 @@
   * [Browser Testing](#browser-testing)
   * [Device Testing](#device-testing)
 - [Automated Testing](#automated-testing)
+  * [Python Automated Testing](#python-automated-testing)
+  * [Javascript Automated Testing](#javascript-automated-testing)
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
   * [Fixed Bugs](#fixed-bugs)
@@ -206,3 +208,9 @@ The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance
 **Device**|**Summary**|**Screenshot**|
 |:-----:|:------|:-----:|
 |iPhone 12 Pro Max <br><sup><sub>(Physical Device)</sub></sup>|The app's responsiveness was tested on a physical device and the results were satisfactory with only two minor issues. The first issue is as previously described in browser testing whereby the status cell background colour transition is stepped in appearance. This makes sense given iOS uses Safari as the main browser and any resolution will be considered during future updates. The second issue relates to the overlay text in emissions and emissions checks tables being difficult to read. The font-weight was changed to 400 to try and make the text stand out more. All of the test screenshots can be found [here.](TESTING-files/responsiveness-testing/device-testing)|![device-testing](TESTING-files/responsiveness-testing/device-testing/home-page-responsiveness.gif)|![device-testing](TESTING-files/responsiveness-testing/device-testing/home-page-responsiveness.gif)
+|iPhone 6/7/8 <br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for these devices was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/iphone-6-7-8-responsiveness.png)
+|Samsung Galaxy S8+ <br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this device was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/galaxy-s8+-responsiveness.png)
+|iPad<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this device was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/ipad-responsiveness.png)
+|iPad Pro<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this device was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/ipad-pro-responsiveness.png)
+|Desktop/Laptop Screen Width 1024<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this screensize was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/laptop-1024-width.png)
+|Desktop/Laptop Screen Width 1440<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this screensize was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/laptop-1440-width.png)
