@@ -111,7 +111,7 @@ function hideElements() {
             }
         }
     }
-    if (windowWidth <= 767) {
+    if (windowWidth <= 768) {
         for (let elements of hiddenElements) {
             elements.style.display = 'none';
         }
