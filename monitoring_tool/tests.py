@@ -1,4 +1,4 @@
-from django.test import TestCase, Client, SimpleTestCase
+from django.test import TestCase, Client
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.models import User, Group, Permission
 from .views import FirstMonday
@@ -246,8 +246,17 @@ class FirstMonday(TestCase):
 
     def test_return_datetime(self):
         """
-        Test that the first Monday functions return a datetime object.
+        Test that the first monday functions return a datetime object.
         """
+        print(
+            self._testMethodName.upper(),
+            '\nResult of checking first monday this month is a '
+            'datetime object:\n',
+            type(self.first_monday_of_this_month) == datetime.datetime,
+            '\nResult of checking first monday next month is a '
+            'datetime object:\n',
+            type(self.first_monday_of_next_month) == datetime.datetime
+            )
         self.assertEqual(
             type(self.first_monday_of_this_month),
             datetime.datetime)
@@ -260,7 +269,7 @@ class FirstMonday(TestCase):
         """
         Use freeze gun to set datetime to 30/04/1978. This enables
         assertEqual to check against known first Monday of that particular
-        month which was 02/04/1978.
+        month which was 03/04/1978.
         """
         first_monday_april_78 = self.first_monday.calculate_current_check_due()
         print(
@@ -275,7 +284,7 @@ class FirstMonday(TestCase):
         """
         Use freeze gun to set datetime to 30/04/1978. This enables
         assertEqual to check against known first Monday of the following
-        month which was 07/05/1978.
+        month which was 01/05/1978.
         """
         first_monday_may_78 = self.first_monday.calculate_next_check_due()
         print(
