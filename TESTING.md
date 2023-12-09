@@ -219,7 +219,7 @@ The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance
 
 ### Python Automated Testing
 Automated testing was completed on the Emission class methods and the First Monday class methods using the built in Django TestCase class. The individual test cases and results are shown in the table below:
-**Test**|**Test Description**|**Result**
+**Test**|**Test Description**|<div style="width:450px">**Result**</div>                                              
 |:-----|:------|:------
 |test_login_verified_user| Checks if verified user created in set up can log in. Performs two assertions - checks user is verified and confirms if request has been successful.|![device-testing](TESTING-files/automated-testing/python-automated-testing/test-login-verfied.gif)
 |test_non_verified_user| Test non-verified user trying to access any page other than home, in this case emissions. Assert redirect should confirm an initial 302 error with a target status code of 200 once redirected to login page.|![device-testing](TESTING-files/automated-testing/python-automated-testing/test_non_verified_user.gif)
