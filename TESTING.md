@@ -231,3 +231,14 @@ Automated testing was completed on the Emission class methods and the First Mond
 |test_first_monday_this_month| Use freeze gun to set datetime to 30/04/1978. This enables assertEqual to check against known first Monday of that particular month which was 03/04/1978.|![device-testing](TESTING-files/automated-testing/python-automated-testing/test-first-monday-this-month.png)![device-testing](TESTING-files/automated-testing/python-automated-testing/test-first-monday-this-month.gif)|
 |test_first_monday_next_month| Use freeze gun to set datetime to 30/04/1978. This enables assertEqual to check against known first Monday of the following month which was 01/05/1978.|![device-testing](TESTING-files/automated-testing/python-automated-testing/test-first-monday-next-month.png)![device-testing](TESTING-files/automated-testing/python-automated-testing/test-first-monday-next-month.gif)
 ### Javascript Automated Testing
+Javascript testing was completed using Jest. The only function tested is the errorCountdown (used to create a countdown prior to automatic redirect on HTTP Status Code error pages) as all of the other functions would require a more complex set up to test their functionality fully. Given the time constraints of the project, the remaining functionality would be manually tested. Each test essentially checks for the same seven elements: 
+1. Timer set to correct time on page load (60 seconds for 400 and 500 pages, 10 seconds 403 and 404).
+2. A check to ensure that the timer is halfway through the countdown (30 or 5 seconds).
+3. A check to ensure that the timer is completed and at 0.
+4. A check to ensure an h2 exists.
+5. A check to ensure the h2 has the correct error code string.
+6. A check to ensure an h3 exists.
+7. A check to ensure the h3 has the correct error description.
+All of the test results can be seen in the image below:
+
+![device-testing](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.png)
