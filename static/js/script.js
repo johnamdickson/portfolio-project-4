@@ -310,8 +310,32 @@ const emissionModal = (data, page, checkId, user, superuser) => {
      // check if the page is emission-check and add formatted check date to the modal body.
     let modalBody = document.getElementById('emissionModalBody');
     if (page === 'emission-check') {
-        modalBody.innerHTML = `<p>${parsedData.title} Emission Check completed on:</p>
-                               <p class="text-center"><strong>${formattedDate}</strong> at <strong>${time}</strong></p>
+        modalBody.innerHTML =  `<table>
+                                    <tr>
+                                        <td width="40%">
+                                        <p><strong>Check completed on:</strong></p>
+                                        </td>
+                                        <td>
+                                            <p class="ps-4">${formattedDate} at ${time}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><strong>Check completed by: </strong></p>
+                                        </td>
+                                        <td>
+                                            <p class="ps-4">${parsedData.checked_by}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <p><strong>Comments: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p class="p-4">${parsedData.comments}</p>
+                                    </td>
+                                </tr>
+                                </table>
                                <p>Please make a selection from the options below:</p>`;
     }
     else {

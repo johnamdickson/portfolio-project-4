@@ -28,13 +28,13 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                             <th>
                                 Emission
                             </th>
-                            <th>
+                            <th  class="hidden-col">
                                 Comments
                             </th>
                             <th>
                                 Check Status
                             </th>
-                            <th class="hidden-col">
+                            <th>
                                 Checked By
                             </th>
                             <th>
@@ -68,14 +68,14 @@ https://stackoverflow.com/questions/58205608/how-to-access-foreign-key-tables-da
                                 {{check.title}}
                             </div>
                         </td>
-                        <td>
+                        <td  class="hidden-col">
                             {{check.comments}}
                         </td>
-                        <td>
+                        <td >
                             {{check.calculate_status}}
                         </td>
                         <!-- add a hidden-col class which Javascript responsively hides the td on smaller screens -->
-                        <td class="checked-by hidden-col">
+                        <td class="checked-by">
                             {{check.checked_by}}
                         </td>
                         <td>
