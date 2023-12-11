@@ -779,7 +779,8 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 
 .add-btn-unavailable:hover {
     background-color: #d3cfcf50;
-    cursor: auto;
+    color: #fafafa70;
+    cursor:not-allowed;
 }
 
 /* style th containing filter */
@@ -1077,6 +1078,7 @@ using important due to specificity of modal footer a rule.
 .btn-unavailable:hover{
     color: #fafafa80 !important;
     border-color: #36454F80 !important;
+    cursor:not-allowed;
 }
 
 .options-title h4{
