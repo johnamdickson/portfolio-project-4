@@ -552,7 +552,7 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
     padding:5px;
     display: flex;
     align-items: center;
-    height:100px;
+    height:110px;
     font-size: clamp(0.7rem, 1.4vw, 0.9rem);
 }
 
