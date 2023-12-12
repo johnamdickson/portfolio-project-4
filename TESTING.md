@@ -27,6 +27,9 @@
   * [Emissions Page](#emissions-page)
   * [Checks Page](#checks-page)
   * [Emission Details Page](#emission-details-page) 
+  * [Add Emission Page](#add-emission-page)
+  * [Close Emission Page](#close-emission-page)
+  * [Add Check Page](#add-check-page)
   * [Login Page](#login-page) 
   * [Signup Page](#signup-page) 
   * [Logout Page](#logout-page) 
@@ -344,7 +347,7 @@ Emission Detail Page Modal - Close Button User Dependant Hover Styling|For super
 |Emission Detail Page Modal - Delete Emission Button(logged in as superuser)|Should be available to superuser and when clicked should display a confirmation dialogue box which when confirmed will delete the emission from the database. On deletion the user should be notified and then redirected to the emissions page.|Signed in as superuser and clicked delete button and then clicked OK on confirmation dialogue.|Delete button visible to superuser and when clicked generated a confirmation dialogue. Clicking OK on dialogue deleted the check from DB and redirected user to the emissions page where an alert notified the user that the emission was successfully xdeleted|✅|
 |Screen width <= 982px - Open Emission|*Date Created* and *Next Check Due* data should be hidden from the user and go back button change to icon only when screen width is 982px or below and revert back when screen width is above 982px. |Using Chrome Devtools, reduced the screen width to 982px then below before returning width to above 982px.|*Date Created* and *Next Check Due* data was hidden from the user and the go back button changed to icon only at 982px and below. The column reappeared when the screen width was brought above 982px.|✅|
 |Screen width <= 982px - Closed Emission|*Date Created* data should be hidden from the user when screen width is 982px or below and revert back when screen width is above 982px. |Using Chrome Devtools, reduced the screen width to 982px then below before returning width to above 982px.|*Date Created* data was hidden from the user at 982px and below. The column reappeared when the screen width was brought above 982px.|✅|
-|Screen width <= 982px - Go Back Button|The go back button should change to an icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
+|Screen width <= 992px - Go Back Button|The go back button should change to an icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
 
 ### Add Emission Page
  **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
@@ -358,10 +361,11 @@ Add Emission - latitude and longitude fields|The user should not be able submit 
 Add Emission - latitude field| The number entered must be between -90 and 90. |Added the number 2000 into the input field and clicked the add emission button and then tried the same with the number -2000.|Received two warnings: *Value must be less than or equal to 90* and *Value must be greater than or equal to -90*|✅|
 Add Emission - latitude field| The number entered must be between -180 and 180.| Added the number 2000 into the input field and clicked the add emission button and then tried the same with the number -2000.|Received two warnings: *Value must be less than or equal to 180* and *Value must be greater than or equal to -180*|✅|
 |Go Back Button|Clicking on the button should return the user to the previous page.|Click go back button.|Previous page loads.|✅|
-|Add Emission Callout - Go Back and Add Emission Buttons|When hovering over both buttons the font should change colour and the background opacity should reduce.|Hovered over the go back and log out buttons|The font changed colour and the background opacity reduced as expected on both buttons.|✅|
+|Add Emission Callout - Go Back and Add Emission Buttons|When hovering over both buttons the font should change colour and the background opacity should reduce.|Hovered over the go back and add emission buttons|The font changed colour and the background opacity reduced as expected on both buttons.|✅|
 |Screen width <= 992px - Go Back Button|The go back button should change to icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to an icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
 
 ### Close Emission Page
+
  **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
 |:-----|:------|:------|:-----|:------:|
 |Site Logo|Clicking on logo will return user to the home page|Clicked on logo|Home page reloaded|✅|
@@ -370,8 +374,20 @@ Add Emission - latitude field| The number entered must be between -180 and 180.|
 |Close Emission - users with permissions| If the user is an emission admin or superuser then they should be able to access the close emission page and close out the emission. The user should be presented with a dialogue box to confirm that the emission is to be closed out. Once confirmed, the user should be redirected to the emissions page and presented with an alert confirming that the emission has been closed.|Logged in as superuser and clicked Close Emission button for *P-9150*. Confirmation dialogue appeared clicked OK| The site returned to the emissions page and an alert was presented confirming that the emission had been closed. Navigated to admin site and reopened *P-9150* and then logged out of app. Logged back in as emission_admin user *jane_smith* and performed the same operations as above (with the exception of accessing the admin site) and got the same results.|✅|
 |Close Out Comments|The user should not be able submit the form unless there is content in the textfield box|Clicked the Close Emission button without entering any text into the close out comments textfield and then clicked OK in the resulting confirmation dialogue.|A warning popover appears fills in the field.|✅|
 |Go Back Button|Clicking on the button should return the user to the previous page.|Click go back button.|Previous page loads.|✅|
-|Close Emission Callout - Go Back and Close Emission Buttons|When hovering over both buttons the font should change colour and the background opacity should reduce.|Hovered over the go back and log out buttons|The font changed colour and the background opacity reduced as expected on both buttons.|✅|
+|Close Emission Callout - Go Back and Close Emission Buttons|When hovering over both buttons the font should change colour and the background opacity should reduce.|Hovered over the go back and close emission buttons|The font changed colour and the background opacity reduced as expected on both buttons.|✅|
 |Screen width <= 992px - Go Back Button|The go back button should change to icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to an icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
+
+### Add Check Page
+ **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
+|:-----|:------|:------|:-----|:------:|
+|Site Logo|Clicking on logo will return user to the home page|Clicked on logo|Home page reloaded|✅|
+|Add Emission - users with no permissions|If a base emission user types the url for adding an emission into the address bar a HTTP Status 403 code will be generated and the user should be presented with the site specific 403 error code page.|Logged in as base user *john_doe* and added */add-emission* to end of home page address and hit return|The 403 error code page was presented.|✅|
+|Add Emission| All authorised users should be able to access the add check page and add a check to the database. The user should be able to enter the pertinent data and providing all is in order, add the check to the database. Once confirmed, the user should be redirected to the checks page and presented with an alert confirming that the emission has been added successfully.|Logged in as base emission user john_doe and navigated to the add check page for *FT-4100*. Completed the form and clicked submit.| The site returned to the checks page and an alert was presented confirming that the check had been succesfully created.|✅|
+Add Check - comments field|The user should not be able submit the form unless there is content in the textfield box|Clicked the add check button without entering any text into the comments textfield.|A warning popover appears requesting user to fill in the field.|✅|
+|Go Back Button|Clicking on the button should return the user to the previous page.|Click go back button.|Previous page loads.|✅|
+|Add Check Callout - Go Back and Add Check Buttons|When hovering over both buttons the font should change colour and the background opacity should reduce.|Hovered over the go back and add check buttons|The font changed colour and the background opacity reduced as expected on both buttons.|✅|
+|Screen width <= 992px - Go Back Button|The go back button should change to icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to an icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
+
 
 ### Login Page
 
