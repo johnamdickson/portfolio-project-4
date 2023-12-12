@@ -27,6 +27,8 @@
   * [Emissions Page](#emissions-page)
   * [Checks Page](#checks-page)
   * [Emission Details Page](#emission-details-page) 
+  * [Login Page](#login-page) 
+  * [Signup Page](#signup-page) 
 - [Bugs](#bugs)
   * [Fixed Bugs](#fixed-bugs)
   * [Unfixed bugs:](#unfixed-bugs-)
@@ -356,7 +358,7 @@ Navbar Menu Items Styling|The login navbar link should be a bolder font on page 
 |Screen width <= 992px - Go Back Button|*The go back button should change to icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
 |Sign Up Link| Sign up text link in login callout should direct user to the sign up/register page.| Clicked on the sign up text link.|User is redirected to the sign up page.|✅|
 
-### Login Page
+### Signup Page
 
  **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
 |:-----|:------|:------|:-----|:------:|
