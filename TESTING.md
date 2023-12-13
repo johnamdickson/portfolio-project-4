@@ -448,3 +448,32 @@ Navbar Menu Items Styling|The logout navbar link should be a bolder font on page
 |Go Back Button|Clicking on the button should return the user to the previous page.|Click go back button.|Previous page loads.|✅|
 |Log Out Callout - Go Back and Log Out Buttons|When hovering over both buttons the font should change colour and the background opacity should reduce.|Hovered over the go back and log out buttons|The font changed colour and the background opacity reduced as expected on both buttons.|✅|
 |Screen width <= 992px - Go Back Button|The go back button should change to icon only when screen width is 992px or below and revert back when screen width is above 992px. |Using Chrome Devtools, reduced the screen width to 992px then below before returning width to above 992px.|The go back button changed to an icon only at 992px and below. The go back button text reappeared when the screen width was brought above 992px.|✅|
+
+### 400 Error Page
+ **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
+|:-----|:------|:------|:-----|:------:|
+400 Bad Request Page Set Up|The 400 error page should be presented when a bad request is returned|Simulate a 400 error by removing the hosting platform from the allowed hosts.|The 400 error page was returned when trying to access the site.|✅|
+Automatic Redirect| There should be a message informing user they will be redirected automatically in 60 seconds. The time text should count down to 0 before attempting redirection to the homepage.|Initiated 400 error as described in page set up above and then reinstated hosting platform to allowed hosts before 60 second timeout and then waited 60 seconds.| The user was automatically redirected to the home page.|✅|
+Go Back Button| The go back button should return the user to the home page.|Initiated 400 error as described in page set up above and then reinstated hosting platform to allowed hosts before pressing the Go Back button.|The user was returned to the homepage.|✅|
+
+### 403 Error Page
+ **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
+|:-----|:------|:------|:-----|:------:|
+403 Forbidden Page Set Up|The 403 error page should be presented when a user without permissions tries to access an area of the site that requires those permissions|Simulate a 403 error by logging in as base emission user *john_doe* and then typing */add-emission* at the end of the home page url.|The 403 error page was returned.|✅|
+Automatic Redirect| There should be a message informing user they will be redirected automatically in 10 seconds. The time text should count down to 0 before attempting redirection to the homepage.|Initiated 403 error as described in page set up above and wait 10 seconds.| The user was automatically redirected to the home page.|✅|
+Go Back Button| The go back button should return the user to the home page.|Initiated 403 error as described in page set up above and then pressed the go back button.|The user was returned to the homepage.|✅|
+
+### 404 Error Page
+ **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
+|:-----|:------|:------|:-----|:------:|
+404 Page Does Not Exist Page Set Up|The 404 error page should be presented when a user tries to access a page that does not exists|Simulate a 404 error by typing a typo */emisions* at the end of the home page url.|The 404 error page was returned.|✅|
+Automatic Redirect| There should be a message informing user they will be redirected automatically in 10 seconds. The time text should count down to 0 before attempting redirection to the homepage.|Initiated 404 error as described in page set up above and wait 10 seconds.| The user was automatically redirected to the home page.|✅|
+Go Back Button| The go back button should return the user to the home page.|Initiated 404 error as described in page set up above and then pressed the go back button.|The user was returned to the homepage.|✅|
+
+
+### 500 Error Page
+ **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
+|:-----|:------|:------|:-----|:------:|
+500 Server Error Page Set Up|The 500 error page should be presented when a server is returned|Simulate a 500 error by adding a property to emission model that has not been migrated to database.|The 500 error page was returned when trying to access the site.|✅|
+Automatic Redirect| There should be a message informing user they will be redirected automatically in 60 seconds. The time text should count down to 0 before attempting redirection to the homepage.|Initiated 500 error as described in page set up above and then removed the unmigrated property from the emission model before 60 second timeout and then waited 60 seconds.| The user was automatically redirected to the home page.|✅|
+Go Back Button| The go back button should return the user to the home page.|Initiated 400 error as described in page set up above and then removed the unmigrated property from the emission model before pressing the Go Back button.|The user was returned to the homepage.|✅|
