@@ -10,6 +10,7 @@
   * [Maps API Epic](#maps-api-epic)
   * [Managing HTTP Status Codes Epic](#managing-http-status-codes-epic)
   * [Fine Tuning User Experience and Site Admin Epic](#fine-tuning-user-experience-and-site-admin-epic)
+  * [Testing and Documentation Epic](#testing-and-documentation-epic)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -128,6 +129,14 @@
 [As a **User** I can **log onto the monitoring tool with single sign on** so that **logging is a simple and secure process using a familiar log in**](https://github.com/johnamdickson/portfolio-project-4/issues/63)|User story will not be implemented in this version of the app.|❌|N/A
 [As a **Site Admin** I can **check a users log in status** so that **those not logged in are only able to access the home page**](https://github.com/johnamdickson/portfolio-project-4/issues/64)|When no user is logged in, any attempt to access another page such as emissions will result in the user being returned to the login page.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/redirect-to-login-page.gif)
 [As a **Site Admin** I can **ensure that the add emission form contains the correct inputs** so that **unnecessary fields are removed.**](https://github.com/johnamdickson/portfolio-project-4/issues/64)|Current and next check due form fields removed as these values are automatically calculated.|✅|![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/add-emission-form-with-check-due.png)![user_stories](TESTING-files/user-story-testing/fine-tuning-user-experience-and-site-admin/add-emission-form-without-check-due.png)
+
+### [Testing and Documentation Epic](https://github.com/johnamdickson/portfolio-project-4/issues/72)
+**User Story**|**Test**|**Result**|**Evidence**
+:------|:------|:----:|:-----:
+[As a **Site Admin** I can **complete manual testing** so that **all aspects of the project will be tested.**](https://github.com/johnamdickson/portfolio-project-4/issues/74)|All manual testing completed and referenced in TESTING.md|✅| TESTING.md can be found [here.](TESTING.md)
+[As a **Site Owner** I can **review well commented and annotated code** so that **purpose and scope of code is known now and into the future**](https://github.com/johnamdickson/portfolio-project-4/issues/82)|Review completed and updates made.|✅| Reviewed code can be found in the project area [here.](/)
+[ As a **Site Owner** I can **access the project README** so that **all of the necessary information for the tool is available on project completion**](https://github.com/johnamdickson/portfolio-project-4/issues/75)|TODO!!!|✅| README can be found[here.](README.md)
+
 
 
 ## Validator Testing
