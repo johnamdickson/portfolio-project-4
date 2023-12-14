@@ -1,110 +1,202 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome johnamdickson,
+# <img src="static/images/favicon.png"  width="40" height="40">  &nbsp;Emissions Monitoring Tool
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Emissions Monitoring Tool is an application for industrial clients to monitor, verify and report any unwanted emissions that do not neccesitate an immediate shutdown to repair. The application allows for user registration, role based permissions, adding new emissions and performing regular checks on those emissions all whilst displaying the data to the user in a design friendly manner.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+This application is showcasing Full Stack Frameworks for Project Portfolio 4 and can be accessed by following this [link.](https://emissions-monitoring-tool-99fd7318f662.herokuapp.com/)
 
-## Gitpod Reminders
+![Responsive Mockup Screenshot](README-files/am-i-responsive.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Contents
+<a name="contents"></a>
 
-`python3 -m http.server`
+- [UX](#ux)
+  - [Strategy](#strategy)
+    - [User Stories](#user-stories)
+  - [Scope](#scope)
+    - [Essential Content](#essential-content)
+    - [Optional Content](#optional-content)
+  - [Structure](#structure)
+  - [Skeleton](#structure)
+    - [Wireframes](#wireframes)
+  - [Surface(Design)](#surface-design)
+    - [Colour Scheme](#colour-scheme)
+    - [Imagery](#imagery)
+    - [Favicon](#favicon)
+    - [Typography](#typography)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Features Left to Implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+  - [Languages Used](#languages-used)
+  - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+- [Testing](#testing)
+  - [Development Testing](#development-testing)
+  - [Testing User Stories](#testing-user-stories)
+     - [User Goals](#user-goals)
+     - [Site Administrator Goals](#site-administrator-goals)
+  - [Validator Testing](#validator-testing)
+  - [Bugs / Issues](#bugs--issues)
+  - [Unresolved Bugs / Issues](#unresolved-bugs-or-issues)
+- [Deployment](#deployment)
+  - [Deploying to Heroku](#deploying-to-heroku)
+  - [Forking the GitHub Repository](#forking-the-github-repository)
+  - [Making a Local Clone](#making-a-local-clone)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
 
-A blue button should appear to click: _Make Public_,
+## UX
+### Strategy
+The objective of the site is to allow users to review past weather for a location in Ireland or obtain a weather forecast for a geographic location using coordinates.
+#### User Stories
+- User Goals:
+  - 
+<br><br>
+- Site Administrator Goals:
+  - 
+<br><br>
+- Site Owner Goals:
+  - 
 
-Another blue button should appear to click: _Open Browser_.
+### Scope
+#### Essential Content
+ -  
+#### Optional Content
+- 
+### Structure
+- The structure of the database was defined and mapped out on a [database schema](views/README-files/flowchart.png). This helped define the required data interactions to develop a usuable product.
+- The front end
+- The database
+### Skeleton
+#### Wireframes
+- The project wireframe can be found [here.](README-files/pp4-wireframes.pdf)
+### Surface (Design)
+#### Colour Scheme
+- 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Colour Pallett](views/README-files/color-pallette.png)
+#### Imagery
+- Images
+- Icons
+<img src="views/images/title-icon-bolt.png"  width="200" height="200"> <img src="views/images/title-icon-sun.png"  width="200" height="200">
 
-A blue button should appear to click: _Make Public_,
+#### Favicon
+- .
+#### Typography
+- .<br><br>
+<a href="#contents">BACK TO CONTENTS 🔼</a>
 
-Another blue button should appear to click: _Open Browser_.
+## Features 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Existing Features
 
-To log into the Heroku toolbelt CLI:
+- __Insert Features Here__ 
+  - Text<br><br>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Features Left to Implement
+- .
 
-------
+<a href="#contents">BACK TO CONTENTS 🔼</a>
 
-## Release History
+## Technologies Used
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Languages Used
+- **Python**: used extensively during project.
+- **Markdown**: Used exclusively for README.
+- **HTML5**: minor use when adding additional elements to the web page.
+- **CSS3**: minor use when applying styling to app view.<br>
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Frameworks, Libraries & Programs Used
+- **datetime**: from the standard library, used to perform operations on date and time objects and strings.
+- **os**: from the standard library used to access system method to clear terminal screen at appropriate points whilst the program is running.
+- **Gitpod** cloud based IDE used for majority of the project.
+- **Git** used for version control.
+- **GitHub** as cloud repository for Git version control.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- **Credentials**: imported from google.oauth.serivice_account to enable access to Google Sheets.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+<br><a href="#contents">BACK TO CONTENTS 🔼</a>
+## Testing 
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+<a href="#contents">BACK TO CONTENTS 🔼</a>
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Deployment
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Deploying to Heroku
+* This site was deployed by completing the following steps:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+1. Log in to [Heroku](https://id.heroku.com) or create an account.
+2. On the main page click the button labelled New in the top right corner and from the drop-down menu select Create New App.
+3. You must enter a unique app name.
+4. Next select your region.
+5. Click on the Create App button
+6. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars.
+7. Click Reveal Config Vars and enter the following:
+    - Add port into the Key box and 8000 into the Value box and click the Add button.
+    - Enter CREDS into the next available Key box and the Google credentials into the corresponding Value box.
+    - Enter API_KEY into the next available Key box and the Open Weather API key into the corresponding Value box.
+8. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
+9. Repeat step 8 to add node.js. o Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
+10. Scroll to the top of the page and choose the Deploy tab.
+11. Select Github as the deployment method.
+12. Confirm you want to connect to GitHub.
+13. Search for the repository name and click the connect button.
+14. Scroll to the bottom of the deploy page and select the preferred deployment type.
+15. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Forking the GitHub Repository
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+1. Log in to GitHub and locate the [GitHub Repository.](https://github.com/johnamdickson/portfolio-project-3)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Making a Local Clone
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+1. Log in to GitHub and locate the [GitHub Repository.](https://github.com/johnamdickson/portfolio-project-3)
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
-**Anything more?**
+7. Press Enter. Your local clone will be created.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
 
----
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.<br><br>
+<a href="#contents">BACK TO CONTENTS 🔼</a>
+## Credits 
+### Content 
+NOTE: Specific links are included within the Python, HTML, CSS  files. The list below summarises content credits in general.
+- Stack Overflow, W3 Docs and other online resources were a massive help for Python, HTML or CSS code that enabled some of the functionality I was looking for.
+- This [website](https://www.scaler.com/topics/multiline-comment-in-python/) gave guidance for making multi-line comments where using `“””` is recommended for docstrings and using `#` for comments.
 
-Happy coding!
+- Thanks to my tutor Graham for his advice during the mentoring sessions.
+
+### Media
+- Google Fonts.
+- All gifs were generated on [ezgif.com.](https://ezgif.com/video-to-gif)
+
+
+- The colour names were sourced from [Name That Color.](https://chir.ag/projects/name-that-color/)
+- The site colour scheme pallete was generated using the palette creation tool in [Color Hex.](https://www.color-hex.com/) 
+- The title icons were from [Favicon](https://favicon.io/) which in turn sourced them from [Twemoji.](https://twemoji.twitter.com/)
+
+<br><br>
+<a href="#contents">BACK TO CONTENTS 🔼</a>
