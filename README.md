@@ -196,19 +196,30 @@ The user stories were collated into eleven epics. Each user story was assigned t
 ## Technologies Used
 
 ### Languages Used
-- **Python**: used extensively during project.
-- **Markdown**: Used exclusively for README.
-- **HTML5**: minor use when adding additional elements to the web page.
-- **CSS3**: minor use when applying styling to app view.<br>
+- **Python**: used extensively during project utilising the MVT (Model View Template) software design pattern.
+- **Javascript**: Used for front end functionality notably the Google Maps API, conditional formatting.
+- **HTML5**: Used for rendering the DOM.
+- **CSS3**: Used to apply custom styling where bootstrap did not extend to the project design requirements.
+- **Django Template Language**: Used within the DOM to connect with the backend and render on the page.
+- **Markdown**: Used exclusively for README and TESTING.<br>
 
 ### Frameworks, Libraries & Programs Used
+- **Django**: web framework to enable full stack development of this project.
+- **Heroku**: cloud based platform used for site deployment.
+- **elephantSQL**: cloud based database storage.
+- **Cloudinary**: cloud based storage for images.
+- **dateutil**: used to calculate relative dates.
 - **datetime**: from the standard library, used to perform operations on date and time objects and strings.
 - **os**: from the standard library used to access system method to clear terminal screen at appropriate points whilst the program is running.
+- **gunicorn**: Python HTTP server for WSGI applications.
+- **json**: used to create json of instantiated model date for use in Javascript.
+- **freezegun**: used to set a known date for testing.
+- **jest**: used for testing Javascript.
+- **Google Maps**: Javascript API required for map.
 - **Gitpod** cloud based IDE used for majority of the project.
 - **Git** used for version control.
 - **GitHub** as cloud repository for Git version control.
-
-- **Credentials**: imported from google.oauth.serivice_account to enable access to Google Sheets.
+- Any other libraries not explicitly mentioned here can be found in the [requirements.txt](requirements.txt) file.
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Testing 
