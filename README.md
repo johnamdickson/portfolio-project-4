@@ -147,7 +147,7 @@ The user stories were collated into eleven epics. Each user story was assigned t
 - Along with the database, the backend also consists of Cloudinary for image storage.
 ### Skeleton
 #### Wireframes
-- The project wireframe can be found [here.](README-files/pp4-wireframes.pdf)
+- The project wireframes can be found [here.](README-files/pp4-wireframes.pdf)
 ### Surface (Design)
 #### Colour Scheme
 - The main theme colour for the site is a shade of red called *Punch*. The use of red is designed to trigger a user response given it is commonly utilised when there is a call to action. In this case, the action we want the user to perform is staying on top of emissions on their facility, something which unavoidably carries inherent risks to people, the environment and ultimately the business. Red is also closely linked with danger which ties in well with the latter risks.<br><br>
@@ -178,7 +178,14 @@ The user stories were collated into eleven epics. Each user story was assigned t
   - A navbar menu with dynamic links dependant on user status and permissions. If no user logged in then only login or register are visible. If user is logged in then home, emissions, checks and logout are visible. Superusers have an additional menu item called admin which directs the user to the Django admin panel.<br><br>
   ![navbar](README-files/navbar.png)
 - __Home Page__ 
-  - A hero image and call out <br><br>
+  - A hero image and call out with an overview of the tool features.<br><br>
+   ![navbar](README-files/hero-and-callout.png)<br><br>
+  - A multi card carousel. Each card represents an emission and features the emission image and high level information: emission type and check status.<br><br>
+   ![navbar](README-files/carousel.png)<br><br>
+  - A modal which displays on click of the carousel card and contains the emission information for the card selected. The modal also has three buttons that allow the user to submit a check for the emission, go to the emission detail page or go to the all emissions page.<br><br>
+   ![navbar](README-files/home_page_modal.gif)<br><br>
+  - A carousel control with buttons for moving carousel left and right and indicators for card tracking.<br><br>
+   ![navbar](README-files/carousel-controls.gif)<br><br>
 
 
 ### Features Left to Implement
