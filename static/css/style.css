@@ -1,11 +1,10 @@
 body {
-    background-color: #d3cfcf;
-    font-family: 'Taviraj', serif;
-    font-weight: 200;
-    letter-spacing: 0.2rem;
-    display: flex;
+  background-color: #d3cfcf;
+  font-family: "Taviraj", serif;
+  font-weight: 200;
+  letter-spacing: 0.2rem;
+  display: flex;
 }
-
 
 /* _________________________________________  Base html styling  __________________________________________ */
 
@@ -13,626 +12,657 @@ body {
 https://stackoverflow.com/questions/50490814/how-to-change-bootstrap-primary-color-to-linear-gradient
 https://cssgradient.io/#:~:text=A%20CSS%20linear%20gradient%20can,customize%20your%20gradient%20even%20further.
  */
- .nav-bg-gradient {
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 25%, #dc3123 75%, #95150a 100%) ;
+.nav-bg-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #95150a 0%,
+    #dc3123 25%,
+    #dc3123 75%,
+    #95150a 100%
+  );
 }
 
 /* change flex to none so that body always sits between navbar and footer.
 https://stackoverflow.com/questions/206652/how-to-create-div-to-fill-all-space-between-header-and-footer-div
  */
 nav {
-    flex:none;
+  flex: none;
 }
 
 .navbar {
-    /* Overwrite navbar background colour. */
-    font-family: 'Josefin Sans', sans-serif;
-    /* z index to move in front of hero image in index.html */
-    z-index: 2;
+  /* Overwrite navbar background colour. */
+  font-family: "Josefin Sans", sans-serif;
+  /* z index to move in front of hero image in index.html */
+  z-index: 2;
 }
 
 /* style header tags */
 h2,
 h3 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
 }
 
 h4 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 300;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
 }
 h5 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 300;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
 }
 
 /* style horizontal rule betwee */
 hr {
-    margin: 20px 40% 0 40%;
-    border: 1px solid #36454F;
+  margin: 20px 40% 0 40%;
+  border: 1px solid #36454f;
 }
 
 .navitem-text {
-    font-weight: 300;
-    font-size: clamp(0.8rem, 2vw, 1.1rem);
+  font-weight: 300;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
 }
 
-.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
-    font-weight: 400;
-    color: #fafafa;
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .show > .nav-link {
+  font-weight: 400;
+  color: #fafafa;
 }
 
 .navbar-brand {
-    font-size: 1.75rem;
-    letter-spacing: 0.2em;
-    text-align: center;
+  font-size: 1.75rem;
+  letter-spacing: 0.2em;
+  text-align: center;
 }
 
 #slogan {
-    font-family: 'Taviraj', serif;
-    font-size: 12px;
-    letter-spacing: 0.6em;
+  font-family: "Taviraj", serif;
+  font-size: 12px;
+  letter-spacing: 0.6em;
 }
 
 .navbar-toggler-icon {
-    width: 4.5vw;
-    height: 5vw;
+  width: 4.5vw;
+  height: 5vw;
 }
 
 /* adjust menu toggler icon */
 .navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%28255, 255, 255' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%28255, 255, 255' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-dark .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .fa-solid {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .alert {
-    letter-spacing: 0.2em;
-    display: flex;
-    justify-content: space-between;
+  letter-spacing: 0.2em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .alert-container {
-    position: relative;
+  position: relative;
 }
 
-.logo-text{
-    font-weight: 100;
+.logo-text {
+  font-weight: 100;
 }
 /* set alert position to absolute so there is space under nav bar */
 .alert-row {
-    position: absolute;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 200;
-    text-align:center;
-    z-index: 2;
-    margin-right: 0;
-    width: 100%;
+  position: absolute;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  z-index: 2;
+  margin-right: 0;
+  width: 100%;
 }
 
 .alert-dismissible .btn-close {
-    position: inherit;
-    z-index: 2;
-    padding: 0;
+  position: inherit;
+  z-index: 2;
+  padding: 0;
 }
 
 .btn-close {
-    width: 30px;
+  width: 30px;
 }
 
 footer {
-    z-index: 2;
-    flex: none;
-    background-image: linear-gradient(180deg, #36454F20 0%, #fafafa20 25%, #fafafa20 75%, #36454F20 100%);
-    border-top: 0.25px solid #36454F30 
+  z-index: 2;
+  flex: none;
+  background-image: linear-gradient(
+    180deg,
+    #36454f20 0%,
+    #fafafa20 25%,
+    #fafafa20 75%,
+    #36454f20 100%
+  );
+  border-top: 0.25px solid #36454f30;
 }
 
 footer a {
-    color: #36454F
+  color: #36454f;
 }
 
 main {
-    flex: auto;
+  flex: auto;
 }
 
-.socials{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-    /* ________________________________________ Forms styling  ________________________________________ */
+/* ________________________________________ Forms styling  ________________________________________ */
 
 input {
-    width: 100%;
+  width: 100%;
 }
 
 textarea {
-    width: 100%;
+  width: 100%;
 }
 
 /* add a backdrop filter to form-section to create a blurred greyscale effect of the hero image */
 .form-section {
-    background-color: #d3cfcf60;
-    backdrop-filter: blur(10px) grayscale(100%) ;
-    -webkit-backdrop-filter: blur(10px) grayscale(100%);
-    width: 100%;
-    height: 100%;
-    margin-bottom: 20px;
+  background-color: #d3cfcf60;
+  backdrop-filter: blur(10px) grayscale(100%);
+  -webkit-backdrop-filter: blur(10px) grayscale(100%);
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
 }
 
 .form-section a {
-    color: #fafafa
+  color: #fafafa;
 }
 
 .form-section p {
-    font-size: clamp(0.9rem, 1.3vw, 1.25rem);
+  font-size: clamp(0.9rem, 1.3vw, 1.25rem);
 }
 
 .form-section a:hover {
-    color: lightblue;
+  color: lightblue;
 }
 
 /* align checkbox with inputs */
-input[type='checkbox'] {
-    width: auto;
-    margin-top: 5px;
-    float: left;
+input[type="checkbox"] {
+  width: auto;
+  margin-top: 5px;
+  float: left;
 }
 
 .form-title {
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 300;
-    color: #fafafa;
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    font-weight: bold;
-    margin-bottom: 0;
-    line-height: 4.5rem;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  color: #fafafa;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 4.5rem;
 }
 
-.form-title h2{
-    font-size: clamp(1.4rem, 3.2vw, 1.9rem);
-    margin-top: 0.5rem;
+.form-title h2 {
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  margin-top: 0.5rem;
 }
-
 
 /* remove bullet point from login error messages */
 #login-error-message ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 /* add z index forms so that they sit on top of error messages from base html */
 #form-msg {
-    z-index: 2;
+  z-index: 2;
 }
 
 .form-section ul {
-    font-size: clamp(0.8rem, 1.25vw, 1rem);
-    padding-left: 10px;
+  font-size: clamp(0.8rem, 1.25vw, 1rem);
+  padding-left: 10px;
 }
 
 /* hero image to be blurred out by backdrop filter mentioned above */
 .form-background {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/v1698934377/wepik-export-20231102141129NO0I_fr3gal.jpg') no-repeat center center;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+  background: url("https://res.cloudinary.com/dndmvsjh7/image/upload/v1698934377/wepik-export-20231102141129NO0I_fr3gal.jpg")
+    no-repeat center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
-button, input, optgroup, select, textarea {
-    font-weight: 100;
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-weight: 100;
 }
 
 .form-button-row {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* style go back button with text for medium screens up */
 .go-back-btn {
-    width: 105px;
-    background-color: #fafafa;
-    color: #dc3123;
-    font-family: 'Josefin Sans', sans-serif;
-    border: 1px solid #95150a;
-    border-radius: 20px;
-    text-align: center;
-    letter-spacing: 0.1em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-    padding: 5px;
+  width: 105px;
+  background-color: #fafafa;
+  color: #dc3123;
+  font-family: "Josefin Sans", sans-serif;
+  border: 1px solid #95150a;
+  border-radius: 20px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+  padding: 5px;
 }
 
 /* important required to override bootstrap classes */
-.go-back-btn i{
-    margin-left: 0 !important;
-    font-size: 20px;
+.go-back-btn i {
+  margin-left: 0 !important;
+  font-size: 20px;
 }
 
-.go-back-btn span{
-    margin: 0 5px !important;
-    font-size: clamp(0.7rem, 0.9vw, 0.8rem) !important;
-    font-weight: 300;
+.go-back-btn span {
+  margin: 0 5px !important;
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem) !important;
+  font-weight: 300;
 }
 
-.go-back-btn:hover{
-    background-color: #fafafa90;
-    color:#95150a;
-    border-color: #fafafa;
+.go-back-btn:hover {
+  background-color: #fafafa90;
+  color: #95150a;
+  border-color: #fafafa;
 }
 /* style form alert error ul and li */
 .errorlist {
-    padding-left: 1rem;
-    text-align: left;
-    list-style: circle;
+  padding-left: 1rem;
+  text-align: left;
+  list-style: circle;
 }
 
-.errorlist li{
-    padding-left: 0.5rem;
-    padding-bottom: 0.75rem;
+.errorlist li {
+  padding-left: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+#msg svg {
+  width: 24px;
+  height: 24px;
 }
 /* _________________________________________  Home Page styling  __________________________________________ */
 
 .hero {
-    background: url('https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,q_auto,w_1347/v1697952261/checks-ipad_copy_rma9aj.webp') no-repeat center center;
-    height: 550px;
-    width: 100%;
-    background-size: cover;
-    /* margin top to be just underneath navbar bottom border radii  */
-    margin-top: -5px;
+  background: url("https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,q_auto,w_1347/v1697952261/checks-ipad_copy_rma9aj.webp")
+    no-repeat center center;
+  height: 550px;
+  width: 100%;
+  background-size: cover;
+  /* margin top to be just underneath navbar bottom border radii  */
+  margin-top: -5px;
 }
 
 .home-row {
-    background-color: transparent;
-    border: none;
-    margin-right: 20px;
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
 }
 
 .home-row h3 {
-    font-size: clamp(1.1rem, 2.5vw, 2.5rem);
-    line-height: 1.5;
-    text-align: center;
+  font-size: clamp(1.1rem, 2.5vw, 2.5rem);
+  line-height: 1.5;
+  text-align: center;
 }
 
 .home-row h4 {
-    text-align: center;
-    line-height: 1.75;
-    font-size: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  line-height: 1.75;
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
-.home-row h4>.fa-solid {
-    font-size: clamp(1.3rem, 2.25vw, 2.35rem);
+.home-row h4 > .fa-solid {
+  font-size: clamp(1.3rem, 2.25vw, 2.35rem);
 }
 
 .home-row p {
-    font-size: clamp(0.9rem, 1.1vw, 1.25rem);
-    padding-left: 20px;
+  font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+  padding-left: 20px;
 }
 
 /* style callouts on both index and emissions pages. */
 .custom-callout {
-    background-color: #dc3123;
-    color: #fafafa;
-    border-radius: 100px 20px 100px 20px;
-    padding: 10px;
+  background-color: #dc3123;
+  color: #fafafa;
+  border-radius: 100px 20px 100px 20px;
+  padding: 10px;
 }
 
 .custom-callout ul {
-    list-style: none;
-    line-height: 1.7;
+  list-style: none;
+  line-height: 1.7;
 }
 
 .custom-callout .fa-solid,
 .fa-brands {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .custom-callout li {
-    display: flex;
+  display: flex;
 }
 
 .list-text {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .list-text p {
-    font-size: clamp(0.7rem, 1vw, 1.3rem);
-    ;
+  font-size: clamp(0.7rem, 1vw, 1.3rem);
 }
 
 .list-text a {
-    margin: 0;
-
+  margin: 0;
 }
 
 .list-icons {
-    width: 20px;
+  width: 20px;
 }
 
 .custom-container {
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 15%, #dc3123 85%, #95150a 100%) ;
-    color: #fafafa;
-    border: 1px solid #fafafa
+  background-image: linear-gradient(
+    90deg,
+    #95150a 0%,
+    #dc3123 15%,
+    #dc3123 85%,
+    #95150a 100%
+  );
+  color: #fafafa;
+  border: 1px solid #fafafa;
 }
 
 /* styling for home page carousel indicators and cards */
 .card-column {
-    margin: auto;
-    height: max-content;
-    backdrop-filter: opacity(100%);
-    border: none;
+  margin: auto;
+  height: max-content;
+  backdrop-filter: opacity(100%);
+  border: none;
 }
 
 .card-img-top {
-    height: 300px;
-    max-width: 95%;
-    margin: 2.5%;
-    object-fit: cover;
-    border-radius: 5px;
-    border: 0.5px solid #fafafa;
+  height: 300px;
+  max-width: 95%;
+  margin: 2.5%;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 0.5px solid #fafafa;
 }
 
 .card {
-    color: #fafafa;
-    background-color: #36454F;
-    border: 0.1px solid #fafafa;
-    border-left: 0;
-    height: 100%;
-    min-height: 560px;
-    cursor: pointer;
+  color: #fafafa;
+  background-color: #36454f;
+  border: 0.1px solid #fafafa;
+  border-left: 0;
+  height: 100%;
+  min-height: 560px;
+  cursor: pointer;
 }
 
 .card a {
-    color: #fafafa
+  color: #fafafa;
 }
 
 .card p {
-    font-size: clamp(0.8rem, 1.3vw, 1rem);
-    margin-top: 3%;
-    margin-bottom: 3%;
-    line-height: 1.5;
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
+  margin-top: 3%;
+  margin-bottom: 3%;
+  line-height: 1.5;
 }
 
 .card h4 {
-    text-align: center;
-    line-height: 1.5;
-    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
-    color: #fafafa;
+  text-align: center;
+  line-height: 1.5;
+  font-size: clamp(1.2rem, 2.3vw, 1.5rem);
+  color: #fafafa;
 }
 
 .card h5 {
-    text-align: center;
-    line-height: 1.5;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    letter-spacing: 0.1rem;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  letter-spacing: 0.1rem;
 }
 
-
 .card table {
-    border: none;
-    border-collapse: collapse;
-    width: 96%;
-    margin: 10px 2%;
+  border: none;
+  border-collapse: collapse;
+  width: 96%;
+  margin: 10px 2%;
 }
 
 /* solution to creating bespoke borders from stack overflow
 https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-only
  */
 .card table td {
-    border-left: 0.5px solid #fafafa;
-    padding: 5px;
+  border-left: 0.5px solid #fafafa;
+  padding: 5px;
 }
 
 .card table td:first-child {
-    border-left: none;
+  border-left: none;
 }
 
 .card table tr {
-    border-top: 0.25px solid #fafafa;
+  border-top: 0.25px solid #fafafa;
 }
 
 .card a {
-    color: #fafafa;
-    text-decoration: none;
+  color: #fafafa;
+  text-decoration: none;
 }
 
 .card:hover {
-    background-color: transparent;
-    background-image: linear-gradient(125deg, #36454F 0%, #36454F99 25%, #36454F99 55%, #36454F 100%);
+  background-color: transparent;
+  background-image: linear-gradient(
+    125deg,
+    #36454f 0%,
+    #36454f99 25%,
+    #36454f99 55%,
+    #36454f 100%
+  );
 }
 
 /* style carousel controls */
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-    background-size: 80% 80%;
+  background-size: 80% 80%;
 }
 
 .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%36454F'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%36454F'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%36454F'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
-
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%36454F'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
 
 .carousel-indicators {
-    position: inherit;
-    margin: 15px 0;
+  position: inherit;
+  margin: 15px 0;
 }
 
 .carousel-control-next,
 .carousel-control-prev {
-    opacity: 1;
-    position: inherit;
-    width: 30px;
-    height: 30px;
+  opacity: 1;
+  position: inherit;
+  width: 30px;
+  height: 30px;
 }
 
 .carousel-control-next:hover,
 .carousel-control-prev:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .carousel-indicators [data-bs-target] {
-    background-color: #36454F;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 0 5%;
+  background-color: #36454f;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5%;
 }
 
 .card-indicators-row {
-    justify-content: center;
+  justify-content: center;
 }
 
 .carousel-prev-row {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .carousel-next-row {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .carousel-prev-col {
-    width: 10%;
+  width: 10%;
 }
 
 .carousel-next-col {
-    width: 10%;
+  width: 10%;
 }
 
 /* style home page modal */
 
 .modal-content {
-    padding: 10px 25px;
-    color: #36454F;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background-color: rgba(250, 250, 250, 0.6);
-    border-radius: 50px 50px 50px 50px;
-    border: 3px solid #36454F;
+  padding: 10px 25px;
+  color: #36454f;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(250, 250, 250, 0.6);
+  border-radius: 50px 50px 50px 50px;
+  border: 3px solid #36454f;
 }
 
 .modal-img {
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-    height: 250px;
-    object-fit: cover;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  height: 250px;
+  object-fit: cover;
 }
 
 .modal-content h5 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .modal-content p {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .modal-footer a {
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: #dc3123;
-    color: #fafafa;
-    border-color: #36454F;
-    margin: auto;
-    width: 32%;
-    padding:5px;
-    display: flex;
-    align-items: center;
-    height:110px;
-    font-size: clamp(0.7rem, 1.4vw, 0.9rem);
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #dc3123;
+  color: #fafafa;
+  border-color: #36454f;
+  margin: auto;
+  width: 32%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  height: 110px;
+  font-size: clamp(0.7rem, 1.4vw, 0.9rem);
 }
 
 .modal-footer a i {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .modal-footer a:hover {
-    background-color: #dc312390;
-    color:#36454F;
-    border-color: #dc3123;
+  background-color: #dc312390;
+  color: #36454f;
+  border-color: #dc3123;
 }
 
 .home-modal-table {
-    width:80%;
-    margin-left: 10%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .home-modal-table h5 {
-    font-weight: 400;
+  font-weight: 400;
 }
 /* ________________________________________  Emissions Page styling  _________________________________________ */
 
 .emissions-img {
-    object-fit: cover;
-    height: 150px;
-    width: 100%;
-    min-width: 175px;
+  object-fit: cover;
+  height: 150px;
+  width: 100%;
+  min-width: 175px;
 }
 
-.thead tr th:first{
+.thead tr th:first {
   border-left: none;
 }
 
 .table-hover {
-    padding: 20px;
+  padding: 20px;
 }
 
 .table-hover th {
-    text-align: center;
-    vertical-align: middle;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .emissions-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 0;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 /* style th so that table rows scroll underneath them. */
 .emissions-table th {
-    position: sticky;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(0.7rem, 1.3vw, 0.9rem);
-    padding: 8px 16px;
-    background-color: #36454F;
-    color: #fafafa;
-    border-right: 0.5px solid #fafafa;
-    text-align: center;
+  position: sticky;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(0.7rem, 1.3vw, 0.9rem);
+  padding: 8px 16px;
+  background-color: #36454f;
+  color: #fafafa;
+  border-right: 0.5px solid #fafafa;
+  text-align: center;
 }
 
 .emissions-table th > p {
-    margin-top: 10px;
-    margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .emissions-table label {
-    font-size: 0.5rem;
-    padding: 0;
-    letter-spacing: 0.05rem;
-    line-height: 1rem;
-    display: block;
+  font-size: 0.5rem;
+  padding: 0;
+  letter-spacing: 0.05rem;
+  line-height: 1rem;
+  display: block;
 }
 
 /* smooth animation appearance when closed rows are filtered for. */
 .emissions-table tr {
-    font-size: clamp(0.6rem, 1.2vw, 0.9rem);
-    cursor: pointer;
-    opacity: 0;
-    animation: 1s ease-out 0s 1 appear forwards;
+  font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+  cursor: pointer;
+  opacity: 0;
+  animation: 1s ease-out 0s 1 appear forwards;
 }
 
 @keyframes appear {
@@ -645,200 +675,213 @@ https://stackoverflow.com/questions/3313456/css-borders-between-table-columns-on
 }
 
 .emissions-table td {
-    font-size: clamp(0.6rem, 1.2vw, 0.9rem);
-    border: 0.5px solid #fafafa;
-    vertical-align: middle;
-    text-align: center;
-    background-color: #b2beb580;
-    padding: 5px;
+  font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+  border: 0.5px solid #fafafa;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #b2beb580;
+  padding: 5px;
 }
 
 .emissions-table .table-img-td {
-    position: relative;
-    padding: 0;
-    color:white;
-    width: 200px;
-    min-width: 135px;
+  position: relative;
+  padding: 0;
+  color: white;
+  width: 200px;
+  min-width: 135px;
 }
 
 /* blank td with no data required in case of closed emission */
-.blank-td{
-    opacity: 0.4;
+.blank-td {
+  opacity: 0.4;
 }
 
 .table-fixed-head {
-    border-bottom: 1px solid #dee2e6;
-    border-radius: 50px 10px 50px 10px;
-    height: 80vh;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 50px 10px 50px 10px;
+  height: 80vh;
 }
 
-.table-fixed-head thead tr{
-    position: sticky;
-    z-index: 3;
+.table-fixed-head thead tr {
+  position: sticky;
+  z-index: 3;
 }
 
 .checks-complete-td {
-    display: flex;
-    align-items:center;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 .emission-page-img {
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 5%, #dc3123 95%, #95150a 100%) ;
-    padding: 20px;
-    object-fit: cover;
-    height: 450px;
-    width: 100%;
-    border-radius: 100px 30px 100px 30px;
-    border: 2px solid #fafafa;
+  background-image: linear-gradient(
+    90deg,
+    #95150a 0%,
+    #dc3123 5%,
+    #dc3123 95%,
+    #95150a 100%
+  );
+  padding: 20px;
+  object-fit: cover;
+  height: 450px;
+  width: 100%;
+  border-radius: 100px 30px 100px 30px;
+  border: 2px solid #fafafa;
 }
 
 .emission-page-top {
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .emission-callout {
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 5%, #dc3123 95%, #95150a 100%) ;
-    color: #fafafa;
-    border-radius: 20px 80px 20px 80px;
-    padding: 10px;
-    border: 2px solid #fafafa;
+  background-image: linear-gradient(
+    90deg,
+    #95150a 0%,
+    #dc3123 5%,
+    #dc3123 95%,
+    #95150a 100%
+  );
+  color: #fafafa;
+  border-radius: 20px 80px 20px 80px;
+  padding: 10px;
+  border: 2px solid #fafafa;
 }
 
 .emission-callout h3 {
-    font-size: clamp(1.1rem, 2.5vw, 2.5rem);
-    line-height: 1.5;
-    text-align: center;
+  font-size: clamp(1.1rem, 2.5vw, 2.5rem);
+  line-height: 1.5;
+  text-align: center;
 }
 
 .emission-callout ul {
-    list-style: none;
-    line-height: 1.7;
+  list-style: none;
+  line-height: 1.7;
 }
 
 .emission-callout .fa-solid,
 .fa-brands {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .emission-callout li {
-    display: flex;
+  display: flex;
 }
 
-#create-emission-li{
-    justify-content: center;
-    margin-top: 5px;
+#create-emission-li {
+  justify-content: center;
+  margin-top: 5px;
 }
 
 /* style buttons to appear on red background */
 .btn-white-back-red-font {
-    background-color: #fafafa;
-    color: #dc3123;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
-    padding:10px;
-    border: 1px solid #95150a;
-    text-align: center;
-    height: 70px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
+  background-color: #fafafa;
+  color: #dc3123;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  padding: 10px;
+  border: 1px solid #95150a;
+  text-align: center;
+  height: 70px;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
 }
 
-.btn-white-back-red-font:hover{
-    background-color: #fafafa90;
-    color:#95150a;
-    border-color: #fafafa;
+.btn-white-back-red-font:hover {
+  background-color: #fafafa90;
+  color: #95150a;
+  border-color: #fafafa;
 }
 
-.btn-white-back-red-font i, .btn-white-back-red-font i{
-    margin-left: 20px;
+.btn-white-back-red-font i,
+.btn-white-back-red-font i {
+  margin-left: 20px;
 }
 
 /* style add emission button when it is unavailable to the user */
 .add-btn-unavailable {
-    color: #fafafa70;
-    background-color: #d3cfcf50;
-    width: 100%;
-    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
-    padding:10px;
-    border: 1px solid #36454F50;
-    text-align: center;
-    height: 70px;
-    letter-spacing: 0.2em;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
+  color: #fafafa70;
+  background-color: #d3cfcf50;
+  width: 100%;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  padding: 10px;
+  border: 1px solid #36454f50;
+  text-align: center;
+  height: 70px;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
 }
 
 .add-btn-unavailable:hover {
-    background-color: #d3cfcf50;
-    color: #fafafa70;
-    cursor:not-allowed;
+  background-color: #d3cfcf50;
+  color: #fafafa70;
+  cursor: not-allowed;
 }
 
 /* style th containing filter */
 .form-check {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 0;
-    justify-content: space-between;
-    float: none;
-    width: 120%;
-    margin-left: -10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0;
+  justify-content: space-between;
+  float: none;
+  width: 120%;
+  margin-left: -10%;
 }
 
 .form-check .form-check-input {
-    float: none;
-    margin-left: 0;
-    margin-bottom: 5px;
+  float: none;
+  margin-left: 0;
+  margin-bottom: 5px;
 }
 
 .form-switch .form-check-input {
-    width: 3em;
-    height: 1.5em;
+  width: 3em;
+  height: 1.5em;
 }
 /* solution to changing colour of toggle switch from stack overflow
 https://stackoverflow.com/questions/632100/apply-css-style-to-child-elements
  */
 .form-switch .form-check-input:focus {
-    border-color: rgba(0, 0, 0, 0.25);
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/></svg>");
+  border-color: rgba(0, 0, 0, 0.25);
+  outline: 0;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/></svg>");
 }
 .form-switch .form-check-input:checked {
-    background-color: #30D158;
-    border-color: #30D15890;
-    border: none;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+  background-color: #30d158;
+  border-color: #30d15890;
+  border: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
 }
 
 /* Solution for sticky table header from Stack Overflow:
 https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-body
  */
 .table-fixed-head thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-image: linear-gradient(180deg, #fafafa90 0%, #36454F90 7.5%);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-image: linear-gradient(180deg, #fafafa90 0%, #36454f90 7.5%);
 }
 
-.create-emission-button{
-    font-family:'Josefin Sans', sans-serif;
-  }
+.create-emission-button {
+  font-family: "Josefin Sans", sans-serif;
+}
 
-.create-emission-button .fa-solid{
-    margin-left:10px;
-    font-size: 30px;
-  }
+.create-emission-button .fa-solid {
+  margin-left: 10px;
+  font-size: 30px;
+}
 
 /* _________________________________________  Emission Detail styling  ________________________________________________ */
 
@@ -846,78 +889,77 @@ https://stackoverflow.com/questions/21168521/table-fixed-header-and-scrollable-b
 https://stackoverflow.com/questions/4932181/rounded-table-corners-css-only 
 */
 
-.table-container{
-    border-radius: 10px;
-    border: 2px solid #fafafa;
-    border-collapse: separate;
-    width: 100%;
-    height: 100%;
-    overflow-x: auto;
+.table-container {
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  border-collapse: separate;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
 }
 
 .emission-detail-table {
-    width: 100%;
-    height: 100%
+  width: 100%;
+  height: 100%;
 }
 .emission-detail-table tbody {
-    border-bottom: #d3cfcf;
+  border-bottom: #d3cfcf;
 }
 
 .emission-detail-table tbody tr {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
-.emission-detail-table th, .emission-detail-table td{
-    padding: 5px;
-    width: 20%;
-    text-align: center;
-    vertical-align: middle;
-
+.emission-detail-table th,
+.emission-detail-table td {
+  padding: 5px;
+  width: 20%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .emission-detail-table tbody th {
-    background-color: #36454F;
-    color: #fafafa;
-    height: 50px;
-    border: 1px solid #fafafa;
-    border-top: none;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 300;
+  background-color: #36454f;
+  color: #fafafa;
+  height: 50px;
+  border: 1px solid #fafafa;
+  border-top: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
 }
 
 .emission-detail-table tbody td {
-    border: 1px solid #fafafa;
-    border-top: none;
-    border-bottom: none;
-    background-color: #b2beb580;
+  border: 1px solid #fafafa;
+  border-top: none;
+  border-bottom: none;
+  background-color: #b2beb580;
 }
 
 #emission-detail-img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .emission-detail-table p {
-    font-size: clamp(0.7rem, 1.15vw, 1.3rem);
-    text-align: center;
-    margin-top: 1rem;
-    letter-spacing: 0.1rem;
+  font-size: clamp(0.7rem, 1.15vw, 1.3rem);
+  text-align: center;
+  margin-top: 1rem;
+  letter-spacing: 0.1rem;
 }
 
 .emission-detail-table h5 {
-    font-size: clamp(0.8rem, 1.25vw, 1.4rem);
-    margin-top: 0.5rem;
+  font-size: clamp(0.8rem, 1.25vw, 1.4rem);
+  margin-top: 0.5rem;
 }
 
 /* apply border styling for thead, th and td to only have internal borders
 and follow border radii of the table container. */
 .emission-detail-table th:first-of-type {
-    border-left: none;
-  }
+  border-left: none;
+}
 
-  .emission-detail-table th:last-of-type {
-    border-right: none;
-  }
+.emission-detail-table th:last-of-type {
+  border-right: none;
+}
 
 .emission-detail-table thead th:first-of-type {
   border-top-left-radius: 10px;
@@ -928,296 +970,315 @@ and follow border radii of the table container. */
 }
 
 .emission-detail-table td:first-of-type {
-    border-width: 1px;
-    border-left: none;
+  border-width: 1px;
+  border-left: none;
 }
 .emission-detail-table td:last-of-type {
-    border-width: 1px;
-    border-right: none;
+  border-width: 1px;
+  border-right: none;
 }
 .emission-detail-table tr td:first-of-type {
-    border-width: 1px;
-    border-left: none;
+  border-width: 1px;
+  border-left: none;
 }
 
 /* access last row and first and last cells to change bottom right and left
 border radii to match table container border radii. Reference to this article:
 https://www.techonthenet.com/css/selectors/last_child.php#:~:text=With%20tag&text=In%20this%20CSS%20%3Alast%2Dchild%20example%2C%20the%20last%20row,the%20%3Alast%2Dchild%20selector. */
 .emission-detail-table tr:last-child td:last-of-type {
-border-bottom-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .emission-detail-table tr:last-child td:first-of-type {
-    border-bottom-left-radius: 8px;
- }
+  border-bottom-left-radius: 8px;
+}
 
 .emission-detail-td-row {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .emission-detail-table-title {
-    height: 85px;
+  height: 85px;
 }
 
-.emission-detail-table-title th{
-    border-bottom: 1px solid #fafafa;
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 25%, #dc3123 75%, #95150a 100%) ;
+.emission-detail-table-title th {
+  border-bottom: 1px solid #fafafa;
+  background-image: linear-gradient(
+    90deg,
+    #95150a 0%,
+    #dc3123 25%,
+    #dc3123 75%,
+    #95150a 100%
+  );
 }
 
-.emission-detail-table-title h4{
-    font-size:clamp(1.5rem, 3vw, 2.1rem);
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0;
-    line-height: 4.5rem;
+.emission-detail-table-title h4 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;
+  line-height: 4.5rem;
 }
 
 #map {
-    height: 600px;
-    border-radius: 10px;
-    border: 2px solid #fafafa;
-  }
+  height: 600px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+}
 
-.glyph-icon i{
-    font-size: 17px;
-    margin-left: 3px;
+.glyph-icon i {
+  font-size: 17px;
+  margin-left: 3px;
 }
 
 @keyframes drop {
-    0% {
-      transform: translateY(-600px) scaleY(0.9);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.7;
-    }
-    50% {
-      transform: translateY(0px) scaleY(1);
-      opacity: 1;
-    }
-    65% {
-      transform: translateY(-50px) scaleY(0.9);
-      opacity: 1;
-    }
-    75% {
-      transform: translateY(-75px) scaleY(0.9);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0px) scaleY(1);
-      opacity: 1;
-    }
-  }
-  /* marker drops in from top of map on load */
-  .drop {
+  0% {
+    transform: translateY(-600px) scaleY(0.9);
     opacity: 0;
-    animation: drop 0.5s linear forwards 1.5s;
   }
-  /* marker increases in size on hover */
+  5% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(0px) scaleY(1);
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(-50px) scaleY(0.9);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-75px) scaleY(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px) scaleY(1);
+    opacity: 1;
+  }
+}
+/* marker drops in from top of map on load */
+.drop {
+  opacity: 0;
+  animation: drop 0.5s linear forwards 1.5s;
+}
+/* marker increases in size on hover */
 .grow {
-    transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .grow:hover {
-    transform: scale(1.3);
-    opacity: 0.9;
+  transform: scale(1.3);
+  opacity: 0.9;
 }
 
 /* info window styling */
-.gm-style .gm-style-iw-c, .gm-style-iw-d{
-    /* style marker info window */
-    background-color: #dc3123;
-    max-width: 350px !important;
-    max-height:350px !important;
-    overflow: hidden !important;
-    padding: 5px !important;
+.gm-style .gm-style-iw-c,
+.gm-style-iw-d {
+  /* style marker info window */
+  background-color: #dc3123;
+  max-width: 350px !important;
+  max-height: 350px !important;
+  overflow: hidden !important;
+  padding: 5px !important;
 }
 
 .gm-style .gm-style-iw-c {
-    border: 1px solid #fafafa
+  border: 1px solid #fafafa;
 }
 
-.gm-style .gm-style-iw-d img{
-    border-radius: 5px;
+.gm-style .gm-style-iw-d img {
+  border-radius: 5px;
 }
 
-.gm-style .gm-style-iw-tc::after{
-    background-color: #dc3123;
+.gm-style .gm-style-iw-tc::after {
+  background-color: #dc3123;
 }
-.marker-title h5{
-    font-size: 1rem;
-    color:#fafafa;
+.marker-title h5 {
+  font-size: 1rem;
+  color: #fafafa;
 }
 
 .emission-detail-options {
-    background-color: #b2beb580;
-    border-radius: 10px;
-    border: 2px solid #fafafa
+  background-color: #b2beb580;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
 }
 
-.emission-detail-options h4{
-    margin-bottom: 0;
-    color: #fafafa;
+.emission-detail-options h4 {
+  margin-bottom: 0;
+  color: #fafafa;
 }
 
 .options-col {
-    background-color: #36454F;
-    height: 100px;
-    border-radius: 8px 0 0 8px;
-    text-align: center;
+  background-color: #36454f;
+  height: 100px;
+  border-radius: 8px 0 0 8px;
+  text-align: center;
 }
 
 /* styling for when the add and delete buttons are unavailable
 using important due to specificity of modal footer a rule.
 */
 .btn-unavailable {
-    color: #fafafa80 !important; 
-    background-color: #dc312360 !important;
+  color: #fafafa80 !important;
+  background-color: #dc312360 !important;
 }
 
-.btn-unavailable:hover{
-    color: #fafafa80 !important;
-    border-color: #36454F80 !important;
-    cursor:not-allowed;
+.btn-unavailable:hover {
+  color: #fafafa80 !important;
+  border-color: #36454f80 !important;
+  cursor: not-allowed;
 }
 
-.options-title h4{
-    font-size:clamp(1.5rem, 3vw, 2.1rem);
-    font-weight: bold;
-    color: white;
+.options-title h4 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: bold;
+  color: white;
 }
 
 /* style scroll buttons to sit at bottom right of tables */
 .scroll-buttons {
-    z-index: 10;
-    bottom: 15px;
-    right: 30px;
-    color:#fafafa;
+  z-index: 10;
+  bottom: 15px;
+  right: 30px;
+  color: #fafafa;
 }
-.image-cell{
-    display: table-cell;
-    height: 250px;
-    width: auto;
-    padding: 0;
+.image-cell {
+  display: table-cell;
+  height: 250px;
+  width: auto;
+  padding: 0;
 }
 
-.image-cell img{
-    height: 100%;
-    width: 100%;
+.image-cell img {
+  height: 100%;
+  width: 100%;
 }
 
 /* _________________________________________  Emission Checks styling  ________________________________________________ */
 
 .emission-checks-table {
-    width: 100%;
+  width: 100%;
 }
 
 /* Styling for text overlay on image from site below:
 https://www.bannerbear.com/blog/how-to-overlay-text-on-an-image-in-html-and-css/#:~:text=Overlaying%20Text%20on%20an%20Image%20in%20HTML%20and%20CSS,-HTML&text=In%20the%20body%20section%2C%20create,and%20add%20your%20text%20inside.
  */
 
-.img-container{
-    position: relative;
-    display: inline-block;
+.img-container {
+  position: relative;
+  display: inline-block;
 }
 
 .img-container img {
-    width: 100%;
-    object-fit: cover;
-    margin: 0;
-  }
-  
-  /* text overlay of emission title which appears over top of the image */
-  .overlay-text {
-    position: absolute;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    width: 125px;
-    background-image: linear-gradient(90deg, #95150a 0%, #dc3123 15%, #dc3123 85%, #95150a 100%) ;
-    color: #fafafa; 
-    padding: 5px 10px; 
-    text-align: center;
-    border-radius: 3px 15px 3px 15px;
-    border: 1px solid #fafafa;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-  }
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+}
 
-  #filter-container {
-    position: relative;
-    margin:10px;
-    border: 0.5px solid #36454F;
-    border-radius: 5px;
-    background-color: #fafafa;
- }
+/* text overlay of emission title which appears over top of the image */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 125px;
+  background-image: linear-gradient(
+    90deg,
+    #95150a 0%,
+    #dc3123 15%,
+    #dc3123 85%,
+    #95150a 100%
+  );
+  color: #fafafa;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 3px 15px 3px 15px;
+  border: 1px solid #fafafa;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
 
-  #emission-check-search {
-    font-weight: 100;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 10px 12px 40px;
-    border: none;
-    background-color: #ffffff00;
-  }
+#filter-container {
+  position: relative;
+  margin: 10px;
+  border: 0.5px solid #36454f;
+  border-radius: 5px;
+  background-color: #fafafa;
+}
+
+#emission-check-search {
+  font-weight: 100;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 10px 12px 40px;
+  border: none;
+  background-color: #ffffff00;
+}
 
 /* How to use font awesome icons instead of background image in search box:
 https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
  */
-  #filter-container::before{
-    font-family: "FontAwesome";
-    font-weight: 900;
-    font-size: 1.5em;
-    left:8px;
-    position:absolute;
-    height: 100px;
-    color: #36454F;
-    top:6px;
-    content: "\f002";
-  }
+#filter-container::before {
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 1.5em;
+  left: 8px;
+  position: absolute;
+  height: 100px;
+  color: #36454f;
+  top: 6px;
+  content: "\f002";
+}
 
 .btn-row {
-    display: flex;
-    width: 120px;
-    margin: 0;
-    justify-content: space-evenly;
+  display: flex;
+  width: 120px;
+  margin: 0;
+  justify-content: space-evenly;
 }
 
 /* _______________________________________  Error Page styling  ______________________________________________ */
 
 .error-page-container {
-    text-align: center;
-    color: #95150a;
-    background-color: #d3cfcf80;
-    backdrop-filter: blur(20px) grayscale(100%) ;
-    -webkit-backdrop-filter: blur(20px) grayscale(100%);
-    width: 100%;
-    height: 100%;
+  text-align: center;
+  color: #95150a;
+  background-color: #d3cfcf80;
+  backdrop-filter: blur(20px) grayscale(100%);
+  -webkit-backdrop-filter: blur(20px) grayscale(100%);
+  width: 100%;
+  height: 100%;
 }
 
 .error-page-container i {
-    background: -webkit-gradient(linear, left top, left bottom, from(#95150a), to(#dc3123));
-    background-clip:content-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#95150a),
+    to(#dc3123)
+  );
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-#error-timer{
-    font-weight: 900;
+#error-timer {
+  font-weight: 900;
 }
 
 .error-redirect {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .error-redirect p {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .status-code-exception {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 /* _______________________________________  General Responsive styling  ______________________________________________ */
 
@@ -1225,248 +1286,246 @@ https://stackoverflow.com/questions/14736496/use-font-awesome-icons-in-css
 https://codingyaar.com/responsive-bootstrap-navbar-with-vertical-line-separator/
  */
 @media only screen and (min-width: 992px) {
-    .navbar .navbar-nav .nav-item .nav-link {
-        padding: 0 0.5em;
-    }
+  .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0 0.5em;
+  }
 
-    .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
-        border-right: 2px solid rgba(255, 255, 255, .55);
-    }
+  .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+    border-right: 2px solid rgba(255, 255, 255, 0.55);
+  }
 
-    .hero {
-        height: 600px;
-    }
+  .hero {
+    height: 600px;
+  }
 
-    .home-row {
-        margin-right: 50px;
-    }
+  .home-row {
+    margin-right: 50px;
+  }
 }
 
 @media (max-width: 992px) {
-    .go-back-btn{
-        background-color: transparent;
-        margin-top: -7px;
-        width: 50px;
-        background: none;
-        color: #fafafa;
-        border: none;
-        box-shadow: none !important;
-    }
-    .go-back-btn span{
-        display: none;
-    }
+  .go-back-btn {
+    background-color: transparent;
+    margin-top: -7px;
+    width: 50px;
+    background: none;
+    color: #fafafa;
+    border: none;
+    box-shadow: none !important;
+  }
+  .go-back-btn span {
+    display: none;
+  }
 
-    .go-back-btn i{
-        font-size: 30px;
-    }
+  .go-back-btn i {
+    font-size: 30px;
+  }
 
-    .go-back-btn:hover{
-        background-color: transparent
-    }
+  .go-back-btn:hover {
+    background-color: transparent;
+  }
 
-    .image-cell{
-        height: 200px;
-        width: auto;
-    }
+  .image-cell {
+    height: 200px;
+    width: auto;
+  }
 }
 
 /* target tablet screen size */
 @media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 1.5rem;
-        letter-spacing: 0.1rem;
-    }
+  .navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
 
-    #slogan {
-        font-size: 0.6rem;
-        letter-spacing: 0.55em;
-    }
+  #slogan {
+    font-size: 0.6rem;
+    letter-spacing: 0.55em;
+  }
 
-    #logo {
-        width: 27.5px;
-        height: 32px;
-    }
+  #logo {
+    width: 27.5px;
+    height: 32px;
+  }
 
-    .fa-solid {
-        font-size: 30px;
-    }
+  .fa-solid {
+    font-size: 30px;
+  }
 
-    input[type='checkbox'] {
-        margin-top: 0;
-    }
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
 
-    .hero {
-        height: 400px;
-        position: relative;
-    }
+  .hero {
+    height: 400px;
+    position: relative;
+  }
 
-    .home-row {
-        box-sizing: content-box;
-        height: auto;
-        width: 90%;
-        position: absolute;
-        bottom: 5%;
-        right: 0;
-        margin-right: 5%;
-    }
+  .home-row {
+    box-sizing: content-box;
+    height: auto;
+    width: 90%;
+    position: absolute;
+    bottom: 5%;
+    right: 0;
+    margin-right: 5%;
+  }
 
-    .home-row h3 {
-        line-height: 1;
-    }
+  .home-row h3 {
+    line-height: 1;
+  }
 
-    .home-row h4 {
-        line-height: 1;
-    }
+  .home-row h4 {
+    line-height: 1;
+  }
 
-    .custom-callout {
-        border-radius: 10px;
-        padding: 15px;
-    }
+  .custom-callout {
+    border-radius: 10px;
+    padding: 15px;
+  }
 
-    .custom-callout ul {
-        line-height: 1;
-        margin: 10px 0px 0px -15px;
-    }
+  .custom-callout ul {
+    line-height: 1;
+    margin: 10px 0px 0px -15px;
+  }
 
-    .emission-callout {
-        border-radius: 10px;
-    }
+  .emission-callout {
+    border-radius: 10px;
+  }
 
-    #map {
-        height: 450px;
-        position: relative;
-      }
+  #map {
+    height: 450px;
+    position: relative;
+  }
 
-      .create-emission-button {
-        height: 50px;
-      }
+  .create-emission-button {
+    height: 50px;
+  }
 
-      .options-col {
-        height: 50px;
-        border-radius: 8px 8px 0 0;
-    }
+  .options-col {
+    height: 50px;
+    border-radius: 8px 8px 0 0;
+  }
 
-    .detail-icons {
-        margin: 20px;
-        font-size: 40px;
-    }
+  .detail-icons {
+    margin: 20px;
+    font-size: 40px;
+  }
 
-    .modal-footer a {
-        height: 125px;
-        justify-content: space-around;
-        flex-direction: column-reverse;
-        font-size: 0.65rem;
-    }
+  .modal-footer a {
+    height: 125px;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    font-size: 0.65rem;
+  }
 
-    .logo-text {
-        font-weight: 300;
-    }
-    .card {
-        width: 75vw;
-    }
+  .logo-text {
+    font-weight: 300;
+  }
+  .card {
+    width: 75vw;
+  }
 }
 
 @media (min-width: 768px) {
-
-    .modal-dialog {
-        max-width: 600px;
-        margin: 1.75rem auto;
-    }
-    
+  .modal-dialog {
+    max-width: 600px;
+    margin: 1.75rem auto;
+  }
 }
 
 /* target mobile screen size */
 @media (max-width: 480px) {
-    .navbar-brand {
-        font-size: 1.1rem;
-        letter-spacing: 0.1rem;
-    }
+  .navbar-brand {
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+  }
 
-    #slogan {
-        font-size: 0.4rem;
-        letter-spacing: 0.55em;
-    }
+  #slogan {
+    font-size: 0.4rem;
+    letter-spacing: 0.55em;
+  }
 
-    #logo {
-        width: 25px;
-        height: 30px;
-    }
+  #logo {
+    width: 25px;
+    height: 30px;
+  }
 
-    .table-fixed-head {
-        border-radius: 35px 5px 35px 5px;
-        scroll-behavior: smooth;
-    }
+  .table-fixed-head {
+    border-radius: 35px 5px 35px 5px;
+    scroll-behavior: smooth;
+  }
 
-    .modal-footer a {
-        height: 100px;
-        margin-top: 10px;
-        padding-top: 10px;
-        width: 60%;
-    }
+  .modal-footer a {
+    height: 100px;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 60%;
+  }
 
-    .btn-white-back-red-font, .btn-unavailable, .add-btn-unavailable {
-        height: 60px;
-        margin-top: 0;
-    }
-    
-    .checks-complete-td {
-        flex-wrap: wrap;
-    }
+  .btn-white-back-red-font,
+  .btn-unavailable,
+  .add-btn-unavailable {
+    height: 60px;
+    margin-top: 0;
+  }
 
-    .checks-complete-td p{
-        margin: 0.1em !important;
-    }
+  .checks-complete-td {
+    flex-wrap: wrap;
+  }
 
-    .navbar-toggler {
-        padding: 2px 5px;
-    }
-    .card {
-        width: 90vw;
-    }
+  .checks-complete-td p {
+    margin: 0.1em !important;
+  }
+
+  .navbar-toggler {
+    padding: 2px 5px;
+  }
+  .card {
+    width: 90vw;
+  }
 }
-
 
 /* carousel styling merged into style.css. Reference site below:
 https://www.codeply.com/p/0CWffz76Q9
 */
 
 @media (max-width: 767px) {
-    .carousel-inner .carousel-item>div {
-        display: none;
-    }
+  .carousel-inner .carousel-item > div {
+    display: none;
+  }
 
-    .carousel-inner .carousel-item>div:first-child {
-        display: block;
-    }
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
 }
 
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
-    display: flex;
+  display: flex;
 }
 
 /* medium and up screens */
 @media (min-width: 768px) {
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33%);
+  }
 
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-        transform: translateX(33%);
-    }
-
-    .carousel-inner .carousel-item-start.active,
-    .carousel-inner .carousel-item-prev {
-        transform: translateX(-33%);
-    }
+  .carousel-inner .carousel-item-start.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33%);
+  }
 }
 
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 /* styling to prevent overlap of cards as they transition */
 .carousel-item.active {
-    transition: transform 0.6s ease-in-out;
-    opacity: 1;
+  transition: transform 0.6s ease-in-out;
+  opacity: 1;
 }

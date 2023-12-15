@@ -141,15 +141,15 @@
                 <div class="alert {{ message.tags }} alert-dismissible fade show shadow-lg shadow-primary" id="msg"
                     role="alert">
                     {% if message.tags == 'alert-success' %}
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
                         <use xlink:href="#check-circle-fill" />
                     </svg>
                     {% elif message.tags == 'alert-info' %}
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info or Debug:">
+                    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info or Debug:">
                         <use xlink:href="#info-fill" />
                     </svg>
                     {% else %}
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning or Error:">
+                    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning or Error:">
                         <use xlink:href="#exclamation-triangle-fill" />
                     </svg>
                     {% endif %}
