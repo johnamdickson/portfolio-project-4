@@ -12,6 +12,7 @@ This application is showcasing Full Stack Frameworks for Project Portfolio 4 and
 
 - [UX](#ux)
   - [Strategy](#strategy)
+    - [Agile Methodology](#agile-methodology)
     - [User Stories](#user-stories)
   - [Scope](#scope)
     - [Essential Content](#essential-content)
@@ -22,7 +23,7 @@ This application is showcasing Full Stack Frameworks for Project Portfolio 4 and
   - [Surface(Design)](#surface-design)
     - [Colour Scheme](#colour-scheme)
     - [Imagery](#imagery)
-    - [Favicon](#favicon)
+    - [Logo](#logo)
     - [Typography](#typography)
 - [Features](#features)
   - [Existing Features](#existing-features)
@@ -130,38 +131,54 @@ The user stories were collated into eleven epics. Each user story was assigned t
 
 ### Scope
 #### Essential Content
- -  
+ - A home page with emissions carousel.
+ - An emissions page with list of emissions in a table.
+ - An emission detail page where all emission details are presented.
+ - An emission checks page with a list of checks in a table.
+ - Add, edit and delete functionality for emissions and checks.
+ - Sign up, login and logout pages.
 #### Optional Content
+- A map showing emission location on emissions, checks and detail pages.
 - 
 ### Structure
-- The structure of the database was defined and mapped out on a [database schema](views/README-files/flowchart.png). This helped define the required data interactions to develop a usuable product.
-- The front end
-- The database
+- The structure of the postgresql database was defined and mapped out on a database schema. This helped define the required data interactions to develop a usuable product.<br><br>
+![database schema](README-files/database-schema.png).
+- The front end utilises bootstrap and bespoke styling for a user friendly, designed approach. 
+- Along with the database, the backend also consists of Cloudinary for image storage.
 ### Skeleton
 #### Wireframes
 - The project wireframe can be found [here.](README-files/pp4-wireframes.pdf)
 ### Surface (Design)
 #### Colour Scheme
-- 
-
-![Colour Pallett](views/README-files/color-pallette.png)
+- The main theme colour for the site is a shade of red called *Punch*. The use of red is designed to trigger a user response given it is commonly utilised when there is a call to action. In this case, the action we want the user to perform is staying on top of emissions on their facility, something which unavoidably carries inherent risks to people, the environment and ultimately the business. Red is also closely linked with danger which ties in well with the latter risks.<br><br>
+![colour-pallette](README-files/colour-pallete.png)
+![colour-hex-codes](README-files/colour-hex-codes.png)
 #### Imagery
-- Images
-- Icons
-<img src="views/images/title-icon-bolt.png"  width="200" height="200"> <img src="views/images/title-icon-sun.png"  width="200" height="200">
+- The hero image appears in the home page and was selected to convey a collaboration, supervision, industry and technology. In the image, there are two individuals in an industrial setting monitoring an item of equipment together. The image signifies operational surveillance of equipment but perhaps also the supervision aspect in that one person is showing the other something on the facility. The image is considered to one of the app's core objectives - Verify.<br><br>
+![hero-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,q_auto,w_1347/v1697952261/checks-ipad_copy_rma9aj.webp)
 
-#### Favicon
-- .
+- The emissions page contains a striking image adjacent to callout of an individual in an industrial setting entering data into an ipad. This image was selected to convey another of the app's core objective - Monitor.<br><br>
+![emissions-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_942/v1698614641/emissions-checks_x06g1j.webp)
+
+- All icons on the site were added to provide more engaging user experience. The main icon used in the logo and also favicon is that of a droplet, used to symbolise the purpose of the app.<br><br>
+<img src="static/images/favicon.png"  width="50" height="50">
+
+#### Logo
+- The site logo utilises both the site fonts in order to create a contrast between the app name and the tag line. They are further distinguised from each other with app name being lower case and the tag line upper case. The logo is completed with the main icon inserted into the app name between emissions and monitoring, creating a more visually appealing aesthetic.<br><br>
+![logo-image](README-files/logo.png)
 #### Typography
-- .<br><br>
+- Two fonts were selected for use throughout the site. For titles and calls to action, Josefin Sans was used. The remainder of the site uses the serif font Taviraj. These fonts were imported via Google Fonts.<br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Features 
 
 ### Existing Features
-
-- __Insert Features Here__ 
-  - Text<br><br>
+- __Navbar__
+  - The site logo which also comprises a link to the home page.
+  - A navbar menu with dynamic links dependant on user status and permissions. If no user logged in then only login or register are visible. If user is logged in then home, emissions, checks and logout are visible. Superusers have an additional menu item called admin which directs the user to the Django admin panel.<br><br>
+  ![navbar](README-files/navbar.png)
+- __Home Page__ 
+  - A hero image and call out <br><br>
 
 
 ### Features Left to Implement
@@ -261,7 +278,7 @@ NOTE: Specific links are included within the Python, HTML, CSS  files. The list 
 ### Media
 - Google Fonts.
 - All gifs were generated on [ezgif.com.](https://ezgif.com/video-to-gif)
-
+- The hero image was <a href="https://www.freepik.com/free-photo/engineer-cooperation-male-female-technician-maintenance-control-relay-robot-arm-system-welding-with-tablet-laptop-control-quality-operate-process-work-heavy-industry-40-manufacturing-factory_25118263.htm#page=2&query=industry%20ipad%20check&position=24&from_view=search&track=ais"> by Lifestylememory</a> on Freepik
 
 - The colour names were sourced from [Name That Color.](https://chir.ag/projects/name-that-color/)
 - The site colour scheme pallete was generated using the palette creation tool in [Color Hex.](https://www.color-hex.com/) 
