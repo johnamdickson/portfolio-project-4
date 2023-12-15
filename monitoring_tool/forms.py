@@ -26,7 +26,6 @@ class EmissionSubmissionForm(forms.ModelForm):
             forms.TextInput(attrs={'placeholder': 'Please enter a location '
                                                   'i.e module, block or '
                                                   'building'}),
-            # set fields as date input to prevent erroneous entries.
             'description':
             forms.Textarea(attrs={'rows': 3, 'cols': 40,
                                   'placeholder': "Please enter "
@@ -49,7 +48,6 @@ class EmissionCloseOutForm(forms.ModelForm):
             'close_out_comments',
             )
         widgets = {
-            # set fields as date input to prevent erroneous entries.
             'close_out_comments':
             forms.Textarea(attrs={'rows': 3, 'cols': 40,
                                   'placeholder': "Please enter "
