@@ -177,15 +177,24 @@ The user stories were collated into eleven epics. Each user story was assigned t
   - The site logo which also comprises a link to the home page.
   - A navbar menu with dynamic links dependant on user status and permissions. If no user logged in then only login or register are visible. If user is logged in then home, emissions, checks and logout are visible. Superusers have an additional menu item called admin which directs the user to the Django admin panel.<br><br>
   ![navbar](README-files/navbar.png)
+- __Login Page__ 
+  - The login or sign in page consists of a simple form with clear instructions within a responsive container where the user can log in with ease providing a username and password.
+  - The background of the form is the home page hero image, blurred and in greyscale to create a subtle link with the site.
+  ![login](README-files/login.png)
+- __Register Page__ 
+  - The register or sign up page also consists of a simple form with clear instructions within a responsive container where the user can register with ease by selecting a username and password before hitting the register button.
+  - As in the login page, the background of the form is the home page hero image.
+  ![login](README-files/register.png)
 - __Home Page__ 
-  - A hero image and call out with an overview of the tool features.<br><br>
-   ![navbar](README-files/hero-and-callout.png)<br><br>
-  - A multi card carousel. Each card represents an emission and features the emission image and high level information: emission type and check status.<br><br>
-   ![navbar](README-files/carousel.png)<br><br>
+  - A hero image and call out with an overview of the tool features are at the forefront of the home page to draw in the user and explain the concept of the site.<br><br>
+   ![home page](README-files/hero-and-callout.png)<br><br>
+  - A multi card carousel where each card represents an emission and features the emission image and high level information: emission type and check status.<br><br>
+   ![home page](README-files/carousel.png)<br><br>
   - A modal which displays on click of the carousel card and contains the emission information for the card selected. The modal also has three buttons that allow the user to submit a check for the emission, go to the emission detail page or go to the all emissions page.<br><br>
-   ![navbar](README-files/home_page_modal.gif)<br><br>
+   ![home page](README-files/home_page_modal.gif)<br><br>
   - A carousel control with buttons for moving carousel left and right and indicators for card tracking.<br><br>
-   ![navbar](README-files/carousel-controls.gif)<br><br>
+   ![home page](README-files/carousel-controls.gif)<br><br>
+- __Emissions Page__ 
 
 
 ### Features Left to Implement
@@ -208,6 +217,7 @@ The user stories were collated into eleven epics. Each user story was assigned t
 - **Heroku**: cloud based platform used for site deployment.
 - **elephantSQL**: cloud based database storage.
 - **Cloudinary**: cloud based storage for images.
+- **Bootstrap**: CSS framework for class based styling directly in the DOM.
 - **dateutil**: used to calculate relative dates.
 - **datetime**: from the standard library, used to perform operations on date and time objects and strings.
 - **os**: from the standard library used to access system method to clear terminal screen at appropriate points whilst the program is running.
@@ -223,7 +233,7 @@ The user stories were collated into eleven epics. Each user story was assigned t
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Testing 
-
+Testing information can be found [here.](TESTING.md)
 
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
