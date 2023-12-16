@@ -212,6 +212,18 @@ The user stories were collated into eleven epics. Each user story was assigned t
   ![emissions page](TESTING-files/user-story-testing/emissions-display-and-interaction/emissions-table-filter.gif)
   - The table sits within a parent element div of set height meaning the table will scroll within that height. At the bottom right of the table, there are two scroll buttons which will move the table to the top and bottom extremeties when pressed. The buttons opacity dynamically changes if the table is at the position that the button is directing the table towards, giving the user feedback on button availability.<br><br>
   ![emissions page](README-files/emissions-table-scroll-buttons.gif)<br><br>
+  - The modal contains buttons to submit a check for the selected emission or go to the emission detail page.<br><br>
+   ![emissions page](README-files/emission-modal.gif)<br><br>
+- __Emission Detail Page__ 
+  - The page contains a map that is centered on the site owners facility. In this case, the facility is an [abandoned fish factory](https://www.advertiser.ie/mayo/article/30821/black-day-for-westport-as-fish-factory-announces-it-is-to-close) in Westport. The map heading and zoom is set so that the facility sits square in the map div.
+  - After a short delay on page load a map marker animates into position. The marker represents the actual location of the emission.
+  - Clicking on the marker opens an information window with the emission title and image.<br><br>
+   ![emission detail page](README-files/map-and-marker.gif)<br><br>
+  - Beneath the map is a table containing all of the emission information. Clicking on any row opens a modal described below. Responsive styling hides less significant data on smaller screens. The table has a go back button in the header.<br><br>
+  ![emission detail page](README-files/emission-detail-table.png)<br><br>
+  - The modal has two buttons to submit a check or close the emission. The close emission button is styled unavailable for users without adequate permissions. A third delete button is visible to superusers.<br><br>
+   ![emission detail page](README-files/emission-detail-modal.gif)<br><br>
+
 
 
 ### Features Left to Implement
