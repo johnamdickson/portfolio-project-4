@@ -692,6 +692,7 @@ const filterChecks = () => {
       style.display = isFound([
         ...filterColumns.map(c => children[c]) // <-- filter Columns
       ]) ? '' : 'none';
+      statusFilter()
     };
     
     trs.forEach(setTrStyleDisplay);
