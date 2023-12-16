@@ -195,6 +195,13 @@ The user stories were collated into eleven epics. Each user story was assigned t
   - A carousel control with buttons for moving carousel left and right and indicators for card tracking.<br><br>
    ![home page](README-files/carousel-controls.gif)<br><br>
 - __Emissions Page__ 
+  - A callout with an image of an individual in an industrial setting entering data into a tablet as described in images section.
+  - Adjacent to this another callout with an overview of the emissions list along with a button allowing authorised users to add an emission.<br><br>
+  ![emissions page](README-files/emissions-page-callouts.png)<br><br>
+  - A table containing all filtered to open emissions on load. Each row of the table represents an individual emission which when clicked presents a modal described below. In the Emission Status header is a toggle switch which enables users to hide/unhide closed emissions.<br><br>
+  ![emissions page](TESTING-files/user-story-testing/emissions-display-and-interaction/emissions-table-filter.gif)
+  - The table sits within a parent element div of set height meaning the table will scroll within that height. At the bottom right of the table, there are two scroll buttons which will move the table to the top and bottom extremeties when pressed. The buttons opacity dynamically changes if the table is at the position that the button is directing the table towards, giving the user feedback on button availability.<br><br>
+  ![emissions page](README-files/emissions-table-scroll-buttons.gif)<br><br>
 
 
 ### Features Left to Implement
