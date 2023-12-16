@@ -181,6 +181,11 @@ The user stories were collated into eleven epics. Each user story was assigned t
 - For testing, a separate cloudinary config file was required which is included in git ignore.
 - The Google Maps Javascript API requires the API key to be present in the DOM in order to work. Security is assured via the Google API console where URL for local and deployed hosts is set and the API key restrictions are on.<br><br>
 ![security-features](README-files/maps-website-restrictions.png)
+- There are three user types avialable in the app: emission_user, emission_admin and superuser. The two former groups were set in the Django panel and when a user registers they are automatically assigned to the emission_user group. Selection for the emission_admin group is via the Django admin panel. The different groups confer different permissiions as described below:
+  - All users can view emissions and view or submit emission checks.
+  - All users can edit their own checks provided it is within 24 hours of check submission. Superusers are able to edit emission checks at any time regardless of who submitted the check. 
+  - Only emission admin users or superusers can close or add emissions. For all other users the respective buttons are styled to indicate unavailability.
+  - Only superusers can delete emissions or checks. The buttons for this are hidden from all other users. as opposed to styling as unavailable. This is on purpose as it should not be seen as an option that regular users will be able to complete if they were to receive emission_admin status. Moreover, deletion of checks or emissions will not be a normal operation and only really considered for unforeseen errors or issues. The preference would be to close emissions instead, an option which is available to emission_admin users as desribed previously.
 
 ### Existing Features
 - __Navbar__
