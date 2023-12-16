@@ -26,6 +26,7 @@ This application is showcasing Full Stack Frameworks for Project Portfolio 4 and
     - [Logo](#logo)
     - [Typography](#typography)
 - [Features](#features)
+  - [Security Features](#security-features)
   - [Existing Features](#existing-features)
   - [Features Left to Implement](#features-left-to-implement)
 - [Technologies Used](#technologies-used)
@@ -171,6 +172,15 @@ The user stories were collated into eleven epics. Each user story was assigned t
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Features 
+
+### Security Features
+- There are a number of features utilsed in the app to ensure the security of private information. The following information is contained in the env.py file and Heroku config vars:
+  - Cloudinary URL. 
+  - The database URL and secret key.
+  - Allowed hosts.
+- For testing, a separate cloudinary config file was required which is included in git ignore.
+- The Google Maps Javascript API requires the API key to be present in the DOM in order to work. Security is assured via the Google API console where URL for local and deployed hosts is set and the API key restrictions are on.<br><br>
+![security-features](README-files/maps-website-restrictions.png)
 
 ### Existing Features
 - __Navbar__
