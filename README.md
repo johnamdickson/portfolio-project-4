@@ -344,10 +344,12 @@ Testing information can be found [here.](TESTING.md)
 5. Click on the Create App button
 6. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars.
 7. Click Reveal Config Vars and enter the following:
-
-    - Add port into the Key box and 8000 into the Value box and click the Add button.
-    - Enter CREDS into the next available Key box and the Google credentials into the corresponding Value box.
-    - Enter API_KEY into the next available Key box and the Open Weather API key into the corresponding Value box.
+    - Add ALLOWED_HOSTS into the key box and in the value add in the hosting sites ie Heroku app URL.
+    - Enter CLOUDINARY_URL into the next available Key box and then in the value box add the unique Cloduinary URL.
+    - Enter DATABASE_URL into the next available Key box and then in the value box add the unique Database URL.
+    - Enter DISABLE_COLLECTSTATIC into the next available Key box and then in the value box add 1 if this is to be disabled to prevent errors or 0 if the app is in a state where errors will not be generated.
+    - Enter port into the next available Key box and 8000 into the Value box and click the Add button.
+    - Enter SECRET_KEY into the next available Key box and then whichever secret key was selected into the corresponding Value box.
 8. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
 9. Repeat step 8 to add node.js. o Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
 10. Scroll to the top of the page and choose the Deploy tab.
