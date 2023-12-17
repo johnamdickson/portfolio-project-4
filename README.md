@@ -228,7 +228,7 @@ The user stories were collated into eleven epics. Each user story was assigned t
   ![emission detail page](README-files/emission-detail-table.png)<br><br>
   - The modal has two buttons to submit a check or close the emission. The close emission button is styled unavailable for users without adequate permissions. A third delete button is visible to superusers.<br><br>
   ![emission detail page](README-files/emission-detail-modal.gif)<br><br>
-- __Emission Check Page__
+- __Emission Checks Page__
   - The emission check page consists of a table of all checks that when loaded shows open emissions.
   - The table has a search bar which will search for either the emission title or username and filter the table accordingly.<br><br>
     ![emission checks page](README-files/checks-table-search.gif)<br><br>
@@ -238,8 +238,18 @@ The user stories were collated into eleven epics. Each user story was assigned t
   - If the check is by another user or the 24 hour period since submission has elapsed, the edit check button is styled to notify the user that it is unavailable.
   - As in the emissions page, the table sits within a parent element div of set height with the same behaviour as previously mentioned. There are also two scroll buttons with identical behaviour to that described in the emissions page features.<br><br>
   ![emission checks page](README-files/checks-table-scroll.gif)<br><br>
-
-
+- __Add Emission Page__
+  - The add emission page consists of a simple form with required emission data for uploading to the database. Not the text input fields all have placeholder taxt to assist the user filling in the correct information. The form is again held within a responsive container.
+  - The background of the form is same as other forms to create a link back to the site content.
+  - The form contains a Go Back button for the user to easily return to the previous page.
+  ![add-emission](README-files/add-emission.png)
+- __Close Emission Page__
+  - The close emission page consists of a simple form with a text field for capturing close out comments. Note closing the emission is different to deleting the emission in that the expectation would be that a record is kep of emissions that are repaired. This action is strictly speaking an edit of the database record.
+  - The background of the form is same as other forms to create a link back to the site content.
+  - The form contains a Go Back button for the user to easily return to the previous page.
+  - When the close button is clicked a confirmation dialogue appears to double check the user wants to close out the emission.
+  - On closing, the user will be redirecetd to the emissions page and informed via alert that the emission has been closed.
+  ![add-emission](README-files/close-emission.gif)
 
 
 ### Features Left to Implement
