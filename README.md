@@ -289,7 +289,11 @@ The user stories were collated into eleven epics. Each user story was assigned t
 
 
 ### Features Left to Implement
-- 
+A number of features were considered at the outset of and during the project but were shelved due to time constraints. These are detailed briefly below:
+- A map in the emissions page showing the location of all emissions on the facility.
+- A map in the add emission form so that the user can drop a pin at the emissions location instead of entering latitude and longitude.
+- A bespoke confirmation prompt with styling more in keeping with the site aesthetic.
+- Emission checks table in the emission detail page.
 
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
@@ -340,6 +344,7 @@ Testing information can be found [here.](TESTING.md)
 5. Click on the Create App button
 6. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars.
 7. Click Reveal Config Vars and enter the following:
+
     - Add port into the Key box and 8000 into the Value box and click the Add button.
     - Enter CREDS into the next available Key box and the Google credentials into the corresponding Value box.
     - Enter API_KEY into the next available Key box and the Open Weather API key into the corresponding Value box.
