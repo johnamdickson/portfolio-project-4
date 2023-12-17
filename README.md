@@ -397,7 +397,7 @@ Click [here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ## Credits 
 ### Content 
 NOTE: Specific links are included within the Python, Javascript, HTML and CSS  files. The list below summarises content credits in general.
-- Stack Overflow, W3 Docs, Slack and other online resources were a massive help for Python, Javascript, HTML or CSS code that enabled some of the functionality I was looking for.
+- Stack Overflow, W3 Docs, Slack, Django docs and other online resources were a massive help for Python, Javascript, HTML or CSS code that enabled some of the functionality I was looking for.
 - This [website](https://www.scaler.com/topics/multiline-comment-in-python/) gave guidance for making multi-line comments where using `“””` is recommended for docstrings and using `#` for comments.
 - Guidance on JS function comments was taken from this [website.](https://courses.cs.washington.edu/courses/cse154/18au/resources/styleguide/commenting.html#:~:text=Function%20Commenting%20Format,a%20value%20of%20%2D1)
 - Thanks to my tutor Graham for his excellent advice during the mentoring sessions and also for the positive feedback.
@@ -405,9 +405,12 @@ NOTE: Specific links are included within the Python, Javascript, HTML and CSS  f
 ### Media
 - The site fonts were source from [Google Fonts.](https://fonts.google.com/)
 - All gifs were generated on [ezgif.com.](https://ezgif.com/video-to-gif)
+- All emission images were sourced from [Pexels.](https://www.pexels.com/)
+- The database schema was created on [drawSQL.](https://drawsql.app/)
 - The hero image was <a href="https://www.freepik.com/free-photo/engineer-cooperation-male-female-technician-maintenance-control-relay-robot-arm-system-welding-with-tablet-laptop-control-quality-operate-process-work-heavy-industry-40-manufacturing-factory_25118263.htm#page=2&query=industry%20ipad%20check&position=24&from_view=search&track=ais"> by Lifestylememory</a> on Freepik
 - The emissions page image was <a href="https://www.freepik.com/free-photo/asian-female-engineer-specialist-with-measuring-machine-with-manipulator-armthreedimensional-coordinate-measurement-check-sizes-3d-check-sizes-parts-cmm-after-machining-process_25117441.htm#query=industrial%20checks%20ipad%20asian&position=5&from_view=search&track=ais">by Lifestylememory</a> on Freepik
 - The Django secret key was created using [Djecrety.](https://djecrety.ir)
+- Markdown tables were generated using this online [tool.](https://jakebathman.github.io/Markdown-Table-Generator/)
 - The colour name was sourced from [Name That Color.](https://chir.ag/projects/name-that-color/)
 - The site colour scheme pallete was generated using the palette creation tool in [Color Hex.](https://www.color-hex.com/) 
 - All icons used on the website were from [Font Awesome](https://fontawesome.com/)
