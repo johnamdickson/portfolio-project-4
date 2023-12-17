@@ -47,11 +47,12 @@ The objective of the site is to allow user registration, role based permissions,
 
 #### Agile Methodology
 
-The Agile Project Management approach was used in this project. Eleven epics were completed each with their own varying number of user stories. Over the course of the project, fifteen sprints were completed, selecting user stories based on a timebox value of no more than 8 per sprint. The epics, user stories and also bugs were all categorised using the Github Project Kanban board feature, which can be found [here.](https://github.com/users/johnamdickson/projects/2/views/1)
+The Agile Project Management approach was used in this project. Eleven epics were completed each with their own varying number of user stories. The user stories were categorised using MoSCoW prioritisation using Github issue labels of *Must Have*, *Should Have*, *Could Have* and *Won't Have*. Each user story was assigned a timebox valueusing the [Fibonacci Sequence](https://www.linkedin.com/pulse/why-agile-teams-use-fibonacci-sequence-estimating-corrado-de-sanctis). 
+ Over the course of the project, fifteen sprints were completed selecting user stories based on a timebox value of no more than 8 per sprint. The epics, user stories and also bugs were all categorised using the Github Project Kanban board feature, which can be found [here.](https://github.com/users/johnamdickson/projects/2/views/1)
 
 #### User Stories
 
-The user stories were collated into eleven epics. Each user story was assigned to either the user, site admin, super user or site owner. The user stories were broken down into tasks and acceptance criteria which can be reviewed by clicking on the linked epics and user stories below.
+As stated, the user stories were collated into eleven epics. Each user story was assigned to either the user, site admin, super user or site owner. The user stories were broken down into tasks and acceptance criteria which can be reviewed by clicking on the linked epics and user stories below.
 
 - [Project Setup Epic](https://github.com/johnamdickson/portfolio-project-4/issues/1)
     - [As a **Site Admin** I can **deploy the project early** so that **fault finding through to deployment commences at the start of build**](https://github.com/johnamdickson/portfolio-project-4/issues/2)
