@@ -46,7 +46,7 @@ window.addEventListener('resize', function (event) {
 // https://stackoverflow.com/questions/70436333/settimeout-runs-only-once-then-not-working
 setInterval(function () {
 /**
- * Dismisses alerts after 4 seconds using setTimeout function.
+ * Dismisses alerts after 4.5 seconds using setInterval function.
  * Improve user experience so that routine alerts are automatically
  * dismissed 
  */
@@ -54,16 +54,17 @@ setInterval(function () {
         let messages = document.getElementById('msg');
         let alert = new bootstrap.Alert(messages);
         alert.close();
-    }
-}, 4000);
-// set interval same for form message error alert
-setInterval(function () {
-    if (document.getElementById('form-msg')) {
+    } else if (document.getElementById('form-msg')) {
         let messages = document.getElementById('form-msg');
         let alert = new bootstrap.Alert(messages);
         alert.close();
+    } else if (document.getElementById('button-msg')) {
+        let messages = document.getElementById('button-msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
     }
-}, 4000);
+}, 4500);
+
 
 function hideElements() {
 /**
@@ -561,7 +562,7 @@ const buttonDisabled = (type, closed) => {
       }
     }
       alert.innerHTML = `
-      <div class="alert alert-warning alert-dismissible fade show shadow-lg shadow-primary" id="msg" role="alert">
+      <div class="alert alert-warning alert-dismissible fade show shadow-lg shadow-primary" id="button-msg" role="alert">
       <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning or Error:">
       <use xlink:href="#exclamation-triangle-fill"/>
       </svg>
