@@ -227,7 +227,18 @@ The user stories were collated into eleven epics. Each user story was assigned t
   - Beneath the map is a table containing all of the emission information. Clicking on any row opens a modal described below. Responsive styling hides less significant data on smaller screens. The table has a go back button in the header.<br><br>
   ![emission detail page](README-files/emission-detail-table.png)<br><br>
   - The modal has two buttons to submit a check or close the emission. The close emission button is styled unavailable for users without adequate permissions. A third delete button is visible to superusers.<br><br>
-   ![emission detail page](README-files/emission-detail-modal.gif)<br><br>
+  ![emission detail page](README-files/emission-detail-modal.gif)<br><br>
+- __Emission Check Page__
+  - The emission check page consists of a table of all checks that when loaded shows open emissions.
+  - The table has a search bar which will search for either the emission title or username and filter the table accordingly.<br><br>
+    ![emission checks page](README-files/checks-table-search.gif)<br><br>
+  - Each row of the table represents a check and when clicked opens a modal. The modal contains data for the check along with two buttons - submit a new check or edit current check.<br><br>
+  ![emission checks page](README-files/checks-page-modal.gif)<br><br>
+  - The submit check button redirects the user to the submit check form page. The edit check button allows the user who submitted the check to edit the text, provided it is within 24 hours of the check's original submission. Note the superuser can edit any time and has no such restrictions.
+  - If the check is by another user or the 24 hour period since submission has elapsed, the edit check button is styled to notify the user that it is unavailable.
+  - As in the emissions page, the table sits within a parent element div of set height with the same behaviour as previously mentioned. There are also two scroll buttons with identical behaviour to that described in the emissions page features.<br><br>
+  ![emission checks page](README-files/checks-table-scroll.gif)<br><br>
+
 
 
 
