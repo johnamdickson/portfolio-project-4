@@ -657,7 +657,7 @@ function adjustMapZoom(){
  */
 
     if (document.getElementById("map")){
-        if (window.innerWidth < 768) {
+        if (window.innerWidth <= 768) {
             map.setZoom(17.8);
     }
     else if ((window.innerWidth < 1200)) {
