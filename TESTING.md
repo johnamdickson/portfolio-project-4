@@ -22,6 +22,7 @@
   * [Javascript](#javascript)
   * [Python](#python)
   * [Lighthouse](#lighthouse)
+  * [DBeaver](#dbeaver)
 - [Responsiveness Testing](#responsiveness-testing)
   * [Browser Testing](#browser-testing)
   * [Device Testing](#device-testing)
@@ -223,6 +224,15 @@ For mobile devices, the performance score was in the 60-70 region. This was impr
 |logout.html|![lighthouse-results](TESTING-files/lighthouse/logout-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/logout-mobile.png)
 |signup.html|![lighthouse-results](TESTING-files/lighthouse/signup-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/signup-mobile.png)
 error-pages|![lighthouse-results](TESTING-files/lighthouse/error-pages-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/error-pages-mobile.png)
+
+
+### DBeaver
+
+The DBeaver database administration was used to verify the database schema and confirm the entity relationships exist within the database and are correct for the project. The images below serve as a comparision between the database schema produced online and the actual database structure as reported by DBeaver.
+
+**Manually Generated Schema**|**DBeaver ERD**|
+|:-----:|:-----:|
+|![Schema](README-files/database-schema.png)|![DBeaver](README-files/dbeaver-database-schema.png)
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 

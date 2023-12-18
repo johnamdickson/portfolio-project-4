@@ -331,6 +331,7 @@ A number of features were considered at the outset of and during the project but
 - **Git** used for version control.
 - **GitHub** as cloud repository for Git version control.
 - Any other libraries not explicitly mentioned here can be found in the [requirements.txt](requirements.txt) file.
+- **DBeaver** a desktop app which connects with a database and can generate relationship diagrams.
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Testing 
