@@ -141,7 +141,7 @@
 :------|:------|:----:|:-----:
 [As a **Site Admin** I can **complete manual testing** so that **all aspects of the project will be tested.**](https://github.com/johnamdickson/portfolio-project-4/issues/74)|All manual testing completed and referenced in TESTING.md|✅| TESTING.md can be found [here.](TESTING.md)
 [As a **Site Owner** I can **review well commented and annotated code** so that **purpose and scope of code is known now and into the future**](https://github.com/johnamdickson/portfolio-project-4/issues/82)|Review completed and updates made.|✅| Reviewed code can be found in the project area [here.](/)
-[ As a **Site Owner** I can **access the project README** so that **all of the necessary information for the tool is available on project completion**](https://github.com/johnamdickson/portfolio-project-4/issues/75)|README completed.|✅| README can be found[here.](README.md)
+[ As a **Site Owner** I can **access the project README** so that **all of the necessary information for the tool is available on project completion**](https://github.com/johnamdickson/portfolio-project-4/issues/75)|README completed.|✅| README can be found [here.](README.md)
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 
@@ -280,7 +280,7 @@ The test results can be seen in the image below:
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Manual Testing
-Each feature and action on every page of the app was tested manually to verify the correct function of the site. The results are detailed per page
+Each feature and action on every page of the app was tested manually to verify the correct function of the site. The results are detailed per page or major feature.
 
 ### Home Page
 
