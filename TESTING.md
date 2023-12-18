@@ -240,7 +240,8 @@ The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance
 ## Automated Testing
 
 ### Python Automated Testing
-Automated testing was completed on the Emission class methods and the First Monday class methods using the built in Django TestCase class. The individual test cases and results are shown in the table below:
+Automated testing was completed on the Emission class methods and the First Monday class methods using the built in Django TestCase class. The remainder of the Python based functionality was tested manually.
+The individual test cases and results are shown in the table below:
 **Test**|**Test Description**|**Result**                                              
 |:-----|:------|:------|
 |test_login_<br>verified_user| Checks if verified user created in set up can log in. Performs two assertions - checks user is verified and confirms if request has been successful.|<img src="TESTING-files/automated-testing/python-automated-testing/test-login-verfied.png" width="3000px">![device-testing](TESTING-files/automated-testing/python-automated-testing/test-login-verfied.gif)|
@@ -286,6 +287,7 @@ Home Page Modal - Emission Detail Button |When clicking on the go to emission de
 Home Page Modal - Go To All Emissions Page Button|When clicking on the go to all emissions page button it should redirect the user to the emissions page.|Opened modal and clicked the go to all emissions page button|User is redirected to the emissions page.|✅|
 Home Page Modal - All Buttons(except close button)|When hovering over all buttons the font should change colour and the background opacity should reduce.|Hovered over all three of the home page modal buttons|The font changed colour and the background opacity reduced as expected|✅|
 Home Page Modal - Close Button|When clicking on the close button, the modal should be dismissed.|Opened home page modal and clicked on the close button| Home page modal was dismissed|✅|
+|Screen width <= 768px|h1, h4 and p elements comprising *Welcome to the emissions monitoring tool Your one stop shop for mangaging industrial emissions on your asset or facility.*  should be hidden from the user when screen width is 768px or below and reappear when screen width is above 768px. |Using Chrome Devtools, reduced the screen width to 768px then below before returning width to above 768px.| The h1, h4 and p elements were hidden from the user at 768px and below. They reappeared when the screen width was brought above 768px.|✅|
 
 
 ### Emissions Page
@@ -310,6 +312,7 @@ Navbar Menu Items Styling|The emissions navbar link should be a bolder font on p
 |Emissions Page Modal - All Available Buttons(except modal close button)|When hovering over all available buttons the font should change colour and the background opacity should reduce.|Hovered over both of the emissions page modal buttons|The font changed colour and the background opacity reduced as expected|✅|
 |Emissions Page Modal - Modal Close Button|When clicking on the close button, the modal should be dismissed.|Opened emissions page modal and clicked on the close button| Emissions page modal was dismissed|✅|
 |Screen width <= 982px|Location, Created On and Next Check Due columns should be hidden from the user when screen width is 982px or below and reappear when screen width is above 982px. |Using Chrome Devtools, reduced the screen width to 982px then below before returning width to above 982px.| The Location, Created On and Next Check Due columns were hidden from the user at 982px and below. The columns reappeared when the screen width was brought above 982px.|✅|
+|Screen width <= 768px|Main image and all text in callout with the exception of *Easily add a new emission to the system* should be hidden from the user when screen width is 768px or below and reappear when screen width is above 768px. |Using Chrome Devtools, reduced the screen width to 768px then below before returning width to above 768px.| The image and text were hidden from the user, with *Easily add a new emission to the system* remaining at 768px and below. They reappeared when the screen width was brought above 768px.|✅|
 
 ### Checks Page
 
@@ -341,6 +344,8 @@ Checks Page Modal - Content|The modal should display the following check informa
 |:-----|:------|:------|:-----|:------:|
 |Site Logo|Clicking on logo will return user to the home page|Clicked on logo|Home page reloaded|✅|
 |Facility Map|Google map should load zoomed into facility and a marker should animate into position at emission location|Navigated to emission detail page for *FT-4100*.| Map zoomed into facility and following a short delay a marker animated in at position of the emission location|✅|
+|Facility Map - responsive zoom|Google map should load zoom should change to accomodate smaller screen widths. Zoom should adjust below 1200px and again at or below 768px. Map should return to zoom above 768px and at 1200px or above|Reduced screen width through 1200px to below 768px and then widened screen to original setting| Map zoom adjusted at the prescribed widths whilst reducing in increasing screen width|✅|
+|Facility Map - heading|The Google map should load at a heading to frame the site faciility perpendicular with the map div frame, in this case 22°.|Checked site map with the [Google Maps page](https://www.google.com/maps/place/53%C2%B048'06.7%22N+9%C2%B033'26.4%22W/@53.80185,-9.5599149,17z/data=!3m1!4b1!4m4!3m3!8m2!3d53.80185!4d-9.55734?entry=ttu) on another tab centered the site facility| Confirmed that the heading has been applied to the site map on load.|✅|
 |Map Marker|Clicking on the map marker should open an information window with the emissions title and image.|Click on marker within map.|An information window opens displaying the emission title and image.|✅|
 |Go Back Button|Clicking on the button should return the user to the previous page.|Click go back button.|Previous page loads.|✅|
 |Emission Detail Table - Status Dependant Data Display|The table should display different data depending on if the emission is open or closed|Navigated to closed emission *VN-5050* detail page and then open emission *FT-4100* detail page.| Both pages emission detail tables contain an image along with *Location*, *Type*, *Date Created*, *Description* and *Status* information. *VN-5050* emission detail table contains *Close Out Comments*, *Closed By* and *Close Out Date* data. *FT-4100* contains *Check Status*, *Last Checked*, *Current Check Due* and *Next Check Due* data.|✅|
@@ -369,6 +374,7 @@ Emission Detail Page Modal - Close Button User Dependant Hover Styling|For super
 |Add Emission - users with permissions| If the user is an emission admin or superuser then they should be able to access the add emission page and add an emission to the database. The user should be able to enter the pertinent data and providing all is in order, add the emission to the database. Once confirmed, the user should be redirected to the emissions page and presented with an alert confirming that the emission has been added successfully.|Logged in as superuser and navigated to the add emission page. Completed the form and clicked submit.| The site returned to the emissions page and an alert was presented confirming that the emission had been succesfully created. Logged out of app and then logged back in as emission_admin user *jane_smith* performing the same operations as above and got the same results.|✅|
 Add Emission - input fields|The user should not be able submit the form unless there is content in all of the input fields|Clicked the Add Emission button without entering any text into each input field in turn.|A warning popover appears each time over the empty the field.|✅|
 Add Emission - image upload|The user should not be able submit the form unless an image file has been uploaded|Clicked the Add Emission button without uploading an image.|A warning popover appeared requesting user please select a file.|✅|
+Add Emission - image upload|The user should not be able upload an image that is not of a specific range of formats|Tried to submit form with a gif uploaded as the image file.|Received an error alert with the text *Incorrect image format. Please upload jpg, jpeg, png, tiff, webp or bmp*.|✅|
 Add Emission - latitude and longitude fields|The user should not be able submit the form if a non-numeric character is added to either the latitude or longitude input fields|Clicked the Add Emission button with the letter *e* in the latitude and then longitude fields.|In both instances a warning popover appeared requesting user enter a number.|✅|
 Add Emission - latitude field| The number entered must be between -90 and 90. |Added the number 2000 into the input field and clicked the add emission button and then tried the same with the number -2000.|Received two warnings: *Value must be less than or equal to 90* and *Value must be greater than or equal to -90*|✅|
 Add Emission - latitude field| The number entered must be between -180 and 180.| Added the number 2000 into the input field and clicked the add emission button and then tried the same with the number -2000.|Received two warnings: *Value must be less than or equal to 180* and *Value must be greater than or equal to -180*|✅|
@@ -494,6 +500,14 @@ Go Back Button| The go back button should return the user to the home page.|Init
 Logged In User Feedback| The active user should be displayed in the footer when looged in.|Logged in as *john_doe*, *jane_smith* and then logged out completely.|For *john_doe* the footer displayed: *User: john_doe*. For *jane_smith* the footer displayed: *User: jane_smith*. When logged out completely the footer displayed: *no user logged in*.|✅|
 Social Media Link|Clicking on the LinkedIn icon in the footer should open the app home page in a new tab|Clicked on the LinkedIn icon|A new tab opened directing the user to the LinkedIn home page|✅|
 Social Media Link|On hover the LinkedIn icon should change colour|Moved cursor over the social media link|The LinkedIn icon changed colour to blue|✅|
+
+### Alerts
+ **Feature** | **Expected Outcome** | **Testing Performed** | **Testing Outcome** | **Result** |
+|:-----|:------|:------|:-----|:------:|
+Success Alert|When the user performs a positive action a success alert and message should be generated.|Logged in to the app|A success alert was generated with a message to the user confirming action.|✅|
+Info Alert|When the user performs a non-positive action (such as deleting an emission check) an info alert and message should be generated.|Deleted an emission check from database using delete option on checks page table row|An info alert was generated with a message to the user confirming action.|✅|
+Warning Alert|When the user tries to perfom an action which they do not have required permissions, a warning alert should be generated with information for the user.|Logged in as base user *john_doe* and tried to add an emission|A warning alert was generated with a message to the user informing them the reason why the action cannot be performed.|✅|
+Error Alert|When the user inputs incorrect data (such as wrong password in the login page) an error alert should be generated detailing the error for the user.|Attempted to log in as a user not yet registered on the system.|An error alert was generated with a message to the user explaining the error.|✅|
 
 ## Bugs
 The were a number of bugs encountered during the project which are summarised in the table below.
