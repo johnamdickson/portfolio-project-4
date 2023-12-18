@@ -52,7 +52,9 @@ The Agile Project Management approach was used in this project. Eleven epics wer
 
 #### User Stories
 
-As stated, the user stories were collated into eleven epics. Each user story was assigned to either the user, site admin, super user or site owner. The user stories were broken down into tasks and acceptance criteria which can be reviewed by clicking on the linked epics and user stories below.
+As stated, the user stories were collated into eleven epics. Each user story was assigned to either the user, site admin, super user or site owner. In total there are 47 user stories, with 18 Must Have (38%), 17 Should Have(36%), 5 Could Have (11%) and 7 Won't Have (15%). 
+<br>![user-story-breakdown](README-files/user-story-breakdown.png)
+The user stories were broken down into tasks and acceptance criteria which can be reviewed by clicking on the linked epics and user stories below.
 
 1. [Project Setup Epic](https://github.com/johnamdickson/portfolio-project-4/issues/1)
     - [As a **Site Admin** I can **deploy the project early** so that **fault finding through to deployment commences at the start of build**](https://github.com/johnamdickson/portfolio-project-4/issues/2)
@@ -163,7 +165,7 @@ As stated, the user stories were collated into eleven epics. Each user story was
 - The emissions page contains a striking image adjacent to callout of an individual in an industrial setting entering data into an ipad. This image was selected to convey another of the app's core objectives - Monitor.<br><br>
 ![emissions-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_942/v1698614641/emissions-checks_x06g1j.webp)
 
-- All icons on the site were added to provide more engaging user experience. The main icon used in the logo and also favicon is that of a droplet, used to symbolise the purpose of the app.<br><br>
+- All icons on the site were added to provide more engaging user experience. The main icon used in the logo is that of a droplet, used to symbolise the purpose of the app.<br><br>
 <p align="center">
   <img src="static/images/favicon.png"  width="100" height="100">
 </p>
