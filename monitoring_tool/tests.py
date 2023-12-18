@@ -6,7 +6,6 @@ import datetime
 from freezegun import freeze_time
 # freezegun info here: https://github.com/spulec/freezegun
 import cloudinary
-import logging
 from django.contrib.auth import get_user_model
 import cloudinary_config_test as cct
 from .models import Emission
