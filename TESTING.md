@@ -1,4 +1,9 @@
-# Table of Contents
+# Testing 
+
+## Contents
+
+<a name="contents"></a>
+
 - [User Story Testing](#user-story-testing)
   * [Project Setup Epic](#project-setup-epic)
   * [Basic Site Navigation Epic](#basic-site-navigation-epic)
@@ -39,6 +44,7 @@
   * [404 Error Page](#400-error-page) 
   * [500 Error Page](#403-error-page) 
   * [Footer](#footer) 
+  * [Alerts](#alerts) 
 - [Bugs](#bugs)
 
 ## User Story Testing
@@ -135,9 +141,9 @@
 :------|:------|:----:|:-----:
 [As a **Site Admin** I can **complete manual testing** so that **all aspects of the project will be tested.**](https://github.com/johnamdickson/portfolio-project-4/issues/74)|All manual testing completed and referenced in TESTING.md|✅| TESTING.md can be found [here.](TESTING.md)
 [As a **Site Owner** I can **review well commented and annotated code** so that **purpose and scope of code is known now and into the future**](https://github.com/johnamdickson/portfolio-project-4/issues/82)|Review completed and updates made.|✅| Reviewed code can be found in the project area [here.](/)
-[ As a **Site Owner** I can **access the project README** so that **all of the necessary information for the tool is available on project completion**](https://github.com/johnamdickson/portfolio-project-4/issues/75)|TODO!!!|✅| README can be found[here.](README.md)
+[ As a **Site Owner** I can **access the project README** so that **all of the necessary information for the tool is available on project completion**](https://github.com/johnamdickson/portfolio-project-4/issues/75)|README completed.|✅| README can be found[here.](README.md)
 
-
+<br><a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Validator Testing
 
@@ -218,6 +224,8 @@ For mobile devices, the performance score was in the 60-70 region. This was impr
 |signup.html|![lighthouse-results](TESTING-files/lighthouse/signup-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/signup-mobile.png)
 error-pages|![lighthouse-results](TESTING-files/lighthouse/error-pages-desktop.png)|![lighthouse-mobile-results](TESTING-files/lighthouse/error-pages-mobile.png)
 
+<br><a href="#contents">BACK TO CONTENTS 🔼</a>
+
 ## Responsiveness Testing
 
 ### Browser Testing
@@ -236,6 +244,8 @@ The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance
 |iPad Pro<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this device was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/ipad-pro-responsiveness.png)
 |Desktop/Laptop Screen Width 1024<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this screensize was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/laptop-1024-width.png)
 |Desktop/Laptop Screen Width 1440<br><sup><sub>(Simulated Device)</sub></sup>| The responsiveness for this screensize was simulated on Chrome Devtools and confirmed to be satisfactory.|![device-testing](TESTING-files/responsiveness-testing/device-testing/laptop-1440-width.png)
+
+<br><a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Automated Testing
 
@@ -266,8 +276,9 @@ Javascript testing was completed using Jest. The only function tested is the err
 The test running can be viewed [here.](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.gif)<br>
 The test results can be seen in the image below:
 
-![device-testing](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.png)
+![automated-testing](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.png)
 
+<br><a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Manual Testing
 Each feature and action on every page of the app was tested manually to verify the correct function of the site. The results are detailed per page
 
@@ -508,6 +519,8 @@ Success Alert|When the user performs a positive action a success alert and messa
 Info Alert|When the user performs a non-positive action (such as deleting an emission check) an info alert and message should be generated.|Deleted an emission check from database using delete option on checks page table row|An info alert was generated with a message to the user confirming action.|✅|
 Warning Alert|When the user tries to perfom an action which they do not have required permissions, a warning alert should be generated with information for the user.|Logged in as base user *john_doe* and tried to add an emission|A warning alert was generated with a message to the user informing them the reason why the action cannot be performed.|✅|
 Error Alert|When the user inputs incorrect data (such as wrong password in the login page) an error alert should be generated detailing the error for the user.|Attempted to log in as a user not yet registered on the system.|An error alert was generated with a message to the user explaining the error.|✅|
+
+<br><a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Bugs
 The were a number of bugs encountered during the project which are summarised in the table below.
