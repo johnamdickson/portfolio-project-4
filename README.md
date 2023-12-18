@@ -1,7 +1,7 @@
 
 # <img src="static/images/favicon.png"  width="40" height="40">  &nbsp;Emissions Monitoring Tool
 
-Emissions Monitoring Tool is an application for industrial clients to monitor, verify and report any unwanted emissions that do not neccesitate an immediate shutdown to repair. .
+Emissions Monitoring Tool is an application for industrial clients to monitor, verify and report any unwanted emissions that do not neccesitate an immediate shutdown to repair.
 
 This application is showcasing Full Stack Frameworks for Project Portfolio 4 and can be accessed by following this [link.](https://emissions-monitoring-tool-99fd7318f662.herokuapp.com/)
 
@@ -47,8 +47,8 @@ The objective of the site is to allow industrial facilities to manage unexpected
 
 #### Agile Methodology
 
-The Agile Project Management approach was used in this project. Eleven epics were completed each with their own varying number of user stories. The user stories were categorised using MoSCoW prioritisation using Github issue labels of *Must Have*, *Should Have*, *Could Have* and *Won't Have*. Each user story was assigned a timebox valueusing the [Fibonacci Sequence](https://www.linkedin.com/pulse/why-agile-teams-use-fibonacci-sequence-estimating-corrado-de-sanctis). 
- Over the course of the project, fifteen sprints were completed selecting user stories based on a timebox value of no more than 8 per sprint. The epics, user stories and also bugs were all categorised using the Github Project Kanban board feature, which can be found [here.](https://github.com/users/johnamdickson/projects/2/views/1)
+The Agile Project Management approach was used in this project. Eleven epics were completed each with their own varying number of user stories. The user stories were categorised using MoSCoW prioritisation with Github issue labels of *Must Have*, *Should Have*, *Could Have* and *Won't Have*. Each user story was assigned a timebox value using the [Fibonacci Sequence](https://www.linkedin.com/pulse/why-agile-teams-use-fibonacci-sequence-estimating-corrado-de-sanctis). 
+ Over the course of the project, fifteen sprints were completed selecting user stories based on a timebox value of no more than 8 per sprint. The epics, user stories and also bugs were all tracked and visualised using the Github Project Kanban board feature, which can be found [here.](https://github.com/users/johnamdickson/projects/2/views/1)
 
 #### User Stories
 
@@ -141,32 +141,35 @@ As stated, the user stories were collated into eleven epics. Each user story was
  - Sign up, login and logout pages.
 #### Optional Content
 - A map showing emission location on emissions, checks and detail pages.
-- 
+
 ### Structure
 - The structure of the postgresql database was defined and mapped out on a database schema. This helped define the required data interactions to develop a usuable product.<br><br>
-![database schema](README-files/database-schema.png).
+![database schema](README-files/database-schema.png)
 - The front end utilises bootstrap and bespoke styling for a user friendly, designed approach. 
 - Along with the database, the backend also consists of Cloudinary for image storage.
 ### Skeleton
 #### Wireframes
-- The project wireframes can be found [here.](README-files/pp4-wireframes.pdf)
+- The desktop wireframes can be found [here.](README-files/Wireframes/desktop-wireframes.pdf)
+- The mobile and tablet wireframes can be found [here.](README-files/Wireframes/desktop-wireframes.pdf)
 ### Surface (Design)
 #### Colour Scheme
 - The main theme colour for the site is a shade of red called *Punch*. The use of red is designed to trigger a user response given it is commonly utilised when there is a call to action. In this case, the action we want the user to perform is staying on top of emissions on their facility, something which unavoidably carries inherent risks to people, the environment and ultimately the business. Red is also closely linked with danger which ties in well with the latter risks.<br><br>
 ![colour-pallette](README-files/colour-pallete.png)
 ![colour-hex-codes](README-files/colour-hex-codes.png)
 #### Imagery
-- The hero image appears in the home page and was selected to convey a collaboration, supervision, industry and technology. In the image, there are two individuals in an industrial setting monitoring an item of equipment together. The image signifies operational surveillance of equipment but perhaps also the supervision aspect in that one person is showing the other something on the facility. The image is considered to one of the app's core objectives - Verify.<br><br>
+- The hero image appears in the home page and was selected to convey collaboration, supervision, industry and technology. In the image, there are two individuals in an industrial setting monitoring an item of equipment together. The image signifies operational surveillance of equipment but perhaps also the supervision aspect in that one person is showing the other something on the facility. The image is considered to convey one of the app's core objectives - Verify.<br><br>
 ![hero-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,q_auto,w_1347/v1697952261/checks-ipad_copy_rma9aj.webp)
 
-- The emissions page contains a striking image adjacent to callout of an individual in an industrial setting entering data into an ipad. This image was selected to convey another of the app's core objective - Monitor.<br><br>
+- The emissions page contains a striking image adjacent to callout of an individual in an industrial setting entering data into an ipad. This image was selected to convey another of the app's core objectives - Monitor.<br><br>
 ![emissions-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_942/v1698614641/emissions-checks_x06g1j.webp)
 
 - All icons on the site were added to provide more engaging user experience. The main icon used in the logo and also favicon is that of a droplet, used to symbolise the purpose of the app.<br><br>
-<img src="static/images/favicon.png"  width="50" height="50">
+<p align="center">
+  <img src="static/images/favicon.png"  width="100" height="100">
+</p>
 
 #### Logo
-- The site logo utilises both the site fonts in order to create a contrast between the app name and the tag line. They are further distinguised from each other with app name being lower case and the tag line upper case. The logo is completed with the main icon inserted into the app name between emissions and monitoring, creating a more visually appealing aesthetic.<br><br>
+- The app logo utilises both the site fonts in order to create a contrast between the app name and the tag line. They are further distinguised from each other with app name being lower case and the tag line upper case. The logo is completed with the main icon inserted into the app name between emissions and monitoring, creating a more appealing aesthetic.<br><br>
 ![logo-image](README-files/logo.png)
 #### Typography
 - Two fonts were selected for use throughout the site. For titles and calls to action, Josefin Sans was used. The remainder of the site uses the serif font Taviraj. These fonts were imported via Google Fonts.<br><br>
@@ -190,7 +193,7 @@ As stated, the user stories were collated into eleven epics. Each user story was
 
 ### Existing Features
 - __Navbar__
-  - The main feature of the navbar is th site logo which also comprises a link to the home page.
+  - The main feature of the navbar is the site logo which also comprises a link to the home page.
   - A navbar menu with dynamic links dependant on user status and permissions. If no user logged in then only login or register are visible. If user is logged in then home, emissions, checks and logout are visible. Superusers have an additional menu item called admin which directs the user to the Django admin panel.<br><br>
   ![navbar](README-files/navbar.png)
 - __Footer__
@@ -202,11 +205,11 @@ As stated, the user stories were collated into eleven epics. Each user story was
   - The login or sign in page consists of a simple form with clear instructions within a responsive container where the user can log in with ease providing a username and password.
   - The background of the form is the home page hero image, blurred and in greyscale to create a subtle link with the site.
   - Clicking on the log in button directs the user to the home page and and alert informs the user they have successfully logged in.
-  - The user status in the footer updates to display the username of the currently logged in user.
+  - The user status in the footer updates to display the username of the currently logged in user.<br><br>
   ![login](README-files/login.gif)
 - __Register Page__ 
   - The register or sign up page also consists of a simple form with clear instructions within a responsive container where the user can register with ease by selecting a username and password before hitting the register button.
-  - As in the login page, the background of the form is the home page hero image.
+  - As in the login page, the background of the form is the home page hero image.<br><br>
   ![login](README-files/register.png)
 - __Home Page__ 
   - A hero image and call out with an overview of the tool features are at the forefront of the home page to draw in the user and explain the concept of the site.<br><br>
@@ -221,11 +224,11 @@ As stated, the user stories were collated into eleven epics. Each user story was
   - A callout with an image of an individual in an industrial setting entering data into a tablet as described in images section.
   - Adjacent to this another callout with an overview of the emissions list along with a button allowing authorised users to add an emission.<br><br>
   ![emissions page](README-files/emissions-page-callouts.png)<br><br>
-  - A table containing all filtered to open emissions on load. Each row of the table represents an individual emission which when clicked presents a modal described below. In the Emission Status header is a toggle switch which enables users to hide/unhide closed emissions.<br><br>
+  - A table containing filtered to all open emissions on load. Each row of the table represents an individual emission which when clicked presents a modal described below. In the Emission Status header is a toggle switch which enables users to hide/unhide closed emissions.<br><br>
   ![emissions page](TESTING-files/user-story-testing/emissions-display-and-interaction/emissions-table-filter.gif)
   - The table sits within a parent element div of set height meaning the table will scroll within that height. At the bottom right of the table, there are two scroll buttons which will move the table to the top and bottom extremeties when pressed. The buttons opacity dynamically changes if the table is at the position that the button is directing the table towards, giving the user feedback on button availability.<br><br>
   ![emissions page](README-files/emissions-table-scroll-buttons.gif)<br><br>
-  - The modal contains buttons to submit a check for the selected emission or go to the emission detail page.<br><br>
+  - The modal presented on table row click contains buttons to submit a check for the selected emission or go to the emission detail page.<br><br>
    ![emissions page](README-files/emission-modal.gif)
 - __Emission Detail Page__ 
   - The page contains a map that is centered on the site owners facility. In this case, the facility is an [abandoned fish factory](https://www.advertiser.ie/mayo/article/30821/black-day-for-westport-as-fish-factory-announces-it-is-to-close) in Westport. The map heading and zoom is set so that the facility sits square in the map div.
@@ -257,7 +260,7 @@ As stated, the user stories were collated into eleven epics. Each user story was
   - The background of the form is same as other forms to create a link back to the site content.
   - The form contains a Go Back button for the user to easily return to the previous page.
   - When the close button is clicked a confirmation dialogue appears to double check the user wants to close out the emission.
-  - On closing, the user will be redirecetd to the emissions page and informed via alert that the emission has been closed.<br><br>
+  - On closing, the user will be redirected to the emissions page and informed via alert that the emission has been closed.<br><br>
   ![close-emission](README-files/close-emission.gif)
 - __Submit Check Page__
   - The submit check page consists of a simple form with a drop down to select the emission status and a comments text input for uploading to the database. Not the comments input has placeholder text to assist the user filling in the correct information. The form is again held within a responsive container.
@@ -269,7 +272,7 @@ As stated, the user stories were collated into eleven epics. Each user story was
   - The background of the form is same as other forms to create a link back to the site content.
   - The form contains a Go Back button for the user to easily return to the previous page.
   - When the edit button is clicked a confirmation dialogue appears to double check the user wants to edit the emissions. The confirmation dialogue also repeats the edit comments for the user to check before completing the edit.
-  - When edit is confirmed, the user will be redirecetd to the checks page and informed via alert that the emission has been closed.<br><br>
+  - When edit is confirmed, the user will be redirected to the checks page and informed via alert that the emission has been closed.<br><br>
   ![edit-check](README-files/edit-check.gif)
   - __Logout Page__ 
     - The logout or sign out page consists of a simple form with a prompt for the user to confirm they want to log out, within a responsive container where the user can log out by clicking the button.
@@ -335,6 +338,24 @@ Testing information can be found [here.](TESTING.md)
 
 ## Deployment
 
+### Prepare the environment and settings.py file:
+1. In your GitPod workspace, create an env.py file in the main directory.
+2. Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file. 
+3. Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+4. Comment out the default database configuration.
+5. Save files and make migrations.
+6. Add Cloudinary URL to env.py
+7. Add the cloudinary libraries to the list of installed apps.
+8. Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+9. Link the file to the templates directory in Heroku.
+10. Change the templates directory to TEMPLATES_DIR
+11. Add Heroku to the ALLOWED_HOSTS list.
+
+### Create files / directories
+1. Create requirements.txt file
+2. Create three directories in the main directory; media, storage and templates.
+3. Create a file named "Procfile" in the main directory and add the following: web: gunicorn project-name.wsgi
+
 ### Deploying to Heroku
 * This site was deployed by completing the following steps:
 
@@ -351,14 +372,13 @@ Testing information can be found [here.](TESTING.md)
     - Enter DISABLE_COLLECTSTATIC into the next available Key box and then in the value box add 1 if this is to be disabled to prevent errors or 0 if the app is in a state where errors will not be generated.
     - Enter port into the next available Key box and 8000 into the Value box and click the Add button.
     - Enter SECRET_KEY into the next available Key box and then whichever secret key was selected into the corresponding Value box.
-8. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
-9. Repeat step 8 to add node.js. o Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
-10. Scroll to the top of the page and choose the Deploy tab.
-11. Select Github as the deployment method.
-12. Confirm you want to connect to GitHub.
-13. Search for the repository name and click the connect button.
-14. Scroll to the bottom of the deploy page and select the preferred deployment type.
-15. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
+8. Next, scroll down to the Buildpack section click Add Buildpack and confirm that Heorku/Python buildpack is present.
+9. Scroll to the top of the page and choose the Deploy tab.
+10. Select Github as the deployment method.
+11. Confirm you want to connect to GitHub.
+12. Search for the repository name and click the connect button.
+13. Scroll to the bottom of the deploy page and select the preferred deployment type.
+14. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
 
 ### Forking the GitHub Repository
 
@@ -393,6 +413,8 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
 Click [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.<br><br>
+
+
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Credits 
 ### Content 
@@ -401,6 +423,8 @@ NOTE: Specific links are included within the Python, Javascript, HTML and CSS  f
 - This [website](https://www.scaler.com/topics/multiline-comment-in-python/) gave guidance for making multi-line comments where using `“””` is recommended for docstrings and using `#` for comments.
 - Guidance on JS function comments was taken from this [website.](https://courses.cs.washington.edu/courses/cse154/18au/resources/styleguide/commenting.html#:~:text=Function%20Commenting%20Format,a%20value%20of%20%2D1)
 - Thanks to my tutor Graham for his excellent advice during the mentoring sessions and also for the positive feedback.
+- The Full Stack Framework walkthrough blogging project provided much inspiration for this project.
+- Two former students READMEs and project formations were also beneficial to this project. They can be found [here](https://github.com/AliOKeeffe/PP4_My_Meal_Planner/tree/main) and [here.](https://github.com/MattBCoding/pp4-the-pantry)
 
 ### Media
 - The site fonts were source from [Google Fonts.](https://fonts.google.com/)
