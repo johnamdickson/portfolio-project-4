@@ -208,7 +208,6 @@ const showModal = (data) => {
     // solution to passing django url from javascript from stack overflow:
     // https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event
     let allEmissionsUrl = document.getElementById('emissionUrl').getAttribute('data-url');
-    // let checkEmissionUrl = document.getElementById('emissionCheckUrl').getAttribute('data-url');
     const modalItem = document.getElementById('emissionModalCenter');
     modalItem.innerHTML = ` <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -299,10 +298,9 @@ const emissionModal = (data, page, checkId, user, superuser) => {
     const checkIdInt = parseInt(checkId);
     const parsedData = JSON.parse(data);
     const date = new Date(parsedData.date_checked);
-    const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     // working with Javascript date options with support from this tutorial:
     // https://www.influxdata.com/blog/how-get-convert-format-javascript-date-timestamp/#:~:text=Once%20you%20have%20a%20Date,the%20hour%2C%20and%20so%20on.
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 //  delcare constants for modal iteself, title and body and assign detail as innerText to title and body.
     const modalItem = document.getElementById('emissionModal');
@@ -407,7 +405,6 @@ const emissionModal = (data, page, checkId, user, superuser) => {
             emissionCheckEditButton.onclick = emissionClosedFunction;
             }
         
-
 // create instance of bootstrap modal and instantiate.
     let emissionModal = new bootstrap.Modal(modalItem);
     emissionModal.show();
@@ -451,12 +448,12 @@ function startCarousel() {
     });
 }
 
+function statusFilter() {
 /**
  * Function to filter emissions table for open/closed
  * status. Default selection is open only with toggle
  * switch position determining filter.
  */
-function statusFilter() {
     let closedRows = document.getElementsByClassName("closed-row");
     let filterText = document.getElementById("column-filter");
     // verify closed rows exist to prevent console errors
@@ -602,10 +599,13 @@ async function initMap() {
   }
 }
 
-// function for adding marker once map has initialised. Taking arguments from 
-// emission constants declared in emission detail html.
+//
 
 async function addMarker() {
+/**
+ * function for adding marker once map has initialised. Taking arguments from 
+ * emission constants declared in emission detail html.
+ */
     // obtain data from constants declared in HTML containing Django variables:
     // https://www.django-antipatterns.com/antipattern/rendering-into-javascript.html
     const lat = JSON.parse(document.getElementById('latitudeJson').textContent);
@@ -693,7 +693,7 @@ const filterChecks = () => {
       style.display = isFound([
         ...filterColumns.map(c => children[c]) // <-- filter Columns
       ]) ? '' : 'none';
-      statusFilter()
+      statusFilter();
     };
     
     trs.forEach(setTrStyleDisplay);
@@ -730,7 +730,6 @@ const errorCountdown = () => {
     }
   };
     
-
     // use of jquery to utilise smooth animated scrolling in tables
     // https://stackoverflow.com/questions/1144805/scroll-to-the-top-of-the-page-using-javascript
 
