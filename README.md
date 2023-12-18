@@ -145,7 +145,7 @@ The user stories were broken down into tasks and acceptance criteria which can b
 - A map showing emission location on emissions, checks and detail pages.
 
 ### Structure
-- The structure of the postgresql database was defined and mapped out on a database schema. This helped define the required data interactions to develop a usuable product.<br><br>
+- The structure of the postgresql database was defined and mapped out on a database schema. This helped define the required data interactions to develop a usuable product. The main tables as shown are the Django user model and the project custom models Emission and Emission Checks. The user id has a one to many relationship with both the Emission and Emission Check model so that the user completing action on those tables can be tracked. The Emission id has a one to many relationship with the Emission Checks model in that multiple checks can be generated for one emission.<br><br>
 ![database schema](README-files/database-schema.png)
 - The front end utilises bootstrap and bespoke styling for a user friendly, designed approach. 
 - Along with the database, the backend also consists of Cloudinary for image storage.
