@@ -305,7 +305,7 @@ A number of features were considered at the outset of and during the project but
 - **Javascript**: Used for front end functionality notably the Google Maps API, conditional formatting.
 - **HTML5**: Used for rendering the DOM.
 - **CSS3**: Used to apply custom styling where bootstrap did not extend to the project design requirements.
-- **Django Template Language**: Used within the DOM to connect with the backend and render on the page.
+- **Django Template Language**: Used within the DOM to connect with the backend and render data on the page.
 - **Markdown**: Used exclusively for README and TESTING.<br>
 
 ### Frameworks, Libraries & Programs Used
