@@ -230,9 +230,18 @@ error-pages|![lighthouse-results](TESTING-files/lighthouse/error-pages-desktop.p
 
 The DBeaver database administration was used to verify the database schema and confirm the entity relationships exist within the database and are correct for the project. The images below serve as a comparision between the database schema produced online and the actual database structure as reported by DBeaver.
 
-**Manually Generated Schema**|**DBeaver ERD**|
-|:-----:|:-----:|
-|![Schema](README-files/database-schema.png)|![DBeaver](README-files/dbeaver-database-schema.png)
+<p align="center">
+  <strong>Manually Generated Schema</strong>
+</p>
+
+![Schema](README-files/database-schema.png)
+
+
+<p align="center">
+  <strong>DBeaver Entity Relationship Diagram</strong>
+</p>
+
+![DBeaver](README-files/dbeaver-database-schema.png)
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 
