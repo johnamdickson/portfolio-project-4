@@ -15,7 +15,7 @@ from django.core.validators import FileExtensionValidator
 class Emission(models.Model):
     """
     Class containing all of the emission properties and
-    methods to create an emission on the database. 
+    methods to create an emission on the database.
     There is one foreign key - the user instance.
     """
     type_choices = k.EMISSION_TYPES
@@ -132,7 +132,7 @@ class Emission(models.Model):
 class EmissionCheck(models.Model):
     """
     Class containing all of the emission checks properties
-    and methods to create an emission check on the database. 
+    and methods to create an emission check on the database.
     There are two foreign keys - the user instance and the
     emision that is being checked.
     """
