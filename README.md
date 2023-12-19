@@ -54,6 +54,31 @@ The Agile Project Management approach was used in this project. Eleven epics wer
 
 As stated, the user stories were collated into eleven epics. Each user story was assigned to either the user, site admin, super user or site owner. In total there are 47 user stories, with 18 Must Have (38%), 17 Should Have(36%), 5 Could Have (11%) and 7 Won't Have (15%). 
 <br>![user-story-breakdown](README-files/user-story-breakdown.png)
+The total number of story points assigned to the user stories is 132 of which Must Have assigned 53 points(40%), Should Have assigned 45 points(34%), Could Have assigned 12 points(9%) and Won't Have assigned 22 points (17%).
+
+<table>
+<tr>
+  <img src="README-files/total-story-points.png" >
+</tr>
+<tr>
+<td width=50%>
+  <img src="README-files/must-have-story-points.png" >
+</td>
+<td>
+  <img src="README-files/should-have-story-points.png">
+
+</td>
+</tr>
+<tr>
+<td width=50%>
+  <img src="README-files/could-have-story-points.png" >
+</td>
+<td>
+  <img src="README-files/wont-have-story-points.png">
+
+</td>
+</tr>
+</table>
 The user stories were broken down into tasks and acceptance criteria which can be reviewed by clicking on the linked epics and user stories below.
 
 1. [Project Setup Epic](https://github.com/johnamdickson/portfolio-project-4/issues/1)
