@@ -260,8 +260,6 @@ The DBeaver database administration tool was used to verify the database schema 
 </table>
 
 
-
-
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Responsiveness Testing
@@ -269,7 +267,10 @@ The DBeaver database administration tool was used to verify the database schema 
 ### Browser Testing
 
 The app was tested on Chrome, Firefox, Safari and Microsoft Edge. The appearance and responsiveness on each platform was satisfactory. The only exception was an anomaly observed on Safari, where the background colour of the status cells on emissions and emissions checks tables is applied after the page loads or the filter toggle switch is moved. The result is a stepped transition which looks out of place with other transitions in the app and can be seen in the gif below. This is a minor issue so will not be addressed in the first revision of the the app. It will be recorded as an [unresolved bug](https://github.com/johnamdickson/portfolio-project-4/issues/87) with a view to resolving in any future app updates.<br><br>
-![responsiveness-results](TESTING-files/responsiveness-testing/browser-testing/safari-testing.gif)
+      <p align="center">
+        ![responsiveness-results](TESTING-files/responsiveness-testing/browser-testing/safari-testing.gif)
+      </p>
+
 
 ### Device Testing
 
@@ -313,8 +314,11 @@ Javascript testing was completed using Jest. The only function tested is the err
 
 The test running can be viewed [here.](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.gif)<br>
 The test results can be seen in the image below:
+      <p align="center">
+  ![automated-testing](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.png)
+      </p>
 
-![automated-testing](TESTING-files/automated-testing/javascript-automated-testing/jest-tests.png)
+
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
 ## Manual Testing
