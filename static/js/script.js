@@ -456,13 +456,14 @@ function statusFilter() {
  */
     let closedRows = document.getElementsByClassName("closed-row");
     let filterText = document.getElementById("column-filter");
+    let filterSwitch = document.getElementById('flexSwitchCheckChecked');
+    filterSwitch.checked = true;
     // verify closed rows exist to prevent console errors
     if (closedRows.length !== 0 ) {
         // initially hide closed emissions.
         for (let row of closedRows) {
             row.style.display = 'none';
         }
-        let filterSwitch = document.getElementById('flexSwitchCheckChecked');
         filterSwitch.addEventListener('change', function() {
             // solution to accessing bootstrap switch status from stack overflow:
             // https://stackoverflow.com/questions/65229118/how-to-check-switch-bootstrap-5-with-plain-javascript
@@ -693,6 +694,8 @@ const filterChecks = () => {
       style.display = isFound([
         ...filterColumns.map(c => children[c]) // <-- filter Columns
       ]) ? '' : 'none';
+      let filterSwitch = document.getElementById('flexSwitchCheckChecked');
+      filterSwitch.checked = true;
       statusFilter();
     };
     
