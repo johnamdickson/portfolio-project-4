@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -127,7 +127,7 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
 
 
 class Emissions(View):
-
+    
     def get(self, request, slug, *args, **kwargs):
         """
         Function to get emissions and return key data for use in
@@ -181,7 +181,7 @@ class Emissions(View):
             )
         else:
             # if not authenticated, direct to login page
-            return render(request, 'account/login.html')
+            return redirect('/accounts/login')
 
     def close(request, slug, *args, **kwargs):
         """
