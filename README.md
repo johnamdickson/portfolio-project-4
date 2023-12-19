@@ -503,6 +503,7 @@ NOTE: Specific links are included within the Python, Javascript, HTML and CSS  f
 - Thanks to my tutor Graham for his excellent advice during the mentoring sessions and also for the positive feedback.
 - The Full Stack Framework walkthrough blogging project provided much inspiration for this project.
 - Two former students READMEs and project formations were also beneficial to this project. They can be found [here](https://github.com/AliOKeeffe/PP4_My_Meal_Planner/tree/main) and [here.](https://github.com/MattBCoding/pp4-the-pantry)
+- Thanks to @Stephen_5P who identified formatting and useability issues during peer code review.
 
 ### Media
 - The site fonts were source from [Google Fonts.](https://fonts.google.com/)
