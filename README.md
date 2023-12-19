@@ -156,14 +156,22 @@ The user stories were broken down into tasks and acceptance criteria which can b
 ### Surface (Design)
 #### Colour Scheme
 - The main theme colour for the site is a shade of red called *Punch*. The use of red is designed to trigger a user response given it is commonly utilised when there is a call to action. In this case, the action we want the user to perform is staying on top of emissions on their facility, something which unavoidably carries inherent risks to people, the environment and ultimately the business. Red is also closely linked with danger which ties in well with the latter risks.<br><br>
+      <p align="center">
 ![colour-pallette](README-files/colour-pallete.png)
+      </p>
+      <p align="center">
 ![colour-hex-codes](README-files/colour-hex-codes.png)
+      </p>
+
 #### Imagery
 - The hero image appears in the home page and was selected to convey collaboration, supervision, industry and technology. In the image, there are two individuals in an industrial setting monitoring an item of equipment together. The image signifies operational surveillance of equipment but perhaps also the supervision aspect in that one person is showing the other something on the facility. The image is considered to convey one of the app's core objectives - Verify.<br><br>
 ![hero-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,q_auto,w_1347/v1697952261/checks-ipad_copy_rma9aj.webp)
 
 - The emissions page contains a striking image adjacent to callout of an individual in an industrial setting entering data into an ipad. This image was selected to convey another of the app's core objectives - Monitor.<br><br>
-![emissions-image](https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_942/v1698614641/emissions-checks_x06g1j.webp)
+  <p align="center">
+  <img src="https://res.cloudinary.com/dndmvsjh7/image/upload/c_scale,w_942/v1698614641/emissions-checks_x06g1j.webp">
+  </p>
+
 
 - All icons on the site were added to provide more engaging user experience. The main icon used in the logo is that of a droplet, used to symbolise the purpose of the app.<br><br>
 <p align="center">
@@ -208,7 +216,10 @@ The user stories were broken down into tasks and acceptance criteria which can b
   - The background of the form is the home page hero image, blurred and in greyscale to create a subtle link with the site.
   - Clicking on the log in button directs the user to the home page and and alert informs the user they have successfully logged in.
   - The user status in the footer updates to display the username of the currently logged in user.<br><br>
+        <p align="center">
   ![login](README-files/login.gif)
+      </p>
+
 - __Register Page__ 
   - The register or sign up page also consists of a simple form with clear instructions within a responsive container where the user can register with ease by selecting a username and password before hitting the register button.
   - As in the login page, the background of the form is the home page hero image.<br><br>
@@ -219,69 +230,108 @@ The user stories were broken down into tasks and acceptance criteria which can b
   - A multi card carousel where each card represents an emission and features the emission image and high level information: emission type and check status.<br><br>
    ![home page](README-files/carousel.png)<br><br>
   - A modal which displays on click of the carousel card and contains the emission information for the card selected. The modal also has three buttons that allow the user to submit a check for the emission, go to the emission detail page or go to the all emissions page.<br><br>
-   ![home page](README-files/home_page_modal.gif)<br><br>
+      <p align="center">
+      <img src="README-files/home_page_modal.gif">
+      </p>
+<br>
   - A carousel control with buttons for moving carousel left and right and indicators for card tracking.<br><br>
-   ![home page](README-files/carousel-controls.gif)
+        <p align="center">
+      <img src="README-files/carousel-controls.gif">
+      </p>
+
 - __Emissions Page__ 
   - A callout with an image of an individual in an industrial setting entering data into a tablet as described in images section.
   - Adjacent to this another callout with an overview of the emissions list along with a button allowing authorised users to add an emission.<br><br>
   ![emissions page](README-files/emissions-page-callouts.png)<br><br>
   - A table containing filtered to all open emissions on load. Each row of the table represents an individual emission which when clicked presents a modal described below. In the Emission Status header is a toggle switch which enables users to hide/unhide closed emissions.<br><br>
-  ![emissions page](TESTING-files/user-story-testing/emissions-display-and-interaction/emissions-table-filter.gif)
+      <p align="center">
+      <img src="TESTING-files/user-story-testing/emissions-display-and-interaction/emissions-table-filter.gif">
+      </p>
   - The table sits within a parent element div of set height meaning the table will scroll within that height. At the bottom right of the table, there are two scroll buttons which will move the table to the top and bottom extremeties when pressed. The buttons opacity dynamically changes if the table is at the position that the button is directing the table towards, giving the user feedback on button availability.<br><br>
-  ![emissions page](README-files/emissions-table-scroll-buttons.gif)<br><br>
+      <p align="center">
+      <img src="README-files/emissions-table-scroll-buttons.gif">
+      </p>
+<br>
   - The modal presented on table row click contains buttons to submit a check for the selected emission or go to the emission detail page.<br><br>
-   ![emissions page](README-files/emission-modal.gif)
+        <p align="center">
+      <img src="README-files/emission-modal.gif">
+      </p>
+
 - __Emission Detail Page__ 
   - The page contains a map that is centered on the site owners facility. In this case, the facility is an [abandoned fish factory](https://www.advertiser.ie/mayo/article/30821/black-day-for-westport-as-fish-factory-announces-it-is-to-close) in Westport. The map heading and zoom is set so that the facility sits square in the map div.
   - After a short delay on page load a map marker animates into position. The marker represents the actual location of the emission.
   - Clicking on the marker opens an information window with the emission title and image.<br><br>
-   ![emission detail page](README-files/map-and-marker.gif)<br><br>
+      <p align="center">
+      <img src="README-files/map-and-marker.gif">
+      </p>
+<br>
   - Beneath the map is a table containing all of the emission information. Clicking on any row opens a modal described below. Responsive styling hides less significant data on smaller screens. The table has a go back button in the header.<br><br>
+
   ![emission detail page](README-files/emission-detail-table.png)<br><br>
   - The modal has two buttons to submit a check or close the emission. The close emission button is styled unavailable for users without adequate permissions. A third delete button is visible to superusers.<br><br>
-  ![emission detail page](README-files/emission-detail-modal.gif)
+      <p align="center">
+      <img src="README-files/emission-detail-modal.gif">
+      </p>
 - __Emission Checks Page__
   - The emission check page consists of a table of all checks that when loaded shows open emissions.
   - The table has a search bar which will search for either the emission title or username and filter the table accordingly.<br><br>
-    ![emission checks page](README-files/checks-table-search.gif)<br><br>
+      <p align="center">
+      <img src="README-files/checks-table-search.gif">
+      </p>   
+<br>
   - Each row of the table represents a check and when clicked opens a modal. The modal contains data for the check along with two buttons - submit a new check or edit current check.<br><br>
-  ![emission checks page](README-files/checks-page-modal.gif)<br><br>
+      <p align="center">
+      <img src="README-files/checks-page-modal.gif">
+      </p>   
+  <br>
   - The submit check button redirects the user to the submit check form page. The edit check button allows the user who submitted the check to edit the text, provided it is within 24 hours of the check's original submission. Note the superuser can edit any time and has no such restrictions.
   - If the check is by another user or the 24 hour period since submission has elapsed, the edit check button is styled to notify the user that it is unavailable.
   - As in the emissions page, the table sits within a parent element div of set height with the same behaviour as previously mentioned. There are also two scroll buttons with identical behaviour to that described in the emissions page features.<br><br>
-  ![emission checks page](README-files/checks-table-scroll.gif)
+      <p align="center">
+      <img src="README-files/checks-table-scroll.gif">
+      </p>   
+
 - __Add Emission Page__
   - The add emission page consists of a simple form with required emission data for uploading to the database. Not the text input fields all have placeholder taxt to assist the user filling in the correct information. The form is again held within a responsive container.
   - The background of the form is same as other forms to create a link back to the site content.
   - The form contains a Go Back button for the user to easily return to the previous page.
   - On click the user is redirected to the emissions page and an alert informing the user the emission was successfully added.<br><br>
   ![add-emission](README-files/add-emission.png)
+
 - __Close Emission Page__
   - The close emission page consists of a simple form with a text field for capturing close out comments. Note closing the emission is different to deleting the emission in that the expectation would be that a record is kept of emissions that are repaired. This action is strictly speaking an edit of the database record.
   - The background of the form is same as other forms to create a link back to the site content.
   - The form contains a Go Back button for the user to easily return to the previous page.
   - When the close button is clicked a confirmation dialogue appears to double check the user wants to close out the emission.
   - On closing, the user will be redirected to the emissions page and informed via alert that the emission has been closed.<br><br>
-  ![close-emission](README-files/close-emission.gif)
+<p align="center">
+<img src="README-files/close-emission.gif">
+</p> 
+
 - __Submit Check Page__
   - The submit check page consists of a simple form with a drop down to select the emission status and a comments text input for uploading to the database. Not the comments input has placeholder text to assist the user filling in the correct information. The form is again held within a responsive container.
   - The background of the form is same as other forms to create a link back to the site content.
   - The form contains a Go Back button for the user to easily return to the previous page.<br><br>
-  ![submit-check](README-files/submit-check.gif)
+      <p align="center">
+      <img src="README-files/submit-check.gif">
+      </p> 
 - __Edit Check Page__
   - The close emission page consists of a simple form with a the check status and comments inputs prepopulated with data already submitted and an edit comments input field to capture reason for the edit. The edit comments input contains a placeholder text to assist the user filling in the correct information.
   - The background of the form is same as other forms to create a link back to the site content.
   - The form contains a Go Back button for the user to easily return to the previous page.
   - When the edit button is clicked a confirmation dialogue appears to double check the user wants to edit the emissions. The confirmation dialogue also repeats the edit comments for the user to check before completing the edit.
   - When edit is confirmed, the user will be redirected to the checks page and informed via alert that the emission has been closed.<br><br>
-  ![edit-check](README-files/edit-check.gif)
+      <p align="center">
+      <img src="README-files/edit-check.gif">
+      </p> 
   - __Logout Page__ 
     - The logout or sign out page consists of a simple form with a prompt for the user to confirm they want to log out, within a responsive container where the user can log out by clicking the button.
     - The background of the form is the home page hero image, blurred and in greyscale to create a subtle link with the site.
     - Clicking on the log out button redirects the site back to the home page.
     - The user status in the footer will change to *no user logged in*.<br><br>
-  ![logout](README-files/logout.gif)
+          <p align="center">
+      <img src="README-files/logout.gif">
+      </p> 
   - __Alerts__
     - Whenever a successful action is completed the user is informed using the built in bootstrap alert. There are four types of alert used in this project:
       - Success alert for when the user completes positive actions such as logging in or creating an emission.<br><br>
