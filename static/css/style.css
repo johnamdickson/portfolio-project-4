@@ -225,7 +225,7 @@ input[type="checkbox"] {
 }
 
 .form-section ul {
-  font-size: clamp(0.8rem, 1.25vw, 1rem);
+  font-size: clamp(0.6rem, 1.25vw, 0.8rem);
   padding-left: 10px;
 }
 
