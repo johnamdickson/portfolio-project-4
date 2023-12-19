@@ -70,11 +70,11 @@
             <div class="row">
               <div class="col-10 offset-1 col-md-3 offset-md-2 mb-3">{{ field.label_tag }} </div>
               <div class="col-10 offset-1 col-md-5 mb-3">{{ field }} </div>
-    
             </div>
             <div class="row">
               {% if field.help_text %}
-              <div class="col-11 mx-auto">
+              <div class="col-11 mx-auto"><p>Password Guide:</p></div>
+              <div class="col-10 mx-auto">
                 {{ field.help_text|safe }}
               </div>
             {% endif %}
