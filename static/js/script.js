@@ -457,7 +457,10 @@ function statusFilter() {
     let closedRows = document.getElementsByClassName("closed-row");
     let filterText = document.getElementById("column-filter");
     let filterSwitch = document.getElementById('flexSwitchCheckChecked');
-    filterSwitch.checked = true;
+    if (filterSwitch) {
+        filterSwitch.checked = true;
+        filterText.innerText = 'Showing Open Emissions';
+    }
     // verify closed rows exist to prevent console errors
     if (closedRows.length !== 0 ) {
         // initially hide closed emissions.
