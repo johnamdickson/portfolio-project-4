@@ -111,8 +111,9 @@ class EmissionHome(generic.ListView):
 
 class EmissionList(LoginRequiredMixin, generic.ListView):
     """
-    Class for emissions page list view ordered by created on field. First Monday
-    class is instantiated to update database with current and next check due dates.
+    Class for emissions page list view ordered by created on field.
+    First Monday class is instantiated to update database with
+    current and next check due dates.
     """
     # use of login required mixin to verify user is logged in before accessing
     # emissions and checks. This is if a non logged in user types in extension
@@ -136,7 +137,7 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
 
 class Emissions(View):
     """
-    Class for emissions page view with get methods for getting, closing and 
+    Class for emissions page view with get methods for getting, closing and
     deleting an emission.
     """
     def get(self, request, slug, *args, **kwargs):
