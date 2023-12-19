@@ -99,6 +99,10 @@ class FirstMonday():
 
 
 class EmissionHome(generic.ListView):
+    """
+    Class for home page list view and filtered to show open
+    emissions and ordered by created on field.
+    """
     model = Emission
     queryset = Emission.objects.filter(status=0).order_by("-created_on")
     template_name = "index.html"
@@ -106,6 +110,10 @@ class EmissionHome(generic.ListView):
 
 
 class EmissionList(LoginRequiredMixin, generic.ListView):
+    """
+    Class for emissions page list view ordered by created on field. First Monday
+    class is instantiated to update database with current and next check due dates.
+    """
     # use of login required mixin to verify user is logged in before accessing
     # emissions and checks. This is if a non logged in user types in extension
     # into address bar. Solution from Stack Overflow:
@@ -127,7 +135,10 @@ class EmissionList(LoginRequiredMixin, generic.ListView):
 
 
 class Emissions(View):
-    
+    """
+    Class for emissions page view with get methods for getting, closing and 
+    deleting an emission.
+    """
     def get(self, request, slug, *args, **kwargs):
         """
         Function to get emissions and return key data for use in
@@ -336,6 +347,9 @@ def addEmission(request):
 
 
 class EmissionCheckList(LoginRequiredMixin, generic.ListView):
+    """
+    Class for checks page list view ordered by date checked field.
+    """
     # use of login required mixin to verify user is logged in before accessing
     # emissions and checks. This is if a non logged in user types in extension
     # into address bar. Solution from Stack Overflow:
