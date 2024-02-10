@@ -257,8 +257,7 @@ The user stories were broken down into tasks and acceptance criteria which can b
   - A modal which displays on click of the carousel card and contains the emission information for the card selected. The modal also has three buttons that allow the user to submit a check for the emission, go to the emission detail page or go to the all emissions page.<br><br>
       <p align="center">
       <img src="README-files/home_page_modal.gif">
-      </p>
-<br>
+      </p><br>
   - A carousel control with buttons for moving carousel left and right and indicators for card tracking.<br><br>
         <p align="center">
       <img src="README-files/carousel-controls.gif">
@@ -275,8 +274,7 @@ The user stories were broken down into tasks and acceptance criteria which can b
   - The table sits within a parent element div of set height meaning the table will scroll within that height. At the bottom right of the table, there are two scroll buttons which will move the table to the top and bottom extremeties when pressed. The buttons opacity dynamically changes if the table is at the position that the button is directing the table towards, giving the user feedback on button availability.<br><br>
       <p align="center">
       <img src="README-files/emissions-table-scroll-buttons.gif">
-      </p>
-<br>
+      </p><br>
   - The modal presented on table row click contains buttons to submit a check for the selected emission or go to the emission detail page.<br><br>
         <p align="center">
       <img src="README-files/emission-modal.gif">
@@ -289,7 +287,6 @@ The user stories were broken down into tasks and acceptance criteria which can b
       <p align="center">
       <img src="README-files/map-and-marker.gif">
       </p>
-<br>
   - Beneath the map is a table containing all of the emission information. Clicking on any row opens a modal described below. Responsive styling hides less significant data on smaller screens. The table has a go back button in the header.<br><br>
 
   ![emission detail page](README-files/emission-detail-table.png)<br><br>
@@ -302,13 +299,11 @@ The user stories were broken down into tasks and acceptance criteria which can b
   - The table has a search bar which will search for either the emission title or username and filter the table accordingly.<br><br>
       <p align="center">
       <img src="README-files/checks-table-search.gif">
-      </p>   
-<br>
+      </p><br>
   - Each row of the table represents a check and when clicked opens a modal. The modal contains data for the check along with two buttons - submit a new check or edit current check.<br><br>
       <p align="center">
       <img src="README-files/checks-page-modal.gif">
-      </p>   
-  <br>
+      </p><br>
   - The submit check button redirects the user to the submit check form page. The edit check button allows the user who submitted the check to edit the text, provided it is within 24 hours of the check's original submission. Note the superuser can edit any time and has no such restrictions.
   - If the check is by another user or the 24 hour period since submission has elapsed, the edit check button is styled to notify the user that it is unavailable.
   - As in the emissions page, the table sits within a parent element div of set height with the same behaviour as previously mentioned. There are also two scroll buttons with identical behaviour to that described in the emissions page features.<br><br>
@@ -349,7 +344,7 @@ The user stories were broken down into tasks and acceptance criteria which can b
       <p align="center">
       <img src="README-files/edit-check.gif">
       </p> 
-  - __Logout Page__ 
+- __Logout Page__ 
     - The logout or sign out page consists of a simple form with a prompt for the user to confirm they want to log out, within a responsive container where the user can log out by clicking the button.
     - The background of the form is the home page hero image, blurred and in greyscale to create a subtle link with the site.
     - Clicking on the log out button redirects the site back to the home page.
@@ -357,7 +352,7 @@ The user stories were broken down into tasks and acceptance criteria which can b
           <p align="center">
       <img src="README-files/logout.gif">
       </p> 
-  - __Alerts__
+- __Alerts__
     - Whenever a successful action is completed the user is informed using the built in bootstrap alert. There are four types of alert used in this project:
       - Success alert for when the user completes positive actions such as logging in or creating an emission.<br><br>
       ![success-alert](README-files/success-alert.png)
